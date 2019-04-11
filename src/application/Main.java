@@ -23,14 +23,14 @@ public class Main extends Application {
 		try {
 			
 			//FXML Datei kann direkt im SceneBuilder geöffnet werden
-			FXMLLoader loader = new FXMLLoader(Main.class.getResource("MainWindow.fxml"));
+			FXMLLoader loader = new FXMLLoader(Main.class.getResource("MainScreenFive4Seven.fxml"));
 			AnchorPane pane = loader.load();
 			
 			primaryStage.setMinHeight(720.00);
 			primaryStage.setMinWidth(1080.00);
 			
 			//Für jede FXML Datei braucht es einen Controller
-			MainWindowController mainWindowController = loader.getController();
+			MainScreenFive4SevenController mainWindowController = loader.getController();
 			mainWindowController.setMain(this);
 						
 			Scene scene = new Scene(pane);
