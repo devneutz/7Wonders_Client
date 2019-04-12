@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #615658;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox layoutX="310.0" layoutY="569.0" spacing="10.0">
+         <children>
+            <JFXButton layoutX="310.0" layoutY="569.0" prefHeight="39.0" prefWidth="226.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0;" text="login" textFill="WHITE" />
+            <JFXButton layoutX="546.0" layoutY="569.0" prefHeight="39.0" prefWidth="226.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0;" text="sign up" textFill="WHITE" />
+         </children>
+      </HBox>
+      <JFXTextField focusColor="#c9a14b" layoutX="310.0" layoutY="164.0" prefHeight="392.0" prefWidth="462.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0;" unFocusColor="WHITE" />
+   </children>
+</AnchorPane>
