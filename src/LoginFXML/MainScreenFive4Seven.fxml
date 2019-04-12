@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ 
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<<<<<<< HEAD:src/application/MainScreenFive4Seven.fxml
+
+<AnchorPane prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #615658;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="application.MainScreenFive4SevenController">
+=======
+<AnchorPane prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #615658;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+>>>>>>> 06073a70ec373ae6741b7d26e42e0be329f37e6b:src/LoginFXML/MainScreenFive4Seven.fxml
+   <children>
+      <HBox alignment="CENTER" layoutX="236.0" layoutY="325.0" spacing="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button fx:id="PlayAsGuestButton" layoutX="236.0" layoutY="325.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="217.0" style="-fx-background-color: #c7aa72; -fx-background-radius: 0; -fx-font: bold 15px arial;" text="als Gast spielen" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="AkkuratTT-Regular" size="13.0" />
+               </font></Button>
+            <Button fx:id="LogRegButton" layoutX="478.0" layoutY="327.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="217.0" style="-fx-background-color: #c7aa72; -fx-background-radius: 0; -fx-font: bold 15px arial;" text="Einloggen/Registrieren" textAlignment="JUSTIFY" textFill="WHITE" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
