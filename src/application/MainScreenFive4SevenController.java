@@ -9,12 +9,11 @@ public class MainScreenFive4SevenController {
 	
 	public void setMain(Main main) {
 		this.main = main;
-		
 	}
 	
 	@FXML
 	public void handleLogRegButton () {
-		
+	
 	}
 	
 	@FXML
