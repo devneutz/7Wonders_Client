@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.control.*?>
@@ -9,26 +10,29 @@
 
 <AnchorPane prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #615658;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane layoutX="310.0" layoutY="164.0" prefHeight="392.0" prefWidth="461.0" style="-fx-background-color: #c7aa72;">
+      <VBox fx:id="ExistingLobbyButtonVBox" layoutX="310.0" layoutY="170.0" spacing="10.0">
          <children>
-            <VBox fx:id="LogginTextFieldBox" layoutX="57.0" layoutY="102.0" spacing="35.0">
+            <AnchorPane fx:id="LobbyPverViewAnchorPane" layoutX="310.0" layoutY="170.0" prefHeight="392.0" prefWidth="461.0" style="-fx-background-color: #c7aa72;">
                <children>
-                  <JFXTextField fx:id="enterUsernameTxtField" focusColor="#a83f3f" layoutX="57.0" layoutY="102.0" prefHeight="32.0" prefWidth="348.0" promptText="username" unFocusColor="WHITE" />
-                  <JFXPasswordField fx:id="enterPassTxtField" focusColor="#a83f3f" layoutX="57.0" layoutY="164.0" prefHeight="32.0" prefWidth="348.0" promptText="password" unFocusColor="WHITE" />
+                  <VBox fx:id="ExistingLobbyVBox" layoutX="14.0" layoutY="22.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <JFXTextField fx:id="ExistingLobbyTextField" layoutX="14.0" layoutY="22.0" prefHeight="27.0" prefWidth="434.0" text="existing Lobbys:" unFocusColor="WHITE" />
+                        <TextField fx:id="ExistingLobbyTextarea" layoutX="14.0" layoutY="62.0" prefHeight="322.0" prefWidth="434.0" style="-fx-background-color: #c7aa72; -fx-background-radius: 0;" />
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
                </children>
-            </VBox>
-            <HBox fx:id="LogginButtonBox" alignment="CENTER" layoutX="57.0" layoutY="244.0" spacing="15.0">
+            </AnchorPane>
+            <HBox fx:id="CreateJoinLobbyHBox" layoutX="310.0" layoutY="569.0" spacing="10.0">
                <children>
-                  <JFXButton layoutX="57.0" layoutY="244.0" prefHeight="39.0" prefWidth="166.0" style="-fx-background-color: #615658; -fx-background-radius: 0;" text="login" textFill="WHITE" />
-                  <JFXButton layoutX="239.0" layoutY="244.0" prefHeight="39.0" prefWidth="166.0" style="-fx-background-color: #615658; -fx-background-radius: 0;" text="sign up" textFill="WHITE" />
+                  <JFXButton fx:id="CreateLobbyButton" layoutX="310.0" layoutY="569.0" prefHeight="39.0" prefWidth="226.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0;" text="create Lobby" textFill="WHITE" />
+                  <JFXButton fx:id="joinrLobbyButton" layoutX="546.0" layoutY="569.0" prefHeight="39.0" prefWidth="226.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0;" text="join Lobby" textFill="WHITE" />
                </children>
             </HBox>
          </children>
-      </AnchorPane>
-      <JFXButton layoutX="14.0" layoutY="14.0" prefHeight="32.0" prefWidth="44.0" style="-fx-background-color: #c7aa72; -fx-background-radius: 0;" text="&lt;" textFill="WHITE" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
-         <font>
-            <Font name="AkkuratTT-Bold" size="24.0" />
-         </font>
-      </JFXButton>
+      </VBox>
+      <JFXButton fx:id="StatsButton" layoutX="994.0" layoutY="630.0" prefHeight="72.0" prefWidth="72.0" style="-fx-background-color: #c7aa72; -fx-background-radius: 0;" text="stats" textFill="WHITE" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
    </children>
 </AnchorPane>
