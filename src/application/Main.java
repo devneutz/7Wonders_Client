@@ -1,11 +1,6 @@
 ﻿package application;
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.net.Socket;
-
-import ch.fhnw.sevenwonders.messages.ClientStartupMessage;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -15,18 +10,9 @@ import javafx.stage.Stage;
 public class Main extends Application {
 	
 	private Stage primaryStage;
-		private Socket socket;
+	
 	@Override
-	public void start(Stage primaryStage) {
-		this.primaryStage = primaryStage;
-		try {
-			socket = new Socket("127.0.0.1", 50000);
-			ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
-			out.writeObject(new ClientStartupMessage("TEST"));
-			out.flush();
-		}catch(Exception inEx) {
-			
-		}
+	public void start(Stage primaryStage) {		
 		mainWindow();
 			
 	}
