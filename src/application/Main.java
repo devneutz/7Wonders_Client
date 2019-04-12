@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 
+import ch.fhnw.sevenwonders.messages.ClientStartupMessage;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -24,7 +25,8 @@ public class Main extends Application {
 			out.writeObject(new ClientStartupMessage("TEST"));
 			out.flush();
 		}catch(Exception inEx) {
-
+			
+		}
 		mainWindow();
 			
 	}
