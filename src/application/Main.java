@@ -19,14 +19,14 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		this.primaryStage = primaryStage;
-		/*try {
+		try {
 			socket = new Socket("127.0.0.1", 50000);
 			ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
 			out.writeObject(new ClientStartupMessage("TEST"));
 			out.flush();
 		}catch(Exception inEx) {
 			
-		}*/
+		}
 		mainWindow();
 			
 	}
