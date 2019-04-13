@@ -1,5 +1,6 @@
-package application;
+package ControllerFXML;
 
+import application.Main;
 import javafx.fxml.FXML;
 
 public class MainScreenFive4SevenController {

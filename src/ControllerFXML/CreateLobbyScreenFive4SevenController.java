@@ -1,4 +1,6 @@
-package application;
+package ControllerFXML;
+
+import application.Main;
 
 public class CreateLobbyScreenFive4SevenController {
 	
