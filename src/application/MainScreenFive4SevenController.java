@@ -3,6 +3,7 @@ package application;
 import javafx.fxml.FXML;
 
 public class MainScreenFive4SevenController {
+	
 
 	// Instanz der Main Klasse
 	public Main main;
@@ -13,7 +14,7 @@ public class MainScreenFive4SevenController {
 	
 	@FXML
 	public void handleLogRegButton () {
-	
+		
 	}
 	
 	@FXML

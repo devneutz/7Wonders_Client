@@ -5,4 +5,4 @@
  * @author lucasruesch
  *
  */
-package LoginFXML;
+package ViewFXML;

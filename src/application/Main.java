@@ -13,6 +13,7 @@ public class Main extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) {		
+		this.primaryStage = primaryStage;
 		mainWindow();
 			
 	}
@@ -21,7 +22,7 @@ public class Main extends Application {
 		try {
 			
 			//FXML Datei kann direkt im SceneBuilder geöffnet werden
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/LoginFXML/MainScreenFive4Seven.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/ViewFXML/MainScreenFive4Seven.fxml"));
 			AnchorPane pane = loader.load();
 						
 			primaryStage.setMinHeight(720.00);
