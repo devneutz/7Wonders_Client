@@ -2,13 +2,8 @@ package ControllerFXML;
 
 import application.Main;
 
-public class CreateLobbyScreenFive4SevenController {
+public class CreateLobbyController {
 	
-	public Main main;
-	
-	public void setMain() {
-		this.main = main;
-	}
 	
 	public void handleCreateLobbyCancelButton() {
 		

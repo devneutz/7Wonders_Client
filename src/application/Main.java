@@ -2,7 +2,7 @@
 
 import java.io.IOException;
 
-import ControllerFXML.MainScreenFive4SevenController;
+import ControllerFXML.MainViewController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -24,14 +24,14 @@ public class Main extends Application {
 		try {
 			
 			//FXML Datei kann direkt im SceneBuilder geöffnet werden
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/ViewFXML/MainScreenFive4Seven.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/ViewFXML/MainView.fxml"));
 			AnchorPane pane = loader.load();
 						
 			primaryStage.setMinHeight(720.00);
 			primaryStage.setMinWidth(1080.00);
 			
 			//Für jede FXML Datei braucht es einen Controller
-			MainScreenFive4SevenController mainWindowController = loader.getController();
+			MainViewController mainWindowController = loader.getController();
 			mainWindowController.setMain(this);
 						
 			Scene scene = new Scene(pane);
