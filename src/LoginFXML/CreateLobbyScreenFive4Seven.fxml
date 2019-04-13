@@ -10,11 +10,11 @@
 
 <AnchorPane prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #615658;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox fx:id="CreateLobbyVBox" layoutX="309.0" layoutY="242.0" spacing="10.0">
+      <VBox layoutX="309.0" layoutY="242.0" spacing="10.0">
          <children>
             <AnchorPane fx:id="LobbyPverViewAnchorPane1" layoutX="309.0" layoutY="236.0" prefHeight="103.0" prefWidth="462.0" style="-fx-background-color: #c7aa72;">
                <children>
-                  <HBox fx:id="NumberOfPlayerHBox" layoutX="14.0" layoutY="31.0">
+                  <HBox layoutX="14.0" layoutY="31.0">
                      <children>
                         <TextField fx:id="NumberOfPlayerTextField" layoutX="14.0" layoutY="31.0" prefHeight="42.0" prefWidth="285.0" style="-fx-background-color: #c7aa72;" text="Number of Players">
                            <font>
@@ -40,15 +40,24 @@
                   </HBox>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="LobbyPverViewAnchorPane" layoutX="309.0" layoutY="368.0" prefHeight="75.0" prefWidth="462.0" style="-fx-background-color: #c7aa72;">
+            <AnchorPane layoutX="309.0" layoutY="368.0" prefHeight="75.0" prefWidth="462.0" style="-fx-background-color: #c7aa72;">
                <children>
-                  <JFXTextField layoutX="31.0" layoutY="24.0" promptText="enter Lobbyname:" unFocusColor="WHITE" />
+                  <JFXTextField fx:id="EnterLobbynameTextField" layoutX="31.0" layoutY="24.0" promptText="enter Lobbyname:" unFocusColor="WHITE">
+                     <font>
+                        <Font name="Arial" size="13.0" />
+                     </font></JFXTextField>
                </children>
             </AnchorPane>
-            <HBox fx:id="CreateLobbyHBox" layoutX="309.0" layoutY="461.0" spacing="10.0">
+            <HBox layoutX="309.0" layoutY="461.0" spacing="10.0">
                <children>
-                  <JFXButton fx:id="CreateLobbyOkButton" layoutX="310.0" layoutY="569.0" prefHeight="39.0" prefWidth="226.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0;" text="ok" textFill="WHITE" />
-                  <JFXButton fx:id="CreateLobbyCancelButton" layoutX="546.0" layoutY="569.0" prefHeight="39.0" prefWidth="226.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0;" text="cancel" textFill="WHITE" />
+                  <JFXButton fx:id="CreateLobbyOkButton" layoutX="310.0" layoutY="569.0" prefHeight="39.0" prefWidth="226.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0;" text="ok" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="13.0" />
+                     </font></JFXButton>
+                  <JFXButton fx:id="CreateLobbyCancelButton" layoutX="546.0" layoutY="569.0" prefHeight="39.0" prefWidth="226.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0;" text="cancel" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="13.0" />
+                     </font></JFXButton>
                </children>
             </HBox>
          </children>

@@ -12,7 +12,7 @@
          <children>
             <Button fx:id="PlayAsGuestButton" layoutX="236.0" layoutY="325.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="217.0" style="-fx-background-color: #c7aa72; -fx-background-radius: 0;" text="als Gast spielen" textAlignment="CENTER" textFill="WHITE">
                <font>
-                  <Font name="AkkuratTT-Regular" size="13.0" />
+                  <Font name="Arial" size="13.0" />
                </font></Button>
             <Button fx:id="LogRegButton" layoutX="478.0" layoutY="327.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="217.0" style="-fx-background-color: #c7aa72; -fx-background-radius: 0;" text="Einloggen/Registrieren" textAlignment="JUSTIFY" textFill="WHITE">
                <font>
