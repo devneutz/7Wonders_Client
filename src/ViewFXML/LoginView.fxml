@@ -15,8 +15,8 @@
                <children>
                   <VBox alignment="CENTER" layoutX="64.0" layoutY="46.0" spacing="10.0">
                      <children>
-                        <PasswordField fx:id="enterPassPassField" layoutX="64.0" layoutY="46.0" prefHeight="27.0" prefWidth="327.0" promptText="password" style="-fx-background-radius: 0;" />
                         <TextField fx:id="enterUsernameTxtField" layoutX="64.0" layoutY="74.0" prefHeight="27.0" prefWidth="327.0" promptText="username" style="-fx-background-radius: 0;" />
+                        <PasswordField fx:id="enterPassPassField" layoutX="64.0" layoutY="46.0" prefHeight="27.0" prefWidth="327.0" promptText="password" style="-fx-background-radius: 0;" />
                      </children>
                   </VBox>
                   <HBox alignment="CENTER" layoutX="57.0" layoutY="290.0" spacing="10.0">
