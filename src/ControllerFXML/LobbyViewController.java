@@ -1,13 +1,13 @@
 package ControllerFXML;
 
-import application.Main;
+import application.ClientApplicationMain;
 import javafx.event.ActionEvent;
 
 public class LobbyViewController {
 	
-public Main main;
+public ClientApplicationMain main;
 	
-	public void setMain(Main main) {
+	public void setMain(ClientApplicationMain main) {
 		this.main = main;
 	}
 	
