@@ -1,6 +1,6 @@
 package ControllerFXML;
 
-import application.Main;
+import application.ClientApplicationMain;
 
 public class CreateLobbyController {
 	

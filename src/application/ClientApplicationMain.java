@@ -9,7 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class Main extends Application {
+public class ClientApplicationMain extends Application {
 	
 	private Stage primaryStage;
 	

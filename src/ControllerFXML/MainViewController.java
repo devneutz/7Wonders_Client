@@ -3,7 +3,7 @@ package ControllerFXML;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import application.Main;
+import application.ClientApplicationMain;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,10 +18,10 @@ public class MainViewController implements Initializable{
 	
 
 	// Instanz der Main Klasse
-	public Main main;
+	public ClientApplicationMain main;
 	public Button LogRegButton;
 	
-	public void setMain(Main main) {
+	public void setMain(ClientApplicationMain main) {
 		this.main = main;
 	}
 	
