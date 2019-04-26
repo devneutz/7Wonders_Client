@@ -34,6 +34,19 @@ public ClientApplicationMain main;
 	}
 	
 	public void handleJoinLobbyBButton (ActionEvent event) {
+		try {
+		       FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ViewFXML/PlayerInLobbyView.fxml"));
+		       Parent root1 = (Parent) fxmlLoader.load();
+		       Stage stage = new Stage();
+		       stage.setScene(new Scene(root1));  
+		       stage.show();
+		       
+		       ((Node)event.getSource()).getScene().getWindow().hide();
+		        
+		   } catch(Exception e) {
+		       e.printStackTrace();
+		   }
+		
 		
 	}
 		

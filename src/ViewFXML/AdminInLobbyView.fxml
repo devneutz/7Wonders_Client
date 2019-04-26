@@ -8,13 +8,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #615658;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #615658;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerFXML.AdminInLobbyViewController">
    <children>
       <VBox alignment="CENTER" layoutX="313.0" layoutY="157.0" spacing="10.0">
          <children>
             <VBox alignment="CENTER" spacing="10.0">
                <children>
-                  <TextField fx:id="PlayerInLobbyTextField" layoutX="319.0" layoutY="144.0" prefHeight="27.0" prefWidth="440.0" style="-fx-background-color: #c7aa72; -fx-background-radius: 0;" text="Player in lobby:">
+                  <TextField fx:id="PlayerInLobbyTextField" prefHeight="36.0" prefWidth="460.0" style="-fx-background-color: #c7aa72; -fx-background-radius: 0;" text="Player in lobby:">
                      <font>
                         <Font name="Arial" size="13.0" />
                      </font>
@@ -24,12 +24,12 @@
             </VBox>
             <HBox alignment="CENTER" layoutX="310.0" layoutY="614.0" spacing="10.0">
                <children>
-                  <Button fx:id="StartLobbyButton" layoutX="310.0" layoutY="616.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="225.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0;" text="start lobby" textFill="WHITE">
+                  <Button fx:id="StartLobbyButton" layoutX="310.0" layoutY="616.0" mnemonicParsing="false" onAction="#handleStartLobbyButton" prefHeight="36.0" prefWidth="225.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0;" text="start lobby" textFill="WHITE">
                      <font>
                         <Font name="Arial" size="13.0" />
                      </font>
                   </Button>
-                  <Button fx:id="DeleteLobbyButton" layoutX="546.0" layoutY="614.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="225.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0;" text="delete lobby" textFill="WHITE">
+                  <Button fx:id="DeleteLobbyButton" layoutX="546.0" layoutY="614.0" mnemonicParsing="false" onAction="#handleDeleteLobbyButton" prefHeight="36.0" prefWidth="225.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0;" text="delete lobby" textFill="WHITE">
                      <font>
                         <Font name="Arial" size="13.0" />
                      </font>
