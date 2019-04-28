@@ -99,8 +99,8 @@ public class LoginViewController implements Initializable {
 								public void run() {
 									Alert alert = new Alert(AlertType.ERROR);
 									alert.setTitle("FEHLER");
-									alert.setHeaderText("Fehler bei der Verarbeitung des Login aufgetreten");
-									alert.setContentText("Bitte nochmals einloggen");
+									alert.setHeaderText("Benutzername oder Passwort falsch");
+									alert.setContentText("Bitte korrekte Eingabe tätigen");
 									alert.showAndWait();
 
 									loginButton.setDisable(false);
