@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #615658;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerFXML.GameViewController">
+   <children>
+      <HBox>
+         <children>
+            <HBox alignment="CENTER" layoutX="710.0" layoutY="200.0" minHeight="100.0" minWidth="180.0" prefHeight="100.0" prefWidth="180.0" spacing="30.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label fx:id="Player1Coins" alignment="CENTER" contentDisplay="CENTER" layoutX="710.0" layoutY="216.0" prefHeight="36.0" prefWidth="36.0" style="-fx-border-color: ffffff; -fx-border-radius: 20;" text="15C" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="Player1AtPoints" alignment="CENTER" contentDisplay="CENTER" layoutX="776.0" layoutY="217.0" prefHeight="36.0" prefWidth="36.0" style="-fx-border-color: ffffff; -fx-border-radius: 20;" text="15A" textAlignment="JUSTIFY" textFill="WHITE">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="720.0" layoutY="210.0" minHeight="100.0" minWidth="180.0" prefHeight="100.0" prefWidth="180.0" spacing="30.0" style="-fx-background-color: cc8744; -fx-background-radius: 0;" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label fx:id="Player2Coins" alignment="CENTER" contentDisplay="CENTER" layoutX="710.0" layoutY="216.0" prefHeight="36.0" prefWidth="36.0" style="-fx-border-color: ffffff; -fx-border-radius: 20;" text="0C" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="Player2AtPoints" alignment="CENTER" contentDisplay="CENTER" layoutX="776.0" layoutY="217.0" prefHeight="36.0" prefWidth="36.0" style="-fx-border-color: ffffff; -fx-border-radius: 20;" text="0A" textAlignment="JUSTIFY" textFill="WHITE">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="398.0" layoutY="15.0" minHeight="100.0" minWidth="180.0" prefHeight="100.0" prefWidth="180.0" spacing="30.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0;" AnchorPane.leftAnchor="360.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label fx:id="Player3Coins" alignment="CENTER" contentDisplay="CENTER" layoutX="710.0" layoutY="216.0" prefHeight="36.0" prefWidth="36.0" style="-fx-border-color: ffffff; -fx-border-radius: 20;" text="0C" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="Player3AtPoints" alignment="CENTER" contentDisplay="CENTER" layoutX="776.0" layoutY="217.0" prefHeight="36.0" prefWidth="36.0" style="-fx-border-color: ffffff; -fx-border-radius: 20;" text="3A" textAlignment="JUSTIFY" textFill="WHITE">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="408.0" layoutY="25.0" minHeight="100.0" minWidth="180.0" prefHeight="100.0" prefWidth="180.0" spacing="30.0" style="-fx-background-color: cc8744; -fx-background-radius: 0;" AnchorPane.leftAnchor="540.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label fx:id="Player4Coins" alignment="CENTER" contentDisplay="CENTER" layoutX="710.0" layoutY="216.0" prefHeight="36.0" prefWidth="36.0" style="-fx-border-color: ffffff; -fx-border-radius: 20;" text="0C" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="Player4AtPoints" alignment="CENTER" contentDisplay="CENTER" layoutX="776.0" layoutY="217.0" prefHeight="36.0" prefWidth="36.0" style="-fx-border-color: ffffff; -fx-border-radius: 20;" text="1A" textAlignment="JUSTIFY" textFill="WHITE">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="418.0" layoutY="35.0" minHeight="100.0" minWidth="180.0" prefHeight="100.0" prefWidth="180.0" spacing="30.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0;" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label fx:id="Player5Coins" alignment="CENTER" contentDisplay="CENTER" layoutX="710.0" layoutY="216.0" prefHeight="36.0" prefWidth="36.0" style="-fx-border-color: ffffff; -fx-border-radius: 20;" text="0C" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="Player5AtPoints" alignment="CENTER" contentDisplay="CENTER" layoutX="776.0" layoutY="217.0" prefHeight="36.0" prefWidth="36.0" style="-fx-border-color: ffffff; -fx-border-radius: 20;" text="7A" textAlignment="JUSTIFY" textFill="WHITE">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="428.0" layoutY="45.0" minHeight="100.0" minWidth="180.0" prefHeight="100.0" prefWidth="180.0" spacing="30.0" style="-fx-background-color: cc8744; -fx-background-radius: 0;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label fx:id="Player6Coins" alignment="CENTER" contentDisplay="CENTER" layoutX="710.0" layoutY="216.0" prefHeight="36.0" prefWidth="36.0" style="-fx-border-color: ffffff; -fx-border-radius: 20;" text="0C" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="Player6AtPoints" alignment="CENTER" contentDisplay="CENTER" layoutX="776.0" layoutY="217.0" prefHeight="36.0" prefWidth="36.0" style="-fx-border-color: ffffff; -fx-border-radius: 20;" text="0A" textAlignment="JUSTIFY" textFill="WHITE">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+         </children>
+      </HBox>
+      <HBox layoutY="100.0">
+         <children>
+            <Label fx:id="Player1Label" layoutX="2.0" layoutY="100.0" onDragDetected="#handlePlayer1Label" prefHeight="20.0" prefWidth="180.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0;" text="Player 1" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="100.0">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets></Label>
+            <Label fx:id="Player2Label" layoutX="185.0" layoutY="100.0" onDragDetected="#handlePlayer2Label" prefHeight="20.0" prefWidth="180.0" style="-fx-background-color: cc8744; -fx-background-radius: 0;" text="Player 2" textFill="WHITE" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="100.0" />
+            <Label fx:id="Player3Label" layoutX="12.0" layoutY="110.0" onDragDetected="#hanldePlayer3Label" prefHeight="20.0" prefWidth="180.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0;" text="Player 3" textFill="WHITE" AnchorPane.leftAnchor="360.0" AnchorPane.topAnchor="100.0" />
+            <Label fx:id="Player4Label" layoutX="195.0" layoutY="110.0" onDragDetected="#hanldePlayer4Label" prefHeight="20.0" prefWidth="180.0" style="-fx-background-color: cc8744; -fx-background-radius: 0;" text="Player 4" textFill="WHITE" AnchorPane.rightAnchor="360.0" AnchorPane.topAnchor="100.0" />
+            <Label fx:id="Player5Label" layoutX="22.0" layoutY="120.0" onDragDetected="#handlePlayer5Label" prefHeight="20.0" prefWidth="180.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0;" text="Player 5" textFill="WHITE" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="100.0" />
+            <Label fx:id="Player6Label" layoutX="205.0" layoutY="120.0" onDragDetected="#Player6Label" prefHeight="20.0" prefWidth="180.0" style="-fx-background-color: cc8744; -fx-background-radius: 0;" text="Player 6" textFill="WHITE" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0" />
+         </children>
+      </HBox>
+      <HBox layoutX="379.0" layoutY="138.0" spacing="15.0">
+         <children>
+            <VBox layoutX="320.0" layoutY="118.0" spacing="5.0">
+               <children>
+                  <Label fx:id="UserRes1Label" alignment="CENTER" layoutX="320.0" layoutY="118.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: 615658; -fx-border-color: ffffff;" text="RES 1" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="UserRes2Label" alignment="CENTER" layoutX="320.0" layoutY="145.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: 615658; -fx-border-color: ffffff;" text="RES 2" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="UserRes3Label" alignment="CENTER" layoutX="320.0" layoutY="175.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: 615658; -fx-border-color: ffffff;" text="RES 3" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="UserRes4Label" alignment="CENTER" layoutX="320.0" layoutY="203.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: 615658; -fx-border-color: ffffff;" text="RES 4" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="UserRes5Label" alignment="CENTER" layoutX="320.0" layoutY="233.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: 615658; -fx-border-color: ffffff;" text="RES 5" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="UserRes6Label" alignment="CENTER" layoutX="320.0" layoutY="263.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: 615658; -fx-border-color: ffffff;" text="RES 6" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="UserRes7Label" alignment="CENTER" layoutX="320.0" layoutY="294.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: 615658; -fx-border-color: ffffff;" text="RES 7" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="11.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox layoutX="426.0" layoutY="121.0" spacing="5.0">
+               <children>
+                  <Label fx:id="UserGr1Label" alignment="CENTER" layoutX="320.0" layoutY="118.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: grey; -fx-border-color: ffffff;" text="GR 1" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="UserGrey2Label" alignment="CENTER" layoutX="320.0" layoutY="145.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: grey; -fx-border-color: ffffff;" text="GR 2" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="UserGrey3Label" alignment="CENTER" layoutX="320.0" layoutY="175.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: grey; -fx-border-color: ffffff;" text="GR 3" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="UserGrey4Label" alignment="CENTER" layoutX="320.0" layoutY="203.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: grey; -fx-border-color: ffffff;" text="GR 4" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="UserGrey5Label" alignment="CENTER" layoutX="320.0" layoutY="233.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: grey; -fx-border-color: ffffff;" text="GR 5" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="UserGrey6Label" alignment="CENTER" layoutX="320.0" layoutY="263.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: grey; -fx-border-color: ffffff;" text="GR 6" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="UserGrey7Label" alignment="CENTER" layoutX="320.0" layoutY="294.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: grey; -fx-border-color: ffffff;" text="GR 7" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="11.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox layoutX="482.0" layoutY="122.0" spacing="5.0">
+               <children>
+                  <Label fx:id="UserHa1Label" alignment="CENTER" layoutX="320.0" layoutY="118.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: yellow; -fx-border-color: ffffff;" text="HA 1" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="UserHa2Label" alignment="CENTER" layoutX="320.0" layoutY="145.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: yellow; -fx-border-color: ffffff;" text="HA 2" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="UserHa3Label" alignment="CENTER" layoutX="320.0" layoutY="175.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: yellow; -fx-border-color: ffffff;" text="HA 3" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="UserHa4Label" alignment="CENTER" layoutX="320.0" layoutY="203.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: yellow; -fx-border-color: ffffff;" text="HA 4" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="UserHa5Label" alignment="CENTER" layoutX="320.0" layoutY="233.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: yellow; -fx-border-color: ffffff;" text="HA 5" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="UserHa6Label" alignment="CENTER" layoutX="320.0" layoutY="263.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: yellow; -fx-border-color: ffffff;" text="HA 6" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="UserHa7Label" alignment="CENTER" layoutX="320.0" layoutY="294.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: yellow; -fx-border-color: ffffff;" text="HA 7" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="11.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox layoutX="533.0" layoutY="122.0" spacing="5.0">
+               <children>
+                  <Label fx:id="UserAt1Label" alignment="CENTER" layoutX="320.0" layoutY="118.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: red; -fx-border-color: ffffff;" text="AT 1" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="UserAt2Label" alignment="CENTER" layoutX="320.0" layoutY="145.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: red; -fx-border-color: ffffff;" text="AT 2" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="UserAt3Label" alignment="CENTER" layoutX="320.0" layoutY="175.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: red; -fx-border-color: ffffff;" text="AT 3" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="UserAt4Label" alignment="CENTER" layoutX="320.0" layoutY="203.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: red; -fx-border-color: ffffff;" text="AT 4" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="UserAt5Label" alignment="CENTER" layoutX="320.0" layoutY="233.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: red; -fx-border-color: ffffff;" text="AT 5" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="UserAt6Label" alignment="CENTER" layoutX="320.0" layoutY="263.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: red; -fx-border-color: ffffff;" text="AT 6" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="UserAt7Label" alignment="CENTER" layoutX="320.0" layoutY="294.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: red; -fx-border-color: ffffff;" text="AT 7" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="11.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox layoutX="586.0" layoutY="126.0" spacing="5.0">
+               <children>
+                  <Label fx:id="UserWp1Label" alignment="CENTER" layoutX="320.0" layoutY="118.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: blue; -fx-border-color: ffffff;" text="WP 1" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="UserWp2Label" alignment="CENTER" layoutX="320.0" layoutY="145.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: blue; -fx-border-color: ffffff;" text="WP 2" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="UserWp3Label" alignment="CENTER" layoutX="320.0" layoutY="175.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: blue; -fx-border-color: ffffff;" text="WP 3" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="UserWp4Label" alignment="CENTER" layoutX="320.0" layoutY="203.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: blue; -fx-border-color: ffffff;" text="WP 4" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="UserWp5Label" alignment="CENTER" layoutX="320.0" layoutY="233.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: blue; -fx-border-color: ffffff;" text="WP 5" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="UserWp6Label" alignment="CENTER" layoutX="320.0" layoutY="263.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: blue; -fx-border-color: ffffff;" text="WP 6" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="UserWp7Label" alignment="CENTER" layoutX="320.0" layoutY="294.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: blue; -fx-border-color: ffffff;" text="WP 7" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="11.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox layoutX="645.0" layoutY="126.0" spacing="5.0">
+               <children>
+                  <Label fx:id="UserGreen1Label" alignment="CENTER" layoutX="320.0" layoutY="118.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: green; -fx-border-color: ffffff;" text="GR 1" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="UserGreen2Label" alignment="CENTER" layoutX="320.0" layoutY="145.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: green; -fx-border-color: ffffff;" text="GR 2" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="UserGreen3Label" alignment="CENTER" layoutX="320.0" layoutY="175.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: green; -fx-border-color: ffffff;" text="GR 3" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="UserGreen4Label" alignment="CENTER" layoutX="320.0" layoutY="203.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: green; -fx-border-color: ffffff;" text="GR 4" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="UserGreen5Label" alignment="CENTER" layoutX="320.0" layoutY="233.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: green; -fx-border-color: ffffff;" text="GR 5" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="UserGreen6Label" alignment="CENTER" layoutX="320.0" layoutY="263.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: green; -fx-border-color: ffffff;" text="GR 6" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="UserGreen7Label" alignment="CENTER" layoutX="320.0" layoutY="294.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: green; -fx-border-color: ffffff;" text="GR 7" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="11.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <VBox alignment="CENTER" layoutX="58.0" layoutY="336.0" nodeOrientation="LEFT_TO_RIGHT" spacing="15.0">
+         <children>
+            <HBox alignment="CENTER" layoutX="252.0" layoutY="360.0" spacing="15.0">
+               <children>
+                  <Label fx:id="PlayerCoinsLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="153.0" layoutY="385.0" prefHeight="36.0" prefWidth="36.0" style="-fx-border-color: ffffff; -fx-border-radius: 20;" text="15C" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="UmmunzenButton" layoutX="207.0" layoutY="385.0" mnemonicParsing="false" onAction="#handleUmmunzenButton" prefHeight="36.0" prefWidth="148.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0;" text="ummünzen" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="13.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="RessourceVerwendenButton" alignment="CENTER" contentDisplay="CENTER" layoutX="365.0" layoutY="385.0" mnemonicParsing="false" onAction="#handleRessourceVerwendenButton" prefHeight="36.0" prefWidth="148.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0;" text="ressource verwenden" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="13.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="ZumBauVerwendenButton" layoutX="524.0" layoutY="385.0" mnemonicParsing="false" onAction="#handleZumBauVerwendenButton" prefHeight="36.0" prefWidth="148.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0;" text="zum Bau verwenden" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="13.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="PlayerAttackLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="681.0" layoutY="385.0" prefHeight="36.0" prefWidth="36.0" style="-fx-border-color: ffffff; -fx-border-radius: 20;" text="0A" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox layoutX="53.0" layoutY="415.0" spacing="15.0">
+               <children>
+                  <ImageView fx:id="PlayerCard1" fitHeight="198.0" fitWidth="125.0" layoutX="52.0" layoutY="415.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../CardImages/AGE%20I/AGE%20I.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="PlayerCard2" fitHeight="198.0" fitWidth="125.0" layoutX="190.0" layoutY="415.0" pickOnBounds="true" preserveRatio="true" style="-fx-border: ;">
+                     <image>
+                        <Image url="@../CardImages/AGE%20I/AGE%20I.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="PlayerCard3" fitHeight="198.0" fitWidth="125.0" layoutX="326.0" layoutY="415.0" pickOnBounds="true" preserveRatio="true" style="-fx-border: ;">
+                     <image>
+                        <Image url="@../CardImages/AGE%20I/AGE%20I.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="PlayerCard4" fitHeight="198.0" fitWidth="125.0" layoutX="461.0" layoutY="415.0" pickOnBounds="true" preserveRatio="true" style="-fx-border: ;">
+                     <image>
+                        <Image url="@../CardImages/AGE%20I/AGE%20I.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="PlayerCard5" fitHeight="198.0" fitWidth="125.0" layoutX="600.0" layoutY="415.0" pickOnBounds="true" preserveRatio="true" style="-fx-border: ;">
+                     <image>
+                        <Image url="@../CardImages/AGE%20I/AGE%20I.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="PlayerCard6" fitHeight="198.0" fitWidth="125.0" layoutX="742.0" layoutY="415.0" pickOnBounds="true" preserveRatio="true" style="-fx-border: ;">
+                     <image>
+                        <Image url="@../CardImages/AGE%20I/AGE%20I.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="PlayerCard7" fitHeight="198.0" fitWidth="125.0" layoutX="878.0" layoutY="415.0" pickOnBounds="true" preserveRatio="true" style="-fx-border: ;">
+                     <image>
+                        <Image url="@../CardImages/AGE%20I/AGE%20I.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="299.0" layoutY="622.0" spacing="15.0">
+               <children>
+                  <Button fx:id="TableWp1" layoutX="298.0" layoutY="621.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="148.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0;" text="WP 3" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="13.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="TableWp2" alignment="CENTER" contentDisplay="CENTER" layoutX="461.0" layoutY="621.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="148.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0;" text="WP 4" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="13.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="TableWp3" layoutX="624.0" layoutY="621.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="148.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0;" text="WP 7" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="13.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="25.0" top="25.0" />
+         </padding>
+      </VBox>
+      <Label fx:id="TableNameLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="252.0" layoutY="688.0" prefHeight="36.0" prefWidth="576.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0;" text="GIZAH" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="252.0" AnchorPane.rightAnchor="252.0">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
