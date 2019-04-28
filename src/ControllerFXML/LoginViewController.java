@@ -2,7 +2,6 @@ package ControllerFXML;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import application.ClientApplicationMain;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -28,6 +27,15 @@ import ch.fhnw.sevenwonders.helper.MessageHelper;
 import ch.fhnw.sevenwonders.interfaces.IPlayer;
 import ch.fhnw.sevenwonders.encrypthelper.EncryptWithMD5;
 
+/**
+ * 
+ * @author Gabriel de Castilho, Joel Neutzner
+ * 
+ *         Diese Klasse stellt den Controller für die LoginView dar. Hier wird
+ *         entschieden ob sich der User einloggen will oder einen neuen User
+ *         erstellt indem sich der User registriert.
+ *
+ */
 public class LoginViewController implements Initializable {
 
 	public ClientApplicationMain main;
@@ -47,6 +55,9 @@ public class LoginViewController implements Initializable {
 		this.main = main;
 	}
 
+	/*
+	 * Wenn der User auf den Button "Login" klickt wird diese Methode ausgeführt
+	 */
 	public void handleloginButton(ActionEvent event) {
 		if (enterUsernameTxtField.getText().equals("") || enterPasswordPassField.getText().equals("")) {
 			Alert alert = new Alert(AlertType.WARNING);
@@ -83,8 +94,6 @@ public class LoginViewController implements Initializable {
 					if (tmpMessageFromServer instanceof ServerStartupMessage) {
 						tmpMessageFromServer = (ServerStartupMessage) tmpMessageFromServer;
 						if (((ServerStartupMessage) tmpMessageFromServer).getStatusCode() == StatusCode.LoginFailed) {
-							// Buttons und Felder wieder aktivieren - nur im Fehlerfalle -> ansonsten
-							// Fenster schliessen und weiterleiten
 							Platform.runLater(new Runnable() {
 								@Override
 								public void run() {
@@ -109,7 +118,7 @@ public class LoginViewController implements Initializable {
 								public void run() {
 									try {
 										FXMLLoader fxmlLoader = new FXMLLoader(
-												getClass().getResource("/ViewFXML/LoginSuccessView.fxml"));
+												getClass().getResource("/ViewFXML/LobbyView.fxml"));
 										Parent root = (Parent) fxmlLoader.load();
 										Stage stage = new Stage();
 										stage.setScene(new Scene(root));
@@ -132,6 +141,10 @@ public class LoginViewController implements Initializable {
 		}
 	}
 
+	/*
+	 * Wenn der User auf den Button "Einloggen/Registrieren" klickt wird diese
+	 * Methode ausgeführt
+	 */
 	public void handlesignUpButton(ActionEvent event) {
 
 		if (enterUsernameTxtField.getText().equals("") || enterPasswordPassField.getText().equals("")) {
@@ -170,8 +183,6 @@ public class LoginViewController implements Initializable {
 						tmpMessageFromServer = (ServerStartupMessage) tmpMessageFromServer;
 						if (((ServerStartupMessage) tmpMessageFromServer)
 								.getStatusCode() == StatusCode.RegistrationFailed) {
-							// Buttons und Felder wieder aktivieren - nur im Fehlerfalle -> ansonsten
-							// Fenster schliessen und weiterleiten
 							Platform.runLater(new Runnable() {
 								@Override
 								public void run() {
@@ -219,6 +230,10 @@ public class LoginViewController implements Initializable {
 		}
 	}
 
+	/*
+	 * Wenn der User auf den Button "<" klickt wird diese Methode ausgeführt. Der
+	 * User wird auf das vorherige MainView Fenster geführt.
+	 */
 	public void handlegoBackButton(ActionEvent event) {
 		try {
 			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ViewFXML/MainView.fxml"));
