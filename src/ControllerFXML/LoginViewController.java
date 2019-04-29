@@ -3,6 +3,7 @@ package ControllerFXML;
 import java.net.URL;
 import java.util.ResourceBundle;
 import application.ClientApplicationMain;
+import application.Config;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -114,6 +115,8 @@ public class LoginViewController implements Initializable {
 
 						}
 						if (((ServerStartupMessage) tmpMessageFromServer).getStatusCode() == StatusCode.Success) {
+
+							Config.player = ((ServerStartupMessage) tmpMessageFromServer).getPlayer();
 							Platform.runLater(new Runnable() {
 								public void run() {
 									try {
@@ -203,11 +206,13 @@ public class LoginViewController implements Initializable {
 
 						}
 						if (((ServerStartupMessage) tmpMessageFromServer).getStatusCode() == StatusCode.Success) {
+
+							Config.player = ((ServerStartupMessage) tmpMessageFromServer).getPlayer();
 							Platform.runLater(new Runnable() {
 								public void run() {
 									try {
 										FXMLLoader fxmlLoader = new FXMLLoader(
-												getClass().getResource("/ViewFXML/LoginSuccessView.fxml"));
+										getClass().getResource("/ViewFXML/LoginSuccessView.fxml"));
 										Parent root = (Parent) fxmlLoader.load();
 										Stage stage = new Stage();
 										stage.setScene(new Scene(root));

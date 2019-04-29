@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 
 public class LobbyViewController {
 	
-public ClientApplicationMain main;
+	public ClientApplicationMain main;
 	
 	public void setMain(ClientApplicationMain main) {
 		this.main = main;
