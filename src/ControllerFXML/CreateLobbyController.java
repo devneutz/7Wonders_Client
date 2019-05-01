@@ -1,10 +1,10 @@
 package ControllerFXML;
 
 import application.ClientApplicationMain;
+import application.ClientModel;
 import application.Config;
 import ch.fhnw.sevenwonders.enums.LobbyAction;
 import ch.fhnw.sevenwonders.enums.StatusCode;
-import ch.fhnw.sevenwonders.helper.MessageHelper;
 import ch.fhnw.sevenwonders.interfaces.ILobby;
 import ch.fhnw.sevenwonders.interfaces.IPlayer;
 import ch.fhnw.sevenwonders.messages.ClientLobbyMessage;
@@ -26,6 +26,9 @@ import javafx.stage.Stage;
 public class CreateLobbyController {
 	
 	public ClientApplicationMain main;
+	
+	private ClientModel model;
+	
 	private ILobby lobby = new Lobby();
 	@FXML
 	private TextField NumberOfPlayerTextField;
@@ -45,6 +48,10 @@ public class CreateLobbyController {
 	public void setMain(ClientApplicationMain main) {
 		this.main = main;
 	}	
+	
+	public void setModel(ClientModel inModel) {
+		this.model = inModel;
+	}
 	
 	public void handleCreateLobbyCancelButton(ActionEvent event) {
 		try {
@@ -68,7 +75,7 @@ public class CreateLobbyController {
 		
 		Thread t = new Thread() {
 			public void run() {
-				Message tmpMessageFromServer = MessageHelper.sendMessageAndWaitForAnswer(msg);
+				Message tmpMessageFromServer = model.sendMessageAndWaitForAnswer(msg);
 				
 				if (tmpMessageFromServer instanceof ServerLobbyMessage) {
 					tmpMessageFromServer = (ServerLobbyMessage) tmpMessageFromServer;
@@ -84,7 +91,6 @@ public class CreateLobbyController {
 						
 							public void run() {		
 								try {
-									IPlayer player = Config.player;
 									FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ViewFXML/AdminInLobbyView.fxml"));
 									Parent root1 = (Parent) fxmlLoader.load();
 									Stage stage = new Stage();
