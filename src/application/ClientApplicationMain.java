@@ -12,10 +12,13 @@ import javafx.stage.Stage;
 public class ClientApplicationMain extends Application {
 	
 	private Stage primaryStage;
+	private ClientModel model;
 	
 	@Override
 	public void start(Stage primaryStage) {		
 		this.primaryStage = primaryStage;
+		this.model = new ClientModel();
+		this.model.connect(Config.ServerIP, Config.ServerPort);
 		mainWindow();
 			
 	}
@@ -26,7 +29,9 @@ public class ClientApplicationMain extends Application {
 			//FXML Datei kann direkt im SceneBuilder geöffnet werden
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/ViewFXML/MainView.fxml"));
 			AnchorPane pane = loader.load();
-						
+
+			MainViewController controller = loader.<MainViewController>getController();
+			controller.setModel(this.model);
 			primaryStage.setMinHeight(720.00);
 			primaryStage.setMinWidth(1080.00);
 			

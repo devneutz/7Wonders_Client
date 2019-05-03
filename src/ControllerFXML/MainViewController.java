@@ -3,10 +3,10 @@ package ControllerFXML;
 import java.net.URL;
 import java.util.ResourceBundle;
 import application.ClientApplicationMain;
+import application.ClientModel;
 import application.Config;
 import ch.fhnw.sevenwonders.enums.StartupAction;
 import ch.fhnw.sevenwonders.enums.StatusCode;
-import ch.fhnw.sevenwonders.helper.MessageHelper;
 import ch.fhnw.sevenwonders.interfaces.IPlayer;
 import ch.fhnw.sevenwonders.messages.ClientStartupMessage;
 import ch.fhnw.sevenwonders.messages.Message;
@@ -41,10 +41,15 @@ public class MainViewController implements Initializable {
 	public ClientApplicationMain main;
 	public Button LogRegButton;
 
+	private ClientModel model;
 	private IPlayer player = new Player();
 
 	public void setMain(ClientApplicationMain main) {
 		this.main = main;
+	}
+
+	public void setModel(ClientModel inModel) {
+		this.model = inModel;
 	}
 
 	/*
@@ -56,6 +61,9 @@ public class MainViewController implements Initializable {
 		try {
 			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ViewFXML/LoginView.fxml"));
 			Parent root1 = (Parent) fxmlLoader.load();
+
+			LoginViewController controller = fxmlLoader.<LoginViewController>getController();
+			controller.setModel(this.model);
 			Stage stage = new Stage();
 			stage.setScene(new Scene(root1));
 			stage.show();
@@ -77,21 +85,24 @@ public class MainViewController implements Initializable {
 
 		Thread t = new Thread() {
 			public void run() {
-				Message tmpMessageFromServer = MessageHelper.sendMessageAndWaitForAnswer(msg);
+				Message tmpMessageFromServer = model.sendMessageAndWaitForAnswer(msg);
 
 				// Ist es eine korrekte Antwort?
 				if (tmpMessageFromServer instanceof ServerStartupMessage) {
 					tmpMessageFromServer = (ServerStartupMessage) tmpMessageFromServer;
 					if (((ServerStartupMessage) tmpMessageFromServer).getStatusCode() == StatusCode.Success) {
 
-						Config.player = ((ServerStartupMessage) tmpMessageFromServer).getPlayer();
+						model.setPlayer(((ServerStartupMessage) tmpMessageFromServer).getPlayer());
 						Platform.runLater(new Runnable() {
-							
+
 							public void run() {
 								try {
 									FXMLLoader fxmlLoader = new FXMLLoader(
-									getClass().getResource("/ViewFXML/LobbyView.fxml"));
+											getClass().getResource("/ViewFXML/LobbyView.fxml"));
 									Parent root1 = (Parent) fxmlLoader.load();
+									LobbyViewController controller = fxmlLoader.<LobbyViewController>getController();
+									controller.setModel(model);
+
 									Stage stage = new Stage();
 									stage.setScene(new Scene(root1));
 									stage.show();
@@ -101,7 +112,7 @@ public class MainViewController implements Initializable {
 								} catch (Exception e) {
 									e.printStackTrace();
 								}
-							}	
+							}
 						});
 					}
 
