@@ -47,7 +47,7 @@ public class MainViewController implements Initializable {
 	public void setMain(ClientApplicationMain main) {
 		this.main = main;
 	}
-	
+
 	public void setModel(ClientModel inModel) {
 		this.model = inModel;
 	}
@@ -94,15 +94,15 @@ public class MainViewController implements Initializable {
 
 						model.setPlayer(((ServerStartupMessage) tmpMessageFromServer).getPlayer());
 						Platform.runLater(new Runnable() {
-							
+
 							public void run() {
 								try {
 									FXMLLoader fxmlLoader = new FXMLLoader(
-									getClass().getResource("/ViewFXML/LobbyView.fxml"));
-
+											getClass().getResource("/ViewFXML/LobbyView.fxml"));
+									Parent root1 = (Parent) fxmlLoader.load();
 									LobbyViewController controller = fxmlLoader.<LobbyViewController>getController();
 									controller.setModel(model);
-									Parent root1 = (Parent) fxmlLoader.load();
+
 									Stage stage = new Stage();
 									stage.setScene(new Scene(root1));
 									stage.show();
@@ -112,7 +112,7 @@ public class MainViewController implements Initializable {
 								} catch (Exception e) {
 									e.printStackTrace();
 								}
-							}	
+							}
 						});
 					}
 
