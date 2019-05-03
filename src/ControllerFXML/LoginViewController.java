@@ -3,6 +3,7 @@ package ControllerFXML;
 import java.net.URL;
 import java.util.ResourceBundle;
 import application.ClientApplicationMain;
+import application.ClientModel;
 import application.Config;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -24,7 +25,6 @@ import ch.fhnw.sevenwonders.messages.ServerStartupMessage;
 import ch.fhnw.sevenwonders.models.Player;
 import ch.fhnw.sevenwonders.enums.StartupAction;
 import ch.fhnw.sevenwonders.enums.StatusCode;
-import ch.fhnw.sevenwonders.helper.MessageHelper;
 import ch.fhnw.sevenwonders.interfaces.IPlayer;
 import ch.fhnw.sevenwonders.encrypthelper.EncryptWithMD5;
 
@@ -40,6 +40,8 @@ import ch.fhnw.sevenwonders.encrypthelper.EncryptWithMD5;
 public class LoginViewController implements Initializable {
 
 	public ClientApplicationMain main;
+	private ClientModel model;
+	
 	private IPlayer player = new Player();
 	@FXML
 	private TextField enterUsernameTxtField;
@@ -56,6 +58,10 @@ public class LoginViewController implements Initializable {
 		this.main = main;
 	}
 
+	public void setModel(ClientModel inModel) {
+		this.model = inModel;
+	}
+	
 	/*
 	 * Wenn der User auf den Button "Login" klickt wird diese Methode ausgeführt
 	 */
@@ -89,7 +95,7 @@ public class LoginViewController implements Initializable {
 
 			Thread t = new Thread() {
 				public void run() {
-					Message tmpMessageFromServer = MessageHelper.sendMessageAndWaitForAnswer(msg);
+					Message tmpMessageFromServer = model.sendMessageAndWaitForAnswer(msg);
 
 					// Ist es eine korrekte Antwort?
 					if (tmpMessageFromServer instanceof ServerStartupMessage) {
@@ -116,7 +122,7 @@ public class LoginViewController implements Initializable {
 						}
 						if (((ServerStartupMessage) tmpMessageFromServer).getStatusCode() == StatusCode.Success) {
 
-							Config.player = ((ServerStartupMessage) tmpMessageFromServer).getPlayer();
+							model.setPlayer(((ServerStartupMessage) tmpMessageFromServer).getPlayer());
 							Platform.runLater(new Runnable() {
 								public void run() {
 									try {
@@ -179,7 +185,7 @@ public class LoginViewController implements Initializable {
 
 			Thread t = new Thread() {
 				public void run() {
-					Message tmpMessageFromServer = MessageHelper.sendMessageAndWaitForAnswer(msg);
+					Message tmpMessageFromServer = model.sendMessageAndWaitForAnswer(msg);
 
 					// Ist es eine korrekte Antwort?
 					if (tmpMessageFromServer instanceof ServerStartupMessage) {
@@ -207,7 +213,7 @@ public class LoginViewController implements Initializable {
 						}
 						if (((ServerStartupMessage) tmpMessageFromServer).getStatusCode() == StatusCode.Success) {
 
-							Config.player = ((ServerStartupMessage) tmpMessageFromServer).getPlayer();
+							model.setPlayer(((ServerStartupMessage) tmpMessageFromServer).getPlayer());
 							Platform.runLater(new Runnable() {
 								public void run() {
 									try {
