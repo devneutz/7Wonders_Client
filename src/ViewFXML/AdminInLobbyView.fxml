@@ -14,12 +14,17 @@
          <children>
             <VBox alignment="CENTER" spacing="10.0">
                <children>
-                  <TextField fx:id="PlayerInLobbyTextField" prefHeight="36.0" prefWidth="460.0" style="-fx-background-color: #c7aa72; -fx-background-radius: 0;" text="Player in lobby:">
-                     <font>
-                        <Font name="Arial" size="13.0" />
-                     </font>
-                  </TextField>
-                  <TextField fx:id="PlayserInLobbyTextarea" prefHeight="322.0" prefWidth="434.0" style="-fx-background-color: #c7aa72; -fx-background-radius: 0;" />
+                  <Label fx:id="LobbyNameLabel" prefHeight="36.0" prefWidth="460.0" style="-fx-background-color: #c7aa72;" text="Lobbyname">
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="PlayerInLobbyLabel" prefHeight="36.0" prefWidth="460.0" style="-fx-background-color: #c7aa72;" text="Player in Lobby:">
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+                  <ListView prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: c7aa72;" />
                </children>
             </VBox>
             <HBox alignment="CENTER" layoutX="310.0" layoutY="614.0" spacing="10.0">
