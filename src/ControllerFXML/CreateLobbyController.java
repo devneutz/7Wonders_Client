@@ -23,6 +23,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+/**
+ * @author Matteo
+ *
+ */
+
 public class CreateLobbyController {
 	
 	public ClientApplicationMain main;
