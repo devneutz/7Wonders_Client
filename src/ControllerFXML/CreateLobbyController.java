@@ -62,6 +62,8 @@ public class CreateLobbyController {
 		try {
 			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ViewFXML/LobbyView.fxml"));
 			Parent root1 = (Parent) fxmlLoader.load();
+			LobbyViewController controller = fxmlLoader.<LobbyViewController>getController();
+			controller.setModel(model);
 			Stage stage = new Stage();
 			stage.setScene(new Scene(root1));  
 			stage.show();
@@ -98,6 +100,8 @@ public class CreateLobbyController {
 								try {
 									FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ViewFXML/AdminInLobbyView.fxml"));
 									Parent root1 = (Parent) fxmlLoader.load();
+									AdminInLobbyViewController controller = fxmlLoader.<AdminInLobbyViewController>getController();
+									controller.setModel(model);
 									Stage stage = new Stage();
 									stage.setScene(new Scene(root1));  
 									stage.show();

@@ -44,6 +44,8 @@ public class LobbyViewController {
 		try {
 			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ViewFXML/PlayerInLobbyView.fxml"));
 			Parent root1 = (Parent) fxmlLoader.load();
+			PlayerInLobbyViewController controller = fxmlLoader.<PlayerInLobbyViewController>getController();
+			controller.setModel(model);
 			Stage stage = new Stage();
 			stage.setScene(new Scene(root1));
 			stage.show();
