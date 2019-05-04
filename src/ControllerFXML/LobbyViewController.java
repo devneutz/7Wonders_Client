@@ -1,18 +1,27 @@
 package ControllerFXML;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import application.ClientApplicationMain;
 import application.ClientModel;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
-public class LobbyViewController {
+public class LobbyViewController implements Initializable {
 
 	public ClientApplicationMain main;
 	private ClientModel model;
+	
+	@FXML
+	private ListView lobbyListView;
 
 	public void setMain(ClientApplicationMain main) {
 		this.main = main;
@@ -20,6 +29,8 @@ public class LobbyViewController {
 
 	public void setModel(ClientModel inModel) {
 		this.model = inModel;
+
+		this.lobbyListView.itemsProperty().bind(model.getLobbyListProperty());
 	}
 
 	public void handleCreateLobbyButton(ActionEvent event) {
@@ -30,7 +41,9 @@ public class LobbyViewController {
 		       CreateLobbyController controller = fxmlLoader.<CreateLobbyController>getController();
 		       controller.setModel(model);
 		       Stage stage = new Stage();
-		       stage.setScene(new Scene(root1));  
+		       Scene tmpScene = new Scene(root1);
+		       controller.setupListener(tmpScene);
+		       stage.setScene(tmpScene);  
 		       stage.show();
 		       
 		       ((Node)event.getSource()).getScene().getWindow().hide();
@@ -40,14 +53,16 @@ public class LobbyViewController {
 		   }
 	}
 
-	public void handleJoinLobbyBButton(ActionEvent event) {
+	public void handleJoinLobbyButton(ActionEvent event) {
 		try {
 			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ViewFXML/PlayerInLobbyView.fxml"));
 			Parent root1 = (Parent) fxmlLoader.load();
 			PlayerInLobbyViewController controller = fxmlLoader.<PlayerInLobbyViewController>getController();
 			controller.setModel(model);
 			Stage stage = new Stage();
-			stage.setScene(new Scene(root1));
+			Scene tmpScene = new Scene(root1);
+			controller.setupListener(tmpScene);
+			stage.setScene(tmpScene);
 			stage.show();
 
 			((Node) event.getSource()).getScene().getWindow().hide();
@@ -56,6 +71,10 @@ public class LobbyViewController {
 			e.printStackTrace();
 		}
 
+	}
+
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
 	}
 
 }

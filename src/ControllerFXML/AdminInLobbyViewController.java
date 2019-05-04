@@ -44,4 +44,8 @@ public class AdminInLobbyViewController {
 		
 	}
 	
+	public void setupListener(Scene inScene) {
+		
+	}
+	
 }

@@ -41,7 +41,7 @@ public class LoginViewController implements Initializable {
 
 	public ClientApplicationMain main;
 	private ClientModel model;
-	
+
 	private IPlayer player = new Player();
 	@FXML
 	private TextField enterUsernameTxtField;
@@ -61,7 +61,7 @@ public class LoginViewController implements Initializable {
 	public void setModel(ClientModel inModel) {
 		this.model = inModel;
 	}
-	
+
 	/*
 	 * Wenn der User auf den Button "Login" klickt wird diese Methode ausgef�hrt
 	 */
@@ -92,63 +92,7 @@ public class LoginViewController implements Initializable {
 
 			ClientStartupMessage msg = new ClientStartupMessage(StartupAction.Login);
 			msg.setPlayer(player);
-
-			Thread t = new Thread() {
-				public void run() {
-					Message tmpMessageFromServer = model.sendMessageAndWaitForAnswer(msg);
-
-					// Ist es eine korrekte Antwort?
-					if (tmpMessageFromServer instanceof ServerStartupMessage) {
-						tmpMessageFromServer = (ServerStartupMessage) tmpMessageFromServer;
-						if (((ServerStartupMessage) tmpMessageFromServer).getStatusCode() == StatusCode.LoginFailed) {
-							model.setPlayer(((ServerStartupMessage) tmpMessageFromServer).getPlayer());
-							Platform.runLater(new Runnable() {
-								@Override
-								public void run() {
-									Alert alert = new Alert(AlertType.ERROR);
-									alert.setTitle("FEHLER");
-									alert.setHeaderText("Benutzername oder Passwort falsch");
-									alert.setContentText("Bitte korrekte Eingabe t�tigen");
-									alert.showAndWait();
-
-									loginButton.setDisable(false);
-									enterUsernameTxtField.setDisable(false);
-									enterPasswordPassField.setDisable(false);
-									signUpButton.setDisable(false);
-									goBackButton.setDisable(false);
-
-								}
-							});
-
-						}
-						if (((ServerStartupMessage) tmpMessageFromServer).getStatusCode() == StatusCode.Success) {
-
-							model.setPlayer(((ServerStartupMessage) tmpMessageFromServer).getPlayer());
-							Platform.runLater(new Runnable() {
-								public void run() {
-									try {
-										FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ViewFXML/LobbyView.fxml"));
-										Parent root = (Parent) fxmlLoader.load();
-										LobbyViewController controller = fxmlLoader.<LobbyViewController>getController();
-										controller.setModel(model);
-										Stage stage = new Stage();
-										stage.setScene(new Scene(root));
-										stage.show();
-
-										((Node) event.getSource()).getScene().getWindow().hide();
-
-									} catch (Exception e) {
-										e.printStackTrace();
-									}
-
-								}
-							});
-						}
-
-					}
-				}
-			};
-			t.start();
+			model.sendMessage(msg);
 		}
 	}
 
@@ -184,64 +128,7 @@ public class LoginViewController implements Initializable {
 
 			ClientStartupMessage msg = new ClientStartupMessage(StartupAction.Register);
 			msg.setPlayer(player);
-
-			Thread t = new Thread() {
-				public void run() {
-					Message tmpMessageFromServer = model.sendMessageAndWaitForAnswer(msg);
-
-					// Ist es eine korrekte Antwort?
-					if (tmpMessageFromServer instanceof ServerStartupMessage) {
-						tmpMessageFromServer = (ServerStartupMessage) tmpMessageFromServer;
-						if (((ServerStartupMessage) tmpMessageFromServer)
-								.getStatusCode() == StatusCode.RegistrationFailed) {
-							Platform.runLater(new Runnable() {
-								@Override
-								public void run() {
-									Alert alert = new Alert(AlertType.ERROR);
-									alert.setTitle("FEHLER");
-									alert.setHeaderText("Fehler bei der Verarbeitung der Benutzerangaben aufgetreten");
-									alert.setContentText("Bitte nochmals Benutzerangaben eingeben");
-									alert.showAndWait();
-
-									loginButton.setDisable(false);
-									enterUsernameTxtField.setDisable(false);
-									enterPasswordPassField.setDisable(false);
-									signUpButton.setDisable(false);
-									goBackButton.setDisable(false);
-
-								}
-							});
-
-						}
-						if (((ServerStartupMessage) tmpMessageFromServer).getStatusCode() == StatusCode.Success) {
-
-							model.setPlayer(((ServerStartupMessage) tmpMessageFromServer).getPlayer());
-							Platform.runLater(new Runnable() {
-								public void run() {
-									try {
-										FXMLLoader fxmlLoader = new FXMLLoader(
-										getClass().getResource("/ViewFXML/LoginSuccessView.fxml"));
-										Parent root = (Parent) fxmlLoader.load();
-										LoginViewController controller = fxmlLoader.<LoginViewController>getController();
-										controller.setModel(model);
-										Stage stage = new Stage();
-										stage.setScene(new Scene(root));
-										stage.show();
-
-										((Node) event.getSource()).getScene().getWindow().hide();
-
-									} catch (Exception e) {
-										e.printStackTrace();
-									}
-
-								}
-							});
-						}
-
-					}
-				}
-			};
-			t.start();
+			model.sendMessage(msg);
 		}
 	}
 
@@ -271,6 +158,107 @@ public class LoginViewController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 
+	}
+
+	public void setupListener(Scene inScene) {
+		this.model.getLastReceivedMessage().addListener((observable, oldvalue, newValue) -> {
+			if (newValue instanceof ServerStartupMessage) {
+				newValue = (ServerStartupMessage) newValue;
+				switch (((ServerStartupMessage) newValue).getActionType()) {
+				case Register: {
+					if (((ServerStartupMessage) newValue).getStatusCode() == StatusCode.RegistrationFailed) {
+						Platform.runLater(new Runnable() {
+							@Override
+							public void run() {
+								Alert alert = new Alert(AlertType.ERROR);
+								alert.setTitle("FEHLER");
+								alert.setHeaderText("Fehler bei der Verarbeitung der Benutzerangaben aufgetreten");
+								alert.setContentText("Bitte nochmals Benutzerangaben eingeben");
+								alert.showAndWait();
+
+								loginButton.setDisable(false);
+								enterUsernameTxtField.setDisable(false);
+								enterPasswordPassField.setDisable(false);
+								signUpButton.setDisable(false);
+								goBackButton.setDisable(false);
+
+							}
+						});
+						return;
+					} else if (((ServerStartupMessage) newValue).getStatusCode() == StatusCode.Success) {
+						model.setPlayer(((ServerStartupMessage) newValue).getPlayer());
+						Platform.runLater(new Runnable() {
+							public void run() {
+								try {
+									FXMLLoader fxmlLoader = new FXMLLoader(
+											getClass().getResource("/ViewFXML/LoginSuccessView.fxml"));
+									Parent root = (Parent) fxmlLoader.load();
+									LoginViewController controller = fxmlLoader.<LoginViewController>getController();
+									controller.setModel(model);
+									Stage stage = new Stage();
+									stage.setScene(new Scene(root));
+									stage.show();
+
+									inScene.getWindow().hide();
+
+								} catch (Exception e) {
+									e.printStackTrace();
+								}
+
+							}
+						});
+					}
+					break;
+				}
+				case Login:
+					if (((ServerStartupMessage) newValue).getStatusCode() == StatusCode.LoginFailed) {
+						model.setPlayer(((ServerStartupMessage) newValue).getPlayer());
+						Platform.runLater(new Runnable() {
+							@Override
+							public void run() {
+								Alert alert = new Alert(AlertType.ERROR);
+								alert.setTitle("FEHLER");
+								alert.setHeaderText("Benutzername oder Passwort falsch");
+								alert.setContentText("Bitte korrekte Eingabe t�tigen");
+								alert.showAndWait();
+
+								loginButton.setDisable(false);
+								enterUsernameTxtField.setDisable(false);
+								enterPasswordPassField.setDisable(false);
+								signUpButton.setDisable(false);
+								goBackButton.setDisable(false);
+
+							}
+						});
+
+					}
+					if (((ServerStartupMessage) newValue).getStatusCode() == StatusCode.Success) {
+
+						model.setPlayer(((ServerStartupMessage) newValue).getPlayer());
+						Platform.runLater(new Runnable() {
+							public void run() {
+								try {
+									FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ViewFXML/LobbyView.fxml"));
+									Parent root = (Parent) fxmlLoader.load();
+									LobbyViewController controller = fxmlLoader.<LobbyViewController>getController();
+									controller.setModel(model);
+									Stage stage = new Stage();
+									stage.setScene(new Scene(root));
+									stage.show();
+
+									inScene.getWindow().hide();
+
+								} catch (Exception e) {
+									e.printStackTrace();
+								}
+
+							}
+						});
+					}
+					break;
+				}
+			}
+		});
 	}
 
 }

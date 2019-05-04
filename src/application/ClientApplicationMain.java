@@ -40,7 +40,7 @@ public class ClientApplicationMain extends Application {
 			mainWindowController.setMain(this);
 						
 			Scene scene = new Scene(pane);
-			
+			mainWindowController.setupListeners(scene);
 			primaryStage.setScene(scene);
 			primaryStage.show();
 			

@@ -4,12 +4,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import application.ClientApplicationMain;
 import application.ClientModel;
-import application.Config;
 import ch.fhnw.sevenwonders.enums.StartupAction;
 import ch.fhnw.sevenwonders.enums.StatusCode;
 import ch.fhnw.sevenwonders.interfaces.IPlayer;
 import ch.fhnw.sevenwonders.messages.ClientStartupMessage;
-import ch.fhnw.sevenwonders.messages.Message;
 import ch.fhnw.sevenwonders.messages.ServerStartupMessage;
 import ch.fhnw.sevenwonders.models.Player;
 import javafx.application.Platform;
@@ -20,9 +18,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
 /**
@@ -64,7 +60,9 @@ public class MainViewController implements Initializable {
 			LoginViewController controller = fxmlLoader.<LoginViewController>getController();
 			controller.setModel(this.model);
 			Stage stage = new Stage();
-			stage.setScene(new Scene(root1));
+			Scene tmpScene = new Scene(root1);
+			controller.setupListener(tmpScene);
+			stage.setScene(tmpScene);
 			stage.show();
 
 			((Node) event.getSource()).getScene().getWindow().hide();
@@ -82,47 +80,45 @@ public class MainViewController implements Initializable {
 	public void handlePlayAsGuestButton(ActionEvent event) {
 		ClientStartupMessage msg = new ClientStartupMessage(StartupAction.LoginAsGuest);
 
-		Thread t = new Thread() {
-			public void run() {
-				Message tmpMessageFromServer = model.sendMessageAndWaitForAnswer(msg);
-
-				// Ist es eine korrekte Antwort?
-				if (tmpMessageFromServer instanceof ServerStartupMessage) {
-					tmpMessageFromServer = (ServerStartupMessage) tmpMessageFromServer;
-					if (((ServerStartupMessage) tmpMessageFromServer).getStatusCode() == StatusCode.Success) {
-
-						model.setPlayer(((ServerStartupMessage) tmpMessageFromServer).getPlayer());
-						Platform.runLater(new Runnable() {
-
-							public void run() {
-								try {
-									FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ViewFXML/LobbyView.fxml"));
-									Parent root1 = (Parent) fxmlLoader.load();
-									LobbyViewController controller = fxmlLoader.<LobbyViewController>getController();
-									controller.setModel(model);
-									Stage stage = new Stage();
-									stage.setScene(new Scene(root1));
-									stage.show();
-
-									((Node) event.getSource()).getScene().getWindow().hide();
-
-								} catch (Exception e) {
-									e.printStackTrace();
-								}
-							}
-						});
-					}
-
-				}
-			}
-		};
-		t.start();
+		model.sendMessage(msg);
 	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 
+	}
+
+	public void setupListeners(Scene inScene) {
+		this.model.getLastReceivedMessage().addListener((observable, oldvalue, newValue) -> {
+			// Ist es eine korrekte Antwort?
+			if (newValue instanceof ServerStartupMessage) {
+				newValue = (ServerStartupMessage) newValue;
+				if (((ServerStartupMessage) newValue).getStatusCode() == StatusCode.Success) {
+					model.setPlayer(((ServerStartupMessage) newValue).getPlayer());
+					Platform.runLater(new Runnable() {
+						public void run() {
+							try {
+								FXMLLoader fxmlLoader = new FXMLLoader(
+										getClass().getResource("/ViewFXML/LobbyView.fxml"));
+								Parent root1 = (Parent) fxmlLoader.load();
+								LobbyViewController controller = fxmlLoader.<LobbyViewController>getController();
+								controller.setModel(model);
+								Stage stage = new Stage();
+								Scene tmpScene = new Scene(root1);
+								stage.setScene(tmpScene);
+								stage.show();
+
+								inScene.getWindow().hide();
+
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+						}
+					});
+				}
+			}
+		});
 	}
 
 }

@@ -41,6 +41,11 @@ private ClientModel model;
 		
 	}
 	
+	public void setupListener(Scene inScene) {
+		
+	}
+	
+	
 	
 
 }
