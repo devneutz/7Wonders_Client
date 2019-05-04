@@ -34,7 +34,6 @@ public class CreateLobbyController {
 	
 	private ClientModel model;
 	
-	private ILobby lobby = new Lobby();
 	@FXML
 	private TextField NumberOfPlayerTextField;
 	@FXML
@@ -76,7 +75,17 @@ public class CreateLobbyController {
 
 	public void handleCreateLobbyOkButton(ActionEvent event) {
 		ClientLobbyMessage msg = new ClientLobbyMessage(LobbyAction.CreateLobby);
+		
+		Lobby lobby = new Lobby();
+		String lobbyName = EnterLobbynameTextField.getText();
+		lobby.setLobbyName(lobbyName);
+		
+		int numPlayers = Integer.parseInt(CountOfPlayersTextField.getText());
+		lobby.setNumPlayers(numPlayers);	
+
 		msg.setLobby(lobby);
+		
+		msg.setPlayer(model.getPlayer());
 		
 		Thread t = new Thread() {
 			public void run() {
@@ -85,13 +94,6 @@ public class CreateLobbyController {
 				if (tmpMessageFromServer instanceof ServerLobbyMessage) {
 					tmpMessageFromServer = (ServerLobbyMessage) tmpMessageFromServer;
 					if (((ServerLobbyMessage) tmpMessageFromServer).getStatusCode() == StatusCode.Success) {
-						
-						String lobbyName = EnterLobbynameTextField.getText();
-						lobby.setLobbyName(lobbyName);
-						
-						int numPlayers = Integer.parseInt(CountOfPlayersTextField.getText());
-						lobby.setNumPlayers(numPlayers);
-						
 						Platform.runLater(new Runnable() {
 						
 							public void run() {		

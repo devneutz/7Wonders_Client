@@ -17,6 +17,8 @@ public class ClientModel {
 	private IPlayer player;
 	private ObservableList<IPlayer> LobbyPlayers;
 	private boolean isObserving;
+	private ObjectOutputStream out;
+	private ObjectInputStream in;
 
 	/**
 	 * Wird benötigt für die Listview in der Lobby-Übersicht!
@@ -30,6 +32,10 @@ public class ClientModel {
 	public void setPlayer(IPlayer inPlayer) {
 		this.player = inPlayer;
 	}
+	
+	public IPlayer getPlayer() {
+		return this.player;
+	}
 
 	/**
 	 * Verbindung zum Server aufbauen
@@ -41,7 +47,8 @@ public class ClientModel {
 		try {
 			LobbyPlayers = FXCollections.observableArrayList();
 			socket = new Socket(inIpAddress, inPort);
-
+			out = new ObjectOutputStream(socket.getOutputStream()); 
+			in = new ObjectInputStream(socket.getInputStream());
 		} catch (Exception inEx) {
 
 		}
@@ -53,8 +60,7 @@ public class ClientModel {
 	 * @return die Antwort des Servers
 	 */
 	public Message sendMessageAndWaitForAnswer(Message inMessage) {
-		try (ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream()); 
-				ObjectInputStream in = new ObjectInputStream(socket.getInputStream());) {
+		try {
 			out.writeObject(inMessage);
 			out.flush();
 			// ACHTUNG - Blocking call wenn keine Antwort zurück kommt.

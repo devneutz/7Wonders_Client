@@ -27,9 +27,9 @@ public class LobbyViewController {
 		try {
 		       FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ViewFXML/CreateLobbyView.fxml"));
 
+		       Parent root1 = (Parent) fxmlLoader.load();
 		       CreateLobbyController controller = fxmlLoader.<CreateLobbyController>getController();
 		       controller.setModel(model);
-		       Parent root1 = (Parent) fxmlLoader.load();
 		       Stage stage = new Stage();
 		       stage.setScene(new Scene(root1));  
 		       stage.show();

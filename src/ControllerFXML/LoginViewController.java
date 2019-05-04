@@ -101,6 +101,7 @@ public class LoginViewController implements Initializable {
 					if (tmpMessageFromServer instanceof ServerStartupMessage) {
 						tmpMessageFromServer = (ServerStartupMessage) tmpMessageFromServer;
 						if (((ServerStartupMessage) tmpMessageFromServer).getStatusCode() == StatusCode.LoginFailed) {
+							model.setPlayer(((ServerStartupMessage) tmpMessageFromServer).getPlayer());
 							Platform.runLater(new Runnable() {
 								@Override
 								public void run() {
@@ -129,6 +130,8 @@ public class LoginViewController implements Initializable {
 										FXMLLoader fxmlLoader = new FXMLLoader(
 												getClass().getResource("/ViewFXML/LobbyView.fxml"));
 										Parent root = (Parent) fxmlLoader.load();
+										LobbyViewController controller = fxmlLoader.<LobbyViewController>getController();
+										controller.setModel(model);
 										Stage stage = new Stage();
 										stage.setScene(new Scene(root));
 										stage.show();
@@ -220,6 +223,8 @@ public class LoginViewController implements Initializable {
 										FXMLLoader fxmlLoader = new FXMLLoader(
 										getClass().getResource("/ViewFXML/LoginSuccessView.fxml"));
 										Parent root = (Parent) fxmlLoader.load();
+										LoginViewController controller = fxmlLoader.<LoginViewController>getController();
+										controller.setModel(model);
 										Stage stage = new Stage();
 										stage.setScene(new Scene(root));
 										stage.show();
