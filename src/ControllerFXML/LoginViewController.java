@@ -32,7 +32,7 @@ import ch.fhnw.sevenwonders.encrypthelper.EncryptWithMD5;
  * 
  * @author Gabriel de Castilho, Joel Neutzner
  * 
- *         Diese Klasse stellt den Controller fï¿½r die LoginView dar. Hier wird
+ *         Diese Klasse stellt den Controller für die LoginView dar. Hier wird
  *         entschieden ob sich der User einloggen will oder einen neuen User
  *         erstellt indem sich der User registriert.
  *
@@ -108,7 +108,7 @@ public class LoginViewController implements Initializable {
 									Alert alert = new Alert(AlertType.ERROR);
 									alert.setTitle("FEHLER");
 									alert.setHeaderText("Benutzername oder Passwort falsch");
-									alert.setContentText("Bitte korrekte Eingabe tï¿½tigen");
+									alert.setContentText("Bitte korrekte Eingabe tätigen");
 									alert.showAndWait();
 
 									loginButton.setDisable(false);
@@ -220,9 +220,9 @@ public class LoginViewController implements Initializable {
 								public void run() {
 									try {
 										FXMLLoader fxmlLoader = new FXMLLoader(
-										getClass().getResource("/ViewFXML/LoginSuccessView.fxml"));
+										getClass().getResource("/ViewFXML/LobbyView.fxml"));
 										Parent root = (Parent) fxmlLoader.load();
-										LoginViewController controller = fxmlLoader.<LoginViewController>getController();
+										LobbyViewController controller = fxmlLoader.<LobbyViewController>getController();
 										controller.setModel(model);
 										Stage stage = new Stage();
 										stage.setScene(new Scene(root));
@@ -247,7 +247,7 @@ public class LoginViewController implements Initializable {
 
 	/*
 	 * Wenn der User auf den Button "<" klickt wird diese Methode ausgefï¿½hrt. Der
-	 * User wird auf das vorherige MainView Fenster gefï¿½hrt.
+	 * User wird auf das vorherige MainView Fenster geführt.
 	 */
 	public void handlegoBackButton(ActionEvent event) {
 		try {
