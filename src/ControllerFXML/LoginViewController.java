@@ -32,7 +32,7 @@ import ch.fhnw.sevenwonders.encrypthelper.EncryptWithMD5;
  * 
  * @author Gabriel de Castilho, Joel Neutzner
  * 
- *         Diese Klasse stellt den Controller fï¿½r die LoginView dar. Hier wird
+ *         Diese Klasse stellt den Controller für die LoginView dar. Hier wird
  *         entschieden ob sich der User einloggen will oder einen neuen User
  *         erstellt indem sich der User registriert.
  *
@@ -134,7 +134,7 @@ public class LoginViewController implements Initializable {
 
 	/*
 	 * Wenn der User auf den Button "<" klickt wird diese Methode ausgefï¿½hrt. Der
-	 * User wird auf das vorherige MainView Fenster gefï¿½hrt.
+	 * User wird auf das vorherige MainView Fenster geführt.
 	 */
 	public void handlegoBackButton(ActionEvent event) {
 		try {
