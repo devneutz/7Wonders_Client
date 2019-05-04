@@ -32,7 +32,7 @@ import ch.fhnw.sevenwonders.encrypthelper.EncryptWithMD5;
  * 
  * @author Gabriel de Castilho, Joel Neutzner
  * 
- *         Diese Klasse stellt den Controller für die LoginView dar. Hier wird
+ *         Diese Klasse stellt den Controller fï¿½r die LoginView dar. Hier wird
  *         entschieden ob sich der User einloggen will oder einen neuen User
  *         erstellt indem sich der User registriert.
  *
@@ -63,14 +63,14 @@ public class LoginViewController implements Initializable {
 	}
 	
 	/*
-	 * Wenn der User auf den Button "Login" klickt wird diese Methode ausgeführt
+	 * Wenn der User auf den Button "Login" klickt wird diese Methode ausgefï¿½hrt
 	 */
 	public void handleloginButton(ActionEvent event) {
 		if (enterUsernameTxtField.getText().equals("") || enterPasswordPassField.getText().equals("")) {
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.setTitle("WARNUNG");
 			alert.setHeaderText("Benutzername oder Passwort fehlt");
-			alert.setContentText("Bitte fehlende Felder ausfüllen");
+			alert.setContentText("Bitte fehlende Felder ausfï¿½llen");
 			alert.showAndWait();
 		}
 
@@ -108,7 +108,7 @@ public class LoginViewController implements Initializable {
 									Alert alert = new Alert(AlertType.ERROR);
 									alert.setTitle("FEHLER");
 									alert.setHeaderText("Benutzername oder Passwort falsch");
-									alert.setContentText("Bitte korrekte Eingabe tätigen");
+									alert.setContentText("Bitte korrekte Eingabe tï¿½tigen");
 									alert.showAndWait();
 
 									loginButton.setDisable(false);
@@ -127,8 +127,7 @@ public class LoginViewController implements Initializable {
 							Platform.runLater(new Runnable() {
 								public void run() {
 									try {
-										FXMLLoader fxmlLoader = new FXMLLoader(
-												getClass().getResource("/ViewFXML/LobbyView.fxml"));
+										FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ViewFXML/LobbyView.fxml"));
 										Parent root = (Parent) fxmlLoader.load();
 										LobbyViewController controller = fxmlLoader.<LobbyViewController>getController();
 										controller.setModel(model);
@@ -155,7 +154,7 @@ public class LoginViewController implements Initializable {
 
 	/*
 	 * Wenn der User auf den Button "Einloggen/Registrieren" klickt wird diese
-	 * Methode ausgeführt
+	 * Methode ausgefï¿½hrt
 	 */
 	public void handlesignUpButton(ActionEvent event) {
 
@@ -163,7 +162,7 @@ public class LoginViewController implements Initializable {
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.setTitle("WARNUNG");
 			alert.setHeaderText("Benutzername oder Passwort fehlt");
-			alert.setContentText("Bitte fehlende Felder ausfüllen");
+			alert.setContentText("Bitte fehlende Felder ausfï¿½llen");
 			alert.showAndWait();
 		}
 
@@ -247,13 +246,15 @@ public class LoginViewController implements Initializable {
 	}
 
 	/*
-	 * Wenn der User auf den Button "<" klickt wird diese Methode ausgeführt. Der
-	 * User wird auf das vorherige MainView Fenster geführt.
+	 * Wenn der User auf den Button "<" klickt wird diese Methode ausgefï¿½hrt. Der
+	 * User wird auf das vorherige MainView Fenster gefï¿½hrt.
 	 */
 	public void handlegoBackButton(ActionEvent event) {
 		try {
 			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ViewFXML/MainView.fxml"));
 			Parent root1 = (Parent) fxmlLoader.load();
+			MainViewController controller = fxmlLoader.<MainViewController>getController();
+			controller.setModel(model);
 			Stage stage = new Stage();
 			stage.setScene(new Scene(root1));
 			stage.show();

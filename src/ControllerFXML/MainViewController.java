@@ -29,7 +29,7 @@ import javafx.stage.Stage;
  * 
  * @author Gabriel de Castilho
  *
- *         Diese Klasse stellt den Controller für die MainView dar. Hier wird
+ *         Diese Klasse stellt den Controller fï¿½r die MainView dar. Hier wird
  *         anhand vom Userklick entschieden ob dem User die LoginView angezeigt
  *         wird oder ob sich der User als Gast am Spiel anmelden will.
  * 
@@ -61,7 +61,6 @@ public class MainViewController implements Initializable {
 		try {
 			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ViewFXML/LoginView.fxml"));
 			Parent root1 = (Parent) fxmlLoader.load();
-
 			LoginViewController controller = fxmlLoader.<LoginViewController>getController();
 			controller.setModel(this.model);
 			Stage stage = new Stage();
@@ -97,12 +96,10 @@ public class MainViewController implements Initializable {
 
 							public void run() {
 								try {
-									FXMLLoader fxmlLoader = new FXMLLoader(
-											getClass().getResource("/ViewFXML/LobbyView.fxml"));
+									FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ViewFXML/LobbyView.fxml"));
 									Parent root1 = (Parent) fxmlLoader.load();
 									LobbyViewController controller = fxmlLoader.<LobbyViewController>getController();
 									controller.setModel(model);
-
 									Stage stage = new Stage();
 									stage.setScene(new Scene(root1));
 									stage.show();
