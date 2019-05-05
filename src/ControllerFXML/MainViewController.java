@@ -35,7 +35,7 @@ public class MainViewController implements Initializable {
 
 	// Instanz der Main Klasse
 	public ClientApplicationMain main;
-	public Button LogRegButton;
+	public Button LogRegButton, PlayAsGuestButton;
 
 	private ClientModel model;
 	private IPlayer player = new Player();

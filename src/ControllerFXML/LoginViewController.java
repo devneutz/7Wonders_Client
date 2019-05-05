@@ -48,11 +48,8 @@ public class LoginViewController implements Initializable {
 	@FXML
 	private PasswordField enterPasswordPassField;
 	@FXML
-	private Button loginButton;
-	@FXML
-	private Button signUpButton;
-	@FXML
-	private Button goBackButton;
+	private Button loginButton, signUpButton, GoBackButton;
+	
 
 	public void setMain(ClientApplicationMain main) {
 		this.main = main;
@@ -79,7 +76,7 @@ public class LoginViewController implements Initializable {
 			enterPasswordPassField.setDisable(true);
 			loginButton.setDisable(true);
 			signUpButton.setDisable(true);
-			goBackButton.setDisable(true);
+			GoBackButton.setDisable(true);
 
 			String username = enterUsernameTxtField.getText();
 			player.setName(username);
@@ -115,7 +112,7 @@ public class LoginViewController implements Initializable {
 			enterPasswordPassField.setDisable(true);
 			loginButton.setDisable(true);
 			signUpButton.setDisable(true);
-			goBackButton.setDisable(true);
+			GoBackButton.setDisable(true);
 
 			String username = enterUsernameTxtField.getText();
 			player.setName(username);
@@ -180,7 +177,7 @@ public class LoginViewController implements Initializable {
 								enterUsernameTxtField.setDisable(false);
 								enterPasswordPassField.setDisable(false);
 								signUpButton.setDisable(false);
-								goBackButton.setDisable(false);
+								GoBackButton.setDisable(false);
 
 							}
 						});
@@ -193,7 +190,7 @@ public class LoginViewController implements Initializable {
 									FXMLLoader fxmlLoader = new FXMLLoader(
 											getClass().getResource("/ViewFXML/LoginSuccessView.fxml"));
 									Parent root = (Parent) fxmlLoader.load();
-									LoginViewController controller = fxmlLoader.<LoginViewController>getController();
+									LoginSuccessViewController controller = fxmlLoader.<LoginSuccessViewController>getController();
 									controller.setModel(model);
 									Stage stage = new Stage();
 									stage.setScene(new Scene(root));
@@ -226,7 +223,7 @@ public class LoginViewController implements Initializable {
 								enterUsernameTxtField.setDisable(false);
 								enterPasswordPassField.setDisable(false);
 								signUpButton.setDisable(false);
-								goBackButton.setDisable(false);
+								GoBackButton.setDisable(false);
 
 							}
 						});

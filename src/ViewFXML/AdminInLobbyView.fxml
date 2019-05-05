@@ -30,7 +30,7 @@
                         <Font name="Arial" size="13.0" />
                      </font>
                   </Label>
-                  <ListView maxWidth="400.0" prefHeight="200.0" prefWidth="400.0" style="-fx-background-color: c7aa72;" />
+                  <ListView fx:id="PlayerInLobbyListView" maxWidth="400.0" prefHeight="200.0" prefWidth="400.0" style="-fx-background-color: c7aa72;" />
                </children>
             </VBox>
             <HBox alignment="CENTER" layoutX="310.0" layoutY="614.0" spacing="10.0">

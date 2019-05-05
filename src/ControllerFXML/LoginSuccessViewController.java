@@ -3,11 +3,13 @@ package ControllerFXML;
 import application.ClientApplicationMain;
 import application.ClientModel;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 public class LoginSuccessViewController {
@@ -17,7 +19,15 @@ public class LoginSuccessViewController {
 
 	private ClientModel model;
 	
-	public void TakeMeToTheGameButton(ActionEvent event) {
+	@FXML
+	private Label signUpSuccessLabel;
+	
+	
+	public void setModel(ClientModel inModel) {
+		this.model = inModel;
+	}
+	
+	public void handleTakeMeToTheGameButton(ActionEvent event) {
 		try {
 			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ViewFXML/LobbyView.fxml"));
 			Parent root1 = (Parent) fxmlLoader.load();

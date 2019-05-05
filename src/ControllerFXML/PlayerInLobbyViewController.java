@@ -3,17 +3,28 @@ package ControllerFXML;
 import application.ClientApplicationMain;
 import application.ClientModel;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
 public class PlayerInLobbyViewController {
 	
-public ClientApplicationMain main;
+	public ClientApplicationMain main;
 
-private ClientModel model;
+	private ClientModel model;
+	
+	@FXML
+	private Label LobbyNameLabel;
+	@FXML
+	private ListView PlayerSearchListView;
+	@FXML 
+	private Button LeaveLobbyButton;
 	
 	public void setMain(ClientApplicationMain main) {
 		this.main = main;
