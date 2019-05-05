@@ -9,38 +9,30 @@
 
 <AnchorPane prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #615658;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerFXML.LoginViewController">
    <children>
-      <AnchorPane layoutX="310.0" layoutY="164.0" prefHeight="392.0" prefWidth="461.0" style="-fx-background-color: #c7aa72;">
-         <children>
-            <VBox alignment="CENTER" layoutX="59.0" layoutY="143.0" spacing="10.0">
-               <children>
-                  <VBox alignment="CENTER" layoutX="64.0" layoutY="46.0" spacing="10.0">
-                     <children>
-                        <TextField fx:id="enterUsernameTxtField" prefHeight="27.0" prefWidth="344.0" promptText="username" style="-fx-background-radius: 0;" />
-                        <PasswordField fx:id="enterPasswordPassField" layoutX="64.0" layoutY="46.0" prefHeight="27.0" prefWidth="327.0" promptText="password" style="-fx-background-radius: 0;" />
-                     </children>
-                  </VBox>
-                  <HBox alignment="CENTER" layoutX="57.0" layoutY="290.0" spacing="10.0">
-                     <children>
-                        <Button fx:id="loginButton" layoutX="57.0" layoutY="290.0" mnemonicParsing="false" onAction="#handleloginButton" prefHeight="30.0" prefWidth="167.0" style="-fx-background-color: #615658; -fx-background-radius: 0;" text="login" textFill="WHITE">
-                           <font>
-                              <Font name="Arial" size="13.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="signUpButton" layoutX="234.0" layoutY="290.0" mnemonicParsing="false" onAction="#handlesignUpButton" prefHeight="30.0" prefWidth="167.0" style="-fx-background-color: #615658; -fx-background-radius: 0;" text="sign up" textFill="WHITE">
-                           <font>
-                              <Font name="Arial" size="13.0" />
-                           </font>
-                        </Button>
-                     </children>
-                  </HBox>
-               </children>
-            </VBox>
-         </children>
-      </AnchorPane>
-      <Button fx:id="goBackButton" layoutX="15.0" layoutY="17.0" mnemonicParsing="false" onAction="#handlegoBackButton" style="-fx-background-color: #c7aa72; -fx-background-radius: 0;" text="&lt;" textFill="WHITE" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0">
+      <Button fx:id="GoBackButton" layoutX="15.0" layoutY="17.0" mnemonicParsing="false" onAction="#handleGoBackButton" style="-fx-background-color: #c7aa72; -fx-background-radius: 0;" text="&lt;" textFill="WHITE" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0">
          <font>
             <Font name="Arial Bold" size="24.0" />
          </font>
       </Button>
+      <VBox alignment="CENTER" maxWidth="400.0" prefWidth="400.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <TextField fx:id="enterUsernameTxtField" maxWidth="400.0" prefHeight="36.0" prefWidth="400.0" promptText="username" style="-fx-background-radius: 0; -fx-background-color: #c7aa72;" />
+            <PasswordField fx:id="enterPasswordPassField" maxWidth="400.0" prefHeight="36.0" prefWidth="400.0" promptText="password" style="-fx-background-color: #c7aa72; -fx-background-radius: 0;" />
+            <HBox alignment="CENTER" layoutX="57.0" layoutY="290.0" spacing="10.0">
+               <children>
+                  <Button fx:id="loginButton" layoutX="57.0" layoutY="290.0" mnemonicParsing="false" onAction="#handleLoginButton" prefHeight="36.0" prefWidth="195.0" style="-fx-background-color: #c7aa72; -fx-background-radius: 0;" text="login" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="13.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="signUpButton" layoutX="234.0" layoutY="290.0" mnemonicParsing="false" onAction="#handleSignUpButton" prefHeight="36.0" prefWidth="195.0" style="-fx-background-color: #c7aa72; -fx-background-radius: 0;" text="sign up" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="13.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

@@ -10,15 +10,28 @@
 
 <AnchorPane prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #615658;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerFXML.PlayerInLobbyViewController">
    <children>
-      <VBox fx:id="UserPlayerInLobbyButtonVBox" layoutX="310.0" layoutY="238.0" spacing="10.0">
+      <VBox fx:id="UserPlayerInLobbyButtonVBox" alignment="CENTER" layoutX="310.0" layoutY="238.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <TextField fx:id="LobbyTextField" prefHeight="39.0" prefWidth="461.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0;" text="Lobby five4seven">
+            <Label fx:id="LobbyNameLabel" prefHeight="36.0" prefWidth="400.0" style="-fx-background-color: #c7aa72; -fx-background-radius: 0;" text="Lobby: Five4Seven" textFill="WHITE">
                <font>
                   <Font name="Arial" size="13.0" />
                </font>
-            </TextField>
-            <TextField fx:id="PlayerSearchTextarea" alignment="TOP_LEFT" prefHeight="147.0" prefWidth="461.0" style="-fx-background-color: #c7aa72; -fx-background-radius: 0;" text="Spieler werden gesucht..." />
-            <Button fx:id="LeaveLobbyButton" mnemonicParsing="false" onAction="#handleLeaveLobbyButton" prefHeight="39.0" prefWidth="226.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0;" text="leave lobby" textFill="WHITE" />
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </Label>
+            <ListView fx:id="PlayerSearchListView" maxWidth="400.0" prefHeight="200.0" prefWidth="400.0" style="-fx-background-color: #c7aa72;" />
+            <Button fx:id="LeaveLobbyButton" alignment="CENTER" mnemonicParsing="false" onAction="#handleLeaveLobbyButton" prefHeight="36.0" prefWidth="195.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0;" text="leave lobby" textFill="WHITE">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <font>
+                  <Font name="Arial" size="13.0" />
+               </font>
+            </Button>
          </children>
       </VBox>
    </children>

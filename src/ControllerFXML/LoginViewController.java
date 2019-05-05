@@ -32,7 +32,7 @@ import ch.fhnw.sevenwonders.encrypthelper.EncryptWithMD5;
  * 
  * @author Gabriel de Castilho, Joel Neutzner
  * 
- *         Diese Klasse stellt den Controller für die LoginView dar. Hier wird
+ *         Diese Klasse stellt den Controller fï¿½r die LoginView dar. Hier wird
  *         entschieden ob sich der User einloggen will oder einen neuen User
  *         erstellt indem sich der User registriert.
  *
@@ -65,7 +65,7 @@ public class LoginViewController implements Initializable {
 	/*
 	 * Wenn der User auf den Button "Login" klickt wird diese Methode ausgefï¿½hrt
 	 */
-	public void handleloginButton(ActionEvent event) {
+	public void handleLoginButton(ActionEvent event) {
 		if (enterUsernameTxtField.getText().equals("") || enterPasswordPassField.getText().equals("")) {
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.setTitle("WARNUNG");
@@ -100,7 +100,7 @@ public class LoginViewController implements Initializable {
 	 * Wenn der User auf den Button "Einloggen/Registrieren" klickt wird diese
 	 * Methode ausgefï¿½hrt
 	 */
-	public void handlesignUpButton(ActionEvent event) {
+	public void handleSignUpButton(ActionEvent event) {
 
 		if (enterUsernameTxtField.getText().equals("") || enterPasswordPassField.getText().equals("")) {
 			Alert alert = new Alert(AlertType.WARNING);
@@ -134,9 +134,9 @@ public class LoginViewController implements Initializable {
 
 	/*
 	 * Wenn der User auf den Button "<" klickt wird diese Methode ausgefï¿½hrt. Der
-	 * User wird auf das vorherige MainView Fenster geführt.
+	 * User wird auf das vorherige MainView Fenster gefï¿½hrt.
 	 */
-	public void handlegoBackButton(ActionEvent event) {
+	public void handleGoBackButton(ActionEvent event) {
 		try {
 			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ViewFXML/MainView.fxml"));
 			Parent root1 = (Parent) fxmlLoader.load();
