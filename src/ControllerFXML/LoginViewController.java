@@ -98,7 +98,7 @@ public class LoginViewController implements Initializable {
 
 	/*
 	 * Wenn der User auf den Button "Einloggen/Registrieren" klickt wird diese
-	 * Methode ausgef�hrt
+	 * Methode ausgefuehrt
 	 */
 	public void handlesignUpButton(ActionEvent event) {
 
@@ -106,7 +106,7 @@ public class LoginViewController implements Initializable {
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.setTitle("WARNUNG");
 			alert.setHeaderText("Benutzername oder Passwort fehlt");
-			alert.setContentText("Bitte fehlende Felder ausf�llen");
+			alert.setContentText("Bitte fehlende Felder ausfuellen");
 			alert.showAndWait();
 		}
 
