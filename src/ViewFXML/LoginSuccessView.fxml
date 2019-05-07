@@ -8,21 +8,21 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #615658;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerFXML.LoginViewController">
+<AnchorPane prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #615658;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerFXML.LoginSuccessViewController">
    <children>
-      <AnchorPane layoutX="310.0" layoutY="164.0" prefHeight="392.0" prefWidth="461.0" style="-fx-background-color: #c7aa72;">
+      <VBox alignment="CENTER" prefWidth="400.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <TextArea fx:id="SignUpSuccessTextArea" layoutX="57.0" layoutY="104.0" prefHeight="110.0" prefWidth="336.0" style="-fx-background-color: #615658; -fx-background-radius: 0;" text="Yeah! You signed up succesfully!">
-               <cursor>
-                  <Cursor fx:constant="NONE" />
-               </cursor>
-            </TextArea>
-            <HBox fx:id="LogginButtonBox" alignment="CENTER" layoutX="57.0" layoutY="244.0" spacing="15.0">
-               <children>
-                  <Button fx:id="TakeMeToTheGameButton" layoutX="57.0" layoutY="244.0" prefHeight="39.0" prefWidth="166.0" style="-fx-background-color: #615658; -fx-background-radius: 0;" text="Take me to the game!" textFill="WHITE" />
-               </children>
-            </HBox>
+            <Label fx:id="signUpSuccessLabel" alignment="CENTER" layoutX="196.0" layoutY="277.0" maxHeight="433.0" maxWidth="400.0" prefHeight="200.0" prefWidth="400.0" style="-fx-background-color: #c7aa72;" text="Yeah! yiou signed up succesfully!" textFill="WHITE" AnchorPane.bottomAnchor="243.0" AnchorPane.leftAnchor="196.0" AnchorPane.rightAnchor="484.0" AnchorPane.topAnchor="277.0">
+               <font>
+                  <Font name="Arial" size="13.0" />
+               </font>
+            </Label>
+            <Button fx:id="TakeMeToTheGameButton" alignment="CENTER" contentDisplay="CENTER" onAction="#handleTakeMeToTheGameButton" prefHeight="36.0" prefWidth="195.0" style="-fx-background-color: #c7aa72; -fx-background-radius: 0;" text="Take me to the game!" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="13.0" />
+               </font>
+            </Button>
          </children>
-      </AnchorPane>
+      </VBox>
    </children>
 </AnchorPane>

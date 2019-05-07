@@ -32,7 +32,7 @@ import ch.fhnw.sevenwonders.encrypthelper.EncryptWithMD5;
  * 
  * @author Gabriel de Castilho, Joel Neutzner
  * 
- *         Diese Klasse stellt den Controller für die LoginView dar. Hier wird
+ *         Diese Klasse stellt den Controller fï¿½r die LoginView dar. Hier wird
  *         entschieden ob sich der User einloggen will oder einen neuen User
  *         erstellt indem sich der User registriert.
  *
@@ -48,11 +48,8 @@ public class LoginViewController implements Initializable {
 	@FXML
 	private PasswordField enterPasswordPassField;
 	@FXML
-	private Button loginButton;
-	@FXML
-	private Button signUpButton;
-	@FXML
-	private Button goBackButton;
+	private Button loginButton, signUpButton, GoBackButton;
+	
 
 	public void setMain(ClientApplicationMain main) {
 		this.main = main;
@@ -65,7 +62,7 @@ public class LoginViewController implements Initializable {
 	/*
 	 * Wenn der User auf den Button "Login" klickt wird diese Methode ausgefï¿½hrt
 	 */
-	public void handleloginButton(ActionEvent event) {
+	public void handleLoginButton(ActionEvent event) {
 		if (enterUsernameTxtField.getText().equals("") || enterPasswordPassField.getText().equals("")) {
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.setTitle("WARNUNG");
@@ -79,7 +76,7 @@ public class LoginViewController implements Initializable {
 			enterPasswordPassField.setDisable(true);
 			loginButton.setDisable(true);
 			signUpButton.setDisable(true);
-			goBackButton.setDisable(true);
+			GoBackButton.setDisable(true);
 
 			String username = enterUsernameTxtField.getText();
 			player.setName(username);
@@ -100,7 +97,7 @@ public class LoginViewController implements Initializable {
 	 * Wenn der User auf den Button "Einloggen/Registrieren" klickt wird diese
 	 * Methode ausgefuehrt
 	 */
-	public void handlesignUpButton(ActionEvent event) {
+	public void handleSignUpButton(ActionEvent event) {
 
 		if (enterUsernameTxtField.getText().equals("") || enterPasswordPassField.getText().equals("")) {
 			Alert alert = new Alert(AlertType.WARNING);
@@ -115,7 +112,7 @@ public class LoginViewController implements Initializable {
 			enterPasswordPassField.setDisable(true);
 			loginButton.setDisable(true);
 			signUpButton.setDisable(true);
-			goBackButton.setDisable(true);
+			GoBackButton.setDisable(true);
 
 			String username = enterUsernameTxtField.getText();
 			player.setName(username);
@@ -134,9 +131,9 @@ public class LoginViewController implements Initializable {
 
 	/*
 	 * Wenn der User auf den Button "<" klickt wird diese Methode ausgefï¿½hrt. Der
-	 * User wird auf das vorherige MainView Fenster geführt.
+	 * User wird auf das vorherige MainView Fenster gefï¿½hrt.
 	 */
-	public void handlegoBackButton(ActionEvent event) {
+	public void handleGoBackButton(ActionEvent event) {
 		try {
 			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ViewFXML/MainView.fxml"));
 			Parent root1 = (Parent) fxmlLoader.load();
@@ -180,7 +177,7 @@ public class LoginViewController implements Initializable {
 								enterUsernameTxtField.setDisable(false);
 								enterPasswordPassField.setDisable(false);
 								signUpButton.setDisable(false);
-								goBackButton.setDisable(false);
+								GoBackButton.setDisable(false);
 
 							}
 						});
@@ -193,7 +190,7 @@ public class LoginViewController implements Initializable {
 									FXMLLoader fxmlLoader = new FXMLLoader(
 											getClass().getResource("/ViewFXML/LoginSuccessView.fxml"));
 									Parent root = (Parent) fxmlLoader.load();
-									LoginViewController controller = fxmlLoader.<LoginViewController>getController();
+									LoginSuccessViewController controller = fxmlLoader.<LoginSuccessViewController>getController();
 									controller.setModel(model);
 									Stage stage = new Stage();
 									stage.setScene(new Scene(root));
@@ -226,7 +223,7 @@ public class LoginViewController implements Initializable {
 								enterUsernameTxtField.setDisable(false);
 								enterPasswordPassField.setDisable(false);
 								signUpButton.setDisable(false);
-								goBackButton.setDisable(false);
+								GoBackButton.setDisable(false);
 
 							}
 						});

@@ -12,6 +12,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
@@ -22,6 +24,10 @@ public class LobbyViewController implements Initializable {
 	
 	@FXML
 	private ListView lobbyListView;
+	@FXML
+	private Label existingLobbyLabel;
+	@FXML
+	private Button CreateLobbyButton, JoinLobbyButton;
 
 	public void setMain(ClientApplicationMain main) {
 		this.main = main;

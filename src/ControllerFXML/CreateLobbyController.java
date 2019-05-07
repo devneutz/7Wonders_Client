@@ -15,6 +15,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -30,19 +31,12 @@ public class CreateLobbyController {
 	private ClientModel model;
 
 	@FXML
-	private TextField NumberOfPlayerTextField;
+	private Label NumberOfPlayerLabel, CountOfPlayersLabel;
 	@FXML
-	private Button LessPlayerButton;
-	@FXML
-	private TextField CountOfPlayersTextField;
-	@FXML
-	private Button MorePlayerButton;
+	private Button LessPlayerButton, MorePlayerButton, createLobbyOkButton, createLobbyCancelButton;
 	@FXML
 	private TextField EnterLobbynameTextField;
-	@FXML
-	private Button createLobbyOkButton;
-	@FXML
-	private Button createLobbyCancelButton;
+
 
 	public void setMain(ClientApplicationMain main) {
 		this.main = main;
@@ -77,7 +71,7 @@ public class CreateLobbyController {
 		String lobbyName = EnterLobbynameTextField.getText();
 		lobby.setLobbyName(lobbyName);
 
-		int numPlayers = Integer.parseInt(CountOfPlayersTextField.getText());
+		int numPlayers = Integer.parseInt(CountOfPlayersLabel.getText());
 		lobby.setNumPlayers(numPlayers);
 
 		msg.setLobby(lobby);
@@ -89,11 +83,11 @@ public class CreateLobbyController {
 
 	public void handleLessPlayerButton(ActionEvent event) {
 		MorePlayerButton.setDisable(false);
-		int tempPlayers = Integer.parseInt(CountOfPlayersTextField.getText());
+		int tempPlayers = Integer.parseInt(CountOfPlayersLabel.getText());
 		if (tempPlayers > 3) {
 			tempPlayers--;
 			String numPlayers = Integer.toString(tempPlayers);
-			CountOfPlayersTextField.setText(numPlayers);
+			CountOfPlayersLabel.setText(numPlayers);
 			if (tempPlayers == 3) {
 				LessPlayerButton.setDisable(true);
 			}
@@ -102,11 +96,11 @@ public class CreateLobbyController {
 
 	public void handleMorePlayerButton(ActionEvent event) {
 		LessPlayerButton.setDisable(false);
-		int tempPlayers = Integer.parseInt(CountOfPlayersTextField.getText());
+		int tempPlayers = Integer.parseInt(CountOfPlayersLabel.getText());
 		if (tempPlayers < 7) {
 			tempPlayers++;
 			String numPlayers = Integer.toString(tempPlayers);
-			CountOfPlayersTextField.setText(numPlayers);
+			CountOfPlayersLabel.setText(numPlayers);
 			if (tempPlayers == 7) {
 				MorePlayerButton.setDisable(true);
 			}
@@ -124,8 +118,7 @@ public class CreateLobbyController {
 								FXMLLoader fxmlLoader = new FXMLLoader(
 										getClass().getResource("/ViewFXML/AdminInLobbyView.fxml"));
 								Parent root1 = (Parent) fxmlLoader.load();
-								AdminInLobbyViewController controller = fxmlLoader
-										.<AdminInLobbyViewController>getController();
+								AdminInLobbyViewController controller = fxmlLoader.<AdminInLobbyViewController>getController();
 								controller.setModel(model);
 								Stage stage = new Stage();
 								stage.setScene(new Scene(root1));
