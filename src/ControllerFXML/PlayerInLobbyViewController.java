@@ -1,10 +1,14 @@
 package ControllerFXML;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import application.ClientApplicationMain;
 import application.ClientModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -13,13 +17,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
-public class PlayerInLobbyViewController {
+public class PlayerInLobbyViewController implements Initializable{
 	
 	public ClientApplicationMain main;
 	private ClientModel model;
 	
 	@FXML
-	private Label LobbyNameLabel, PlayerInLobbyLabel;
+	private Label LobbyNameLabel, PlayerInLobbyLabel, PlayerInLobbyViewPlayerLabel;
 	@FXML
 	private Button StartLobbyButton, DeleteLobbyButton, StatButton;
 	@FXML
@@ -32,6 +36,7 @@ public class PlayerInLobbyViewController {
 	
 	public void setModel(ClientModel inModel) {
 		this.model = inModel;
+		PlayerInLobbyViewPlayerLabel.setText(model.getPlayer().getName());
 	}
 	
 	public void handleDeleteLobbyButton(ActionEvent event) {
@@ -62,6 +67,10 @@ public class PlayerInLobbyViewController {
 	
 	public void handleStatButton() {
 		
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {		
 	}
 	
 }

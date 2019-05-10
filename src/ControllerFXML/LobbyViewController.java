@@ -25,7 +25,7 @@ public class LobbyViewController implements Initializable {
 	@FXML
 	private ListView lobbyListView;
 	@FXML
-	private Label existingLobbyLabel;
+	private Label existingLobbyLabel, LobbyViewPlayerLabel;
 	@FXML
 	private Button CreateLobbyButton, JoinLobbyButton;
 
@@ -35,7 +35,7 @@ public class LobbyViewController implements Initializable {
 
 	public void setModel(ClientModel inModel) {
 		this.model = inModel;
-
+		LobbyViewPlayerLabel.setText(model.getPlayer().getName());
 		this.lobbyListView.itemsProperty().bind(model.getLobbyListProperty());
 	}
 
