@@ -16,16 +16,16 @@ import javafx.stage.Stage;
 public class PlayerInLobbyViewController {
 	
 	public ClientApplicationMain main;
-
 	private ClientModel model;
 	
 	@FXML
-	private Label LobbyNameLabel;
+	private Label LobbyNameLabel, PlayerInLobbyLabel;
 	@FXML
-	private ListView PlayerSearchListView;
-	@FXML 
-	private Button LeaveLobbyButton;
+	private Button StartLobbyButton, DeleteLobbyButton, StatButton;
+	@FXML
+	private ListView PlayerInLobbyListView;
 	
+		
 	public void setMain(ClientApplicationMain main) {
 		this.main = main;
 	}
@@ -34,7 +34,7 @@ public class PlayerInLobbyViewController {
 		this.model = inModel;
 	}
 	
-	public void handleLeaveLobbyButton(ActionEvent event) {
+	public void handleDeleteLobbyButton(ActionEvent event) {
 		try {
 		       FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ViewFXML/LobbyView.fxml"));
 		       Parent root1 = (Parent) fxmlLoader.load();
@@ -52,11 +52,16 @@ public class PlayerInLobbyViewController {
 		
 	}
 	
+	public void handleStartLobbyButton() {
+		
+	}
+	
 	public void setupListener(Scene inScene) {
 		
 	}
 	
+	public void handleStatButton() {
+		
+	}
 	
-	
-
 }

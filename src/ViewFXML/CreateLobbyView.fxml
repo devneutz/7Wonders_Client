@@ -58,5 +58,10 @@
             </HBox>
          </children>
       </VBox>
+      <Label fx:id="CreateLobbyViewPlayerLabel" prefHeight="36.0" prefWidth="160.0" style="-fx-background-color: c7aa72;" text="Playername" textFill="WHITE" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0">
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </Label>
    </children>
 </AnchorPane>

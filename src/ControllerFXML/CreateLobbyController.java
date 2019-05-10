@@ -116,9 +116,9 @@ public class CreateLobbyController {
 						public void run() {
 							try {
 								FXMLLoader fxmlLoader = new FXMLLoader(
-										getClass().getResource("/ViewFXML/AdminInLobbyView.fxml"));
+										getClass().getResource("/ViewFXML/PlayerInLobbyView.fxml"));
 								Parent root1 = (Parent) fxmlLoader.load();
-								AdminInLobbyViewController controller = fxmlLoader.<AdminInLobbyViewController>getController();
+								PlayerInLobbyViewController controller = fxmlLoader.<PlayerInLobbyViewController>getController();
 								controller.setModel(model);
 								Stage stage = new Stage();
 								stage.setScene(new Scene(root1));
