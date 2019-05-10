@@ -1,18 +1,24 @@
 package ControllerFXML;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import application.ClientApplicationMain;
 import application.ClientModel;
 import ch.fhnw.sevenwonders.enums.GameAction;
+import ch.fhnw.sevenwonders.interfaces.ICard;
 import ch.fhnw.sevenwonders.interfaces.IPlayer;
 import ch.fhnw.sevenwonders.messages.ClientGameMessage;
 import ch.fhnw.sevenwonders.messages.ServerGameMessage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 
-public class GameViewController {
+public class GameViewController implements Initializable {
 	
 	public ClientApplicationMain main;
 	
@@ -32,7 +38,7 @@ public class GameViewController {
 	public Label Player5Label;
 	public Label Player6Label;
 	
-
+	private ICard selectedCard;
 	
 	public void setMain(ClientApplicationMain main) {
 		this.main = main;
@@ -136,5 +142,29 @@ public class GameViewController {
 				}
 			}
 		});
+	}
+
+	private void deselectAllCards() {
+		// TODO playerCard1.setBorder() zu weniger dick und so weiter
+	}
+	
+	@FXML
+	public void onToggleCard(ActionEvent inEvent) {
+		deselectAllCards();
+		
+		ImageView cardImageView = (ImageView) inEvent.getSource();
+		
+		selectedCard = (ICard)cardImageView.getUserData();
+		
+		// TODO setBorder() zu fett
+	}
+	
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		// TODO Iterieren über alle Karten im aktuellen Spieler
+			// TODO Setzen der Rahmen anhand der canBuild-Methode | playerCard1.setBorder() oder ähnlich
+		
+			// TODO Setzen der Kartenobjekte | setUserData()
+		
 	}
 }

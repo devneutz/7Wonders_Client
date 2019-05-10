@@ -5,6 +5,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 
+import ch.fhnw.sevenwonders.enums.StatusCode;
 import ch.fhnw.sevenwonders.interfaces.*;
 import ch.fhnw.sevenwonders.messages.Message;
 import ch.fhnw.sevenwonders.messages.ServerLobbyMessage;
@@ -136,6 +137,10 @@ public class ClientModel {
 		// Die letzte erhaltene Message wird gesetzt sprich, das Handling wird über den
 		// Listener gesteuert.
 		lastReceivedMessage.setValue(inMessage);
+		
+		if(inMessage.getStatusCode() == StatusCode.Success) {
+			this.Lobbies.setValue(FXCollections.observableArrayList(inMessage.getLobbies()));
+		}
 	}
 	
 	private void handleDefaultMessges(Message inMessage) {
