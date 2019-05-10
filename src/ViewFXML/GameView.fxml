@@ -401,7 +401,7 @@
             </HBox>
             <HBox layoutX="53.0" layoutY="415.0" spacing="15.0">
                <children>
-                  <ImageView fx:id="PlayerCard1" fitHeight="198.0" fitWidth="125.0" layoutX="52.0" layoutY="415.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="PlayerCard1" fitHeight="198.0" fitWidth="125.0" layoutX="52.0" layoutY="415.0" onMouseClicked="#onToggleCard" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../CardImages/AGE%20I/AGE%20I.jpg" />
                      </image>
