@@ -129,11 +129,20 @@ public class LobbyViewController implements Initializable {
 	}
 
 	public void handleJoinLobbyButton(ActionEvent event) {
-		ClientLobbyMessage msg = new ClientLobbyMessage(LobbyAction.JoinLobby);
-		
-		msg.setLobby((ILobby)lobbyListView.getSelectionModel().getSelectedItem());
-		msg.setPlayer(model.getPlayer());
-		model.sendMessage(msg);		
+		if ((ILobby)lobbyListView.getSelectionModel().getSelectedItem() != null) {
+			ClientLobbyMessage msg = new ClientLobbyMessage(LobbyAction.JoinLobby);
+			
+			msg.setLobby((ILobby)lobbyListView.getSelectionModel().getSelectedItem());
+			msg.setPlayer(model.getPlayer());
+			model.sendMessage(msg);	
+			
+		} else {
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setTitle("keine Lobby ausgewählt");
+			alert.setHeaderText("Du hast keine Lobby ausgewählt");
+			alert.setContentText("Bitte wähle zuerst eine Lobby aus");
+			alert.showAndWait();
+		}	
 	}
 	
 	
