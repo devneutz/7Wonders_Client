@@ -11,6 +11,8 @@ import ch.fhnw.sevenwonders.interfaces.ILobby;
 import ch.fhnw.sevenwonders.messages.ClientLobbyMessage;
 import ch.fhnw.sevenwonders.messages.ServerLobbyMessage;
 import ch.fhnw.sevenwonders.models.Lobby;
+import ch.fhnw.sevenwonders.enums.StatusCode;
+import ch.fhnw.sevenwonders.messages.ServerLobbyMessage;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -130,7 +132,6 @@ public class LobbyViewController implements Initializable {
 			}
 		});
 	}
-	
 	
 
 	@Override

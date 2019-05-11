@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.util.Iterator;
 
 import ch.fhnw.sevenwonders.enums.StatusCode;
 import ch.fhnw.sevenwonders.interfaces.*;
@@ -59,8 +60,7 @@ public class ClientModel {
 	 * @param inPort
 	 */
 	public void connect(String inIpAddress, int inPort) {
-		try
-		{
+		try {
 			LobbyPlayers = new SimpleObjectProperty<ObservableList<IPlayer>>();
 			LobbyPlayers.setValue(FXCollections.observableArrayList());
 			Lobbies = new SimpleObjectProperty<ObservableList<ILobby>>();
@@ -70,19 +70,16 @@ public class ClientModel {
 			out = new ObjectOutputStream(socket.getOutputStream());
 			in = new ObjectInputStream(socket.getInputStream());
 			this.startMessageObserving();
-		} catch (Exception inEx)
-		{
+		} catch (Exception inEx) {
 
 		}
 	}
 
 	public void sendMessage(Message inMessage) {
-		try
-		{
+		try {
 			out.writeObject(inMessage);
 			out.flush();
-		} catch (Exception inEx)
-		{
+		} catch (Exception inEx) {
 			inEx.printStackTrace();
 		}
 	}
@@ -114,16 +111,22 @@ public class ClientModel {
 	private void handleLobbyDeletedMessage(ServerLobbyMessage inMessage) {
 		Platform.runLater(new Runnable() {
 			public void run() {
-				Lobbies.getValue().remove(inMessage.getLobby());
+				Iterator<ILobby> iter = Lobbies.getValue().iterator();
+				while (iter.hasNext()) {
+					ILobby L = iter.next();
+					if (L.getLobbyName().equals(inMessage.getLobby().getLobbyName())) {
+						iter.remove();
+					}
+				}
 			}
 		});
 
 		// Ist die gelöschte Lobby diejenige, in der ich mich aktuell befinde? In diesem
 		// Fall muss die View über die 'lastReceivedMessage' informiert werden
-		if (inMessage.getLobby().getLobbyName() == this.player.getLobby().getLobbyName())
-		{
-			lastReceivedMessage.setValue(inMessage);
-		}
+//		if (inMessage.getLobby().getLobbyName() == this.player.getLobby().getLobbyName())
+//		{
+//			lastReceivedMessage.setValue(inMessage);
+//		}
 	}
 
 	/**
@@ -137,32 +140,27 @@ public class ClientModel {
 		// Die letzte erhaltene Message wird gesetzt sprich, das Handling wird über den
 		// Listener gesteuert.
 		lastReceivedMessage.setValue(inMessage);
-		
-		if(inMessage.getStatusCode() == StatusCode.Success) {
+
+		if (inMessage.getStatusCode() == StatusCode.Success) {
 			this.Lobbies.setValue(FXCollections.observableArrayList(inMessage.getLobbies()));
 		}
 	}
-	
+
 	private void handleDefaultMessges(Message inMessage) {
 		lastReceivedMessage.setValue(inMessage);
 	}
 
 	private void startMessageObserving() {
-		try
-		{
+		try {
 			Runnable r = new Runnable() {
 				@Override
 				public void run() {
 					//
-					while (true)
-					{
-						try
-						{
+					while (true) {
+						try {
 							Message tmpMessage = (Message) in.readObject();
-							if (tmpMessage instanceof ServerLobbyMessage)
-							{
-								switch (((ServerLobbyMessage) tmpMessage).getAction())
-								{
+							if (tmpMessage instanceof ServerLobbyMessage) {
+								switch (((ServerLobbyMessage) tmpMessage).getAction()) {
 								case PlayerJoined:
 									handlePlayerJoinedMessage((ServerLobbyMessage) tmpMessage);
 									break;
@@ -179,14 +177,11 @@ public class ClientModel {
 									handleDefaultMessges(tmpMessage);
 									break;
 								}
-							} 
-							else if (tmpMessage instanceof ServerStartupMessage)
-							{
+							} else if (tmpMessage instanceof ServerStartupMessage) {
 								handleStartupMessages((ServerStartupMessage) tmpMessage);
 							}
-							
-						} catch (Exception inEx)
-						{
+
+						} catch (Exception inEx) {
 
 						}
 					}
@@ -197,21 +192,17 @@ public class ClientModel {
 			t.setDaemon(true);
 			t.start();
 
-		} catch (Exception inEx)
-		{
+		} catch (Exception inEx) {
 
 		}
 
 	}
 
 	public void disconnect() {
-		if (socket != null)
-		{
-			try
-			{
+		if (socket != null) {
+			try {
 				socket.close();
-			} catch (IOException inEx)
-			{
+			} catch (IOException inEx) {
 
 			}
 		}

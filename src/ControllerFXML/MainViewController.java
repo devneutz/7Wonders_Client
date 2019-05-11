@@ -8,9 +8,13 @@ import ch.fhnw.sevenwonders.enums.StartupAction;
 import ch.fhnw.sevenwonders.enums.StatusCode;
 import ch.fhnw.sevenwonders.interfaces.IPlayer;
 import ch.fhnw.sevenwonders.messages.ClientStartupMessage;
+import ch.fhnw.sevenwonders.messages.Message;
+import ch.fhnw.sevenwonders.messages.ServerLobbyMessage;
 import ch.fhnw.sevenwonders.messages.ServerStartupMessage;
 import ch.fhnw.sevenwonders.models.Player;
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -39,7 +43,7 @@ public class MainViewController implements Initializable {
 
 	private ClientModel model;
 	private IPlayer player = new Player();
-
+	
 	public void setMain(ClientApplicationMain main) {
 		this.main = main;
 	}
