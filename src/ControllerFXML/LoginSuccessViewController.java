@@ -35,6 +35,7 @@ public class LoginSuccessViewController {
 			controller.setModel(this.model);
 			Stage stage = new Stage();
 			Scene tmpScene = new Scene(root1);
+			controller.setupListener(tmpScene);
 			stage.setScene(tmpScene);
 			stage.show();
 
