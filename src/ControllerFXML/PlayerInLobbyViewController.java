@@ -77,9 +77,21 @@ public class PlayerInLobbyViewController implements Initializable{
 		this.model = inModel;
 		this.PlayerInLobbyListView.itemsProperty().bind(model.getOpponentsListProperty());
 		
-		//if(this.model.getPlayer().getLobby().getLobbyMaster().getName().equalsIgnoreCase(this.model.getPlayer().getName())) {
-		//	DeleteLobbyButton.setVisible(true);
-		//}
+		if(this.model.getPlayer().getLobby().getLobbyMaster().getName().equals(this.model.getPlayer().getName())) {
+			DeleteLobbyButton.setVisible(true);
+			DeleteLobbyButton.setDisable(false);
+			StartLobbyButton.setVisible(true);
+			StartLobbyButton.setDisable(false);
+			
+		}else{
+			DeleteLobbyButton.setText("leave lobby");
+			DeleteLobbyButton.setVisible(true);
+			DeleteLobbyButton.setDisable(false);			
+		}
+		
+		
+		
+		
 
 		PlayerInLobbyViewPlayerLabel.setText(model.getPlayer().getName());
 		
@@ -87,11 +99,22 @@ public class PlayerInLobbyViewController implements Initializable{
 	}
 	
 	public void handleDeleteLobbyButton(ActionEvent event) {
-		ClientLobbyMessage msg = new ClientLobbyMessage(LobbyAction.DeleteLobby);
-		ILobby tmpLobby = model.getPlayer().getLobby();
-		msg.setLobby(tmpLobby);
-		msg.setPlayer(model.getPlayer());
-		model.sendMessage(msg);
+		if(this.model.getPlayer().getLobby().getLobbyMaster().getName().equals(this.model.getPlayer().getName())) {
+			ClientLobbyMessage msg = new ClientLobbyMessage(LobbyAction.DeleteLobby);
+			ILobby tmpLobby = model.getPlayer().getLobby();
+			msg.setLobby(tmpLobby);
+			msg.setPlayer(model.getPlayer());
+			model.sendMessage(msg);
+		}else{
+			ClientLobbyMessage msg = new ClientLobbyMessage(LobbyAction.LeaveLobby);
+			ILobby tmpLobby = model.getPlayer().getLobby();
+			msg.setLobby(tmpLobby);
+			msg.setPlayer(model.getPlayer());
+			model.sendMessage(msg);
+		}
+		
+		
+		
 	}
 	
 	public void handleStartLobbyButton() {
