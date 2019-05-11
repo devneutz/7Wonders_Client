@@ -84,9 +84,9 @@ public class PlayerInLobbyViewController implements Initializable{
 		this.model = inModel;
 		this.PlayerInLobbyListView.itemsProperty().bind(model.getOpponentsListProperty());
 		
-		if(this.model.getPlayer().getLobby().getLobbyMaster().getName().equalsIgnoreCase(this.model.getPlayer().getName())) {
-			DeleteLobbyButton.setVisible(true);
-		}
+//		if(this.model.getPlayer().getLobby().getLobbyMaster().getName().equalsIgnoreCase(this.model.getPlayer().getName())) {
+//			DeleteLobbyButton.setVisible(true);
+//		}
 		PlayerInLobbyViewPlayerLabel.setText(model.getPlayer().getName());
 	}
 	
