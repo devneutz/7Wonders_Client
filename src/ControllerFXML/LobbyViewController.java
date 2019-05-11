@@ -5,6 +5,9 @@ import java.util.ResourceBundle;
 
 import application.ClientApplicationMain;
 import application.ClientModel;
+import ch.fhnw.sevenwonders.enums.StatusCode;
+import ch.fhnw.sevenwonders.messages.ServerLobbyMessage;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -78,6 +81,8 @@ public class LobbyViewController implements Initializable {
 		}
 
 	}
+	
+
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
