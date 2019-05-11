@@ -33,12 +33,12 @@
             </VBox>
             <HBox alignment="CENTER" layoutX="310.0" layoutY="575.0" spacing="10.0">
                <children>
-                  <Button fx:id="CreateLobbyButton" layoutX="310.0" layoutY="575.0" mnemonicParsing="false" onAction="#handleCreateLobbyButton" prefHeight="36.0" prefWidth="195.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0;" text="create Lobby" textFill="WHITE">
+                  <Button fx:id="CreateLobbyButton" layoutX="310.0" layoutY="575.0" mnemonicParsing="false" onAction="#handleCreateLobbyButton" prefHeight="36.0" prefWidth="195.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0; -fx-cursor: hand;" text="create Lobby" textFill="WHITE">
                      <font>
                         <Font name="Arial" size="13.0" />
                      </font>
                   </Button>
-                  <Button fx:id="JoinLobbyButton" layoutX="553.0" layoutY="575.0" mnemonicParsing="false" onAction="#handleJoinLobbyButton" prefHeight="36.0" prefWidth="195.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0;" text="join Lobby" textFill="WHITE">
+                  <Button fx:id="JoinLobbyButton" layoutX="553.0" layoutY="575.0" mnemonicParsing="false" onAction="#handleJoinLobbyButton" prefHeight="36.0" prefWidth="195.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0; -fx-cursor: hand;" text="join Lobby" textFill="WHITE">
                      <font>
                         <Font name="Arial" size="13.0" />
                      </font>
