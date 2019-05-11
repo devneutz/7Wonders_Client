@@ -1,6 +1,5 @@
 package ControllerFXML;
 
-import java.util.Observable;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -9,10 +8,10 @@ import application.ClientModel;
 import ch.fhnw.sevenwonders.enums.LobbyAction;
 import ch.fhnw.sevenwonders.enums.StatusCode;
 import ch.fhnw.sevenwonders.interfaces.ILobby;
+import ch.fhnw.sevenwonders.interfaces.IPlayer;
 import ch.fhnw.sevenwonders.messages.ClientLobbyMessage;
 import ch.fhnw.sevenwonders.messages.Message;
 import ch.fhnw.sevenwonders.messages.ServerLobbyMessage;
-import ch.fhnw.sevenwonders.models.Lobby;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -20,7 +19,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -35,9 +33,9 @@ public class PlayerInLobbyViewController implements Initializable{
 	
 	private Scene parentScene;
 	
-	private ChangeListener<Message> changeListener = new ChangeListener() {
+	private ChangeListener<Message> changeListener = new ChangeListener<Message>() {
 		@Override
-		public void changed(ObservableValue observable, Object oldValue, Object newValue) {
+		public void changed(ObservableValue observable, Message oldValue, Message newValue) {
 			// TODO Auto-generated method stub
 			if (newValue instanceof ServerLobbyMessage) {
 				newValue = (ServerLobbyMessage) newValue;
@@ -73,12 +71,7 @@ public class PlayerInLobbyViewController implements Initializable{
 	@FXML
 	private Button StartLobbyButton, DeleteLobbyButton, StatButton;
 	@FXML
-	private ListView PlayerInLobbyListView;
-	
-		
-	public void setMain(ClientApplicationMain main) {
-		this.main = main;
-	}
+	private ListView<IPlayer> PlayerInLobbyListView;	
 	
 	public void setModel(ClientModel inModel) {
 		this.model = inModel;
@@ -87,7 +80,10 @@ public class PlayerInLobbyViewController implements Initializable{
 		//if(this.model.getPlayer().getLobby().getLobbyMaster().getName().equalsIgnoreCase(this.model.getPlayer().getName())) {
 		//	DeleteLobbyButton.setVisible(true);
 		//}
+
 		PlayerInLobbyViewPlayerLabel.setText(model.getPlayer().getName());
+		
+		this.LobbyNameLabel.setText(model.getPlayer().getLobby().getLobbyName());
 	}
 	
 	public void handleDeleteLobbyButton(ActionEvent event) {
@@ -96,8 +92,6 @@ public class PlayerInLobbyViewController implements Initializable{
 		msg.setLobby(tmpLobby);
 		msg.setPlayer(model.getPlayer());
 		model.sendMessage(msg);
-			
-		
 	}
 	
 	public void handleStartLobbyButton() {
@@ -106,6 +100,7 @@ public class PlayerInLobbyViewController implements Initializable{
 	
 	public void setupListener(Scene inScene) {
 		this.parentScene = inScene;
+		this.model.getLastReceivedMessage().removeListener(this.changeListener);
 		this.model.getLastReceivedMessage().addListener(this.changeListener);
 	}
 	
@@ -114,7 +109,7 @@ public class PlayerInLobbyViewController implements Initializable{
 	}
 
 	@Override
-	public void initialize(URL location, ResourceBundle resources) {		
+	public void initialize(URL location, ResourceBundle resources) {
 	}
 	
 }

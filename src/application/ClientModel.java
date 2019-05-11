@@ -52,6 +52,10 @@ public class ClientModel {
 	public ObjectProperty<Message> getLastReceivedMessage() {
 		return this.lastReceivedMessage;
 	}
+	
+	public boolean isPlayerInAnyLobby() {
+		return this.player.getLobby() != null;
+	}
 
 	/**
 	 * Verbindung zum Server aufbauen
@@ -85,11 +89,13 @@ public class ClientModel {
 	}
 
 	private void handlePlayerJoinedMessage(ServerLobbyMessage inMessage) {
-		Platform.runLater(new Runnable() {
-			public void run() {
-				LobbyPlayers.getValue().add(inMessage.getPlayer());
-			}
-		});
+		if(isPlayerInAnyLobby() && inMessage.getLobby().getLobbyName() == this.player.getLobby().getLobbyName()) {
+			Platform.runLater(new Runnable() {
+				public void run() {
+					LobbyPlayers.getValue().add(inMessage.getPlayer());
+				}
+			});
+		}
 	}
 
 	private void handlePlayerLeftMessage(ServerLobbyMessage inMessage) {
@@ -101,11 +107,14 @@ public class ClientModel {
 	}
 
 	private void handleLobbyCreatedMessage(ServerLobbyMessage inMessage) {
-		Platform.runLater(new Runnable() {
-			public void run() {
-				Lobbies.getValue().add(inMessage.getLobby());
-			}
-		});
+		if(isPlayerInAnyLobby() && inMessage.getLobby().getLobbyName() == this.player.getLobby().getLobbyName()) {
+			Platform.runLater(new Runnable() {
+				public void run() {
+					Lobbies.getValue().add(inMessage.getLobby());
+					LobbyPlayers.getValue().add(inMessage.getLobby().getLobbyMaster());
+				}
+			});
+		}
 	}
 
 	private void handleLobbyDeletedMessage(ServerLobbyMessage inMessage) {
@@ -120,13 +129,6 @@ public class ClientModel {
 				}
 			}
 		});
-
-		// Ist die gelöschte Lobby diejenige, in der ich mich aktuell befinde? In diesem
-		// Fall muss die View über die 'lastReceivedMessage' informiert werden
-//		if (inMessage.getLobby().getLobbyName() == this.player.getLobby().getLobbyName())
-//		{
-//			lastReceivedMessage.setValue(inMessage);
-//		}
 	}
 
 	/**
@@ -145,8 +147,14 @@ public class ClientModel {
 			this.Lobbies.setValue(FXCollections.observableArrayList(inMessage.getLobbies()));
 		}
 	}
+	
+	private void handleJoinLobby(ServerLobbyMessage inMessage) {
+		lastReceivedMessage.setValue(inMessage);
+		LobbyPlayers.getValue().clear();
+		LobbyPlayers.getValue().addAll(inMessage.getLobby().getLobbyPlayers());
+	}
 
-	private void handleDefaultMessges(Message inMessage) {
+	private void handleDefaultMessages(Message inMessage) {
 		lastReceivedMessage.setValue(inMessage);
 	}
 
@@ -173,8 +181,11 @@ public class ClientModel {
 								case LobbyDeleted:
 									handleLobbyDeletedMessage((ServerLobbyMessage) tmpMessage);
 									break;
+								case JoinLobby:
+									handleJoinLobby((ServerLobbyMessage)tmpMessage);
+									break;
 								default:
-									handleDefaultMessges(tmpMessage);
+									handleDefaultMessages((ServerLobbyMessage)tmpMessage);
 									break;
 								}
 							} else if (tmpMessage instanceof ServerStartupMessage) {

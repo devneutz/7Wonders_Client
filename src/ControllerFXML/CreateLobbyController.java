@@ -53,9 +53,9 @@ public class CreateLobbyController {
 	}
 	
 	
-	private ChangeListener<Message> changeListener = new ChangeListener() {
+	private ChangeListener<Message> changeListener = new ChangeListener<Message>() {
 		@Override
-		public void changed(ObservableValue observable, Object oldValue, Object newValue) {
+		public void changed(ObservableValue observable, Message oldValue, Message newValue) {
 			// TODO Auto-generated method stub
 			if (newValue instanceof ServerLobbyMessage) {
 				newValue = (ServerLobbyMessage) newValue;
@@ -152,6 +152,7 @@ public class CreateLobbyController {
 
 	public void setupListener(Scene inScene) {
 		this.parentScene = inScene;
+		this.model.getLastReceivedMessage().removeListener(this.changeListener);
 		this.model.getLastReceivedMessage().addListener(this.changeListener);
 	}
 }
