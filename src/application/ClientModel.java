@@ -107,14 +107,15 @@ public class ClientModel {
 	}
 
 	private void handleLobbyCreatedMessage(ServerLobbyMessage inMessage) {
-		if(isPlayerInAnyLobby() && inMessage.getLobby().getLobbyName() == this.player.getLobby().getLobbyName()) {
 			Platform.runLater(new Runnable() {
 				public void run() {
 					Lobbies.getValue().add(inMessage.getLobby());
-					LobbyPlayers.getValue().add(inMessage.getLobby().getLobbyMaster());
+
+					if(isPlayerInAnyLobby() && inMessage.getLobby().getLobbyName() == player.getLobby().getLobbyName()) {
+						LobbyPlayers.getValue().add(inMessage.getLobby().getLobbyMaster());
+					}
 				}
 			});
-		}
 	}
 
 	private void handleLobbyDeletedMessage(ServerLobbyMessage inMessage) {
