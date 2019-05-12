@@ -37,7 +37,7 @@ public class CreateLobbyController {
 	
 
 	@FXML
-	private Label NumberOfPlayerLabel, CountOfPlayersLabel;
+	private Label NumberOfPlayerLabel, CountOfPlayersLabel,CreateLobbyViewPlayerLabel;
 	@FXML
 	private Button LessPlayerButton, MorePlayerButton, createLobbyOkButton, createLobbyCancelButton;
 	@FXML
@@ -50,6 +50,7 @@ public class CreateLobbyController {
 
 	public void setModel(ClientModel inModel) {
 		this.model = inModel;
+		CreateLobbyViewPlayerLabel.setText(model.getPlayer().getName());
 	}
 	
 	
