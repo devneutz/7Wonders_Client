@@ -242,12 +242,14 @@ public class LoginViewController implements Initializable {
 	 * Wenn der User auf den Button "<" klickt wird diese Methode ausgef�hrt. Der
 	 * User wird auf das vorherige MainView Fenster gef�hrt.
 	 */
+	@FXML
 	public void handleGoBackButton(ActionEvent event) {
 		try {
 			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ViewFXML/MainView.fxml"));
 			Parent root1 = (Parent) fxmlLoader.load();
 			MainViewController controller = fxmlLoader.<MainViewController>getController();
 			controller.setModel(model);
+			model.getLastReceivedMessage().removeListener(this.changeListener);
 			Stage stage = new Stage();
 			stage.setScene(new Scene(root1));
 			stage.show();
