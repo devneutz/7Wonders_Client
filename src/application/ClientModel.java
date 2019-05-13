@@ -184,6 +184,9 @@ public class ClientModel {
 							{
 								handleStartupMessages((ServerStartupMessage) tmpMessage);
 							}
+							else {
+								handleDefaultMessges(tmpMessage);
+							}
 							
 						} catch (Exception inEx)
 						{

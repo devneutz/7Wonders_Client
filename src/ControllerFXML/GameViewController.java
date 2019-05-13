@@ -57,7 +57,7 @@ public class GameViewController implements Initializable {
 		
 		// TODO Karten sollen ebenfalls nicht mehr selektierbar sein - Warten auf Umsetzung durch ruluke
 		
-		// Zusammenstellen der Nachricht an den Server. Dies beinhält die Aktion, die vom Spieler durchgeführt werden will.
+		// Zusammenstellen der Nachricht an den Server. Diese beinhaltet die Aktion, die vom Spieler durchgeführt werden will.
 		ClientGameMessage msg = new ClientGameMessage(GameAction.MonetizeCard);
 		
 		// TODO Setzen der ausgewählten Karte - Warten auf Umsetzung durch ruluke
@@ -71,23 +71,43 @@ public class GameViewController implements Initializable {
 	}
 	
 	public void handleRessourceVerwendenButton(ActionEvent event) {
-		RessourceVerwendenButton.setDisable(false);
+		// Deaktivieren sämtlicher Interaktionsmöglichkeiten des Spielers - solange bis eine Nachricht vom Server zurückkommt.
+		RessourceVerwendenButton.setDisable(true);
+		UmmunzenButton.setDisable(true);
+		ZumBauVerwendenButton.setDisable(true);
+		
+		// Zusammenstellen der Nachricht an den Server. Diese beinhaltet die Aktion, die vom Spieler durchgeführt werden will.
 		ClientGameMessage msg = new ClientGameMessage(GameAction.PlayCard);
 		
+		// TODO Setzen der ausgewählten Karte - Warten auf Umsetzung durch ruluke
 		msg.setCard(null);
+		
+		// Setzen des Spielers, damit der Server Bescheid weiss um welchen es sich handelt.
 		msg.setPlayer(model.getPlayer());
-				
+		
+		// Senden
 		model.sendMessage(msg);		
 	}
 	
 	public void handleZumBauVerwendenButton() {
+		// Deaktivieren sämtlicher Interaktionsmöglichkeiten des Spielers - solange bis eine Nachricht vom Server zurückkommt.
+		RessourceVerwendenButton.setDisable(true);
+		UmmunzenButton.setDisable(true);
 		ZumBauVerwendenButton.setDisable(false);
+		
+		// Zusammenstellen der Nachricht an den Server. Diese beinhaltet die Aktion, die vom Spieler durchgeführt werden will.
 		ClientGameMessage msg = new ClientGameMessage(GameAction.BuildCard);
 		
+		// TODO Setzen der ausgewählten Karte - Warten auf Umsetzung durch ruluke
 		msg.setCard(null);
+		
+		// Setzen des Spielers, damit der Server Bescheid weiss um welchen es sich handelt.
 		msg.setPlayer(model.getPlayer());
+		
+		// Setzen des Boards, damit der Server Bescheid weiss um welches es sich handelt.
 		msg.setBoard(player.getBoard());
 		
+		// Senden
 		model.sendMessage(msg);
 	}
 	
