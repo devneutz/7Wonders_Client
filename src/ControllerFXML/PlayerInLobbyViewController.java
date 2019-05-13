@@ -51,7 +51,9 @@ public class PlayerInLobbyViewController implements Initializable{
 								LobbyViewController controller = fxmlLoader.<LobbyViewController>getController();
 								controller.setModel(model);
 								Stage stage = new Stage();
-								stage.setScene(new Scene(root1));
+								Scene scene = new Scene(root1);
+								controller.setupListener(scene);
+								stage.setScene(scene);
 								stage.show();
 
 								parentScene.getWindow().hide();
