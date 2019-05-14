@@ -45,7 +45,7 @@ public class LoginViewController implements Initializable {
 	public ClientApplicationMain main;
 	private ClientModel model;
 
-	private IPlayer player = new Player();
+	private IPlayer player;
 	@FXML
 	private TextField enterUsernameTxtField;
 	@FXML
@@ -188,6 +188,7 @@ public class LoginViewController implements Initializable {
 			GoBackButton.setDisable(true);
 
 			String username = enterUsernameTxtField.getText();
+			player = new Player();
 			player.setName(username);
 
 			String password = enterPasswordPassField.getText();
@@ -224,6 +225,7 @@ public class LoginViewController implements Initializable {
 			GoBackButton.setDisable(true);
 
 			String username = enterUsernameTxtField.getText();
+			player = new Player();
 			player.setName(username);
 
 			String password = enterPasswordPassField.getText();
