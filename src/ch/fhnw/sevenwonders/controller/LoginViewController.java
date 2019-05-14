@@ -254,7 +254,9 @@ public class LoginViewController implements Initializable {
 			controller.setModel(model);
 			model.getLastReceivedMessage().removeListener(this.changeListener);
 			Stage stage = new Stage();
-			stage.setScene(new Scene(root1));
+			Scene tmpScene = new Scene(root1);
+			controller.setupListeners(tmpScene);
+			stage.setScene(tmpScene);
 			stage.show();
 
 			((Node) event.getSource()).getScene().getWindow().hide();
