@@ -114,7 +114,8 @@ public class ClientModel {
 					Lobbies.getValue().add(inMessage.getLobby());
 
 					if(isPlayerInAnyLobby() && inMessage.getLobby().getLobbyName().equals(inMessage.getLobby().getLobbyName())) {
-						LobbyPlayers.getValue().add(inMessage.getLobby().getLobbyMaster());
+						LobbyPlayers.getValue().clear();
+						LobbyPlayers.getValue().addAll(inMessage.getLobby().getLobbyPlayers());
 					}
 				}
 			});
