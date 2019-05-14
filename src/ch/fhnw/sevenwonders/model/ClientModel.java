@@ -81,8 +81,9 @@ public class ClientModel {
 
 	public void sendMessage(Message inMessage) {
 		try {
+			out.reset();
 			out.writeObject(inMessage);
-			out.flush();
+			out.flush();			
 		} catch (Exception inEx) {
 			inEx.printStackTrace();
 		}
@@ -112,7 +113,7 @@ public class ClientModel {
 				public void run() {
 					Lobbies.getValue().add(inMessage.getLobby());
 
-					if(isPlayerInAnyLobby() && inMessage.getLobby().getLobbyName().equals(player.getLobby().getLobbyName())) {
+					if(isPlayerInAnyLobby() && inMessage.getLobby().getLobbyName().equals(inMessage.getLobby().getLobbyName())) {
 						LobbyPlayers.getValue().add(inMessage.getLobby().getLobbyMaster());
 					}
 				}
