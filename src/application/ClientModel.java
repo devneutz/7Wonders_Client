@@ -101,7 +101,8 @@ public class ClientModel {
 	private void handlePlayerLeftMessage(ServerLobbyMessage inMessage) {
 		Platform.runLater(new Runnable() {
 			public void run() {
-				LobbyPlayers.getValue().remove(inMessage.getPlayer());
+				LobbyPlayers.getValue().clear();
+				LobbyPlayers.getValue().addAll(inMessage.getLobby().getLobbyPlayers());
 			}
 		});
 	}
@@ -111,7 +112,7 @@ public class ClientModel {
 				public void run() {
 					Lobbies.getValue().add(inMessage.getLobby());
 
-					if(isPlayerInAnyLobby() && inMessage.getLobby().getLobbyName() == player.getLobby().getLobbyName()) {
+					if(isPlayerInAnyLobby() && inMessage.getLobby().getLobbyName().equals(player.getLobby().getLobbyName())) {
 						LobbyPlayers.getValue().add(inMessage.getLobby().getLobbyMaster());
 					}
 				}
@@ -119,6 +120,10 @@ public class ClientModel {
 	}
 
 	private void handleLobbyDeletedMessage(ServerLobbyMessage inMessage) {
+		if(isPlayerInAnyLobby() && inMessage.getLobby().getLobbyName().equals(player.getLobby().getLobbyName())) {
+			this.lastReceivedMessage.setValue(inMessage);
+		}
+		
 		Platform.runLater(new Runnable() {
 			public void run() {
 				Iterator<ILobby> iter = Lobbies.getValue().iterator();

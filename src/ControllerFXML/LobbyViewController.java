@@ -46,6 +46,7 @@ public class LobbyViewController implements Initializable {
 		public void changed(ObservableValue observable, Message oldValue, Message newValue) {
 			if (newValue instanceof ServerLobbyMessage) {
 				newValue = (ServerLobbyMessage) newValue;
+				
 				if (((ServerLobbyMessage) newValue).getStatusCode() == StatusCode.Success) {
 					model.setPlayer(((ServerLobbyMessage) newValue).getPlayer());
 					model.getLastReceivedMessage().removeListener(this);

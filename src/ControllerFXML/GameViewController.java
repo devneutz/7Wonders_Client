@@ -70,7 +70,7 @@ public class GameViewController implements Initializable {
 		for (int x = 0; x < model.getPlayer().getCardStack().size(); x++) {
 			HBoxArray[x].setUserData(model.getPlayer().getCardStack().get(x));
 
-			if(model.getPlayer().getCardStack().get(x).isPlayable(model.getPlayer().getPlayerResources())) {
+			if(model.getPlayer().getCardStack().get(x).isPlayable(null)) {
 				HBoxArray[x].setStyle("-fx-border-color: green;");		
 			}
 		}

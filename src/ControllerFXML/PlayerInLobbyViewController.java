@@ -39,6 +39,34 @@ public class PlayerInLobbyViewController implements Initializable{
 			// TODO Auto-generated method stub
 			if (newValue instanceof ServerLobbyMessage) {
 				newValue = (ServerLobbyMessage) newValue;
+				// Kommt eine LobbyDeleted-Message hierher, heisst dies, der Spieler befindet sich in der zu löschenden Lobby.
+				if(((ServerLobbyMessage) newValue).getAction() == LobbyAction.LobbyDeleted) {
+					model.getLastReceivedMessage().removeListener(this);
+					Platform.runLater(new Runnable() {
+						public void run() {
+							try {
+								FXMLLoader  fxmlLoader = new FXMLLoader(
+										getClass().getResource("/ViewFXML/LobbyView.fxml"));
+								Parent root1 = (Parent) fxmlLoader.load();
+								LobbyViewController controller = fxmlLoader.<LobbyViewController>getController();
+								controller.setModel(model);
+								Stage stage = new Stage();
+								Scene tmpScene = new Scene(root1);
+								controller.setupListener(tmpScene);
+								stage.setScene(tmpScene);
+								
+								stage.show();
+
+								parentScene.getWindow().hide();
+
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+						}
+					});
+					return;
+				}
+				
 				if (((ServerLobbyMessage) newValue).getStatusCode() == StatusCode.Success) {
 					model.setPlayer(((ServerLobbyMessage) newValue).getPlayer());
 					model.getLastReceivedMessage().removeListener(this);
@@ -91,10 +119,6 @@ public class PlayerInLobbyViewController implements Initializable{
 			DeleteLobbyButton.setDisable(false);			
 		}
 		
-		
-		
-		
-
 		PlayerInLobbyViewPlayerLabel.setText(model.getPlayer().getName());
 		
 		this.LobbyNameLabel.setText(model.getPlayer().getLobby().getLobbyName());
