@@ -5,4 +5,4 @@
  * @author lucasruesch
  *
  */
-package CardImages;
+package ch.fhnw.sevenwonders.view;

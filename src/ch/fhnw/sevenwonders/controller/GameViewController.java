@@ -1,16 +1,16 @@
-package ControllerFXML;
+package ch.fhnw.sevenwonders.controller;
 
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import application.ClientApplicationMain;
-import application.ClientModel;
+import ch.fhnw.sevenwonders.application.ClientApplicationMain;
 import ch.fhnw.sevenwonders.enums.GameAction;
 import ch.fhnw.sevenwonders.interfaces.ICard;
 import ch.fhnw.sevenwonders.interfaces.IPlayer;
 import ch.fhnw.sevenwonders.messages.ClientGameMessage;
 import ch.fhnw.sevenwonders.messages.ServerGameMessage;
+import ch.fhnw.sevenwonders.model.ClientModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

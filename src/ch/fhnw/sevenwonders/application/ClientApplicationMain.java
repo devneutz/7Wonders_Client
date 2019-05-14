@@ -1,8 +1,9 @@
-﻿package application;
+﻿package ch.fhnw.sevenwonders.application;
 
 import java.io.IOException;
 
-import ControllerFXML.MainViewController;
+import ch.fhnw.sevenwonders.controller.MainViewController;
+import ch.fhnw.sevenwonders.model.ClientModel;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -27,7 +28,7 @@ public class ClientApplicationMain extends Application {
 		try {
 			
 			//FXML Datei kann direkt im SceneBuilder geöffnet werden
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/ViewFXML/MainView.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/ch/fhnw/sevenwonders/view/MainView.fxml"));
 			AnchorPane pane = loader.load();
 
 			MainViewController controller = loader.<MainViewController>getController();

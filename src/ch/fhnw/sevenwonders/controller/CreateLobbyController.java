@@ -1,12 +1,12 @@
-package ControllerFXML;
+package ch.fhnw.sevenwonders.controller;
 
-import application.ClientApplicationMain;
-import application.ClientModel;
+import ch.fhnw.sevenwonders.application.ClientApplicationMain;
 import ch.fhnw.sevenwonders.enums.LobbyAction;
 import ch.fhnw.sevenwonders.enums.StatusCode;
 import ch.fhnw.sevenwonders.messages.ClientLobbyMessage;
 import ch.fhnw.sevenwonders.messages.Message;
 import ch.fhnw.sevenwonders.messages.ServerLobbyMessage;
+import ch.fhnw.sevenwonders.model.ClientModel;
 import ch.fhnw.sevenwonders.models.Lobby;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
@@ -67,7 +67,7 @@ public class CreateLobbyController {
 						public void run() {
 							try {
 								FXMLLoader fxmlLoader = new FXMLLoader(
-										getClass().getResource("/ViewFXML/PlayerInLobbyView.fxml"));
+										getClass().getResource("/ch/fhnw/sevenwonders/view/PlayerInLobbyView.fxml"));
 								Parent root1 = (Parent) fxmlLoader.load();
 								PlayerInLobbyViewController controller = fxmlLoader.<PlayerInLobbyViewController>getController();
 								controller.setModel(model);
@@ -92,7 +92,7 @@ public class CreateLobbyController {
 
 	public void handleCreateLobbyCancelButton(ActionEvent event) {
 		try {
-			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ViewFXML/LobbyView.fxml"));
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ch/fhnw/sevenwonders/view/LobbyView.fxml"));
 			Parent root1 = (Parent) fxmlLoader.load();
 			LobbyViewController controller = fxmlLoader.<LobbyViewController>getController();
 			controller.setModel(model);

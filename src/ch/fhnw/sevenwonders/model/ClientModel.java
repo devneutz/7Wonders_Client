@@ -1,4 +1,4 @@
-package application;
+package ch.fhnw.sevenwonders.model;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;

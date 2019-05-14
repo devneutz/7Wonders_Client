@@ -5,4 +5,4 @@
  * @author lucasruesch
  *
  */
-package ControllerFXML;
+package ch.fhnw.sevenwonders.resources;
