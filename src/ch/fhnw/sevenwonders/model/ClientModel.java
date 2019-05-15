@@ -200,7 +200,7 @@ public class ClientModel {
 								handleStartupMessages((ServerStartupMessage) tmpMessage);
 							}
 							else {
-								handleDefaultMessges(tmpMessage);
+								handleDefaultMessages(tmpMessage);
 							}
 							
 						} catch (Exception inEx)
