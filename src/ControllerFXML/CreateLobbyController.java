@@ -5,9 +5,12 @@ import application.ClientModel;
 import ch.fhnw.sevenwonders.enums.LobbyAction;
 import ch.fhnw.sevenwonders.enums.StatusCode;
 import ch.fhnw.sevenwonders.messages.ClientLobbyMessage;
+import ch.fhnw.sevenwonders.messages.Message;
 import ch.fhnw.sevenwonders.messages.ServerLobbyMessage;
 import ch.fhnw.sevenwonders.models.Lobby;
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,9 +32,12 @@ public class CreateLobbyController {
 	public ClientApplicationMain main;
 
 	private ClientModel model;
+	
+	private Scene parentScene;
+	
 
 	@FXML
-	private Label NumberOfPlayerLabel, CountOfPlayersLabel;
+	private Label NumberOfPlayerLabel, CountOfPlayersLabel,CreateLobbyViewPlayerLabel;
 	@FXML
 	private Button LessPlayerButton, MorePlayerButton, createLobbyOkButton, createLobbyCancelButton;
 	@FXML
@@ -44,7 +50,45 @@ public class CreateLobbyController {
 
 	public void setModel(ClientModel inModel) {
 		this.model = inModel;
+		CreateLobbyViewPlayerLabel.setText(model.getPlayer().getName());
 	}
+	
+	
+	private ChangeListener<Message> changeListener = new ChangeListener<Message>() {
+		@Override
+		public void changed(ObservableValue observable, Message oldValue, Message newValue) {
+			// TODO Auto-generated method stub
+			if (newValue instanceof ServerLobbyMessage) {
+				newValue = (ServerLobbyMessage) newValue;
+				if (((ServerLobbyMessage) newValue).getStatusCode() == StatusCode.Success) {
+					model.setPlayer(((ServerLobbyMessage) newValue).getPlayer());
+					model.getLastReceivedMessage().removeListener(this);
+					Platform.runLater(new Runnable() {
+						public void run() {
+							try {
+								FXMLLoader fxmlLoader = new FXMLLoader(
+										getClass().getResource("/ViewFXML/PlayerInLobbyView.fxml"));
+								Parent root1 = (Parent) fxmlLoader.load();
+								PlayerInLobbyViewController controller = fxmlLoader.<PlayerInLobbyViewController>getController();
+								controller.setModel(model);
+								Stage stage = new Stage();
+								Scene scene = new Scene(root1);
+								controller.setupListener(scene);
+								stage.setScene(scene);
+								stage.show();
+
+								parentScene.getWindow().hide();
+
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+						}
+					});
+				}
+			}
+		}
+	};
+
 
 	public void handleCreateLobbyCancelButton(ActionEvent event) {
 		try {
@@ -108,31 +152,8 @@ public class CreateLobbyController {
 	}
 
 	public void setupListener(Scene inScene) {
-		this.model.getLastReceivedMessage().addListener((observable, oldvalue, newValue) -> {
-			if (newValue instanceof ServerLobbyMessage) {
-				newValue = (ServerLobbyMessage) newValue;
-				if (((ServerLobbyMessage) newValue).getStatusCode() == StatusCode.Success) {
-					Platform.runLater(new Runnable() {
-						public void run() {
-							try {
-								FXMLLoader fxmlLoader = new FXMLLoader(
-										getClass().getResource("/ViewFXML/AdminInLobbyView.fxml"));
-								Parent root1 = (Parent) fxmlLoader.load();
-								AdminInLobbyViewController controller = fxmlLoader.<AdminInLobbyViewController>getController();
-								controller.setModel(model);
-								Stage stage = new Stage();
-								stage.setScene(new Scene(root1));
-								stage.show();
-
-								inScene.getWindow().hide();
-
-							} catch (Exception e) {
-								e.printStackTrace();
-							}
-						}
-					});
-				}
-			}
-		});
+		this.parentScene = inScene;
+		this.model.getLastReceivedMessage().removeListener(this.changeListener);
+		this.model.getLastReceivedMessage().addListener(this.changeListener);
 	}
 }

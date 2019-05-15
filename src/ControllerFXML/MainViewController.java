@@ -8,9 +8,13 @@ import ch.fhnw.sevenwonders.enums.StartupAction;
 import ch.fhnw.sevenwonders.enums.StatusCode;
 import ch.fhnw.sevenwonders.interfaces.IPlayer;
 import ch.fhnw.sevenwonders.messages.ClientStartupMessage;
+import ch.fhnw.sevenwonders.messages.Message;
+import ch.fhnw.sevenwonders.messages.ServerLobbyMessage;
 import ch.fhnw.sevenwonders.messages.ServerStartupMessage;
 import ch.fhnw.sevenwonders.models.Player;
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -36,10 +40,47 @@ public class MainViewController implements Initializable {
 	// Instanz der Main Klasse
 	public ClientApplicationMain main;
 	public Button LogRegButton, PlayAsGuestButton;
+	
+	private Scene parentScene;
 
 	private ClientModel model;
 	private IPlayer player = new Player();
+	
+	private ChangeListener<Message> changeListener = new ChangeListener<Message>() {
+		@Override
+		public void changed(ObservableValue observable, Message oldValue, Message newValue) {
+			// Ist es eine korrekte Antwort?
+			if (newValue instanceof ServerStartupMessage) {
+				newValue = (ServerStartupMessage) newValue;
+				if (((ServerStartupMessage) newValue).getStatusCode() == StatusCode.Success) {
+					model.setPlayer(((ServerStartupMessage) newValue).getPlayer());
+					model.getLastReceivedMessage().removeListener(this);
+					Platform.runLater(new Runnable() {
+						public void run() {
+							try {
+								FXMLLoader fxmlLoader = new FXMLLoader(
+										getClass().getResource("/ViewFXML/LobbyView.fxml"));
+								Parent root1 = (Parent) fxmlLoader.load();
+								LobbyViewController controller = fxmlLoader.<LobbyViewController>getController();
+								controller.setModel(model);
+								Stage stage = new Stage();
+								Scene tmpScene = new Scene(root1);
+								controller.setupListener(tmpScene);
+								stage.setScene(tmpScene);
+								stage.show();
 
+								parentScene.getWindow().hide();
+
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+						}
+					});
+				}
+			}
+		}
+	};
+	
 	public void setMain(ClientApplicationMain main) {
 		this.main = main;
 	}
@@ -55,6 +96,7 @@ public class MainViewController implements Initializable {
 	@FXML
 	public void handleLogRegButton(ActionEvent event) {
 		try {
+			model.getLastReceivedMessage().removeListener(this.changeListener);
 			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ViewFXML/LoginView.fxml"));
 			Parent root1 = (Parent) fxmlLoader.load();
 			LoginViewController controller = fxmlLoader.<LoginViewController>getController();
@@ -79,7 +121,6 @@ public class MainViewController implements Initializable {
 	@FXML
 	public void handlePlayAsGuestButton(ActionEvent event) {
 		ClientStartupMessage msg = new ClientStartupMessage(StartupAction.LoginAsGuest);
-
 		model.sendMessage(msg);
 	}
 
@@ -90,35 +131,9 @@ public class MainViewController implements Initializable {
 	}
 
 	public void setupListeners(Scene inScene) {
-		this.model.getLastReceivedMessage().addListener((observable, oldvalue, newValue) -> {
-			// Ist es eine korrekte Antwort?
-			if (newValue instanceof ServerStartupMessage) {
-				newValue = (ServerStartupMessage) newValue;
-				if (((ServerStartupMessage) newValue).getStatusCode() == StatusCode.Success) {
-					model.setPlayer(((ServerStartupMessage) newValue).getPlayer());
-					Platform.runLater(new Runnable() {
-						public void run() {
-							try {
-								FXMLLoader fxmlLoader = new FXMLLoader(
-										getClass().getResource("/ViewFXML/LobbyView.fxml"));
-								Parent root1 = (Parent) fxmlLoader.load();
-								LobbyViewController controller = fxmlLoader.<LobbyViewController>getController();
-								controller.setModel(model);
-								Stage stage = new Stage();
-								Scene tmpScene = new Scene(root1);
-								stage.setScene(tmpScene);
-								stage.show();
-
-								inScene.getWindow().hide();
-
-							} catch (Exception e) {
-								e.printStackTrace();
-							}
-						}
-					});
-				}
-			}
-		});
+		parentScene = inScene;
+		this.model.getLastReceivedMessage().removeListener(this.changeListener);
+		this.model.getLastReceivedMessage().addListener(this.changeListener);
 	}
 
 }

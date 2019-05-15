@@ -10,29 +10,57 @@
 
 <AnchorPane prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #615658;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerFXML.PlayerInLobbyViewController">
    <children>
-      <VBox fx:id="UserPlayerInLobbyButtonVBox" alignment="CENTER" layoutX="310.0" layoutY="238.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="CENTER" layoutX="340.0" layoutY="191.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label fx:id="LobbyNameLabel" prefHeight="36.0" prefWidth="400.0" style="-fx-background-color: #c7aa72; -fx-background-radius: 0;" text="Lobby: Five4Seven" textFill="WHITE">
-               <font>
-                  <Font name="Arial" size="13.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <padding>
-                  <Insets left="10.0" />
-               </padding>
-            </Label>
-            <ListView fx:id="PlayerSearchListView" maxWidth="400.0" prefHeight="200.0" prefWidth="400.0" style="-fx-background-color: #c7aa72;" />
-            <Button fx:id="LeaveLobbyButton" alignment="CENTER" mnemonicParsing="false" onAction="#handleLeaveLobbyButton" prefHeight="36.0" prefWidth="195.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0;" text="leave lobby" textFill="WHITE">
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-               <font>
-                  <Font name="Arial" size="13.0" />
-               </font>
-            </Button>
+            <VBox alignment="CENTER" spacing="10.0">
+               <children>
+                  <Label fx:id="LobbyNameLabel" prefHeight="36.0" prefWidth="400.0" style="-fx-background-color: #c7aa72;" text="Lobbyname" textFill="WHITE">
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <font>
+                        <Font name="Arial" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="PlayerInLobbyLabel" prefHeight="36.0" prefWidth="400.0" style="-fx-background-color: #c7aa72;" text="Player in Lobby:" textFill="WHITE">
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <font>
+                        <Font name="Arial" size="13.0" />
+                     </font>
+                  </Label>
+                  <ListView fx:id="PlayerInLobbyListView" maxWidth="400.0" prefHeight="200.0" prefWidth="400.0" style="-fx-background-color: c7aa72;" />
+               </children>
+            </VBox>
+            <HBox alignment="CENTER" layoutX="310.0" layoutY="614.0" spacing="10.0">
+               <children>
+                  <Button fx:id="StartLobbyButton" disable="true" layoutX="310.0" layoutY="616.0" mnemonicParsing="false" onAction="#handleStartLobbyButton" prefHeight="36.0" prefWidth="195.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0; -fx-cursor: hand;" text="start lobby" textFill="WHITE" visible="false">
+                     <font>
+                        <Font name="Arial" size="13.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="DeleteLobbyButton" disable="true" layoutX="546.0" layoutY="614.0" mnemonicParsing="false" onAction="#handleDeleteLobbyButton" prefHeight="36.0" prefWidth="195.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0; -fx-cursor: hand;" text="delete lobby" textFill="WHITE" visible="false">
+                     <font>
+                        <Font name="Arial" size="13.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
          </children>
       </VBox>
+      <Label fx:id="PlayerInLobbyViewPlayerLabel" prefHeight="36.0" prefWidth="160.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0;" text="Playername" textFill="WHITE" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </Label>
+      <Button fx:id="StatButton" mnemonicParsing="false" onAction="#handleStatButton" prefHeight="36.0" prefWidth="160.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0; -fx-cursor: hand;" text="Stats" textFill="WHITE" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

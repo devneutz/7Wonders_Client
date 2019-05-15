@@ -17,7 +17,7 @@
                   <Font name="Arial" size="13.0" />
                </font>
             </Label>
-            <Button fx:id="TakeMeToTheGameButton" alignment="CENTER" contentDisplay="CENTER" onAction="#handleTakeMeToTheGameButton" prefHeight="36.0" prefWidth="195.0" style="-fx-background-color: #c7aa72; -fx-background-radius: 0;" text="Take me to the game!" textFill="WHITE">
+            <Button fx:id="TakeMeToTheGameButton" alignment="CENTER" contentDisplay="CENTER" onAction="#handleTakeMeToTheGameButton" prefHeight="36.0" prefWidth="195.0" style="-fx-background-color: #c7aa72; -fx-background-radius: 0; -fx-cursor: hand;" text="Take me to the game!" textFill="WHITE">
                <font>
                   <Font name="Arial" size="13.0" />
                </font>

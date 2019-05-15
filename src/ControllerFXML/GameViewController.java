@@ -1,6 +1,7 @@
 package ControllerFXML;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import application.ClientApplicationMain;
@@ -17,31 +18,62 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 
 public class GameViewController implements Initializable {
 	
 	public ClientApplicationMain main;
 	
 	private ClientModel model;
-	private IPlayer player;
 
 	@FXML
-	public Button UmmunzenButton;
-	@FXML
-	public Button RessourceVerwendenButton;
-	@FXML
-	public Button ZumBauVerwendenButton;
-	public Label Player1Label;
-	public Label Player2Label;
-	public Label Player3Label;
-	public Label Player4Label;
-	public Label Player5Label;
-	public Label Player6Label;
+	public Button UmmunzenButton, RessourceVerwendenButton, ZumBauVerwendenButton;
+	public Label Player1Label, Player2Label,Player3Label, Player4Label, Player5Label, Player6Label;
+	public HBox PCard1HBox, PCard2HBox, PCard3HBox, PCard4HBox, PCard5HBox, PCard6HBox, PCard7HBox;
+	
 	
 	private ICard selectedCard;
 	
 	public void setMain(ClientApplicationMain main) {
 		this.main = main;
+	}
+	
+	
+	
+	
+	public void setModel(ClientModel inModel) {
+		this.model = inModel;
+		setUpCards(null);
+			
+	}
+	
+	/**
+	 * 
+	 * @author lucas rueesch
+	 * Diese Methode prÃ¼ft ob die Karten zum Bau verwendet werden kÃ¶nnen oder nicht. 
+	 * Wenn Ja Ã¤ndert sich der in eine HBox gewrappte Imageview von rot auf grÃ¼n
+	 * 
+	 */
+	
+	private void setUpCards(ArrayList<ICard> inCards) {
+		
+		HBox[] HBoxArray = new HBox [7];
+		
+		HBoxArray[0] = PCard1HBox;
+		HBoxArray[1] = PCard2HBox;
+		HBoxArray[2] = PCard3HBox;
+		HBoxArray[3] = PCard4HBox;
+		HBoxArray[4] = PCard5HBox;
+		HBoxArray[5] = PCard6HBox;
+		HBoxArray[6] = PCard7HBox;
+	
+		for (int x = 0; x < model.getPlayer().getCardStack().size(); x++) {
+			HBoxArray[x].setUserData(model.getPlayer().getCardStack().get(x));
+
+			if(model.getPlayer().getCardStack().get(x).isPlayable(model.getPlayer().getPlayerResources())) {
+				HBoxArray[x].setStyle("-fx-border-color: green;");		
+			}
+		}
 	}
 	
 	/**
@@ -50,17 +82,17 @@ public class GameViewController implements Initializable {
 	 */
 	
 	public void handleUmmunzenButton(ActionEvent event) {
-		// Deaktivieren sämtlicher Interaktionsmöglichkeiten des Spielers - solange bis eine Nachricht vom Server zurückkommt.
+		// Deaktivieren sï¿½mtlicher Interaktionsmï¿½glichkeiten des Spielers - solange bis eine Nachricht vom Server zurï¿½ckkommt.
 		RessourceVerwendenButton.setDisable(true);
 		UmmunzenButton.setDisable(true);
 		ZumBauVerwendenButton.setDisable(true);
 		
 		// TODO Karten sollen ebenfalls nicht mehr selektierbar sein - Warten auf Umsetzung durch ruluke
 		
-		// Zusammenstellen der Nachricht an den Server. Diese beinhaltet die Aktion, die vom Spieler durchgeführt werden will.
+		// Zusammenstellen der Nachricht an den Server. Diese beinhaltet die Aktion, die vom Spieler durchgefuehrt werden will.
 		ClientGameMessage msg = new ClientGameMessage(GameAction.MonetizeCard);
 		
-		// TODO Setzen der ausgewählten Karte - Warten auf Umsetzung durch ruluke
+		// TODO Setzen der ausgewaehlten Karte - Warten auf Umsetzung durch ruluke
 		msg.setCard(null);
 		
 		// Setzen des Spielers, damit der Server Bescheid weiss um welchen es sich handelt.
@@ -103,9 +135,9 @@ public class GameViewController implements Initializable {
 		
 		// Setzen des Spielers, damit der Server Bescheid weiss um welchen es sich handelt.
 		msg.setPlayer(model.getPlayer());
-		
+
 		// Setzen des Boards, damit der Server Bescheid weiss um welches es sich handelt.
-		msg.setBoard(player.getBoard());
+		msg.setBoard(model.getPlayer().getBoard());
 		
 		// Senden
 		model.sendMessage(msg);
@@ -141,21 +173,21 @@ public class GameViewController implements Initializable {
 	 */
 	public void setupListener(Scene inScene) {
 		this.model.getLastReceivedMessage().addListener((observable, oldvalue, newValue) -> {
-			// Handelt es sich bei der Message um eine Message, welche das Spiel betrifft? Theoretisch könnte hier auch ein Broadcast kommen, welcher dem Client
+			// Handelt es sich bei der Message um eine Message, welche das Spiel betrifft? Theoretisch kï¿½nnte hier auch ein Broadcast kommen, welcher dem Client
 			// mitteilt, dass eine neue Lobby erstellt wurde. Darauf muss aber nicht reagiert werden.
 			if (newValue instanceof ServerGameMessage) {
 				ServerGameMessage tmpMessageReceived = (ServerGameMessage) newValue;
 
-				// Setzen des Spielers, welcher vom Server zurückgegeben wird. Verhindert eine Manipulation auf dem Client.
+				// Setzen des Spielers, welcher vom Server zurï¿½ckgegeben wird. Verhindert eine Manipulation auf dem Client.
 				this.model.setPlayer(tmpMessageReceived.getPlayer());
 				
-				// Idee falls genug Zeit: Bei einem Success eine Meldung zurückgeben, dass auf andere Spieler gewartet wird.
+				// Idee falls genug Zeit: Bei einem Success eine Meldung zurï¿½ckgeben, dass auf andere Spieler gewartet wird.
 				switch (tmpMessageReceived.getStatusCode()) {		
 					case ActionNotAvailable:
-						// TODO Alles wieder aktivieren für eine nächste Auswahl? Dürfte gar nie der Fall sein. Aktuell ignorieren
-						throw new IllegalArgumentException("Aktion nicht möglich");
+						// TODO Alles wieder aktivieren fï¿½r eine nï¿½chste Auswahl? Dï¿½rfte gar nie der Fall sein. Aktuell ignorieren
+						throw new IllegalArgumentException("Aktion nicht mï¿½glich");
 					case NewRound:
-						// TODO Alles wieder aktivieren, eine neue Runde hat begonnen. Alle benötigten Variablen wurden bereits vom Server gesetzt.
+						// TODO Alles wieder aktivieren, eine neue Runde hat begonnen. Alle benï¿½tigten Variablen wurden bereits vom Server gesetzt.
 						break;
 					default:
 						break;
@@ -181,10 +213,6 @@ public class GameViewController implements Initializable {
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Iterieren über alle Karten im aktuellen Spieler
-			// TODO Setzen der Rahmen anhand der canBuild-Methode | playerCard1.setBorder() oder ähnlich
-		
-			// TODO Setzen der Kartenobjekte | setUserData()
 		
 	}
 }
