@@ -1,16 +1,16 @@
-package ControllerFXML;
+package ch.fhnw.sevenwonders.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import application.ClientApplicationMain;
-import application.ClientModel;
+import ch.fhnw.sevenwonders.application.ClientApplicationMain;
 import ch.fhnw.sevenwonders.enums.LobbyAction;
 import ch.fhnw.sevenwonders.enums.StatusCode;
 import ch.fhnw.sevenwonders.interfaces.ILobby;
 import ch.fhnw.sevenwonders.messages.ClientLobbyMessage;
 import ch.fhnw.sevenwonders.messages.Message;
 import ch.fhnw.sevenwonders.messages.ServerLobbyMessage;
+import ch.fhnw.sevenwonders.model.ClientModel;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -46,6 +46,7 @@ public class LobbyViewController implements Initializable {
 		public void changed(ObservableValue observable, Message oldValue, Message newValue) {
 			if (newValue instanceof ServerLobbyMessage) {
 				newValue = (ServerLobbyMessage) newValue;
+				
 				if (((ServerLobbyMessage) newValue).getStatusCode() == StatusCode.Success) {
 					model.setPlayer(((ServerLobbyMessage) newValue).getPlayer());
 					model.getLastReceivedMessage().removeListener(this);
@@ -53,7 +54,7 @@ public class LobbyViewController implements Initializable {
 						public void run() {
 							try {
 								FXMLLoader fxmlLoader = new FXMLLoader(
-										getClass().getResource("/ViewFXML/PlayerInLobbyView.fxml"));
+										getClass().getResource("/ch/fhnw/sevenwonders/view/PlayerInLobbyView.fxml"));
 								Parent root1 = (Parent) fxmlLoader.load();
 								PlayerInLobbyViewController controller = fxmlLoader.<PlayerInLobbyViewController>getController();
 								controller.setModel(model);
@@ -110,7 +111,7 @@ public class LobbyViewController implements Initializable {
 	public void handleCreateLobbyButton(ActionEvent event) {
 		try {
 				model.getLastReceivedMessage().removeListener(this.changeListener);
-		       FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ViewFXML/CreateLobbyView.fxml"));
+		       FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ch/fhnw/sevenwonders/view/CreateLobbyView.fxml"));
 
 		       Parent root1 = (Parent) fxmlLoader.load();
 		       CreateLobbyController controller = fxmlLoader.<CreateLobbyController>getController();

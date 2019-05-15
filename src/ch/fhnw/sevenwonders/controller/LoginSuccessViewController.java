@@ -1,7 +1,7 @@
-package ControllerFXML;
+package ch.fhnw.sevenwonders.controller;
 
-import application.ClientApplicationMain;
-import application.ClientModel;
+import ch.fhnw.sevenwonders.application.ClientApplicationMain;
+import ch.fhnw.sevenwonders.model.ClientModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,7 +29,7 @@ public class LoginSuccessViewController {
 	
 	public void handleTakeMeToTheGameButton(ActionEvent event) {
 		try {
-			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ViewFXML/LobbyView.fxml"));
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ch/fhnw/sevenwonders/view/LobbyView.fxml"));
 			Parent root1 = (Parent) fxmlLoader.load();
 			LobbyViewController controller = fxmlLoader.<LobbyViewController>getController();
 			controller.setModel(this.model);

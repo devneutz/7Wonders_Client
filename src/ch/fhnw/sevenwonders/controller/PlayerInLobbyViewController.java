@@ -1,10 +1,9 @@
-package ControllerFXML;
+package ch.fhnw.sevenwonders.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import application.ClientApplicationMain;
-import application.ClientModel;
+import ch.fhnw.sevenwonders.application.ClientApplicationMain;
 import ch.fhnw.sevenwonders.enums.LobbyAction;
 import ch.fhnw.sevenwonders.enums.StatusCode;
 import ch.fhnw.sevenwonders.interfaces.ILobby;
@@ -12,6 +11,7 @@ import ch.fhnw.sevenwonders.interfaces.IPlayer;
 import ch.fhnw.sevenwonders.messages.ClientLobbyMessage;
 import ch.fhnw.sevenwonders.messages.Message;
 import ch.fhnw.sevenwonders.messages.ServerLobbyMessage;
+import ch.fhnw.sevenwonders.model.ClientModel;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -39,6 +39,34 @@ public class PlayerInLobbyViewController implements Initializable{
 			// TODO Auto-generated method stub
 			if (newValue instanceof ServerLobbyMessage) {
 				newValue = (ServerLobbyMessage) newValue;
+				// Kommt eine LobbyDeleted-Message hierher, heisst dies, der Spieler befindet sich in der zu löschenden Lobby.
+				if(((ServerLobbyMessage) newValue).getAction() == LobbyAction.LobbyDeleted) {
+					model.getLastReceivedMessage().removeListener(this);
+					Platform.runLater(new Runnable() {
+						public void run() {
+							try {
+								FXMLLoader  fxmlLoader = new FXMLLoader(
+										getClass().getResource("/ch/fhnw/sevenwonders/view/LobbyView.fxml"));
+								Parent root1 = (Parent) fxmlLoader.load();
+								LobbyViewController controller = fxmlLoader.<LobbyViewController>getController();
+								controller.setModel(model);
+								Stage stage = new Stage();
+								Scene tmpScene = new Scene(root1);
+								controller.setupListener(tmpScene);
+								stage.setScene(tmpScene);
+								
+								stage.show();
+
+								parentScene.getWindow().hide();
+
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+						}
+					});
+					return;
+				}
+				
 				if (((ServerLobbyMessage) newValue).getStatusCode() == StatusCode.Success) {
 					model.setPlayer(((ServerLobbyMessage) newValue).getPlayer());
 					model.getLastReceivedMessage().removeListener(this);
@@ -46,12 +74,14 @@ public class PlayerInLobbyViewController implements Initializable{
 						public void run() {
 							try {
 								FXMLLoader fxmlLoader = new FXMLLoader(
-										getClass().getResource("/ViewFXML/LobbyView.fxml"));
+										getClass().getResource("/ch/fhnw/sevenwonders/view/LobbyView.fxml"));
 								Parent root1 = (Parent) fxmlLoader.load();
 								LobbyViewController controller = fxmlLoader.<LobbyViewController>getController();
 								controller.setModel(model);
 								Stage stage = new Stage();
-								stage.setScene(new Scene(root1));
+								Scene scene = new Scene(root1);
+								controller.setupListener(scene);
+								stage.setScene(scene);
 								stage.show();
 
 								parentScene.getWindow().hide();
@@ -89,10 +119,6 @@ public class PlayerInLobbyViewController implements Initializable{
 			DeleteLobbyButton.setDisable(false);			
 		}
 		
-		
-		
-		
-
 		PlayerInLobbyViewPlayerLabel.setText(model.getPlayer().getName());
 		
 		this.LobbyNameLabel.setText(model.getPlayer().getLobby().getLobbyName());

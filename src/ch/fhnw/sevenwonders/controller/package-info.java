@@ -5,4 +5,4 @@
  * @author lucasruesch
  *
  */
-package ViewFXML;
+package ch.fhnw.sevenwonders.controller;

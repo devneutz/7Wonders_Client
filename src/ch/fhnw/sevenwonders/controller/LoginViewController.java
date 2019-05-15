@@ -1,10 +1,8 @@
-package ControllerFXML;
+package ch.fhnw.sevenwonders.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import application.ClientApplicationMain;
-import application.ClientModel;
-import application.Config;
+
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -25,10 +23,13 @@ import ch.fhnw.sevenwonders.messages.ClientStartupMessage;
 import ch.fhnw.sevenwonders.messages.Message;
 import ch.fhnw.sevenwonders.messages.ServerLobbyMessage;
 import ch.fhnw.sevenwonders.messages.ServerStartupMessage;
+import ch.fhnw.sevenwonders.model.ClientModel;
 import ch.fhnw.sevenwonders.models.Player;
 import ch.fhnw.sevenwonders.enums.StartupAction;
 import ch.fhnw.sevenwonders.enums.StatusCode;
 import ch.fhnw.sevenwonders.interfaces.IPlayer;
+import ch.fhnw.sevenwonders.application.ClientApplicationMain;
+import ch.fhnw.sevenwonders.application.Config;
 import ch.fhnw.sevenwonders.encrypthelper.EncryptWithMD5;
 
 /**
@@ -45,7 +46,7 @@ public class LoginViewController implements Initializable {
 	public ClientApplicationMain main;
 	private ClientModel model;
 
-	private IPlayer player = new Player();
+	private IPlayer player;
 	@FXML
 	private TextField enterUsernameTxtField;
 	@FXML
@@ -88,7 +89,7 @@ public class LoginViewController implements Initializable {
 							public void run() {
 								try {
 									FXMLLoader fxmlLoader = new FXMLLoader(
-											getClass().getResource("/ViewFXML/LoginSuccessView.fxml"));
+											getClass().getResource("/ch/fhnw/sevenwonders/view/LoginSuccessView.fxml"));
 									Parent root = (Parent) fxmlLoader.load();
 									LoginSuccessViewController controller = fxmlLoader.<LoginSuccessViewController>getController();
 									controller.setModel(model);
@@ -135,7 +136,7 @@ public class LoginViewController implements Initializable {
 						Platform.runLater(new Runnable() {
 							public void run() {
 								try {
-									FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ViewFXML/LobbyView.fxml"));
+									FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ch/fhnw/sevenwonders/view/LobbyView.fxml"));
 									Parent root = (Parent) fxmlLoader.load();
 									LobbyViewController controller = fxmlLoader.<LobbyViewController>getController();
 									controller.setModel(model);
@@ -188,6 +189,7 @@ public class LoginViewController implements Initializable {
 			GoBackButton.setDisable(true);
 
 			String username = enterUsernameTxtField.getText();
+			player = new Player();
 			player.setName(username);
 
 			String password = enterPasswordPassField.getText();
@@ -224,6 +226,7 @@ public class LoginViewController implements Initializable {
 			GoBackButton.setDisable(true);
 
 			String username = enterUsernameTxtField.getText();
+			player = new Player();
 			player.setName(username);
 
 			String password = enterPasswordPassField.getText();
@@ -245,13 +248,15 @@ public class LoginViewController implements Initializable {
 	@FXML
 	public void handleGoBackButton(ActionEvent event) {
 		try {
-			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ViewFXML/MainView.fxml"));
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ch/fhnw/sevenwonders/view/MainView.fxml"));
 			Parent root1 = (Parent) fxmlLoader.load();
 			MainViewController controller = fxmlLoader.<MainViewController>getController();
 			controller.setModel(model);
 			model.getLastReceivedMessage().removeListener(this.changeListener);
 			Stage stage = new Stage();
-			stage.setScene(new Scene(root1));
+			Scene tmpScene = new Scene(root1);
+			controller.setupListeners(tmpScene);
+			stage.setScene(tmpScene);
 			stage.show();
 
 			((Node) event.getSource()).getScene().getWindow().hide();

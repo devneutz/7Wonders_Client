@@ -1,4 +1,4 @@
-package application;
+package ch.fhnw.sevenwonders.model;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -81,8 +81,9 @@ public class ClientModel {
 
 	public void sendMessage(Message inMessage) {
 		try {
+			out.reset();
 			out.writeObject(inMessage);
-			out.flush();
+			out.flush();			
 		} catch (Exception inEx) {
 			inEx.printStackTrace();
 		}
@@ -101,7 +102,8 @@ public class ClientModel {
 	private void handlePlayerLeftMessage(ServerLobbyMessage inMessage) {
 		Platform.runLater(new Runnable() {
 			public void run() {
-				LobbyPlayers.getValue().remove(inMessage.getPlayer());
+				LobbyPlayers.getValue().clear();
+				LobbyPlayers.getValue().addAll(inMessage.getLobby().getLobbyPlayers());
 			}
 		});
 	}
@@ -111,14 +113,19 @@ public class ClientModel {
 				public void run() {
 					Lobbies.getValue().add(inMessage.getLobby());
 
-					if(isPlayerInAnyLobby() && inMessage.getLobby().getLobbyName() == player.getLobby().getLobbyName()) {
-						LobbyPlayers.getValue().add(inMessage.getLobby().getLobbyMaster());
+					if(isPlayerInAnyLobby() && inMessage.getLobby().getLobbyName().equals(inMessage.getLobby().getLobbyName())) {
+						LobbyPlayers.getValue().clear();
+						LobbyPlayers.getValue().addAll(inMessage.getLobby().getLobbyPlayers());
 					}
 				}
 			});
 	}
 
 	private void handleLobbyDeletedMessage(ServerLobbyMessage inMessage) {
+		if(isPlayerInAnyLobby() && inMessage.getLobby().getLobbyName().equals(player.getLobby().getLobbyName())) {
+			this.lastReceivedMessage.setValue(inMessage);
+		}
+		
 		Platform.runLater(new Runnable() {
 			public void run() {
 				Iterator<ILobby> iter = Lobbies.getValue().iterator();

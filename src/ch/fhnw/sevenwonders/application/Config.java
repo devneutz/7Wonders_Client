@@ -1,4 +1,4 @@
-package application;
+package ch.fhnw.sevenwonders.application;
 
 import ch.fhnw.sevenwonders.interfaces.IPlayer;
 
