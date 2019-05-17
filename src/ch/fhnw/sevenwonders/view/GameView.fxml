@@ -125,7 +125,8 @@
                </opaqueInsets>
                <padding>
                   <Insets left="5.0" />
-               </padding></Label>
+               </padding>
+            </Label>
             <Label fx:id="Player2Label" layoutX="185.0" layoutY="100.0" onDragDetected="#handlePlayer2Label" prefHeight="20.0" prefWidth="180.0" style="-fx-background-color: cc8744; -fx-background-radius: 0;" text="Player 2" textFill="WHITE" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="100.0">
                <padding>
                   <Insets left="5.0" />
@@ -148,312 +149,657 @@
                </padding></Label>
          </children>
       </HBox>
-      <VBox layoutY="129.0" style="-fx-background-color: c7aa72;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="120.0">
+      <HBox layoutY="120.0">
          <children>
-            <ImageView fitHeight="20.0" fitWidth="170.0" layoutX="-1.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="20.0" fitWidth="170.0" layoutX="9.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="20.0" fitWidth="170.0" layoutX="19.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="20.0" fitWidth="170.0" layoutX="29.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="20.0" fitWidth="170.0" layoutX="39.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="20.0" fitWidth="170.0" layoutX="49.0" layoutY="179.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="20.0" fitWidth="170.0" layoutX="59.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="20.0" fitWidth="170.0" layoutX="69.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="20.0" fitWidth="170.0" layoutX="79.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="20.0" fitWidth="170.0" layoutX="89.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="20.0" fitWidth="170.0" layoutX="99.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="20.0" fitWidth="170.0" layoutX="109.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
-               </image>
-            </ImageView>
-         </children>
-         <padding>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-         </padding>
-      </VBox>
-      <HBox layoutX="379.0" layoutY="138.0" spacing="15.0">
-         <children>
-            <VBox layoutX="320.0" layoutY="118.0" spacing="5.0">
+            <VBox fx:id="Player1ResVBox" layoutY="129.0" style="-fx-background-color: c7aa72;" visible="false" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="120.0">
                <children>
-                  <Label fx:id="UserRes1Label" alignment="CENTER" layoutX="320.0" layoutY="118.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: 615658; -fx-border-color: ffffff;" text="RES 1" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="11.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="UserRes2Label" alignment="CENTER" layoutX="320.0" layoutY="145.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: 615658; -fx-border-color: ffffff;" text="RES 2" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="11.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="UserRes3Label" alignment="CENTER" layoutX="320.0" layoutY="175.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: 615658; -fx-border-color: ffffff;" text="RES 3" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="11.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="UserRes4Label" alignment="CENTER" layoutX="320.0" layoutY="203.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: 615658; -fx-border-color: ffffff;" text="RES 4" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="11.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="UserRes5Label" alignment="CENTER" layoutX="320.0" layoutY="233.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: 615658; -fx-border-color: ffffff;" text="RES 5" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="11.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="UserRes6Label" alignment="CENTER" layoutX="320.0" layoutY="263.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: 615658; -fx-border-color: ffffff;" text="RES 6" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="11.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="UserRes7Label" alignment="CENTER" layoutX="320.0" layoutY="294.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: 615658; -fx-border-color: ffffff;" text="RES 7" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="11.0" />
-                     </font>
-                  </Label>
+                  <ImageView fx:id="Player1ResIV1" fitHeight="20.0" fitWidth="170.0" layoutX="-1.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV2" fitHeight="20.0" fitWidth="170.0" layoutX="9.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV3" fitHeight="20.0" fitWidth="170.0" layoutX="19.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV4" fitHeight="20.0" fitWidth="170.0" layoutX="29.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV5" fitHeight="20.0" fitWidth="170.0" layoutX="39.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV6" fitHeight="20.0" fitWidth="170.0" layoutX="49.0" layoutY="179.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV7" fitHeight="20.0" fitWidth="170.0" layoutX="59.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV8" fitHeight="20.0" fitWidth="170.0" layoutX="69.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV9" fitHeight="20.0" fitWidth="170.0" layoutX="79.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV10" fitHeight="20.0" fitWidth="170.0" layoutX="89.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV11" fitHeight="20.0" fitWidth="170.0" layoutX="99.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV12" fitHeight="20.0" fitWidth="170.0" layoutX="109.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
                </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
             </VBox>
-            <VBox layoutX="426.0" layoutY="121.0" spacing="5.0">
+            <VBox fx:id="Player1ResVBox1" layoutX="10.0" layoutY="139.0" style="-fx-background-color: cc8744;" visible="false" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="120.0">
                <children>
-                  <Label fx:id="UserGr1Label" alignment="CENTER" layoutX="320.0" layoutY="118.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: grey; -fx-border-color: ffffff;" text="GR 1" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="11.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="UserGrey2Label" alignment="CENTER" layoutX="320.0" layoutY="145.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: grey; -fx-border-color: ffffff;" text="GR 2" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="11.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="UserGrey3Label" alignment="CENTER" layoutX="320.0" layoutY="175.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: grey; -fx-border-color: ffffff;" text="GR 3" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="11.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="UserGrey4Label" alignment="CENTER" layoutX="320.0" layoutY="203.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: grey; -fx-border-color: ffffff;" text="GR 4" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="11.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="UserGrey5Label" alignment="CENTER" layoutX="320.0" layoutY="233.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: grey; -fx-border-color: ffffff;" text="GR 5" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="11.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="UserGrey6Label" alignment="CENTER" layoutX="320.0" layoutY="263.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: grey; -fx-border-color: ffffff;" text="GR 6" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="11.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="UserGrey7Label" alignment="CENTER" layoutX="320.0" layoutY="294.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: grey; -fx-border-color: ffffff;" text="GR 7" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="11.0" />
-                     </font>
-                  </Label>
+                  <ImageView fx:id="Player1ResIV11" fitHeight="20.0" fitWidth="170.0" layoutX="-1.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV21" fitHeight="20.0" fitWidth="170.0" layoutX="9.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV31" fitHeight="20.0" fitWidth="170.0" layoutX="19.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV41" fitHeight="20.0" fitWidth="170.0" layoutX="29.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV51" fitHeight="20.0" fitWidth="170.0" layoutX="39.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV61" fitHeight="20.0" fitWidth="170.0" layoutX="49.0" layoutY="179.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV71" fitHeight="20.0" fitWidth="170.0" layoutX="59.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV81" fitHeight="20.0" fitWidth="170.0" layoutX="69.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV91" fitHeight="20.0" fitWidth="170.0" layoutX="79.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV101" fitHeight="20.0" fitWidth="170.0" layoutX="89.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV111" fitHeight="20.0" fitWidth="170.0" layoutX="99.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV121" fitHeight="20.0" fitWidth="170.0" layoutX="109.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
                </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
             </VBox>
-            <VBox layoutX="482.0" layoutY="122.0" spacing="5.0">
+            <VBox fx:id="Player1ResVBox11" layoutX="20.0" layoutY="149.0" style="-fx-background-color: c7aa72;" visible="false" AnchorPane.leftAnchor="360.0" AnchorPane.topAnchor="120.0">
                <children>
-                  <Label fx:id="UserHa1Label" alignment="CENTER" layoutX="320.0" layoutY="118.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: DBC021; -fx-border-color: ffffff;" text="HA 1" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="11.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="UserHa2Label" alignment="CENTER" layoutX="320.0" layoutY="145.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: DBC021; -fx-border-color: ffffff;" text="HA 2" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="11.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="UserHa3Label" alignment="CENTER" layoutX="320.0" layoutY="175.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: DBC021; -fx-border-color: ffffff;" text="HA 3" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="11.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="UserHa4Label" alignment="CENTER" layoutX="320.0" layoutY="203.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: DBC021; -fx-border-color: ffffff;" text="HA 4" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="11.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="UserHa5Label" alignment="CENTER" layoutX="320.0" layoutY="233.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: DBC021; -fx-border-color: ffffff;" text="HA 5" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="11.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="UserHa6Label" alignment="CENTER" layoutX="320.0" layoutY="263.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: DBC021; -fx-border-color: ffffff;" text="HA 6" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="11.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="UserHa7Label" alignment="CENTER" layoutX="320.0" layoutY="294.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: DBC021; -fx-border-color: ffffff;" text="HA 7" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="11.0" />
-                     </font>
-                  </Label>
+                  <ImageView fx:id="Player1ResIV111" fitHeight="20.0" fitWidth="170.0" layoutX="-1.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV211" fitHeight="20.0" fitWidth="170.0" layoutX="9.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV311" fitHeight="20.0" fitWidth="170.0" layoutX="19.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV411" fitHeight="20.0" fitWidth="170.0" layoutX="29.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV511" fitHeight="20.0" fitWidth="170.0" layoutX="39.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV611" fitHeight="20.0" fitWidth="170.0" layoutX="49.0" layoutY="179.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV711" fitHeight="20.0" fitWidth="170.0" layoutX="59.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV811" fitHeight="20.0" fitWidth="170.0" layoutX="69.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV911" fitHeight="20.0" fitWidth="170.0" layoutX="79.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV1011" fitHeight="20.0" fitWidth="170.0" layoutX="89.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV1111" fitHeight="20.0" fitWidth="170.0" layoutX="99.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV1211" fitHeight="20.0" fitWidth="170.0" layoutX="109.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
                </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
             </VBox>
-            <VBox layoutX="533.0" layoutY="122.0" spacing="5.0">
+            <VBox fx:id="Player1ResVBox111" layoutX="30.0" layoutY="159.0" style="-fx-background-color: cc8744;" visible="false" AnchorPane.rightAnchor="360.0" AnchorPane.topAnchor="120.0">
                <children>
-                  <Label fx:id="UserAt1Label" alignment="CENTER" layoutX="320.0" layoutY="118.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: red; -fx-border-color: ffffff;" text="AT 1" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="11.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="UserAt2Label" alignment="CENTER" layoutX="320.0" layoutY="145.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: red; -fx-border-color: ffffff;" text="AT 2" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="11.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="UserAt3Label" alignment="CENTER" layoutX="320.0" layoutY="175.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: red; -fx-border-color: ffffff;" text="AT 3" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="11.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="UserAt4Label" alignment="CENTER" layoutX="320.0" layoutY="203.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: red; -fx-border-color: ffffff;" text="AT 4" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="11.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="UserAt5Label" alignment="CENTER" layoutX="320.0" layoutY="233.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: red; -fx-border-color: ffffff;" text="AT 5" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="11.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="UserAt6Label" alignment="CENTER" layoutX="320.0" layoutY="263.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: red; -fx-border-color: ffffff;" text="AT 6" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="11.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="UserAt7Label" alignment="CENTER" layoutX="320.0" layoutY="294.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: red; -fx-border-color: ffffff;" text="AT 7" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="11.0" />
-                     </font>
-                  </Label>
+                  <ImageView fx:id="Player1ResIV1111" fitHeight="20.0" fitWidth="170.0" layoutX="-1.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV2111" fitHeight="20.0" fitWidth="170.0" layoutX="9.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV3111" fitHeight="20.0" fitWidth="170.0" layoutX="19.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV4111" fitHeight="20.0" fitWidth="170.0" layoutX="29.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV5111" fitHeight="20.0" fitWidth="170.0" layoutX="39.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV6111" fitHeight="20.0" fitWidth="170.0" layoutX="49.0" layoutY="179.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV7111" fitHeight="20.0" fitWidth="170.0" layoutX="59.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV8111" fitHeight="20.0" fitWidth="170.0" layoutX="69.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV9111" fitHeight="20.0" fitWidth="170.0" layoutX="79.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV10111" fitHeight="20.0" fitWidth="170.0" layoutX="89.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV11111" fitHeight="20.0" fitWidth="170.0" layoutX="99.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV12111" fitHeight="20.0" fitWidth="170.0" layoutX="109.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
                </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
             </VBox>
-            <VBox layoutX="586.0" layoutY="126.0" spacing="5.0">
+            <VBox fx:id="Player1ResVBox1111" disable="true" layoutX="40.0" layoutY="169.0" style="-fx-background-color: c7aa72;" visible="false" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="120.0">
                <children>
-                  <Label fx:id="UserWp1Label" alignment="CENTER" layoutX="320.0" layoutY="118.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: blue; -fx-border-color: ffffff;" text="WP 1" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="11.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="UserWp2Label" alignment="CENTER" layoutX="320.0" layoutY="145.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: blue; -fx-border-color: ffffff;" text="WP 2" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="11.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="UserWp3Label" alignment="CENTER" layoutX="320.0" layoutY="175.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: blue; -fx-border-color: ffffff;" text="WP 3" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="11.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="UserWp4Label" alignment="CENTER" layoutX="320.0" layoutY="203.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: blue; -fx-border-color: ffffff;" text="WP 4" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="11.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="UserWp5Label" alignment="CENTER" layoutX="320.0" layoutY="233.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: blue; -fx-border-color: ffffff;" text="WP 5" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="11.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="UserWp6Label" alignment="CENTER" layoutX="320.0" layoutY="263.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: blue; -fx-border-color: ffffff;" text="WP 6" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="11.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="UserWp7Label" alignment="CENTER" layoutX="320.0" layoutY="294.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: blue; -fx-border-color: ffffff;" text="WP 7" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="11.0" />
-                     </font>
-                  </Label>
+                  <ImageView fx:id="Player1ResIV11111" fitHeight="20.0" fitWidth="170.0" layoutX="-1.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV21111" fitHeight="20.0" fitWidth="170.0" layoutX="9.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV31111" fitHeight="20.0" fitWidth="170.0" layoutX="19.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV41111" fitHeight="20.0" fitWidth="170.0" layoutX="29.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV51111" fitHeight="20.0" fitWidth="170.0" layoutX="39.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV61111" fitHeight="20.0" fitWidth="170.0" layoutX="49.0" layoutY="179.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV71111" fitHeight="20.0" fitWidth="170.0" layoutX="59.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV81111" fitHeight="20.0" fitWidth="170.0" layoutX="69.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV91111" fitHeight="20.0" fitWidth="170.0" layoutX="79.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV101111" fitHeight="20.0" fitWidth="170.0" layoutX="89.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV111111" fitHeight="20.0" fitWidth="170.0" layoutX="99.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV121111" fitHeight="20.0" fitWidth="170.0" layoutX="109.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
                </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
             </VBox>
-            <VBox layoutX="645.0" layoutY="126.0" spacing="5.0">
+            <VBox fx:id="Player1ResVBox11111" layoutX="50.0" layoutY="179.0" style="-fx-background-color: cc8744;" visible="false" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="120.0">
                <children>
-                  <Label fx:id="UserGreen1Label" alignment="CENTER" layoutX="320.0" layoutY="118.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: green; -fx-border-color: ffffff;" text="GR 1" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="11.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="UserGreen2Label" alignment="CENTER" layoutX="320.0" layoutY="145.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: green; -fx-border-color: ffffff;" text="GR 2" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="11.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="UserGreen3Label" alignment="CENTER" layoutX="320.0" layoutY="175.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: green; -fx-border-color: ffffff;" text="GR 3" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="11.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="UserGreen4Label" alignment="CENTER" layoutX="320.0" layoutY="203.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: green; -fx-border-color: ffffff;" text="GR 4" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="11.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="UserGreen5Label" alignment="CENTER" layoutX="320.0" layoutY="233.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: green; -fx-border-color: ffffff;" text="GR 5" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="11.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="UserGreen6Label" alignment="CENTER" layoutX="320.0" layoutY="263.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: green; -fx-border-color: ffffff;" text="GR 6" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="11.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="UserGreen7Label" alignment="CENTER" layoutX="320.0" layoutY="294.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: green; -fx-border-color: ffffff;" text="GR 7" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="11.0" />
-                     </font>
-                  </Label>
+                  <ImageView fx:id="Player1ResIV111111" fitHeight="20.0" fitWidth="170.0" layoutX="-1.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV211111" fitHeight="20.0" fitWidth="170.0" layoutX="9.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV311111" fitHeight="20.0" fitWidth="170.0" layoutX="19.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV411111" fitHeight="20.0" fitWidth="170.0" layoutX="29.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV511111" fitHeight="20.0" fitWidth="170.0" layoutX="39.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV611111" fitHeight="20.0" fitWidth="170.0" layoutX="49.0" layoutY="179.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV711111" fitHeight="20.0" fitWidth="170.0" layoutX="59.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV811111" fitHeight="20.0" fitWidth="170.0" layoutX="69.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV911111" fitHeight="20.0" fitWidth="170.0" layoutX="79.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV1011111" fitHeight="20.0" fitWidth="170.0" layoutX="89.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV1111111" fitHeight="20.0" fitWidth="170.0" layoutX="99.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Player1ResIV1211111" fitHeight="20.0" fitWidth="170.0" layoutX="109.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/klein/k_MS_Schiessplatz_3.png" />
+                     </image>
+                  </ImageView>
                </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
             </VBox>
          </children>
       </HBox>
-      <VBox alignment="CENTER" layoutX="43.0" layoutY="336.0" nodeOrientation="LEFT_TO_RIGHT" spacing="15.0">
+      <HBox alignment="CENTER" layoutX="316.0" layoutY="123.0" spacing="10.0" AnchorPane.leftAnchor="315.0" AnchorPane.rightAnchor="315.0" AnchorPane.topAnchor="120.0">
+         <children>
+            <VBox fx:id="UserRMVBox" layoutX="279.0" layoutY="145.0">
+               <children>
+                  <ImageView fx:id="UserRMIV1" fitHeight="20.0" fitWidth="60.0" layoutX="279.0" layoutY="145.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/mini/m_RM_Baumschule_6-100.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="UserRMIV2" fitHeight="20.0" fitWidth="60.0" layoutX="289.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/mini/m_RM_Baumschule_6-100.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="UserRMIV3" fitHeight="20.0" fitWidth="60.0" layoutX="299.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/mini/m_RM_Baumschule_6-100.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="UserRMIV4" fitHeight="20.0" fitWidth="60.0" layoutX="309.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/mini/m_RM_Baumschule_6-100.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="UserRMIV5" fitHeight="20.0" fitWidth="60.0" layoutX="319.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/mini/m_RM_Baumschule_6-100.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="UserRMIV6" fitHeight="20.0" fitWidth="60.0" layoutX="329.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/mini/m_RM_Baumschule_6-100.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="UserRMIV7" fitHeight="20.0" fitWidth="60.0" layoutX="339.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/mini/m_RM_Baumschule_6-100.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </VBox>
+            <VBox fx:id="UserMGVBox" layoutX="289.0" layoutY="155.0">
+               <children>
+                  <ImageView fx:id="UserMGIV1" fitHeight="20.0" fitWidth="60.0" layoutX="289.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/mini/m_MG_Glashuette_6-115.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="UserMGIV2" fitHeight="20.0" fitWidth="60.0" layoutX="299.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/mini/m_MG_Glashuette_6-115.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="UserMGIV3" fitHeight="20.0" fitWidth="60.0" layoutX="309.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/mini/m_MG_Glashuette_6-115.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="UserMGIV4" fitHeight="20.0" fitWidth="60.0" layoutX="319.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/mini/m_MG_Glashuette_6-115.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="UserMGIV5" fitHeight="20.0" fitWidth="60.0" layoutX="329.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/mini/m_MG_Glashuette_6-115.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="UserMGIV6" fitHeight="20.0" fitWidth="60.0" layoutX="339.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/mini/m_MG_Glashuette_6-115.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="UserMGIV7" fitHeight="20.0" fitWidth="60.0" layoutX="349.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/mini/m_MG_Glashuette_6-115.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </VBox>
+            <VBox fx:id="UserCOMVBox" layoutX="299.0" layoutY="165.0">
+               <children>
+                  <ImageView fx:id="UserCOMIV1" fitHeight="20.0" fitWidth="60.0" layoutX="299.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/mini/m_COM_Forum_6-190.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="UserCOMIV2" fitHeight="20.0" fitWidth="60.0" layoutX="309.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/mini/m_COM_Forum_6-190.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="UserCOMIV3" fitHeight="20.0" fitWidth="60.0" layoutX="319.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/mini/m_COM_Forum_6-190.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="UserCOMIV4" fitHeight="20.0" fitWidth="60.0" layoutX="329.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/mini/m_COM_Forum_6-190.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="UserCOMIV5" fitHeight="20.0" fitWidth="60.0" layoutX="339.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/mini/m_COM_Forum_6-190.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="UserCOMIV6" fitHeight="20.0" fitWidth="60.0" layoutX="349.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/mini/m_COM_Forum_6-190.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="UserCOMIV7" fitHeight="20.0" fitWidth="60.0" layoutX="359.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/mini/m_COM_Forum_6-190.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </VBox>
+            <VBox fx:id="UserMSvBox" layoutX="309.0" layoutY="175.0">
+               <children>
+                  <ImageView fx:id="UserMSIV1" fitHeight="20.0" fitWidth="60.0" layoutX="309.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/mini/m_MS_Befestigungsanlage_3-156.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="UserMSIV2" fitHeight="20.0" fitWidth="60.0" layoutX="319.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/mini/m_MS_Befestigungsanlage_3-156.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="UserMSIV3" fitHeight="20.0" fitWidth="60.0" layoutX="329.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/mini/m_MS_Befestigungsanlage_3-156.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="UserMSIV4" fitHeight="20.0" fitWidth="60.0" layoutX="339.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/mini/m_MS_Befestigungsanlage_3-156.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="UserMSIV5" fitHeight="20.0" fitWidth="60.0" layoutX="349.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/mini/m_MS_Befestigungsanlage_3-156.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="UserMSIV6" fitHeight="20.0" fitWidth="60.0" layoutX="359.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/mini/m_MS_Befestigungsanlage_3-156.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="UserMSIV7" fitHeight="20.0" fitWidth="60.0" layoutX="369.0" layoutY="235.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/mini/m_MS_Befestigungsanlage_3-156.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </VBox>
+            <VBox fx:id="UserSSVBox" layoutX="319.0" layoutY="185.0">
+               <children>
+                  <ImageView fx:id="UserSSIV1" fitHeight="20.0" fitWidth="60.0" layoutX="319.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/mini/m_SS_Apotheke_3-164.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="UserSSIV2" fitHeight="20.0" fitWidth="60.0" layoutX="329.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/mini/m_SS_Apotheke_3-164.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="UserSSIV3" fitHeight="20.0" fitWidth="60.0" layoutX="339.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/mini/m_SS_Apotheke_3-164.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="UserSSIV4" fitHeight="20.0" fitWidth="60.0" layoutX="349.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/mini/m_SS_Apotheke_3-164.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="UserSSIV5" fitHeight="20.0" fitWidth="60.0" layoutX="359.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/mini/m_SS_Apotheke_3-164.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="UserSSIV6" fitHeight="20.0" fitWidth="60.0" layoutX="369.0" layoutY="235.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/mini/m_SS_Apotheke_3-164.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="UserSSIV7" fitHeight="20.0" fitWidth="60.0" layoutX="379.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/mini/m_SS_Apotheke_3-164.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </VBox>
+            <VBox fx:id="UserCSVBox" layoutX="329.0" layoutY="195.0">
+               <children>
+                  <ImageView fitHeight="20.0" fitWidth="60.0" layoutX="329.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/mini/m_CS_Altar_3-171.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="UserCSIV2" fitHeight="20.0" fitWidth="60.0" layoutX="339.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/mini/m_CS_Altar_3-171.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="UserCSIV3" fitHeight="20.0" fitWidth="60.0" layoutX="349.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/mini/m_CS_Altar_3-171.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="UserCSIV4" fitHeight="20.0" fitWidth="60.0" layoutX="359.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/mini/m_CS_Altar_3-171.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="UserCSIV5" fitHeight="20.0" fitWidth="60.0" layoutX="369.0" layoutY="235.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/mini/m_CS_Altar_3-171.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="UserCSIV6" fitHeight="20.0" fitWidth="60.0" layoutX="379.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/mini/m_CS_Altar_3-171.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="UserCSIV7" fitHeight="20.0" fitWidth="60.0" layoutX="389.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/mini/m_CS_Altar_3-171.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </VBox>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </HBox>
+      <VBox alignment="CENTER" layoutX="43.0" layoutY="336.0" nodeOrientation="LEFT_TO_RIGHT" spacing="15.0" AnchorPane.bottomAnchor="36.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
          <children>
             <HBox alignment="CENTER" layoutX="252.0" layoutY="360.0" spacing="15.0">
                <children>
@@ -572,7 +918,7 @@
             </HBox>
          </children>
          <padding>
-            <Insets bottom="25.0" top="25.0" />
+            <Insets bottom="25.0" left="3.0" right="4.0" top="25.0" />
          </padding>
       </VBox>
       <Label fx:id="TableNameLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="252.0" layoutY="688.0" prefHeight="36.0" prefWidth="576.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0;" text="GIZAH" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="252.0" AnchorPane.rightAnchor="252.0">
