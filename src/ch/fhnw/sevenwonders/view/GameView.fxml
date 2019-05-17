@@ -212,37 +212,37 @@
             </VBox>
             <VBox layoutX="482.0" layoutY="122.0" spacing="5.0">
                <children>
-                  <Label fx:id="UserHa1Label" alignment="CENTER" layoutX="320.0" layoutY="118.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: yellow; -fx-border-color: ffffff;" text="HA 1" textAlignment="CENTER" textFill="WHITE">
+                  <Label fx:id="UserHa1Label" alignment="CENTER" layoutX="320.0" layoutY="118.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: DBC021; -fx-border-color: ffffff;" text="HA 1" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="Arial" size="11.0" />
                      </font>
                   </Label>
-                  <Label fx:id="UserHa2Label" alignment="CENTER" layoutX="320.0" layoutY="145.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: yellow; -fx-border-color: ffffff;" text="HA 2" textAlignment="CENTER" textFill="WHITE">
+                  <Label fx:id="UserHa2Label" alignment="CENTER" layoutX="320.0" layoutY="145.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: DBC021; -fx-border-color: ffffff;" text="HA 2" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="Arial" size="11.0" />
                      </font>
                   </Label>
-                  <Label fx:id="UserHa3Label" alignment="CENTER" layoutX="320.0" layoutY="175.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: yellow; -fx-border-color: ffffff;" text="HA 3" textAlignment="CENTER" textFill="WHITE">
+                  <Label fx:id="UserHa3Label" alignment="CENTER" layoutX="320.0" layoutY="175.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: DBC021; -fx-border-color: ffffff;" text="HA 3" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="Arial" size="11.0" />
                      </font>
                   </Label>
-                  <Label fx:id="UserHa4Label" alignment="CENTER" layoutX="320.0" layoutY="203.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: yellow; -fx-border-color: ffffff;" text="HA 4" textAlignment="CENTER" textFill="WHITE">
+                  <Label fx:id="UserHa4Label" alignment="CENTER" layoutX="320.0" layoutY="203.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: DBC021; -fx-border-color: ffffff;" text="HA 4" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="Arial" size="11.0" />
                      </font>
                   </Label>
-                  <Label fx:id="UserHa5Label" alignment="CENTER" layoutX="320.0" layoutY="233.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: yellow; -fx-border-color: ffffff;" text="HA 5" textAlignment="CENTER" textFill="WHITE">
+                  <Label fx:id="UserHa5Label" alignment="CENTER" layoutX="320.0" layoutY="233.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: DBC021; -fx-border-color: ffffff;" text="HA 5" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="Arial" size="11.0" />
                      </font>
                   </Label>
-                  <Label fx:id="UserHa6Label" alignment="CENTER" layoutX="320.0" layoutY="263.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: yellow; -fx-border-color: ffffff;" text="HA 6" textAlignment="CENTER" textFill="WHITE">
+                  <Label fx:id="UserHa6Label" alignment="CENTER" layoutX="320.0" layoutY="263.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: DBC021; -fx-border-color: ffffff;" text="HA 6" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="Arial" size="11.0" />
                      </font>
                   </Label>
-                  <Label fx:id="UserHa7Label" alignment="CENTER" layoutX="320.0" layoutY="294.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: yellow; -fx-border-color: ffffff;" text="HA 7" textAlignment="CENTER" textFill="WHITE">
+                  <Label fx:id="UserHa7Label" alignment="CENTER" layoutX="320.0" layoutY="294.0" prefHeight="19.0" prefWidth="41.0" style="-fx-background-color: DBC021; -fx-border-color: ffffff;" text="HA 7" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="Arial" size="11.0" />
                      </font>
@@ -405,7 +405,7 @@
                      <children>
                         <ImageView fx:id="PlayerCard1" fitHeight="198.0" fitWidth="125.0" onMouseClicked="#onToggleCard" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../CardImages/AGE%20I/AGE%20I.jpg" />
+                              <Image url="@../resources/AGE%20I/AGE%20I.jpg" />
                            </image>
                         </ImageView>
                      </children>
@@ -414,7 +414,7 @@
                      <children>
                         <ImageView fx:id="PlayerCard2" fitHeight="198.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true" style="-fx-border: ;">
                            <image>
-                              <Image url="@../CardImages/AGE%20I/AGE%20I.jpg" />
+                              <Image url="@../resources/AGE%20I/AGE%20I.jpg" />
                            </image>
                         </ImageView>
                      </children>
@@ -423,7 +423,7 @@
                      <children>
                         <ImageView fx:id="PlayerCard3" fitHeight="198.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true" style="-fx-border: ;">
                            <image>
-                              <Image url="@../CardImages/AGE%20I/AGE%20I.jpg" />
+                              <Image url="@../resources/AGE%20I/AGE%20I.jpg" />
                            </image>
                         </ImageView>
                      </children>
@@ -432,7 +432,7 @@
                      <children>
                         <ImageView fx:id="PlayerCard4" fitHeight="198.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true" style="-fx-border: ;">
                            <image>
-                              <Image url="@../CardImages/AGE%20I/AGE%20I.jpg" />
+                              <Image url="@../resources/AGE%20I/AGE%20I.jpg" />
                            </image>
                         </ImageView>
                      </children>
@@ -441,7 +441,7 @@
                      <children>
                         <ImageView fx:id="PlayerCard5" fitHeight="198.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true" style="-fx-border: ;">
                            <image>
-                              <Image url="@../CardImages/AGE%20I/AGE%20I.jpg" />
+                              <Image url="@../resources/AGE%20I/AGE%20I.jpg" />
                            </image>
                         </ImageView>
                      </children>
@@ -450,7 +450,7 @@
                      <children>
                         <ImageView fx:id="PlayerCard6" fitHeight="198.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true" style="-fx-border: ;">
                            <image>
-                              <Image url="@../CardImages/AGE%20I/AGE%20I.jpg" />
+                              <Image url="@../resources/AGE%20I/AGE%20I.jpg" />
                            </image>
                         </ImageView>
                      </children>
@@ -459,7 +459,7 @@
                      <children>
                         <ImageView fx:id="PlayerCard7" fitHeight="198.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true" style="-fx-border: ;">
                            <image>
-                              <Image url="@../CardImages/AGE%20I/AGE%20I.jpg" />
+                              <Image url="@../resources/AGE%20I/AGE%20I.jpg" />
                            </image>
                         </ImageView>
                      </children>
