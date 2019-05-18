@@ -30,6 +30,7 @@ public class GameViewController implements Initializable {
 	public Button UmmunzenButton, RessourceVerwendenButton, ZumBauVerwendenButton;
 	public Label Player1Label, Player2Label,Player3Label, Player4Label, Player5Label, Player6Label;
 	public HBox PCard1HBox, PCard2HBox, PCard3HBox, PCard4HBox, PCard5HBox, PCard6HBox, PCard7HBox;
+	public ImageView PlayerCard1, PlayerCard2, PlayerCard3, PlayerCard4, PlayerCard5, PlayerCard6, PlayerCard7;
 	
 	
 	private ICard selectedCard;
@@ -66,10 +67,21 @@ public class GameViewController implements Initializable {
 		HBoxArray[4] = PCard5HBox;
 		HBoxArray[5] = PCard6HBox;
 		HBoxArray[6] = PCard7HBox;
+		
+		ImageView[] ImageViewArray = new ImageView[7];
+		
+		ImageViewArray[0] = PlayerCard1;
+		ImageViewArray[1] = PlayerCard2;
+		ImageViewArray[2] = PlayerCard3;
+		ImageViewArray[3] = PlayerCard4;
+		ImageViewArray[4] = PlayerCard5;
+		ImageViewArray[5] = PlayerCard6;
+		ImageViewArray[6] = PlayerCard7;		
+		
 	
 		for (int x = 0; x < model.getPlayer().getCardStack().size(); x++) {
 			HBoxArray[x].setUserData(model.getPlayer().getCardStack().get(x));
-
+			
 			if(model.getPlayer().getCardStack().get(x).isPlayable(null)) {
 				HBoxArray[x].setStyle("-fx-border-color: green;");		
 			}
