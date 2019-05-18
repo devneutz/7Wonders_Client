@@ -92,7 +92,7 @@ public class ClientModel {
 	}
 
 	private void handlePlayerJoinedMessage(ServerLobbyMessage inMessage) {
-		if(isPlayerInAnyLobby() && inMessage.getLobby().getLobbyName() == this.player.getLobby().getLobbyName()) {
+		if(isPlayerInAnyLobby() && inMessage.getLobby().getLobbyName().equals(this.player.getLobby().getLobbyName())) {
 			Platform.runLater(new Runnable() {
 				public void run() {
 					LobbyPlayers.getValue().clear();
