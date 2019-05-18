@@ -143,6 +143,10 @@ public class ClientModel {
 			}
 		});
 	}
+	
+	private void handleLobbyStartedMessage(ServerLobbyMessage inMessage) {
+		this.lastReceivedMessage.setValue(inMessage);
+	}
 
 	/**
 	 * Beim Startup handelt es sich um Login und Registrierungsprozesse. Diese
@@ -197,6 +201,9 @@ public class ClientModel {
 								case JoinLobby:
 									handleJoinLobby((ServerLobbyMessage)tmpMessage);
 									break;
+								case LobbyStarted:
+									handleLobbyStartedMessage((ServerLobbyMessage) tmpMessage);
+									break;				
 								default:
 									handleDefaultMessages((ServerLobbyMessage)tmpMessage);
 									break;

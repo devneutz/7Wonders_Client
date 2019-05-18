@@ -22,9 +22,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
 public class PlayerInLobbyViewController implements Initializable{
@@ -67,6 +69,33 @@ public class PlayerInLobbyViewController implements Initializable{
 					});
 					return;
 				}
+				if(((ServerLobbyMessage) newValue).getAction() == LobbyAction.LobbyStarted) {
+					model.getLastReceivedMessage().removeListener(this);
+					Platform.runLater(new Runnable() {
+						public void run() {
+							try {
+								FXMLLoader  fxmlLoader = new FXMLLoader(
+										getClass().getResource("/ch/fhnw/sevenwonders/view/GameView.fxml"));
+								Parent root1 = (Parent) fxmlLoader.load();
+								GameViewController controller = fxmlLoader.<GameViewController>getController();
+								controller.setModel(model);
+								Stage stage = new Stage();
+								Scene tmpScene = new Scene(root1);
+								controller.setupListener(tmpScene);
+								stage.setScene(tmpScene);
+								
+								stage.show();
+
+								parentScene.getWindow().hide();
+
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+						}
+					});
+					return;
+				}
+				
 				/*if(((ServerLobbyMessage) newValue).getAction() == LobbyAction.PlayerJoined) {
 					model.getLastReceivedMessage().removeListener(this);
 					Platform.runLater(new Runnable() {
@@ -123,6 +152,8 @@ public class PlayerInLobbyViewController implements Initializable{
 		if(this.model.getPlayer().getLobby().getLobbyMaster().getName().equals(this.model.getPlayer().getName())) {
 			DeleteLobbyButton.setVisible(true);
 			DeleteLobbyButton.setDisable(false);
+			StartLobbyButton.setVisible(true);
+			StartLobbyButton.setDisable(false);	
 						
 		}else{
 			DeleteLobbyButton.setText("leave lobby");
@@ -155,6 +186,11 @@ public class PlayerInLobbyViewController implements Initializable{
 	}
 	
 	public void handleStartLobbyButton() {
+		ClientLobbyMessage msg = new ClientLobbyMessage(LobbyAction.StartLobby);
+		ILobby tmpLobby = model.getPlayer().getLobby();
+		msg.setLobby(tmpLobby);
+		msg.setPlayer(model.getPlayer());
+		model.sendMessage(msg);	
 		
 		
 	}
