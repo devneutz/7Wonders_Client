@@ -54,6 +54,8 @@ public class ClientModel {
 	}
 	
 	public boolean isPlayerInAnyLobby() {
+		if(this.player == null) {return false;}
+		
 		return this.player.getLobby() != null;
 	}
 
@@ -90,12 +92,15 @@ public class ClientModel {
 	}
 
 	private void handlePlayerJoinedMessage(ServerLobbyMessage inMessage) {
-		if(isPlayerInAnyLobby() && inMessage.getLobby().getLobbyName() == this.player.getLobby().getLobbyName()) {
+		if(isPlayerInAnyLobby() && inMessage.getLobby().getLobbyName().equals(this.player.getLobby().getLobbyName())) {
+			this.lastReceivedMessage.setValue(inMessage);
 			Platform.runLater(new Runnable() {
 				public void run() {
-					LobbyPlayers.getValue().add(inMessage.getPlayer());
+					LobbyPlayers.getValue().clear();
+					LobbyPlayers.getValue().addAll(inMessage.getLobby().getLobbyPlayers());
 				}
 			});
+			
 		}
 	}
 
