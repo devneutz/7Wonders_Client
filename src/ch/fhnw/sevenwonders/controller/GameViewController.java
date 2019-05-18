@@ -103,15 +103,15 @@ public class GameViewController implements Initializable {
 	}
 	
 	public void handleRessourceVerwendenButton(ActionEvent event) {
-		// Deaktivieren sämtlicher Interaktionsmöglichkeiten des Spielers - solange bis eine Nachricht vom Server zurückkommt.
+		// Deaktivieren sï¿½mtlicher Interaktionsmï¿½glichkeiten des Spielers - solange bis eine Nachricht vom Server zurï¿½ckkommt.
 		RessourceVerwendenButton.setDisable(true);
 		UmmunzenButton.setDisable(true);
 		ZumBauVerwendenButton.setDisable(true);
 		
-		// Zusammenstellen der Nachricht an den Server. Diese beinhaltet die Aktion, die vom Spieler durchgeführt werden will.
+		// Zusammenstellen der Nachricht an den Server. Diese beinhaltet die Aktion, die vom Spieler durchgefï¿½hrt werden will.
 		ClientGameMessage msg = new ClientGameMessage(GameAction.PlayCard);
 		
-		// TODO Setzen der ausgewählten Karte - Warten auf Umsetzung durch ruluke
+		// TODO Setzen der ausgewï¿½hlten Karte - Warten auf Umsetzung durch ruluke
 		msg.setCard(null);
 		
 		// Setzen des Spielers, damit der Server Bescheid weiss um welchen es sich handelt.
@@ -122,15 +122,15 @@ public class GameViewController implements Initializable {
 	}
 	
 	public void handleZumBauVerwendenButton() {
-		// Deaktivieren sämtlicher Interaktionsmöglichkeiten des Spielers - solange bis eine Nachricht vom Server zurückkommt.
+		// Deaktivieren sï¿½mtlicher Interaktionsmï¿½glichkeiten des Spielers - solange bis eine Nachricht vom Server zurï¿½ckkommt.
 		RessourceVerwendenButton.setDisable(true);
 		UmmunzenButton.setDisable(true);
 		ZumBauVerwendenButton.setDisable(false);
 		
-		// Zusammenstellen der Nachricht an den Server. Diese beinhaltet die Aktion, die vom Spieler durchgeführt werden will.
+		// Zusammenstellen der Nachricht an den Server. Diese beinhaltet die Aktion, die vom Spieler durchgefï¿½hrt werden will.
 		ClientGameMessage msg = new ClientGameMessage(GameAction.BuildCard);
 		
-		// TODO Setzen der ausgewählten Karte - Warten auf Umsetzung durch ruluke
+		// TODO Setzen der ausgewï¿½hlten Karte - Warten auf Umsetzung durch ruluke
 		msg.setCard(null);
 		
 		// Setzen des Spielers, damit der Server Bescheid weiss um welchen es sich handelt.
