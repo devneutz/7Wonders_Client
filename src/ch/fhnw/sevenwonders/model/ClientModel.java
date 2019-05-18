@@ -91,11 +91,13 @@ public class ClientModel {
 
 	private void handlePlayerJoinedMessage(ServerLobbyMessage inMessage) {
 		if(isPlayerInAnyLobby() && inMessage.getLobby().getLobbyName() == this.player.getLobby().getLobbyName()) {
+			this.lastReceivedMessage.setValue(inMessage);
 			Platform.runLater(new Runnable() {
 				public void run() {
 					LobbyPlayers.getValue().add(inMessage.getPlayer());
 				}
 			});
+			
 		}
 	}
 
