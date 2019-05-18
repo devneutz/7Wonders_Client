@@ -66,6 +66,18 @@ public class PlayerInLobbyViewController implements Initializable{
 					});
 					return;
 				}
+				if(((ServerLobbyMessage) newValue).getAction() == LobbyAction.PlayerJoined) {
+					model.getLastReceivedMessage().removeListener(this);
+					Platform.runLater(new Runnable() {
+						public void run() {
+							if(model.getPlayer().getLobby().getLobbyMaster().getName().equals(model.getPlayer().getName()) && model.getPlayer().getLobby().getLobbyPlayers().size() >= 3) {
+								StartLobbyButton.setVisible(true);
+								StartLobbyButton.setDisable(false);								
+							}											
+						}
+					});
+					return;
+				}
 				
 				if (((ServerLobbyMessage) newValue).getStatusCode() == StatusCode.Success) {
 					model.setPlayer(((ServerLobbyMessage) newValue).getPlayer());
@@ -110,9 +122,7 @@ public class PlayerInLobbyViewController implements Initializable{
 		if(this.model.getPlayer().getLobby().getLobbyMaster().getName().equals(this.model.getPlayer().getName())) {
 			DeleteLobbyButton.setVisible(true);
 			DeleteLobbyButton.setDisable(false);
-			StartLobbyButton.setVisible(true);
-			StartLobbyButton.setDisable(false);
-			
+						
 		}else{
 			DeleteLobbyButton.setText("leave lobby");
 			DeleteLobbyButton.setVisible(true);
