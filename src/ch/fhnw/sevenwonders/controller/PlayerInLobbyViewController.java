@@ -8,6 +8,7 @@ import ch.fhnw.sevenwonders.enums.LobbyAction;
 import ch.fhnw.sevenwonders.enums.StatusCode;
 import ch.fhnw.sevenwonders.interfaces.ILobby;
 import ch.fhnw.sevenwonders.interfaces.IPlayer;
+import ch.fhnw.sevenwonders.messages.ClientGameMessage;
 import ch.fhnw.sevenwonders.messages.ClientLobbyMessage;
 import ch.fhnw.sevenwonders.messages.Message;
 import ch.fhnw.sevenwonders.messages.ServerLobbyMessage;
@@ -66,7 +67,7 @@ public class PlayerInLobbyViewController implements Initializable{
 					});
 					return;
 				}
-				if(((ServerLobbyMessage) newValue).getAction() == LobbyAction.PlayerJoined) {
+				/*if(((ServerLobbyMessage) newValue).getAction() == LobbyAction.PlayerJoined) {
 					model.getLastReceivedMessage().removeListener(this);
 					Platform.runLater(new Runnable() {
 						public void run() {
@@ -77,7 +78,7 @@ public class PlayerInLobbyViewController implements Initializable{
 						}
 					});
 					return;
-				}
+				}*/
 				
 				if (((ServerLobbyMessage) newValue).getStatusCode() == StatusCode.Success) {
 					model.setPlayer(((ServerLobbyMessage) newValue).getPlayer());
@@ -154,6 +155,7 @@ public class PlayerInLobbyViewController implements Initializable{
 	}
 	
 	public void handleStartLobbyButton() {
+		
 		
 	}
 	
