@@ -54,6 +54,8 @@ public class ClientModel {
 	}
 	
 	public boolean isPlayerInAnyLobby() {
+		if(this.player == null) {return false;}
+		
 		return this.player.getLobby() != null;
 	}
 
