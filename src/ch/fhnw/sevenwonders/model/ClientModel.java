@@ -95,7 +95,8 @@ public class ClientModel {
 		if(isPlayerInAnyLobby() && inMessage.getLobby().getLobbyName() == this.player.getLobby().getLobbyName()) {
 			Platform.runLater(new Runnable() {
 				public void run() {
-					LobbyPlayers.getValue().add(inMessage.getPlayer());
+					LobbyPlayers.getValue().clear();
+					LobbyPlayers.getValue().addAll(inMessage.getLobby().getLobbyPlayers());
 				}
 			});
 		}
