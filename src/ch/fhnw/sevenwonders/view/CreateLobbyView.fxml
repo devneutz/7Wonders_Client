@@ -40,9 +40,9 @@
                   </Button>
                </children>
             </HBox>
-            <TextField fx:id="EnterLobbynameTextField" maxWidth="400.0" prefHeight="36.0" prefWidth="400.0" promptText="enter lobbyname" style="-fx-background-color: c7aa72; -fx-background-radius: 0;">
+            <TextField fx:id="EnterLobbynameTextField" maxWidth="400.0" prefHeight="36.0" prefWidth="400.0" promptText="enter Lobbyname" style="-fx-background-color: c7aa72; -fx-background-radius: 0; -fx-prompt-text-fill: white; -fx-text-inner-color: white;">
                <font>
-                  <Font name="Arial" size="16.0" />
+                  <Font name="Arial Italic" size="13.0" />
                </font></TextField>
             <HBox alignment="CENTER" spacing="10.0">
                <children>
