@@ -91,17 +91,20 @@ public class GameViewController implements Initializable {
 		ImageViewArray[6] = PlayerCard7;	
 		
 		String tmpAgePrefix = "";
+		String tmpAgeDefaultCard = "";
 		if(model.getPlayer().getCardStack().get(0).getAge() == Age.AgeI) {
 			tmpAgePrefix = "/AGE I/";
+			tmpAgeDefaultCard = tmpAgePrefix + "AGE I.jpg";
 		}else if(model.getPlayer().getCardStack().get(0).getAge() == Age.AgeII) {
 			tmpAgePrefix = "/AGE II/";
+			tmpAgeDefaultCard = tmpAgePrefix + "AGE II.jpg";
 		}else {
 			tmpAgePrefix = "/AGE III/";
 		}
 		
 		URL tmpDefaultImage = getClass()
 				.getResource("/ch/fhnw/sevenwonders/resources/" +
-						tmpAgePrefix + "AGE I.jpg");
+						tmpAgeDefaultCard);
 		
 		PlayerCard1
 				.setImage(new Image(tmpDefaultImage.toExternalForm()));
