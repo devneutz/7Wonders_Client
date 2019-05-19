@@ -37,7 +37,7 @@ public class GameViewController implements Initializable {
 
 	@FXML
 	public Button UmmunzenButton, RessourceVerwendenButton, ZumBauVerwendenButton;
-	public Label Player1Label, Player2Label,Player3Label, Player4Label, Player5Label, Player6Label;
+	public Label Player1Label, Player2Label,Player3Label, Player4Label, Player5Label, Player6Label, PlayerInGameLabel;
 	public HBox PCard1HBox, PCard2HBox, PCard3HBox, PCard4HBox, PCard5HBox, PCard6HBox, PCard7HBox;
 	public ImageView PlayerCard1, PlayerCard2, PlayerCard3, PlayerCard4, PlayerCard5, PlayerCard6, PlayerCard7;
 	
@@ -57,6 +57,7 @@ public class GameViewController implements Initializable {
 		UmmunzenButton.setDisable(true);
 		RessourceVerwendenButton.setDisable(true);
 		ZumBauVerwendenButton.setDisable(true);
+		PlayerInGameLabel.setText(model.getPlayer().getName());
 	}
 	
 	/**
