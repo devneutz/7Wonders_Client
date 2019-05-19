@@ -96,20 +96,20 @@ public class PlayerInLobbyViewController implements Initializable{
 					return;
 				}
 				
-				/*if(((ServerLobbyMessage) newValue).getAction() == LobbyAction.PlayerJoined) {
-					model.getLastReceivedMessage().removeListener(this);
+				if(((ServerLobbyMessage) newValue).getAction() == LobbyAction.PlayerJoined) {
 					Platform.runLater(new Runnable() {
 						public void run() {
-							if(model.getPlayer().getLobby().getLobbyMaster().getName().equals(model.getPlayer().getName()) && model.getPlayer().getLobby().getLobbyPlayers().size() >= 3) {
+							// Überprüfung ob es der Master ist, wird im Model gemacht.
+							if(model.getOpponentsListProperty().getValue().size() >= 3) {
 								StartLobbyButton.setVisible(true);
 								StartLobbyButton.setDisable(false);								
 							}											
 						}
 					});
 					return;
-				}*/
+				}
 				
-				if (((ServerLobbyMessage) newValue).getStatusCode() == StatusCode.Success) {
+				if (((ServerLobbyMessage) newValue).getStatusCode() == StatusCode.Success && ((ServerLobbyMessage)newValue).getAction() == LobbyAction.DeleteLobby) {
 					model.setPlayer(((ServerLobbyMessage) newValue).getPlayer());
 					model.getLastReceivedMessage().removeListener(this);
 					Platform.runLater(new Runnable() {
@@ -152,8 +152,10 @@ public class PlayerInLobbyViewController implements Initializable{
 		if(this.model.getPlayer().getLobby().getLobbyMaster().getName().equals(this.model.getPlayer().getName())) {
 			DeleteLobbyButton.setVisible(true);
 			DeleteLobbyButton.setDisable(false);
+			
+			// Start Button anfangs immer auf false setzen, da noch keine Spieler drin sind.
 			StartLobbyButton.setVisible(true);
-			StartLobbyButton.setDisable(false);	
+			StartLobbyButton.setDisable(true);	
 						
 		}else{
 			DeleteLobbyButton.setText("leave lobby");
