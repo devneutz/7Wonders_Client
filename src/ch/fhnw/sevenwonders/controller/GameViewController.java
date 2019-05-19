@@ -87,19 +87,39 @@ public class GameViewController implements Initializable {
 		ImageViewArray[3] = PlayerCard4;
 		ImageViewArray[4] = PlayerCard5;
 		ImageViewArray[5] = PlayerCard6;
-		ImageViewArray[6] = PlayerCard7;		
+		ImageViewArray[6] = PlayerCard7;	
 		
-	
+		String tmpAgePrefix = "";
+		if(model.getPlayer().getCardStack().get(0).getAge() == Age.AgeI) {
+			tmpAgePrefix = "/AGE I/";
+		}else if(model.getPlayer().getCardStack().get(0).getAge() == Age.AgeII) {
+			tmpAgePrefix = "/AGE II/";
+		}else {
+			tmpAgePrefix = "/AGE III/";
+		}
+		
+		URL tmpDefaultImage = getClass()
+				.getResource("/ch/fhnw/sevenwonders/resources/" +
+						tmpAgePrefix + "AGE I.jpg");
+		
+		PlayerCard1
+				.setImage(new Image(tmpDefaultImage.toExternalForm()));
+		PlayerCard2
+		.setImage(new Image(tmpDefaultImage.toExternalForm()));
+		PlayerCard3
+		.setImage(new Image(tmpDefaultImage.toExternalForm()));
+		PlayerCard4
+		.setImage(new Image(tmpDefaultImage.toExternalForm()));
+		PlayerCard5
+		.setImage(new Image(tmpDefaultImage.toExternalForm()));
+		PlayerCard6
+		.setImage(new Image(tmpDefaultImage.toExternalForm()));
+		PlayerCard7
+		.setImage(new Image(tmpDefaultImage.toExternalForm()));
+		
 		for (int x = 0; x < model.getPlayer().getCardStack().size(); x++) {
 			HBoxArray[x].setUserData(model.getPlayer().getCardStack().get(x));
-			String tmpAgePrefix = "";
-			if(model.getPlayer().getCardStack().get(x).getAge() == Age.AgeI) {
-				tmpAgePrefix = "/AGE I/";
-			}else if(model.getPlayer().getCardStack().get(x).getAge() == Age.AgeII) {
-				tmpAgePrefix = "/AGE II/";
-			}else {
-				tmpAgePrefix = "/AGE III/";
-			}
+		
 			URL tmpResource = getClass()
 					.getResource("/ch/fhnw/sevenwonders/resources/" +
 							tmpAgePrefix + 
@@ -150,17 +170,17 @@ public class GameViewController implements Initializable {
 		// Zusammenstellen der Nachricht an den Server. Diese beinhaltet die Aktion, die vom Spieler durchgef�hrt werden will.
 		ClientGameMessage msg = new ClientGameMessage(GameAction.PlayCard);
 		
-		// TODO Setzen der ausgew�hlten Karte - Warten auf Umsetzung durch ruluke
-		msg.setCard(null);
+		// Setzen der ausgew�hlten Karte 
+		msg.setCard(selectedCard);
 		
 		// Setzen des Spielers, damit der Server Bescheid weiss um welchen es sich handelt.
 		msg.setPlayer(model.getPlayer());
 		
 		// Senden
-		model.sendMessage(msg);		
+		model.sendMessage(msg);
 	}
 	
-	public void handleZumBauVerwendenButton() {
+	public void handleZumBauVerwendenButton(ActionEvent event) {
 		// Deaktivieren s�mtlicher Interaktionsm�glichkeiten des Spielers - solange bis eine Nachricht vom Server zur�ckkommt.
 		RessourceVerwendenButton.setDisable(true);
 		UmmunzenButton.setDisable(true);
@@ -169,8 +189,8 @@ public class GameViewController implements Initializable {
 		// Zusammenstellen der Nachricht an den Server. Diese beinhaltet die Aktion, die vom Spieler durchgef�hrt werden will.
 		ClientGameMessage msg = new ClientGameMessage(GameAction.BuildCard);
 		
-		// TODO Setzen der ausgew�hlten Karte - Warten auf Umsetzung durch ruluke
-		msg.setCard(null);
+		//  Setzen der ausgew�hlten Karte
+		msg.setCard(selectedCard);
 		
 		// Setzen des Spielers, damit der Server Bescheid weiss um welchen es sich handelt.
 		msg.setPlayer(model.getPlayer());
@@ -226,6 +246,7 @@ public class GameViewController implements Initializable {
 						// TODO Alles wieder aktivieren f�r eine n�chste Auswahl? D�rfte gar nie der Fall sein. Aktuell ignorieren
 						throw new IllegalArgumentException("Aktion nicht m�glich");
 					case NewRound:
+						setUpCards();
 						// TODO Alles wieder aktivieren, eine neue Runde hat begonnen. Alle ben�tigten Variablen wurden bereits vom Server gesetzt.
 						break;
 					default:
