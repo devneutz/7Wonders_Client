@@ -57,7 +57,6 @@ public class PlayerInLobbyViewController implements Initializable{
 								Scene tmpScene = new Scene(root1);
 								controller.setupListener(tmpScene);
 								stage.setScene(tmpScene);
-								
 								stage.show();
 
 								parentScene.getWindow().hide();
@@ -71,6 +70,7 @@ public class PlayerInLobbyViewController implements Initializable{
 				}
 				if(((ServerLobbyMessage) newValue).getAction() == LobbyAction.LobbyStarted) {
 					model.getLastReceivedMessage().removeListener(this);
+					model.setPlayer(((ServerLobbyMessage) newValue).getPlayer());
 					Platform.runLater(new Runnable() {
 						public void run() {
 							try {
@@ -83,8 +83,8 @@ public class PlayerInLobbyViewController implements Initializable{
 								Scene tmpScene = new Scene(root1);
 								controller.setupListener(tmpScene);
 								stage.setScene(tmpScene);
-								
 								stage.show();
+								stage.setMaximized(true);
 
 								parentScene.getWindow().hide();
 
@@ -155,7 +155,7 @@ public class PlayerInLobbyViewController implements Initializable{
 			
 			// Start Button anfangs immer auf false setzen, da noch keine Spieler drin sind.
 			StartLobbyButton.setVisible(true);
-			StartLobbyButton.setDisable(true);	
+			StartLobbyButton.setDisable(false);	
 						
 		}else{
 			DeleteLobbyButton.setText("leave lobby");

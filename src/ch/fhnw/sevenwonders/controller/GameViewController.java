@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import ch.fhnw.sevenwonders.application.ClientApplicationMain;
+import ch.fhnw.sevenwonders.enums.Age;
 import ch.fhnw.sevenwonders.enums.GameAction;
 import ch.fhnw.sevenwonders.interfaces.ICard;
 import ch.fhnw.sevenwonders.interfaces.IPlayer;
@@ -17,8 +18,16 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Border;
+import javafx.scene.layout.BorderStroke;
+import javafx.scene.layout.BorderStrokeStyle;
+import javafx.scene.layout.BorderWidths;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 
 public class GameViewController implements Initializable {
 	
@@ -44,8 +53,10 @@ public class GameViewController implements Initializable {
 	
 	public void setModel(ClientModel inModel) {
 		this.model = inModel;
-		setUpCards(null);
-			
+		setUpCards();
+		UmmunzenButton.setDisable(true);
+		RessourceVerwendenButton.setDisable(true);
+		ZumBauVerwendenButton.setDisable(true);
 	}
 	
 	/**
@@ -56,7 +67,7 @@ public class GameViewController implements Initializable {
 	 * 
 	 */
 	
-	private void setUpCards(ArrayList<ICard> inCards) {
+	private void setUpCards() {
 		
 		HBox[] HBoxArray = new HBox [7];
 		
@@ -81,9 +92,25 @@ public class GameViewController implements Initializable {
 	
 		for (int x = 0; x < model.getPlayer().getCardStack().size(); x++) {
 			HBoxArray[x].setUserData(model.getPlayer().getCardStack().get(x));
+			String tmpAgePrefix = "";
+			if(model.getPlayer().getCardStack().get(x).getAge() == Age.AgeI) {
+				tmpAgePrefix = "/AGE I/";
+			}else if(model.getPlayer().getCardStack().get(x).getAge() == Age.AgeII) {
+				tmpAgePrefix = "/AGE II/";
+			}else {
+				tmpAgePrefix = "/AGE III/";
+			}
+			URL tmpResource = getClass()
+					.getResource("/ch/fhnw/sevenwonders/resources/" +
+							tmpAgePrefix + 
+							model.getPlayer().getCardStack().get(x).getImageName());
 			
-			if(model.getPlayer().getCardStack().get(x).isPlayable(null)) {
-				HBoxArray[x].setStyle("-fx-border-color: green;");		
+			ImageViewArray[x]
+					.setImage(new Image(tmpResource.toExternalForm()));
+			if(model.getPlayer().getCardStack().get(x).isPlayable(model.getPlayer())) {
+				HBoxArray[x].setStyle("-fx-border-color: green;-fx-border-width: 2;");		
+			}else {
+				HBoxArray[x].setStyle("-fx-border-color: red;-fx-border-width: 2;");		
 			}
 		}
 	}
@@ -209,18 +236,27 @@ public class GameViewController implements Initializable {
 	}
 
 	private void deselectAllCards() {
-		// TODO playerCard1.setBorder() zu weniger dick und so weiter
+		setUpCards();
 	}
 	
 	@FXML
-	public void onToggleCard(ActionEvent inEvent) {
+	public void onToggleCard(MouseEvent inEvent) {
+
+		this.RessourceVerwendenButton.setDisable(true);
+		this.ZumBauVerwendenButton.setDisable(true);
 		deselectAllCards();
 		
-		ImageView cardImageView = (ImageView) inEvent.getSource();
+		HBox tmpSelectedHBox = (HBox) inEvent.getSource();
 		
-		selectedCard = (ICard)cardImageView.getUserData();
+		selectedCard = (ICard)tmpSelectedHBox.getUserData();
 		
-		// TODO setBorder() zu fett
+		if(selectedCard.isPlayable(model.getPlayer())) {
+			this.RessourceVerwendenButton.setDisable(false);
+			this.ZumBauVerwendenButton.setDisable(false);
+		}
+		this.UmmunzenButton.setDisable(false);
+		
+		tmpSelectedHBox.setStyle("-fx-border-color: orange;-fx-border-width: 5px;");
 	}
 	
 	@Override
