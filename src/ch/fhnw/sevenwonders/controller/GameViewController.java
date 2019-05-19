@@ -152,7 +152,7 @@ public class GameViewController implements Initializable {
 		ClientGameMessage msg = new ClientGameMessage(GameAction.MonetizeCard);
 		
 		// TODO Setzen der ausgewaehlten Karte - Warten auf Umsetzung durch ruluke
-		msg.setCard(null);
+		msg.setCard(selectedCard);
 		
 		// Setzen des Spielers, damit der Server Bescheid weiss um welchen es sich handelt.
 		msg.setPlayer(model.getPlayer());
