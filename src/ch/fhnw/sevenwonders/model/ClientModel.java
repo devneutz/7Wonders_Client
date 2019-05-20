@@ -9,6 +9,7 @@ import java.util.Iterator;
 import ch.fhnw.sevenwonders.enums.StatusCode;
 import ch.fhnw.sevenwonders.interfaces.*;
 import ch.fhnw.sevenwonders.messages.Message;
+import ch.fhnw.sevenwonders.messages.ServerGameMessage;
 import ch.fhnw.sevenwonders.messages.ServerLobbyMessage;
 import ch.fhnw.sevenwonders.messages.ServerStartupMessage;
 import javafx.application.Platform;
@@ -21,7 +22,7 @@ public class ClientModel {
 	private Socket socket;
 	private IPlayer player;
 
-	private ObjectProperty<ObservableList<IPlayer>> LobbyPlayers;
+	private ObjectProperty<ObservableList<IPlayer>> Opponents;
 	private ObjectProperty<ObservableList<ILobby>> Lobbies;
 	private ObjectProperty<Message> lastReceivedMessage;
 
@@ -34,7 +35,7 @@ public class ClientModel {
 	 * @return
 	 */
 	public ObjectProperty<ObservableList<IPlayer>> getOpponentsListProperty() {
-		return this.LobbyPlayers;
+		return this.Opponents;
 	}
 
 	public void setPlayer(IPlayer inPlayer) {
@@ -67,8 +68,8 @@ public class ClientModel {
 	 */
 	public void connect(String inIpAddress, int inPort) {
 		try {
-			LobbyPlayers = new SimpleObjectProperty<ObservableList<IPlayer>>();
-			LobbyPlayers.setValue(FXCollections.observableArrayList());
+			Opponents = new SimpleObjectProperty<ObservableList<IPlayer>>();
+			Opponents.setValue(FXCollections.observableArrayList());
 			Lobbies = new SimpleObjectProperty<ObservableList<ILobby>>();
 			Lobbies.setValue(FXCollections.observableArrayList());
 			this.lastReceivedMessage = new SimpleObjectProperty<Message>();
@@ -96,8 +97,8 @@ public class ClientModel {
 		if(isPlayerInAnyLobby() && inMessage.getLobby().getLobbyName().equals(this.player.getLobby().getLobbyName())) {
 			Platform.runLater(new Runnable() {
 				public void run() {
-					LobbyPlayers.getValue().clear();
-					LobbyPlayers.getValue().addAll(inMessage.getLobby().getLobbyPlayers());
+					Opponents.getValue().clear();
+					Opponents.getValue().addAll(inMessage.getLobby().getLobbyPlayers());
 				}
 			});			
 		}
@@ -109,8 +110,8 @@ public class ClientModel {
 	private void handlePlayerLeftMessage(ServerLobbyMessage inMessage) {
 		Platform.runLater(new Runnable() {
 			public void run() {
-				LobbyPlayers.getValue().clear();
-				LobbyPlayers.getValue().addAll(inMessage.getLobby().getLobbyPlayers());
+				Opponents.getValue().clear();
+				Opponents.getValue().addAll(inMessage.getLobby().getLobbyPlayers());
 			}
 		});
 	}
@@ -121,8 +122,8 @@ public class ClientModel {
 					Lobbies.getValue().add(inMessage.getLobby());
 
 					if(isPlayerInAnyLobby() && inMessage.getLobby().getLobbyName().equals(inMessage.getLobby().getLobbyName())) {
-						LobbyPlayers.getValue().clear();
-						LobbyPlayers.getValue().addAll(inMessage.getLobby().getLobbyPlayers());
+						Opponents.getValue().clear();
+						Opponents.getValue().addAll(inMessage.getLobby().getLobbyPlayers());
 					}
 				}
 			});
@@ -147,6 +148,8 @@ public class ClientModel {
 	}
 	
 	private void handleLobbyStartedMessage(ServerLobbyMessage inMessage) {
+		this.Opponents.getValue().clear();
+		this.Opponents.getValue().addAll(inMessage.getOpponents());
 		this.lastReceivedMessage.setValue(inMessage);
 	}
 
@@ -169,8 +172,8 @@ public class ClientModel {
 	
 	private void handleJoinLobby(ServerLobbyMessage inMessage) {
 		lastReceivedMessage.setValue(inMessage);
-		LobbyPlayers.getValue().clear();
-		LobbyPlayers.getValue().addAll(inMessage.getLobby().getLobbyPlayers());
+		Opponents.getValue().clear();
+		Opponents.getValue().addAll(inMessage.getLobby().getLobbyPlayers());
 	}
 
 	private void handleDefaultMessages(Message inMessage) {
@@ -212,6 +215,11 @@ public class ClientModel {
 								}
 							} else if (tmpMessage instanceof ServerStartupMessage) {
 								handleStartupMessages((ServerStartupMessage) tmpMessage);
+							}
+							else if(tmpMessage instanceof ServerGameMessage && ((ServerGameMessage) tmpMessage).getStatusCode() == StatusCode.NewRound) {
+								Opponents.getValue().clear();
+								Opponents.getValue().addAll(((ServerGameMessage)tmpMessage).getOpponents());
+								handleDefaultMessages(tmpMessage);
 							}
 							else {
 								handleDefaultMessages(tmpMessage);

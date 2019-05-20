@@ -35,6 +35,11 @@ public class GameViewController implements Initializable {
 	public Label Player1Label, Player2Label, Player3Label, Player4Label, Player5Label, Player6Label, PlayerInGameLabel,
 			PlayerCoinsLabel, PlayerAttackLabel;
 	public HBox PCard1HBox, PCard2HBox, PCard3HBox, PCard4HBox, PCard5HBox, PCard6HBox, PCard7HBox;
+	
+	// Anzeige von Coins und Angriffspunkten
+	@FXML
+	public HBox player1ResourceBox,player2ResourceBox,player3ResourceBox,player4ResourceBox,player5ResourceBox,player6ResourceBox;
+	
 	public ImageView PlayerCard1, PlayerCard2, PlayerCard3, PlayerCard4, PlayerCard5, PlayerCard6, PlayerCard7,
 	Player1ResIV1, Player1ResIV2, Player1ResIV3, Player1ResIV4, Player1ResIV5, Player1ResIV6, Player1ResIV7, Player1ResIV8, Player1ResIV9, Player1ResIV10, Player1ResIV11, Player1ResIV12,
 	Player1ResIV21, Player1ResIV31, Player1ResIV41, Player1ResIV51, Player1ResIV61, Player1ResIV71, Player1ResIV81, Player1ResIV91, Player1ResIV101, Player1ResIV111, Player1ResIV121,
@@ -52,7 +57,7 @@ public class GameViewController implements Initializable {
 			UserCOMIV5, UserCOMIV6, UserCOMIV7, UserMSIV1, UserMSIV2, UserMSIV3, UserMSIV4, UserMSIV5, UserMSIV6,
 			UserMSIV7, UserSSIV1, UserSSIV2, UserSSIV3, UserSSIV4, UserSSIV5, UserSSIV6, UserSSIV7, UserCSIV1,
 			UserCSIV2, UserCSIV3, UserCSIV4, UserCSIV5, UserCSIV6, UserCSIV7;
-
+	
 	private ICard selectedCard;
 	private int nextRM = 0;
 	private int nextMG = 0;
@@ -67,13 +72,48 @@ public class GameViewController implements Initializable {
 
 	public void setModel(ClientModel inModel) {
 		this.model = inModel;
+		
 		setUpCards();
+		updateOpponentsUi();
 		UmmunzenButton.setDisable(true);
 		RessourceVerwendenButton.setDisable(true);
 		ZumBauVerwendenButton.setDisable(true);
 		PlayerInGameLabel.setText(model.getPlayer().getName());
 		PlayerCoinsLabel.setText(model.getPlayer().getCoinWallet().size() + "C");
 		PlayerAttackLabel.setText(model.getPlayer().getMilitaryWarPoints() + "A");
+	}
+	
+	private void updateOpponentsUi() {
+		Platform.runLater(new Runnable() {
+			public void run() {
+				Label[] tmpPlayerLabels = new Label[6];
+				tmpPlayerLabels[0] = Player1Label;
+				tmpPlayerLabels[1] = Player2Label;
+				tmpPlayerLabels[2] = Player3Label;
+				tmpPlayerLabels[3] = Player4Label;
+				tmpPlayerLabels[4] = Player5Label;
+				tmpPlayerLabels[5] = Player6Label;
+				
+				HBox[] tmpPlayerResourceBoxes = new HBox[6];
+				tmpPlayerResourceBoxes[0] = player1ResourceBox;
+				tmpPlayerResourceBoxes[1] = player2ResourceBox;
+				tmpPlayerResourceBoxes[2] = player3ResourceBox;
+				tmpPlayerResourceBoxes[3] = player4ResourceBox;
+				tmpPlayerResourceBoxes[4] = player5ResourceBox;
+				tmpPlayerResourceBoxes[5] = player6ResourceBox;
+				
+				
+				for(int i = 0; i < model.getOpponentsListProperty().getValue().size(); i++) {
+					tmpPlayerLabels[i].setText(model.getOpponentsListProperty().getValue().get(i).getName());
+					tmpPlayerLabels[i].setVisible(true);
+					tmpPlayerResourceBoxes[i].setVisible(true);
+					((Label)tmpPlayerResourceBoxes[i].getChildren().get(0)).setText(model.getOpponentsListProperty().getValue().get(i).getCoinWallet().size() + "C");
+
+					((Label)tmpPlayerResourceBoxes[i].getChildren().get(1)).setText(model.getOpponentsListProperty().getValue().get(i).getMilitaryWarPoints() + "A");
+				}
+			}
+		});
+		
 	}
 
 	/**
@@ -83,7 +123,6 @@ public class GameViewController implements Initializable {
 	 *         gewrappte Imageview von rot auf gruen
 	 * 
 	 */
-
 	private void setUpCards() {
 		Platform.runLater(new Runnable() {
 			public void run() {
@@ -402,6 +441,7 @@ public class GameViewController implements Initializable {
 					throw new IllegalArgumentException("Aktion nicht m�glich");
 				case NewRound:
 					setUpCards();
+					updateOpponentsUi();
 					// TODO Alles wieder aktivieren, eine neue Runde hat begonnen. Alle benoetigten
 					// Variablen wurden bereits vom Server gesetzt.
 					break;
