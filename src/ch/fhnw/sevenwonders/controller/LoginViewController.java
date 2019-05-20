@@ -53,7 +53,7 @@ public class LoginViewController implements Initializable {
 	private PasswordField enterPasswordPassField;
 	@FXML
 	private Button loginButton, signUpButton, GoBackButton;
-	
+
 	private Scene parentScene;
 
 	private ChangeListener<Message> changeListener = new ChangeListener<Message>() {
@@ -91,7 +91,8 @@ public class LoginViewController implements Initializable {
 									FXMLLoader fxmlLoader = new FXMLLoader(
 											getClass().getResource("/ch/fhnw/sevenwonders/view/LoginSuccessView.fxml"));
 									Parent root = (Parent) fxmlLoader.load();
-									LoginSuccessViewController controller = fxmlLoader.<LoginSuccessViewController>getController();
+									LoginSuccessViewController controller = fxmlLoader
+											.<LoginSuccessViewController>getController();
 									controller.setModel(model);
 									Stage stage = new Stage();
 									stage.setScene(new Scene(root));
@@ -136,7 +137,8 @@ public class LoginViewController implements Initializable {
 						Platform.runLater(new Runnable() {
 							public void run() {
 								try {
-									FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ch/fhnw/sevenwonders/view/LobbyView.fxml"));
+									FXMLLoader fxmlLoader = new FXMLLoader(
+											getClass().getResource("/ch/fhnw/sevenwonders/view/LobbyView.fxml"));
 									Parent root = (Parent) fxmlLoader.load();
 									LobbyViewController controller = fxmlLoader.<LobbyViewController>getController();
 									controller.setModel(model);
@@ -216,9 +218,7 @@ public class LoginViewController implements Initializable {
 			alert.setHeaderText("Benutzername oder Passwort fehlt");
 			alert.setContentText("Bitte fehlende Felder ausfuellen");
 			alert.showAndWait();
-		}
-
-		else {
+		} else {
 			enterUsernameTxtField.setDisable(true);
 			enterPasswordPassField.setDisable(true);
 			loginButton.setDisable(true);

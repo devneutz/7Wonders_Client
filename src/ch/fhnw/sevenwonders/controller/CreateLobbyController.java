@@ -17,9 +17,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
 /**
@@ -32,17 +34,15 @@ public class CreateLobbyController {
 	public ClientApplicationMain main;
 
 	private ClientModel model;
-	
+
 	private Scene parentScene;
-	
 
 	@FXML
-	private Label NumberOfPlayerLabel, CountOfPlayersLabel,CreateLobbyViewPlayerLabel;
+	private Label NumberOfPlayerLabel, CountOfPlayersLabel, CreateLobbyViewPlayerLabel;
 	@FXML
 	private Button LessPlayerButton, MorePlayerButton, createLobbyOkButton, createLobbyCancelButton;
 	@FXML
 	private TextField EnterLobbynameTextField;
-
 
 	public void setMain(ClientApplicationMain main) {
 		this.main = main;
@@ -52,8 +52,7 @@ public class CreateLobbyController {
 		this.model = inModel;
 		CreateLobbyViewPlayerLabel.setText(model.getPlayer().getName());
 	}
-	
-	
+
 	private ChangeListener<Message> changeListener = new ChangeListener<Message>() {
 		@Override
 		public void changed(ObservableValue observable, Message oldValue, Message newValue) {
@@ -69,7 +68,8 @@ public class CreateLobbyController {
 								FXMLLoader fxmlLoader = new FXMLLoader(
 										getClass().getResource("/ch/fhnw/sevenwonders/view/PlayerInLobbyView.fxml"));
 								Parent root1 = (Parent) fxmlLoader.load();
-								PlayerInLobbyViewController controller = fxmlLoader.<PlayerInLobbyViewController>getController();
+								PlayerInLobbyViewController controller = fxmlLoader
+										.<PlayerInLobbyViewController>getController();
 								controller.setModel(model);
 								Stage stage = new Stage();
 								Scene scene = new Scene(root1);
@@ -88,7 +88,6 @@ public class CreateLobbyController {
 			}
 		}
 	};
-
 
 	public void handleCreateLobbyCancelButton(ActionEvent event) {
 		try {
@@ -109,20 +108,28 @@ public class CreateLobbyController {
 	}
 
 	public void handleCreateLobbyOkButton(ActionEvent event) {
-		ClientLobbyMessage msg = new ClientLobbyMessage(LobbyAction.CreateLobby);
+		if (EnterLobbynameTextField.getText().equals("")) {
+			Alert alert = new Alert(AlertType.WARNING);
+			alert.setTitle("WARNUNG");
+			alert.setHeaderText("Lobbynamen fehlt");
+			alert.setContentText("Bitte fehlende Felder ausfuellen");
+			alert.showAndWait();
+		} else {
+			ClientLobbyMessage msg = new ClientLobbyMessage(LobbyAction.CreateLobby);
 
-		Lobby lobby = new Lobby();
-		String lobbyName = EnterLobbynameTextField.getText();
-		lobby.setLobbyName(lobbyName);
+			Lobby lobby = new Lobby();
+			String lobbyName = EnterLobbynameTextField.getText();
+			lobby.setLobbyName(lobbyName);
 
-		int numPlayers = Integer.parseInt(CountOfPlayersLabel.getText());
-		lobby.setNumPlayers(numPlayers);
+			int numPlayers = Integer.parseInt(CountOfPlayersLabel.getText());
+			lobby.setNumPlayers(numPlayers);
 
-		msg.setLobby(lobby);
+			msg.setLobby(lobby);
 
-		msg.setPlayer(model.getPlayer());
+			msg.setPlayer(model.getPlayer());
 
-		model.sendMessage(msg);
+			model.sendMessage(msg);
+		}
 	}
 
 	public void handleLessPlayerButton(ActionEvent event) {
