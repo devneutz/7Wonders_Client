@@ -568,37 +568,37 @@
                <children>
                   <ImageView fx:id="UserRMIV1" fitHeight="20.0" fitWidth="60.0" layoutX="279.0" layoutY="145.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/mini/m_RM_Baumschule_6-100.png" />
+                        <Image url="@../../../../../bin/ch/fhnw/sevenwonders/resources/mini/m_RM_Baumschule_6.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="UserRMIV2" fitHeight="20.0" fitWidth="60.0" layoutX="289.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="UserRMIV2" fitHeight="20.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/mini/m_RM_Baumschule_6-100.png" />
+                        <Image url="@../../../../../bin/ch/fhnw/sevenwonders/resources/mini/m_RM_Baumschule_6.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="UserRMIV3" fitHeight="20.0" fitWidth="60.0" layoutX="299.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="UserRMIV3" fitHeight="20.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/mini/m_RM_Baumschule_6-100.png" />
+                        <Image url="@../../../../../bin/ch/fhnw/sevenwonders/resources/mini/m_RM_Baumschule_6.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="UserRMIV4" fitHeight="20.0" fitWidth="60.0" layoutX="309.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="UserRMIV4" fitHeight="20.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/mini/m_RM_Baumschule_6-100.png" />
+                        <Image url="@../../../../../bin/ch/fhnw/sevenwonders/resources/mini/m_RM_Baumschule_6.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="UserRMIV5" fitHeight="20.0" fitWidth="60.0" layoutX="319.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="UserRMIV5" fitHeight="20.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/mini/m_RM_Baumschule_6-100.png" />
+                        <Image url="@../../../../../bin/ch/fhnw/sevenwonders/resources/mini/m_RM_Baumschule_6.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="UserRMIV6" fitHeight="20.0" fitWidth="60.0" layoutX="329.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="UserRMIV6" fitHeight="20.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/mini/m_RM_Baumschule_6-100.png" />
+                        <Image url="@../../../../../bin/ch/fhnw/sevenwonders/resources/mini/m_RM_Baumschule_6.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="UserRMIV7" fitHeight="20.0" fitWidth="60.0" layoutX="339.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="UserRMIV7" fitHeight="20.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/mini/m_RM_Baumschule_6-100.png" />
+                        <Image url="@../../../../../bin/ch/fhnw/sevenwonders/resources/mini/m_RM_Baumschule_6.png" />
                      </image>
                   </ImageView>
                </children>
@@ -607,37 +607,37 @@
                <children>
                   <ImageView fx:id="UserMGIV1" fitHeight="20.0" fitWidth="60.0" layoutX="289.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/mini/m_MG_Glashuette_6-115.png" />
+                        <Image url="@../../../../../bin/ch/fhnw/sevenwonders/resources/mini/m_MG_Glashuette_3.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="UserMGIV2" fitHeight="20.0" fitWidth="60.0" layoutX="299.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="UserMGIV2" fitHeight="20.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/mini/m_MG_Glashuette_6-115.png" />
+                        <Image url="@../../../../../bin/ch/fhnw/sevenwonders/resources/mini/m_MG_Glashuette_3.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="UserMGIV3" fitHeight="20.0" fitWidth="60.0" layoutX="309.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="UserMGIV3" fitHeight="20.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/mini/m_MG_Glashuette_6-115.png" />
+                        <Image url="@../../../../../bin/ch/fhnw/sevenwonders/resources/mini/m_MG_Glashuette_3.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="UserMGIV4" fitHeight="20.0" fitWidth="60.0" layoutX="319.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="UserMGIV4" fitHeight="20.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/mini/m_MG_Glashuette_6-115.png" />
+                        <Image url="@../../../../../bin/ch/fhnw/sevenwonders/resources/mini/m_MG_Glashuette_3.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="UserMGIV5" fitHeight="20.0" fitWidth="60.0" layoutX="329.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="UserMGIV5" fitHeight="20.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/mini/m_MG_Glashuette_6-115.png" />
+                        <Image url="@../../../../../bin/ch/fhnw/sevenwonders/resources/mini/m_MG_Glashuette_3.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="UserMGIV6" fitHeight="20.0" fitWidth="60.0" layoutX="339.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="UserMGIV6" fitHeight="20.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/mini/m_MG_Glashuette_6-115.png" />
+                        <Image url="@../../../../../bin/ch/fhnw/sevenwonders/resources/mini/m_MG_Glashuette_3.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="UserMGIV7" fitHeight="20.0" fitWidth="60.0" layoutX="349.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="UserMGIV7" fitHeight="20.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/mini/m_MG_Glashuette_6-115.png" />
+                        <Image url="@../../../../../bin/ch/fhnw/sevenwonders/resources/mini/m_MG_Glashuette_3.png" />
                      </image>
                   </ImageView>
                </children>
@@ -646,37 +646,37 @@
                <children>
                   <ImageView fx:id="UserCOMIV1" fitHeight="20.0" fitWidth="60.0" layoutX="299.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/mini/m_COM_Forum_6-190.png" />
+                        <Image url="@../../../../../bin/ch/fhnw/sevenwonders/resources/mini/m_COM_Basar_4.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="UserCOMIV2" fitHeight="20.0" fitWidth="60.0" layoutX="309.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="UserCOMIV2" fitHeight="20.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/mini/m_COM_Forum_6-190.png" />
+                        <Image url="@../../../../../bin/ch/fhnw/sevenwonders/resources/mini/m_COM_Basar_4.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="UserCOMIV3" fitHeight="20.0" fitWidth="60.0" layoutX="319.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="UserCOMIV3" fitHeight="20.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/mini/m_COM_Forum_6-190.png" />
+                        <Image url="@../../../../../bin/ch/fhnw/sevenwonders/resources/mini/m_COM_Basar_4.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="UserCOMIV4" fitHeight="20.0" fitWidth="60.0" layoutX="329.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="UserCOMIV4" fitHeight="20.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/mini/m_COM_Forum_6-190.png" />
+                        <Image url="@../../../../../bin/ch/fhnw/sevenwonders/resources/mini/m_COM_Basar_4.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="UserCOMIV5" fitHeight="20.0" fitWidth="60.0" layoutX="339.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="UserCOMIV5" fitHeight="20.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/mini/m_COM_Forum_6-190.png" />
+                        <Image url="@../../../../../bin/ch/fhnw/sevenwonders/resources/mini/m_COM_Basar_4.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="UserCOMIV6" fitHeight="20.0" fitWidth="60.0" layoutX="349.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="UserCOMIV6" fitHeight="20.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/mini/m_COM_Forum_6-190.png" />
+                        <Image url="@../../../../../bin/ch/fhnw/sevenwonders/resources/mini/m_COM_Basar_4.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="UserCOMIV7" fitHeight="20.0" fitWidth="60.0" layoutX="359.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="UserCOMIV7" fitHeight="20.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/mini/m_COM_Forum_6-190.png" />
+                        <Image url="@../../../../../bin/ch/fhnw/sevenwonders/resources/mini/m_COM_Basar_4.png" />
                      </image>
                   </ImageView>
                </children>
@@ -685,37 +685,37 @@
                <children>
                   <ImageView fx:id="UserMSIV1" fitHeight="20.0" fitWidth="60.0" layoutX="309.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/mini/m_MS_Befestigungsanlage_3-156.png" />
+                        <Image url="@../../../../../bin/ch/fhnw/sevenwonders/resources/mini/m_MS_Mauern_7.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="UserMSIV2" fitHeight="20.0" fitWidth="60.0" layoutX="319.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/mini/m_MS_Befestigungsanlage_3-156.png" />
+                        <Image url="@../../../../../bin/ch/fhnw/sevenwonders/resources/mini/m_MS_Mauern_3.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="UserMSIV3" fitHeight="20.0" fitWidth="60.0" layoutX="329.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/mini/m_MS_Befestigungsanlage_3-156.png" />
+                        <Image url="@../../../../../bin/ch/fhnw/sevenwonders/resources/mini/m_MS_Mauern_3.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="UserMSIV4" fitHeight="20.0" fitWidth="60.0" layoutX="339.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/mini/m_MS_Befestigungsanlage_3-156.png" />
+                        <Image url="@../../../../../bin/ch/fhnw/sevenwonders/resources/mini/m_MS_Mauern_3.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="UserMSIV5" fitHeight="20.0" fitWidth="60.0" layoutX="349.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/mini/m_MS_Befestigungsanlage_3-156.png" />
+                        <Image url="@../../../../../bin/ch/fhnw/sevenwonders/resources/mini/m_MS_Mauern_3.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="UserMSIV6" fitHeight="20.0" fitWidth="60.0" layoutX="359.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/mini/m_MS_Befestigungsanlage_3-156.png" />
+                        <Image url="@../../../../../bin/ch/fhnw/sevenwonders/resources/mini/m_MS_Kaserne_5.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="UserMSIV7" fitHeight="20.0" fitWidth="60.0" layoutX="369.0" layoutY="235.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/mini/m_MS_Befestigungsanlage_3-156.png" />
+                        <Image url="@../../../../../bin/ch/fhnw/sevenwonders/resources/mini/m_MS_Mauern_3.png" />
                      </image>
                   </ImageView>
                </children>
@@ -724,37 +724,37 @@
                <children>
                   <ImageView fx:id="UserSSIV1" fitHeight="20.0" fitWidth="60.0" layoutX="319.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/mini/m_SS_Apotheke_3-164.png" />
+                        <Image url="@../../../../../bin/ch/fhnw/sevenwonders/resources/mini/m_SS_Werkstatt_7.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="UserSSIV2" fitHeight="20.0" fitWidth="60.0" layoutX="329.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/mini/m_SS_Apotheke_3-164.png" />
+                        <Image url="@../../../../../bin/ch/fhnw/sevenwonders/resources/mini/m_SS_Werkstatt_3.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="UserSSIV3" fitHeight="20.0" fitWidth="60.0" layoutX="339.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/mini/m_SS_Apotheke_3-164.png" />
+                        <Image url="@../../../../../bin/ch/fhnw/sevenwonders/resources/mini/m_SS_Skriptorium_4.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="UserSSIV4" fitHeight="20.0" fitWidth="60.0" layoutX="349.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/mini/m_SS_Apotheke_3-164.png" />
+                        <Image url="@../../../../../bin/ch/fhnw/sevenwonders/resources/mini/m_SS_Werkstatt_3.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="UserSSIV5" fitHeight="20.0" fitWidth="60.0" layoutX="359.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/mini/m_SS_Apotheke_3-164.png" />
+                        <Image url="@../../../../../bin/ch/fhnw/sevenwonders/resources/mini/m_SS_Skriptorium_4.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="UserSSIV6" fitHeight="20.0" fitWidth="60.0" layoutX="369.0" layoutY="235.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/mini/m_SS_Apotheke_3-164.png" />
+                        <Image url="@../../../../../bin/ch/fhnw/sevenwonders/resources/mini/m_SS_Werkstatt_7.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="UserSSIV7" fitHeight="20.0" fitWidth="60.0" layoutX="379.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/mini/m_SS_Apotheke_3-164.png" />
+                        <Image url="@../../../../../bin/ch/fhnw/sevenwonders/resources/mini/m_SS_Werkstatt_3.png" />
                      </image>
                   </ImageView>
                </children>
@@ -763,37 +763,37 @@
                <children>
                   <ImageView fx:id="UserCSIV1" fitHeight="20.0" fitWidth="60.0" layoutX="329.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/mini/m_CS_Altar_3-171.png" />
+                        <Image url="@../../../../../bin/ch/fhnw/sevenwonders/resources/mini/m_CS_Altar_3.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="UserCSIV2" fitHeight="20.0" fitWidth="60.0" layoutX="339.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/mini/m_CS_Altar_3-171.png" />
+                        <Image url="@../../../../../bin/ch/fhnw/sevenwonders/resources/mini/m_CS_Altar_3.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="UserCSIV3" fitHeight="20.0" fitWidth="60.0" layoutX="349.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/mini/m_CS_Altar_3-171.png" />
+                        <Image url="@../../../../../bin/ch/fhnw/sevenwonders/resources/mini/m_CS_Altar_3.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="UserCSIV4" fitHeight="20.0" fitWidth="60.0" layoutX="359.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/mini/m_CS_Altar_3-171.png" />
+                        <Image url="@../../../../../bin/ch/fhnw/sevenwonders/resources/mini/m_CS_Altar_3.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="UserCSIV5" fitHeight="20.0" fitWidth="60.0" layoutX="369.0" layoutY="235.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/mini/m_CS_Altar_3-171.png" />
+                        <Image url="@../../../../../bin/ch/fhnw/sevenwonders/resources/mini/m_CS_Altar_3.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="UserCSIV6" fitHeight="20.0" fitWidth="60.0" layoutX="379.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/mini/m_CS_Altar_3-171.png" />
+                        <Image url="@../../../../../bin/ch/fhnw/sevenwonders/resources/mini/m_CS_Altar_3.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="UserCSIV7" fitHeight="20.0" fitWidth="60.0" layoutX="389.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/mini/m_CS_Altar_3-171.png" />
+                        <Image url="@../../../../../bin/ch/fhnw/sevenwonders/resources/mini/m_CS_Altar_3.png" />
                      </image>
                   </ImageView>
                </children>

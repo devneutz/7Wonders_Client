@@ -142,7 +142,7 @@ public class GameViewController implements Initializable {
 	/**
 	 * @author Matte
 	 * Diese Methode fuegt ein kleines Anzeigebild beim jeweiligen Player in der Ressourcen-Uebersicht ein,
-	 * wenn die Option "Resource verwenden" gewählt wird.
+	 * wenn die Option "Resource verwenden" gewï¿½hlt wird.
 	 * @param card
 	 */
 	public void addResourceToOverview(ICard card) {
@@ -224,10 +224,10 @@ public class GameViewController implements Initializable {
 		ImageViewArrayCS[6] = UserCSIV7;
 		
 		String imageName = card.getImageName().substring(0, card.getImageName().length()-4);
-		String tmpM = "k_";
+		String tmpM = "m_";
 		String png = ".png";
 		
-		URL tmpResource = getClass().getResource("/ch/fhnw/sevenwonders/resources/klein/" + tmpM + imageName + png);
+		URL tmpResource = getClass().getResource("/ch/fhnw/sevenwonders/resources/mini/" + tmpM + imageName + png);
 		
 		switch (card.getCardType()) {
 		
@@ -310,7 +310,7 @@ public class GameViewController implements Initializable {
 		// Senden
 		model.sendMessage(msg);
 		
-		// Ruft Methode auf, um die Ressourcen ebenfalls in der Spielerübersicht hinzuzufügen.
+		// Ruft Methode auf, um die Ressourcen ebenfalls in der Spielerï¿½bersicht hinzuzufï¿½gen.
 		addResourceToOverview(selectedCard);
 	}
 
