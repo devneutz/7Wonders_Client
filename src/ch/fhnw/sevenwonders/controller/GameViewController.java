@@ -50,7 +50,7 @@ public class GameViewController implements Initializable {
 	Player6ResIV1, Player6ResIV2, Player6ResIV3, Player6ResIV4, Player6ResIV5, Player6ResIV6, Player6ResIV7, Player6ResIV8, Player6ResIV9, Player6ResIV10, Player6ResIV11, Player6ResIV12;
 	
 	public VBox UserRMVBox, UserMGVBox, UserCOMVBox, UserMSvBox, UserSSVBox, UserCSVBox,
-	Player1ResVBox, Player2ResVBox, Player3ResVBox, Player4ResVBox1111, Player5ResVBox, Player6ResVBox;
+	Player1ResVBox, Player2ResVBox, Player3ResVBox, Player4ResVBox, Player5ResVBox, Player6ResVBox;
 	
 	public ImageView UserRMIV1, UserRMIV2, UserRMIV3, UserRMIV4, UserRMIV5, UserRMIV6, UserRMIV7, UserMGIV1, UserMGIV2,
 			UserMGIV3, UserMGIV4, UserMGIV5, UserMGIV6, UserMGIV7, UserCOMIV1, UserCOMIV2, UserCOMIV3, UserCOMIV4,
@@ -107,6 +107,7 @@ public class GameViewController implements Initializable {
 					tmpPlayerLabels[i].setText(model.getOpponentsListProperty().getValue().get(i).getName());
 					tmpPlayerLabels[i].setVisible(true);
 					tmpPlayerResourceBoxes[i].setVisible(true);
+					tmpPlayerResourceBoxes[i].setUserData(model.getOpponentsListProperty().getValue().get(i));
 					((Label)tmpPlayerResourceBoxes[i].getChildren().get(0)).setText(model.getOpponentsListProperty().getValue().get(i).getCoinWallet().size() + "C");
 
 					((Label)tmpPlayerResourceBoxes[i].getChildren().get(1)).setText(model.getOpponentsListProperty().getValue().get(i).getMilitaryWarPoints() + "A");
@@ -390,28 +391,106 @@ public class GameViewController implements Initializable {
 		model.sendMessage(msg);
 	}
 
-	public void handlePlayer1Label() {
-
+	public void handlePlayer1Label(MouseEvent event) {
+		Player1ResVBox.setVisible(!Player1ResVBox.isVisible());
+		
+		Player1ResVBox.getChildren().clear();
+		for(ICard c : ((IPlayer)player1ResourceBox.getUserData()).getCards()) {			
+			ImageView img = new ImageView();
+			URL tmpResource = getClass().getResource("/ch/fhnw/sevenwonders/resources/klein/k_" 
+					+ c.getImageName().replaceAll("jpg", "png"));
+			if(tmpResource != null) {
+				img.setImage(new Image(tmpResource.toExternalForm()));
+				Player1ResVBox.getChildren().add(img);
+			}else {
+				System.out.println(c.getImageName());
+			}
+		}
 	}
 
-	public void handlePlayer2Label() {
-
+	public void handlePlayer2Label(MouseEvent event) {
+		Player2ResVBox.setVisible(!Player2ResVBox.isVisible());
+		
+		Player2ResVBox.getChildren().clear();
+		for(ICard c : ((IPlayer)player2ResourceBox.getUserData()).getCards()) {			
+			ImageView img = new ImageView();
+			URL tmpResource = getClass().getResource("/ch/fhnw/sevenwonders/resources/klein/k_" 
+					+ c.getImageName().replaceAll("jpg", "png"));
+			if(tmpResource != null) {
+				img.setImage(new Image(tmpResource.toExternalForm()));
+				Player2ResVBox.getChildren().add(img);
+			}else {
+				System.out.println(c.getImageName());
+			}
+		}
 	}
 
-	public void handlePlayer3Label() {
-
+	public void handlePlayer3Label(MouseEvent event) {
+		Player3ResVBox.setVisible(!Player3ResVBox.isVisible());
+		
+		Player3ResVBox.getChildren().clear();
+		for(ICard c : ((IPlayer)player3ResourceBox.getUserData()).getCards()) {			
+			ImageView img = new ImageView();
+			URL tmpResource = getClass().getResource("/ch/fhnw/sevenwonders/resources/klein/k_" 
+					+ c.getImageName().replaceAll("jpg", "png"));
+			if(tmpResource != null) {
+				img.setImage(new Image(tmpResource.toExternalForm()));
+				Player3ResVBox.getChildren().add(img);
+			}else {
+				System.out.println(c.getImageName());
+			}
+		}
 	}
 
-	public void handlePlayer4Label() {
-
+	public void handlePlayer4Label(MouseEvent event) {
+		Player4ResVBox.setVisible(!Player4ResVBox.isVisible());
+		
+		Player4ResVBox.getChildren().clear();
+		for(ICard c : ((IPlayer)player4ResourceBox.getUserData()).getCards()) {			
+			ImageView img = new ImageView();
+			URL tmpResource = getClass().getResource("/ch/fhnw/sevenwonders/resources/klein/k_" 
+					+ c.getImageName().replaceAll("jpg", "png"));
+			if(tmpResource != null) {
+				img.setImage(new Image(tmpResource.toExternalForm()));
+				Player4ResVBox.getChildren().add(img);
+			}else {
+				System.out.println(c.getImageName());
+			}
+		}
 	}
 
-	public void handlePlayer5Label() {
-
+	public void handlePlayer5Label(MouseEvent event) {
+		Player5ResVBox.setVisible(!Player5ResVBox.isVisible());
+		
+		Player5ResVBox.getChildren().clear();
+		for(ICard c : ((IPlayer)player5ResourceBox.getUserData()).getCards()) {			
+			ImageView img = new ImageView();
+			URL tmpResource = getClass().getResource("/ch/fhnw/sevenwonders/resources/klein/k_" 
+					+ c.getImageName().replaceAll("jpg", "png"));
+			if(tmpResource != null) {
+				img.setImage(new Image(tmpResource.toExternalForm()));
+				Player6ResVBox.getChildren().add(img);
+			}else {
+				System.out.println(c.getImageName());
+			}
+		}
 	}
 
-	public void handlePlayer6Label() {
-
+	public void handlePlayer6Label(MouseEvent event) {
+		Player6ResVBox.setVisible(!Player6ResVBox.isVisible());
+		
+		Player6ResVBox.getChildren().clear();
+		for(ICard c : ((IPlayer)player6ResourceBox.getUserData()).getCards()) {			
+			ImageView img = new ImageView();
+			URL tmpResource = getClass().getResource("/ch/fhnw/sevenwonders/resources/klein/k_" 
+					+ c.getImageName().replaceAll("jpg", "png"));
+			if(tmpResource != null) {
+				img.setImage(new Image(tmpResource.toExternalForm()));
+				Player6ResVBox.getChildren().add(img);
+			}else {
+				System.out.println(c.getImageName());
+			}
+		}
 	}
 
 	/**
@@ -472,13 +551,17 @@ public class GameViewController implements Initializable {
 			return;
 		}
 
-		if (selectedCard.isPlayable(model.getPlayer())) {
-			this.RessourceVerwendenButton.setDisable(false);
-			this.ZumBauVerwendenButton.setDisable(false);
-		}
-		this.UmmunzenButton.setDisable(false);
-
-		tmpSelectedHBox.setStyle("-fx-border-color: orange;-fx-border-width: 5px;");
+		Platform.runLater(new Runnable() {
+			public void run() {
+				if (selectedCard.isPlayable(model.getPlayer())) {
+					RessourceVerwendenButton.setDisable(false);
+					ZumBauVerwendenButton.setDisable(false);
+				}
+				UmmunzenButton.setDisable(false);
+		
+				tmpSelectedHBox.setStyle("-fx-border-color: orange;-fx-border-width: 5px;");
+			}
+		});
 	}
 
 	@Override

@@ -148,8 +148,12 @@ public class ClientModel {
 	}
 	
 	private void handleLobbyStartedMessage(ServerLobbyMessage inMessage) {
-		this.Opponents.getValue().clear();
-		this.Opponents.getValue().addAll(inMessage.getOpponents());
+		Platform.runLater(new Runnable() {
+			public void run() {
+				Opponents.getValue().clear();
+				Opponents.getValue().addAll(inMessage.getOpponents());
+			}
+		});
 		this.lastReceivedMessage.setValue(inMessage);
 	}
 
