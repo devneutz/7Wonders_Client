@@ -761,7 +761,7 @@
             </VBox>
             <VBox fx:id="UserCSVBox" layoutX="329.0" layoutY="195.0">
                <children>
-                  <ImageView fitHeight="20.0" fitWidth="60.0" layoutX="329.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="UserCSIV1" fitHeight="20.0" fitWidth="60.0" layoutX="329.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../resources/mini/m_CS_Altar_3-171.png" />
                      </image>

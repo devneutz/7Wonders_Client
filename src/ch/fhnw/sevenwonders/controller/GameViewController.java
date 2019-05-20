@@ -21,6 +21,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 public class GameViewController implements Initializable {
 
@@ -31,12 +32,24 @@ public class GameViewController implements Initializable {
 	@FXML
 	public Button UmmunzenButton, RessourceVerwendenButton, ZumBauVerwendenButton;
 	public Label Player1Label, Player2Label, Player3Label, Player4Label, Player5Label, Player6Label, PlayerInGameLabel,
-			PlayerCoinsLabel,PlayerAttackLabel;
+			PlayerCoinsLabel, PlayerAttackLabel;
 	public HBox PCard1HBox, PCard2HBox, PCard3HBox, PCard4HBox, PCard5HBox, PCard6HBox, PCard7HBox;
 	public ImageView PlayerCard1, PlayerCard2, PlayerCard3, PlayerCard4, PlayerCard5, PlayerCard6, PlayerCard7;
+	public VBox UserRMVBox, UserMGVBox, UserCOMVBox, UserMSvBox, UserSSVBox, UserCSVBox;
+	public ImageView UserRMIV1, UserRMIV2, UserRMIV3, UserRMIV4, UserRMIV5, UserRMIV6, UserRMIV7, UserMGIV1, UserMGIV2,
+			UserMGIV3, UserMGIV4, UserMGIV5, UserMGIV6, UserMGIV7, UserCOMIV1, UserCOMIV2, UserCOMIV3, UserCOMIV4,
+			UserCOMIV5, UserCOMIV6, UserCOMIV7, UserMSIV1, UserMSIV2, UserMSIV3, UserMSIV4, UserMSIV5, UserMSIV6,
+			UserMSIV7, UserSSIV1, UserSSIV2, UserSSIV3, UserSSIV4, UserSSIV5, UserSSIV6, UserSSIV7, UserCSIV1,
+			UserCSIV2, UserCSIV3, UserCSIV4, UserCSIV5, UserCSIV6, UserCSIV7;
 
 	private ICard selectedCard;
-
+	private int nextRM = 0;
+	private int nextMG = 0;
+	private int nextCOM = 0;
+	private int nextMS = 0;
+	private int nextSS = 0;
+	private int nextCS = 0;
+	
 	public void setMain(ClientApplicationMain main) {
 		this.main = main;
 	}
@@ -54,9 +67,9 @@ public class GameViewController implements Initializable {
 
 	/**
 	 * 
-	 * @author lucas rueesch Diese Methode prÃ¼ft ob die Karten zum Bau verwendet
-	 *         werden kÃ¶nnen oder nicht. Wenn Ja Ã¤ndert sich der in eine HBox
-	 *         gewrappte Imageview von rot auf grÃ¼n
+	 * @author Lucas Ruesch Diese Methode prueft ob die Karten zum Bau verwendet
+	 *         werden koennen oder nicht. Wenn Ja, aendert sich der in eine HBox
+	 *         gewrappte Imageview von rot auf gruen
 	 * 
 	 */
 
@@ -126,6 +139,125 @@ public class GameViewController implements Initializable {
 			}
 		});
 	}
+	/**
+	 * @author Matte
+	 * Diese Methode fuegt ein kleines Anzeigebild beim jeweiligen Player in der Ressourcen-Uebersicht ein,
+	 * wenn die Option "Resource verwenden" gewählt wird.
+	 * @param card
+	 */
+	public void addResourceToOverview(ICard card) {
+		Platform.runLater(new Runnable() {
+			public void run() {
+		
+		VBox[] VBoxArray = new VBox[6];
+		
+		VBoxArray[0] = UserRMVBox;
+		VBoxArray[1] = UserMGVBox;
+		VBoxArray[2] = UserCOMVBox;
+		VBoxArray[3] = UserMSvBox;
+		VBoxArray[4] = UserSSVBox;
+		VBoxArray[5] = UserCSVBox;
+		
+		for (VBox v : VBoxArray) {
+			v.setStyle("");
+			v.setUserData(null);
+		}
+		
+		ImageView[] ImageViewArrayRM = new ImageView[7];
+
+		ImageViewArrayRM[0] = UserRMIV1;
+		ImageViewArrayRM[1] = UserRMIV2;
+		ImageViewArrayRM[2] = UserRMIV3;
+		ImageViewArrayRM[3] = UserRMIV4;
+		ImageViewArrayRM[4] = UserRMIV5;
+		ImageViewArrayRM[5] = UserRMIV6;
+		ImageViewArrayRM[6] = UserRMIV7;
+		
+		ImageView[] ImageViewArrayMG = new ImageView[7];
+
+		ImageViewArrayMG[0] = UserMGIV1;
+		ImageViewArrayMG[1] = UserMGIV2;
+		ImageViewArrayMG[2] = UserMGIV3;
+		ImageViewArrayMG[3] = UserMGIV4;
+		ImageViewArrayMG[4] = UserMGIV5;
+		ImageViewArrayMG[5] = UserMGIV6;
+		ImageViewArrayMG[6] = UserMGIV7;
+		
+		ImageView[] ImageViewArrayCOM = new ImageView[7];
+
+		ImageViewArrayCOM[0] = UserCOMIV1;
+		ImageViewArrayCOM[1] = UserCOMIV2;
+		ImageViewArrayCOM[2] = UserCOMIV3;
+		ImageViewArrayCOM[3] = UserCOMIV4;
+		ImageViewArrayCOM[4] = UserCOMIV5;
+		ImageViewArrayCOM[5] = UserCOMIV6;
+		ImageViewArrayCOM[6] = UserCOMIV7;
+		
+		ImageView[] ImageViewArrayMS = new ImageView[7];
+
+		ImageViewArrayMS[0] = UserMSIV1;
+		ImageViewArrayMS[1] = UserMSIV2;
+		ImageViewArrayMS[2] = UserMSIV3;
+		ImageViewArrayMS[3] = UserMSIV4;
+		ImageViewArrayMS[4] = UserMSIV5;
+		ImageViewArrayMS[5] = UserMSIV6;
+		ImageViewArrayMS[6] = UserMSIV7;
+		
+		ImageView[] ImageViewArraySS = new ImageView[7];
+
+		ImageViewArraySS[0] = UserSSIV1;
+		ImageViewArraySS[1] = UserSSIV2;
+		ImageViewArraySS[2] = UserSSIV3;
+		ImageViewArraySS[3] = UserSSIV4;
+		ImageViewArraySS[4] = UserSSIV5;
+		ImageViewArraySS[5] = UserSSIV6;
+		ImageViewArraySS[6] = UserSSIV7;
+		
+		ImageView[] ImageViewArrayCS = new ImageView[7];
+
+		ImageViewArrayCS[0] = UserCSIV1;
+		ImageViewArrayCS[1] = UserCSIV2;
+		ImageViewArrayCS[2] = UserCSIV3;
+		ImageViewArrayCS[3] = UserCSIV4;
+		ImageViewArrayCS[4] = UserCSIV5;
+		ImageViewArrayCS[5] = UserCSIV6;
+		ImageViewArrayCS[6] = UserCSIV7;
+		
+		String imageName = card.getImageName().substring(0, card.getImageName().length()-4);
+		String tmpM = "k_";
+		String png = ".png";
+		
+		URL tmpResource = getClass().getResource("/ch/fhnw/sevenwonders/resources/klein/" + tmpM + imageName + png);
+		
+		switch (card.getCardType()) {
+		
+		case RawMaterials: ImageViewArrayRM[nextRM].setImage(new Image(tmpResource.toExternalForm()));
+		++nextRM;
+		break;
+		
+		case ManufacturedGoods: ImageViewArrayMG[nextMG].setImage(new Image(tmpResource.toExternalForm()));
+		++nextMG;
+		break;
+		
+		case CommercialStructures: ImageViewArrayCOM[nextCOM].setImage(new Image(tmpResource.toExternalForm()));
+		++nextCOM;
+		break;
+		
+		case MilitaryStructures: ImageViewArrayMS[nextMS].setImage(new Image(tmpResource.toExternalForm()));
+		++nextMS;
+		break;
+		
+		case ScientificStructures: ImageViewArraySS[nextSS].setImage(new Image(tmpResource.toExternalForm()));
+		++nextSS;
+		break;
+		
+		case CivilianStructures: ImageViewArrayCS[nextCS].setImage(new Image(tmpResource.toExternalForm()));
+		++nextCS;
+		break;
+		}
+			}
+		});
+	}
 
 	/**
 	 * 
@@ -133,8 +265,8 @@ public class GameViewController implements Initializable {
 	 */
 
 	public void handleUmmunzenButton(ActionEvent event) {
-		// Deaktivieren sï¿½mtlicher Interaktionsmï¿½glichkeiten des Spielers - solange
-		// bis eine Nachricht vom Server zurï¿½ckkommt.
+		// Deaktivieren saemtlicher Interaktionsmoeglichkeiten des Spielers - solange
+		// bis eine Nachricht vom Server zurueckkommt.
 		RessourceVerwendenButton.setDisable(true);
 		UmmunzenButton.setDisable(true);
 		ZumBauVerwendenButton.setDisable(true);
@@ -158,39 +290,42 @@ public class GameViewController implements Initializable {
 	}
 
 	public void handleRessourceVerwendenButton(ActionEvent event) {
-		// Deaktivieren sï¿½mtlicher Interaktionsmï¿½glichkeiten des Spielers - solange
-		// bis eine Nachricht vom Server zurï¿½ckkommt.
+		// Deaktivieren saemtlicher Interaktionsmoeglichkeiten des Spielers - solange
+		// bis eine Nachricht vom Server zuruekkommt.
 		RessourceVerwendenButton.setDisable(true);
 		UmmunzenButton.setDisable(true);
 		ZumBauVerwendenButton.setDisable(true);
 
 		// Zusammenstellen der Nachricht an den Server. Diese beinhaltet die Aktion, die
-		// vom Spieler durchgefï¿½hrt werden will.
+		// vom Spieler durchgefuehrt werden will.
 		ClientGameMessage msg = new ClientGameMessage(GameAction.PlayCard);
-
-		// Setzen der ausgewï¿½hlten Karte
+		
+		// Setzen der ausgewaehlten Karte
 		msg.setCard(selectedCard);
-
+		
 		// Setzen des Spielers, damit der Server Bescheid weiss um welchen es sich
 		// handelt.
 		msg.setPlayer(model.getPlayer());
 
 		// Senden
 		model.sendMessage(msg);
+		
+		// Ruft Methode auf, um die Ressourcen ebenfalls in der Spielerübersicht hinzuzufügen.
+		addResourceToOverview(selectedCard);
 	}
 
 	public void handleZumBauVerwendenButton(ActionEvent event) {
-		// Deaktivieren sï¿½mtlicher Interaktionsmï¿½glichkeiten des Spielers - solange
-		// bis eine Nachricht vom Server zurï¿½ckkommt.
+		// Deaktivieren saemtlicher Interaktionsmoeglichkeiten des Spielers - solange
+		// bis eine Nachricht vom Server zurueckkommt.
 		RessourceVerwendenButton.setDisable(true);
 		UmmunzenButton.setDisable(true);
 		ZumBauVerwendenButton.setDisable(false);
 
 		// Zusammenstellen der Nachricht an den Server. Diese beinhaltet die Aktion, die
-		// vom Spieler durchgefï¿½hrt werden will.
+		// vom Spieler durchgefuehrt werden will.
 		ClientGameMessage msg = new ClientGameMessage(GameAction.BuildCard);
 
-		// Setzen der ausgewï¿½hlten Karte
+		// Setzen der ausgewaehlten Karte
 		msg.setCard(selectedCard);
 
 		// Setzen des Spielers, damit der Server Bescheid weiss um welchen es sich
@@ -229,7 +364,7 @@ public class GameViewController implements Initializable {
 
 	}
 
-	/***
+	/**
 	 * Registrieren der Listener
 	 * 
 	 * @param inScene
@@ -237,13 +372,13 @@ public class GameViewController implements Initializable {
 	public void setupListener(Scene inScene) {
 		this.model.getLastReceivedMessage().addListener((observable, oldvalue, newValue) -> {
 			// Handelt es sich bei der Message um eine Message, welche das Spiel betrifft?
-			// Theoretisch kï¿½nnte hier auch ein Broadcast kommen, welcher dem Client
+			// Theoretisch koennte hier auch ein Broadcast kommen, welcher dem Client
 			// mitteilt, dass eine neue Lobby erstellt wurde. Darauf muss aber nicht
 			// reagiert werden.
 			if (newValue instanceof ServerGameMessage) {
 				ServerGameMessage tmpMessageReceived = (ServerGameMessage) newValue;
 
-				// Setzen des Spielers, welcher vom Server zurï¿½ckgegeben wird. Verhindert eine
+				// Setzen des Spielers, welcher vom Server zurueckgegeben wird. Verhindert eine
 				// Manipulation auf dem Client.
 				this.model.setPlayer(tmpMessageReceived.getPlayer());
 
@@ -251,12 +386,12 @@ public class GameViewController implements Initializable {
 				// andere Spieler gewartet wird.
 				switch (tmpMessageReceived.getStatusCode()) {
 				case ActionNotAvailable:
-					// TODO Alles wieder aktivieren fï¿½r eine nï¿½chste Auswahl? Dï¿½rfte gar nie
+					// TODO Alles wieder aktivieren fï¿½r eine nï¿½chste Auswahl? Duerfte gar nie
 					// der Fall sein. Aktuell ignorieren
 					throw new IllegalArgumentException("Aktion nicht mï¿½glich");
 				case NewRound:
 					setUpCards();
-					// TODO Alles wieder aktivieren, eine neue Runde hat begonnen. Alle benï¿½tigten
+					// TODO Alles wieder aktivieren, eine neue Runde hat begonnen. Alle benoetigten
 					// Variablen wurden bereits vom Server gesetzt.
 					break;
 				default:
