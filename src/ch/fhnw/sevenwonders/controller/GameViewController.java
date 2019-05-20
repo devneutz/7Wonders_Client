@@ -80,7 +80,7 @@ public class GameViewController implements Initializable {
 		ZumBauVerwendenButton.setDisable(true);
 		PlayerInGameLabel.setText(model.getPlayer().getName());
 		PlayerCoinsLabel.setText(model.getPlayer().getCoinWallet().size() + "C");
-		PlayerAttackLabel.setText(model.getPlayer().getMilitaryWarPoints() + "A");
+		PlayerAttackLabel.setText(model.getPlayer().getMilitaryPoints() + "A");
 	}
 	
 	private void updateOpponentsUi() {
@@ -110,7 +110,7 @@ public class GameViewController implements Initializable {
 					tmpPlayerResourceBoxes[i].setUserData(model.getOpponentsListProperty().getValue().get(i));
 					((Label)tmpPlayerResourceBoxes[i].getChildren().get(0)).setText(model.getOpponentsListProperty().getValue().get(i).getCoinWallet().size() + "C");
 
-					((Label)tmpPlayerResourceBoxes[i].getChildren().get(1)).setText(model.getOpponentsListProperty().getValue().get(i).getMilitaryWarPoints() + "A");
+					((Label)tmpPlayerResourceBoxes[i].getChildren().get(1)).setText(model.getOpponentsListProperty().getValue().get(i).getMilitaryPoints() + "A");
 				}
 			}
 		});
@@ -129,7 +129,7 @@ public class GameViewController implements Initializable {
 			public void run() {
 
 				PlayerCoinsLabel.setText(model.getPlayer().getCoinWallet().size() + "C");
-				PlayerAttackLabel.setText(model.getPlayer().getMilitaryWarPoints() + "A");
+				PlayerAttackLabel.setText(model.getPlayer().getMilitaryPoints() + "A");
 
 				HBox[] HBoxArray = new HBox[7];
 
