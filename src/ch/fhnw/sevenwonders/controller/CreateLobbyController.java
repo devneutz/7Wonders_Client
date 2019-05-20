@@ -84,6 +84,16 @@ public class CreateLobbyController {
 							}
 						}
 					});
+				}else if (((ServerLobbyMessage) newValue).getStatusCode() == StatusCode.LobbyAlreadyExists) {
+					Platform.runLater(new Runnable() {
+						public void run() {
+							Alert alert = new Alert(AlertType.ERROR);
+							alert.setTitle("Lobby existiert bereits");
+							alert.setHeaderText("Lobby mit dem gewählten Lobbynamen existiert bereits");
+							alert.setContentText("Bitte wähle einen anderen Lobbynamen aus");
+							alert.showAndWait();
+						}
+					});
 				}
 			}
 		}
