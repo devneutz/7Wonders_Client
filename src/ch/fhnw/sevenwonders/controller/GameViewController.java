@@ -37,17 +37,15 @@ public class GameViewController implements Initializable {
 	public HBox PCard1HBox, PCard2HBox, PCard3HBox, PCard4HBox, PCard5HBox, PCard6HBox, PCard7HBox;
 	public ImageView PlayerCard1, PlayerCard2, PlayerCard3, PlayerCard4, PlayerCard5, PlayerCard6, PlayerCard7,
 	Player1ResIV1, Player1ResIV2, Player1ResIV3, Player1ResIV4, Player1ResIV5, Player1ResIV6, Player1ResIV7, Player1ResIV8, Player1ResIV9, Player1ResIV10, Player1ResIV11, Player1ResIV12,
-	//Player1ResIV11,
 	Player1ResIV21, Player1ResIV31, Player1ResIV41, Player1ResIV51, Player1ResIV61, Player1ResIV71, Player1ResIV81, Player1ResIV91, Player1ResIV101, Player1ResIV111, Player1ResIV121,
-	//Player1ResIV111,
-	Player1ResIV211, Player1ResIV311, Player1ResIV411, Player1ResIV511, Player1ResIV611, Player1ResIV711, Player1ResIV811, Player1ResIV911, Player1ResIV1011, Player1ResIV1111, Player1ResIV1211,
-	//Player1ResIV1111,
-	Player1ResIV2111, Player1ResIV3111, Player1ResIV4111, Player1ResIV5111, Player1ResIV6111, Player1ResIV7111, Player1ResIV8111, Player1ResIV9111, Player1ResIV10111, Player1ResIV11111, Player1ResIV12111,
-	//Player1ResIV11111,
-	Player1ResIV21111, Player1ResIV31111, Player1ResIV41111, Player1ResIV51111, Player1ResIV61111, Player1ResIV71111, Player1ResIV81111, Player1ResIV91111, Player1ResIV101111, Player1ResIV111111, Player1ResIV121111;
+	Player2ResIV1, Player2ResIV2, Player2ResIV3, Player2ResIV4, Player2ResIV5, Player2ResIV6, Player2ResIV7, Player2ResIV8, Player2ResIV9, Player2ResIV10, Player2ResIV11, Player2ResIV12,
+	Player3ResIV1, Player3ResIV2, Player3ResIV3, Player3ResIV4, Player3ResIV5, Player3ResIV6, Player3ResIV7, Player3ResIV8, Player3ResIV9, Player3ResIV10, Player3ResIV11, Player3ResIV12,
+	Player4ResIV1, Player4ResIV2, Player4ResIV3, Player4ResIV4, Player4ResIV5, Player4ResIV6, Player4ResIV7, Player4ResIV8, Player4ResIV9, Player4ResIV10, Player4ResIV11, Player4ResIV12,
+	Player5ResIV1, Player5ResIV2, Player5ResIV3, Player5ResIV4, Player5ResIV5, Player5ResIV6, Player5ResIV7, Player5ResIV8, Player5ResIV9, Player5ResIV10, Player5ResIV11, Player5ResIV12,
+	Player6ResIV1, Player6ResIV2, Player6ResIV3, Player6ResIV4, Player6ResIV5, Player6ResIV6, Player6ResIV7, Player6ResIV8, Player6ResIV9, Player6ResIV10, Player6ResIV11, Player6ResIV12;
 	
 	public VBox UserRMVBox, UserMGVBox, UserCOMVBox, UserMSvBox, UserSSVBox, UserCSVBox,
-	Player1ResVBox, Player1ResVBox1, Player1ResVBox11, Player1ResVBox111, Player1ResVBox1111, Player1ResVBox11111;
+	Player1ResVBox, Player2ResVBox, Player3ResVBox, Player4ResVBox1111, Player5ResVBox, Player6ResVBox;
 	
 	public ImageView UserRMIV1, UserRMIV2, UserRMIV3, UserRMIV4, UserRMIV5, UserRMIV6, UserRMIV7, UserMGIV1, UserMGIV2,
 			UserMGIV3, UserMGIV4, UserMGIV5, UserMGIV6, UserMGIV7, UserCOMIV1, UserCOMIV2, UserCOMIV3, UserCOMIV4,

@@ -225,7 +225,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </VBox>
-            <VBox fx:id="Player1ResVBox1" layoutX="10.0" layoutY="139.0" style="-fx-background-color: cc8744;" visible="false" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="120.0">
+            <VBox fx:id="Player2ResVBox" layoutX="10.0" layoutY="139.0" style="-fx-background-color: cc8744;" visible="false" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="120.0">
                <children>
                   <ImageView fx:id="Player2ResIV1" fitHeight="20.0" fitWidth="170.0" layoutX="-1.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -292,7 +292,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </VBox>
-            <VBox fx:id="Player1ResVBox11" layoutX="20.0" layoutY="149.0" style="-fx-background-color: c7aa72;" visible="false" AnchorPane.leftAnchor="360.0" AnchorPane.topAnchor="120.0">
+            <VBox fx:id="Player3ResVBox" layoutX="20.0" layoutY="149.0" style="-fx-background-color: c7aa72;" visible="false" AnchorPane.leftAnchor="360.0" AnchorPane.topAnchor="120.0">
                <children>
                   <ImageView fx:id="Player3ResIV1" fitHeight="20.0" fitWidth="170.0" layoutX="-1.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -359,7 +359,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </VBox>
-            <VBox fx:id="Player1ResVBox111" layoutX="30.0" layoutY="159.0" style="-fx-background-color: cc8744;" visible="false" AnchorPane.rightAnchor="360.0" AnchorPane.topAnchor="120.0">
+            <VBox fx:id="Player4ResVBox" layoutX="30.0" layoutY="159.0" style="-fx-background-color: cc8744;" visible="false" AnchorPane.rightAnchor="360.0" AnchorPane.topAnchor="120.0">
                <children>
                   <ImageView fx:id="Player4ResIV1" fitHeight="20.0" fitWidth="170.0" layoutX="-1.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -426,7 +426,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </VBox>
-            <VBox fx:id="Player1ResVBox1111" disable="true" layoutX="40.0" layoutY="169.0" style="-fx-background-color: c7aa72;" visible="false" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="120.0">
+            <VBox fx:id="Player5ResVBox" disable="true" layoutX="40.0" layoutY="169.0" style="-fx-background-color: c7aa72;" visible="false" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="120.0">
                <children>
                   <ImageView fx:id="Player5ResIV1" fitHeight="20.0" fitWidth="170.0" layoutX="-1.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -493,7 +493,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </VBox>
-            <VBox fx:id="Player1ResVBox11111" layoutX="50.0" layoutY="179.0" style="-fx-background-color: cc8744;" visible="false" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="120.0">
+            <VBox fx:id="Player6ResVBox" layoutX="50.0" layoutY="179.0" style="-fx-background-color: cc8744;" visible="false" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="120.0">
                <children>
                   <ImageView fx:id="Player6ResIV1" fitHeight="20.0" fitWidth="170.0" layoutX="-1.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
                      <image>
