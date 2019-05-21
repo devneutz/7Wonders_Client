@@ -11,7 +11,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-
+/**
+ * 
+ * @author Gabriel de Castilho
+ * 
+ * Diese Klasse handelt die View ab welche angezeigt wird wenn der Benutzer sich erfolgreich einloggen konnte.
+ * Auf dieser View hat er dann die Moeglichkeit auf die LobbyView zuzgreifen.
+ * 
+ *
+ */
 public class LoginSuccessViewController {
 	
 	public ClientApplicationMain main;
@@ -26,7 +34,10 @@ public class LoginSuccessViewController {
 	public void setModel(ClientModel inModel) {
 		this.model = inModel;
 	}
-	
+	/*
+	 * Diese Methode handelt die Action ab wenn man auf dem Button "Take me to the Game" klickt
+	 * 
+	 */
 	public void handleTakeMeToTheGameButton(ActionEvent event) {
 		try {
 			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ch/fhnw/sevenwonders/view/LobbyView.fxml"));
