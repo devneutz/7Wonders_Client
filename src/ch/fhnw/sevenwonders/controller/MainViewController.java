@@ -29,7 +29,7 @@ import javafx.stage.Stage;
  * 
  * @author Gabriel de Castilho
  *
- *         Diese Klasse stellt den Controller f�r die MainView dar. Hier wird
+ *         Diese Klasse stellt den Controller fuer die MainView dar. Hier wird
  *         anhand vom Userklick entschieden ob dem User die LoginView angezeigt
  *         wird oder ob sich der User als Gast am Spiel anmelden will.
  * 
@@ -40,12 +40,12 @@ public class MainViewController implements Initializable {
 	// Instanz der Main Klasse
 	public ClientApplicationMain main;
 	public Button LogRegButton, PlayAsGuestButton;
-	
+
 	private Scene parentScene;
 
 	private ClientModel model;
 	private IPlayer player = new Player();
-	
+
 	private ChangeListener<Message> changeListener = new ChangeListener<Message>() {
 		@Override
 		public void changed(ObservableValue observable, Message oldValue, Message newValue) {
@@ -80,7 +80,7 @@ public class MainViewController implements Initializable {
 			}
 		}
 	};
-	
+
 	public void setMain(ClientApplicationMain main) {
 		this.main = main;
 	}

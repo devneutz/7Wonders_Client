@@ -25,7 +25,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
 /**
- * @author Matteo Farneti
+ * @author Matteo Farneti, Gabriel de Castilho
  *
  */
 
@@ -84,7 +84,7 @@ public class CreateLobbyController {
 							}
 						}
 					});
-				}else if (((ServerLobbyMessage) newValue).getStatusCode() == StatusCode.LobbyAlreadyExists) {
+				} else if (((ServerLobbyMessage) newValue).getStatusCode() == StatusCode.LobbyAlreadyExists) {
 					Platform.runLater(new Runnable() {
 						public void run() {
 							Alert alert = new Alert(AlertType.ERROR);

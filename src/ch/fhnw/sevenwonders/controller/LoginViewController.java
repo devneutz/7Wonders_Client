@@ -172,7 +172,9 @@ public class LoginViewController implements Initializable {
 	}
 
 	/*
-	 * Wenn der User auf den Button "Login" klickt wird diese Methode ausgef�hrt
+	 * @author Gabriel de Castilho
+	 * 
+	 * Wenn der User auf den Button "Login" klickt wird diese Methode ausgefuehrt
 	 */
 	public void handleLoginButton(ActionEvent event) {
 		if (enterUsernameTxtField.getText().equals("") || enterPasswordPassField.getText().equals("")) {
@@ -207,6 +209,8 @@ public class LoginViewController implements Initializable {
 	}
 
 	/*
+	 * @author Gabriel de Castilho
+	 * 
 	 * Wenn der User auf den Button "Einloggen/Registrieren" klickt wird diese
 	 * Methode ausgefuehrt
 	 */
@@ -242,6 +246,8 @@ public class LoginViewController implements Initializable {
 	}
 
 	/*
+	 * @author Gabriel de Castilho
+	 * 
 	 * Wenn der User auf den Button "<" klickt wird diese Methode ausgef�hrt. Der
 	 * User wird auf das vorherige MainView Fenster gef�hrt.
 	 */
