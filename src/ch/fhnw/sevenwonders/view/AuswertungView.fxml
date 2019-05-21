@@ -296,7 +296,7 @@
             </GridPane>
             <HBox alignment="CENTER" layoutX="360.0" layoutY="602.0" spacing="10.0">
                <children>
-                  <Button fx:id="QuiteGameButton" mnemonicParsing="false" prefHeight="36.0" prefWidth="180.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0; -fx-cursor: hand;" text="quite game" textFill="WHITE">
+                  <Button fx:id="QuiteGameButton" mnemonicParsing="false" prefHeight="36.0" prefWidth="180.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0; -fx-cursor: hand;" text="quit game" textFill="WHITE">
                      <font>
                         <Font name="Arial" size="13.0" />
                      </font>

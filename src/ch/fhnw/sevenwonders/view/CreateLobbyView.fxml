@@ -46,11 +46,11 @@
                </font></TextField>
             <HBox alignment="CENTER" spacing="10.0">
                <children>
-                  <Button fx:id="CreateLobbyOkButton" mnemonicParsing="false" onAction="#handleCreateLobbyOkButton" prefHeight="36.0" prefWidth="195.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0; -fx-cursor: hand;" text="ok" textFill="WHITE">
+                  <Button fx:id="CreateLobbyOkButton" defaultButton="true" mnemonicParsing="false" onAction="#handleCreateLobbyOkButton" prefHeight="36.0" prefWidth="195.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0; -fx-cursor: hand;" text="ok" textFill="WHITE">
                      <font>
                         <Font name="Arial" size="13.0" />
                      </font></Button>
-                  <Button fx:id="CreateLobbyCancelButton" mnemonicParsing="false" onAction="#handleCreateLobbyCancelButton" prefHeight="36.0" prefWidth="195.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0; -fx-cursor: hand;" text="cancel" textFill="WHITE">
+                  <Button fx:id="CreateLobbyCancelButton" cancelButton="true" mnemonicParsing="false" onAction="#handleCreateLobbyCancelButton" prefHeight="36.0" prefWidth="195.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0; -fx-cursor: hand;" text="cancel" textFill="WHITE">
                      <font>
                         <Font name="Arial" size="13.0" />
                      </font></Button>
