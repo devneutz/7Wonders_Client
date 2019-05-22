@@ -194,21 +194,33 @@
             </HBox>
             <HBox alignment="CENTER" layoutX="299.0" layoutY="622.0" spacing="15.0">
                <children>
-                  <Button fx:id="TableWp1" layoutX="298.0" layoutY="621.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="148.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0; -fx-cursor: hand;" text="WP 3" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="13.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="TableWp2" alignment="CENTER" contentDisplay="CENTER" layoutX="461.0" layoutY="621.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="148.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0; -fx-cursor: hand;" text="WP 4" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="13.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="TableWp3" layoutX="624.0" layoutY="621.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="148.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0; -fx-cursor: hand;" text="WP 7" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="13.0" />
-                     </font>
-                  </Button>
+                  <HBox fx:id="TableWW1hbox" style="-fx-border-color: red; -fx-border-width: 2;">
+                     <children>
+                        <ImageView fx:id="TableWW1iv" fitHeight="36.0" fitWidth="144.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/Boards/k_Board_Gizah_A_W1.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <HBox fx:id="TableWW2hbox" style="-fx-border-color: red; -fx-border-width: 2;">
+                     <children>
+                        <ImageView fx:id="TableWW2iv" fitHeight="36.0" fitWidth="148.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/Boards/k_Board_Gizah_A_W2.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <HBox fx:id="TableWW3hbox" style="-fx-border-color: red; -fx-border-width: 2;">
+                     <children>
+                        <ImageView fx:id="TableWW3iv" fitHeight="36.0" fitWidth="148.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/Boards/k_Board_Gizah_A_W3.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
                </children>
             </HBox>
          </children>
