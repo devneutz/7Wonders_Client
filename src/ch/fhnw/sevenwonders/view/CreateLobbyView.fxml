@@ -28,7 +28,7 @@
                         <Font name="Arial Bold" size="16.0" />
                      </font>
                   </Button>
-                  <Label fx:id="CountOfPlayersLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="42.0" style="-fx-background-color: #c7aa72;" text="4" textFill="WHITE">
+                  <Label fx:id="CountOfPlayersLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="42.0" style="-fx-background-color: #c7aa72;" text="3" textFill="WHITE">
                      <font>
                         <Font name="Arial Bold" size="16.0" />
                      </font>
