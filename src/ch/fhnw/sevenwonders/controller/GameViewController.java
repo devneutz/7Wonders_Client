@@ -218,6 +218,7 @@ public class GameViewController implements Initializable {
 						.getResource("/ch/fhnw/sevenwonders/resources/mini/m_RM_Steinbruch_3.png");
 				UserRMIV1.setImage(new Image(boardResource.toExternalForm()));
 				
+				// Ruft Methode auf, um den Status der Bauten durch Farben zu visualisieren.
 				makeBuildingVisible ();
 			}
 		});
@@ -358,34 +359,39 @@ public class GameViewController implements Initializable {
 		boolean canBuild = model.getPlayer().getBoard().canBuild(model.getPlayer());
 		int nextStep = model.getPlayer().getBoard().getNextStageToBuild();
 		
-		if (!canBuild) {
+		if (!stepOneBuilt && !canBuild && !stepTwoBuilt && !stepThreeBuilt) {
 			TableWW1hbox.setStyle("-fx-border-color: red;-fx-border-width: 2;");
-			TableWW2hbox.setStyle("-fx-border-color: red;-fx-border-width: 2;");
-			TableWW3hbox.setStyle("-fx-border-color: red;-fx-border-width: 2;");
-		}
-		
-		if (nextStep == 1 && canBuild) {
+		} else if (!stepOneBuilt && canBuild && !stepTwoBuilt && !stepThreeBuilt) {
 			TableWW1hbox.setStyle("-fx-border-color: green;-fx-border-width: 2;");
-			TableWW2hbox.setStyle("-fx-border-color: red;-fx-border-width: 2;");
-			TableWW3hbox.setStyle("-fx-border-color: red;-fx-border-width: 2;");			
-		}
-		
-		if (nextStep == 2 && canBuild) {
+		} else if (stepOneBuilt && !canBuild && !stepTwoBuilt && !stepThreeBuilt) {
+			TableWW1hbox.setStyle("-fx-border-color: orange;-fx-border-width: 2;");
+		} else if (stepOneBuilt && canBuild && !stepTwoBuilt && !stepThreeBuilt) {
 			TableWW1hbox.setStyle("-fx-border-color: orange;-fx-border-width: 2;");
 			TableWW2hbox.setStyle("-fx-border-color: green;-fx-border-width: 2;");
-			TableWW3hbox.setStyle("-fx-border-color: red;-fx-border-width: 2;");			
-		}
-		
-		if (nextStep == 3 && canBuild) {
-			TableWW1hbox.setStyle("-fx-border-color: orange;-fx-border-width: 2;");
+		}		
+		if (stepOneBuilt && !stepTwoBuilt && !canBuild && !stepThreeBuilt) {
+			TableWW2hbox.setStyle("-fx-border-color: red;-fx-border-width: 2;");
+		} else if (stepOneBuilt && !stepTwoBuilt && canBuild && !stepThreeBuilt) {
+			TableWW2hbox.setStyle("-fx-border-color: green;-fx-border-width: 2;");
+		} else if (stepOneBuilt && stepTwoBuilt && !canBuild && !stepThreeBuilt) {
 			TableWW2hbox.setStyle("-fx-border-color: orange;-fx-border-width: 2;");
-			TableWW3hbox.setStyle("-fx-border-color: green;-fx-border-width: 2;");			
-		}
-		
-		if (nextStep == 4) {
 			TableWW1hbox.setStyle("-fx-border-color: orange;-fx-border-width: 2;");
+		} else if (stepOneBuilt && stepTwoBuilt && canBuild && !stepThreeBuilt) {
 			TableWW2hbox.setStyle("-fx-border-color: orange;-fx-border-width: 2;");
+			TableWW3hbox.setStyle("-fx-border-color: green;-fx-border-width: 2;");
+		}
+		if (stepOneBuilt && stepTwoBuilt && !stepThreeBuilt && !canBuild) {
+			TableWW3hbox.setStyle("-fx-border-color: red;-fx-border-width: 2;");
+		} else if (stepOneBuilt && stepTwoBuilt && !stepThreeBuilt && canBuild) {
+			TableWW3hbox.setStyle("-fx-border-color: green;-fx-border-width: 2;");
+		} else if (stepOneBuilt && stepTwoBuilt && stepThreeBuilt && !canBuild) {
 			TableWW3hbox.setStyle("-fx-border-color: orange;-fx-border-width: 2;");
+			TableWW2hbox.setStyle("-fx-border-color: orange;-fx-border-width: 2;");
+			TableWW1hbox.setStyle("-fx-border-color: orange;-fx-border-width: 2;");
+		} else if (stepOneBuilt && stepTwoBuilt && stepThreeBuilt && canBuild) {
+			TableWW3hbox.setStyle("-fx-border-color: orange;-fx-border-width: 2;");
+			TableWW2hbox.setStyle("-fx-border-color: orange;-fx-border-width: 2;");
+			TableWW1hbox.setStyle("-fx-border-color: orange;-fx-border-width: 2;");
 		}
 	}
 
@@ -469,9 +475,6 @@ public class GameViewController implements Initializable {
 
 		// Senden
 		model.sendMessage(msg);
-		
-		// Ruft Methode auf, um den Status der Bauten durch Farben zu visualisieren.
-		makeBuildingVisible ();
 	}
 
 	public void handlePlayer1Label(MouseEvent event) {
