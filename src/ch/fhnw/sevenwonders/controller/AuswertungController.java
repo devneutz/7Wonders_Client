@@ -46,6 +46,18 @@ public class AuswertungController implements Initializable {
 	public Label MilitaryWarPointsWinner, MilitaryWarPointsSecond, MilitaryWarPointsThird,
 	MilitaryWarPointsFourth, MilitaryWarPointsFifth, MilitaryWarPointsSixth, MilitaryWarPointsSeventh;
 	
+	@FXML
+	public Label VictoryWonderWinner, VictoryWonderSecond, VictoryWonderThird,
+	VictoryWonderFourth, VictoryWonderFifth, VictoryWonderSixth, VictoryWonderSeventh;
+	
+	@FXML
+	public Label VictoryDirectWinner, VictoryDirectSecond, VictoryDirectThird,
+	VictoryDirectFourth, VictoryDirectFifth, VictoryDirectSixth, VictoryDirectSeventh;
+	
+	@FXML
+	public Label VictoryResearchWinner, VictoryResearchSecond, VictoryResearchThird,
+	VictoryResearchFourth, VictoryResearchFifth, VictoryResearchSixth, VictoryResearchSeventh;
+	
 	private Label[] getCoinLabelArray(int inPlayerNumber) {
 		Label[] tmpBaseCoinLabelArray = new Label[7];
 		tmpBaseCoinLabelArray[0] = VictoryCoinWinner;
@@ -118,6 +130,60 @@ public class AuswertungController implements Initializable {
 		return out;
 	}
 	
+	private Label[] getVictoryDirectLabelArray(int inPlayerNumber) {
+		Label[] tmpBaseVictoryDirectLabelArray = new Label[7];
+		tmpBaseVictoryDirectLabelArray[0] = VictoryDirectWinner;
+		tmpBaseVictoryDirectLabelArray[1] = VictoryDirectSecond;
+		tmpBaseVictoryDirectLabelArray[2] = VictoryDirectThird;
+		tmpBaseVictoryDirectLabelArray[3] = VictoryDirectFourth;
+		tmpBaseVictoryDirectLabelArray[4] = VictoryDirectFifth;
+		tmpBaseVictoryDirectLabelArray[5] = VictoryDirectSixth;
+		tmpBaseVictoryDirectLabelArray[6] = VictoryDirectSeventh;
+		
+		Label[] out = new Label[inPlayerNumber];
+		for(int i = 0; i < inPlayerNumber; i++) {
+		    out[i] = tmpBaseVictoryDirectLabelArray[i];
+		}
+		
+		return out;
+	}
+	
+	private Label[] getVictoryWonderLabelArray(int inPlayerNumber) {
+		Label[] tmpBaseVictoryWonderLabelArray = new Label[7];
+		tmpBaseVictoryWonderLabelArray[0] = VictoryWonderWinner;
+		tmpBaseVictoryWonderLabelArray[1] = VictoryWonderSecond;
+		tmpBaseVictoryWonderLabelArray[2] = VictoryWonderThird;
+		tmpBaseVictoryWonderLabelArray[3] = VictoryWonderFourth;
+		tmpBaseVictoryWonderLabelArray[4] = VictoryWonderFifth;
+		tmpBaseVictoryWonderLabelArray[5] = VictoryWonderSixth;
+		tmpBaseVictoryWonderLabelArray[6] = VictoryWonderSeventh;
+		
+		Label[] out = new Label[inPlayerNumber];
+		for(int i = 0; i < inPlayerNumber; i++) {
+		    out[i] = tmpBaseVictoryWonderLabelArray[i];
+		}
+		
+		return out;
+	}
+	
+	private Label[] getVictoryResearchLabelArray(int inPlayerNumber) {
+		Label[] tmpBaseVictoryResearchLabelArray = new Label[7];
+		tmpBaseVictoryResearchLabelArray[0] = VictoryResearchWinner;
+		tmpBaseVictoryResearchLabelArray[1] = VictoryResearchSecond;
+		tmpBaseVictoryResearchLabelArray[2] = VictoryResearchThird;
+		tmpBaseVictoryResearchLabelArray[3] = VictoryResearchFourth;
+		tmpBaseVictoryResearchLabelArray[4] = VictoryResearchFifth;
+		tmpBaseVictoryResearchLabelArray[5] = VictoryResearchSixth;
+		tmpBaseVictoryResearchLabelArray[6] = VictoryResearchSeventh;
+		
+		Label[] out = new Label[inPlayerNumber];
+		for(int i = 0; i < inPlayerNumber; i++) {
+		    out[i] = tmpBaseVictoryResearchLabelArray[i];
+		}
+		
+		return out;
+	}
+	
 	public void setMain(ClientApplicationMain main) {
 		this.main = main;
 	}
@@ -137,17 +203,35 @@ public class AuswertungController implements Initializable {
 		Label[] tmpCoinsArr = getCoinLabelArray(tmpAllPlayers.size());
 		Label[] tmpPlayerNameArr = getPlayernameLabelArray(tmpAllPlayers.size());
 		Label[] tmpWarPointsArr = getMilitaryWarPointsLabelArray(tmpAllPlayers.size());
+		Label[] tmpVictoryDirectsArr = getVictoryDirectLabelArray(tmpAllPlayers.size());
+		Label[] tmpVictoryWonderArr = getVictoryWonderLabelArray(tmpAllPlayers.size());
+		Label[] tmpVictoryResearchArr = getVictoryResearchLabelArray(tmpAllPlayers.size());
 		
 		for(int i = 0; i < tmpAllPlayers.size(); i++) {
 			try {
 				tmpTotalArr[i].setText(tmpAllPlayers.get(i).evaluate().get("TOTAL").toString());
 				tmpTotalArr[i].setVisible(true);
+				
 				tmpCoinsArr[i].setText(tmpAllPlayers.get(i).evaluate().get("Coins").toString());
 				tmpCoinsArr[i].setVisible(true);
+				
 				tmpPlayerNameArr[i].setText(tmpAllPlayers.get(i).getName());
+				if(tmpAllPlayers.get(i).getName().equals(model.getPlayer().getName())) {
+					tmpPlayerNameArr[i].setStyle(tmpPlayerNameArr[i].getStyle() + "-fx-font-weight:bold;");
+				}
 				tmpPlayerNameArr[i].setVisible(true);
+				
 				tmpWarPointsArr[i].setText(tmpAllPlayers.get(i).evaluate().get("Militärkonflikt").toString());
 				tmpWarPointsArr[i].setVisible(true);
+				
+				tmpVictoryWonderArr[i].setText(tmpAllPlayers.get(i).evaluate().get("Weltwunder").toString());
+				tmpVictoryWonderArr[i].setVisible(true);
+				
+				tmpVictoryDirectsArr[i].setText(tmpAllPlayers.get(i).evaluate().get("Profanbauten").toString());
+				tmpVictoryDirectsArr[i].setVisible(true);
+				
+				tmpVictoryResearchArr[i].setText(tmpAllPlayers.get(i).evaluate().get("Forschungsgebäude").toString());
+				tmpVictoryResearchArr[i].setVisible(true);
 			}
 			catch(NullPointerException inEx) {
 				
