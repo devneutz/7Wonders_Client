@@ -79,7 +79,7 @@ public class ClientModel {
 			in = new ObjectInputStream(socket.getInputStream());
 			this.startMessageObserving();
 		} catch (Exception inEx) {
-
+			inEx.printStackTrace();
 		}
 	}
 
@@ -109,12 +109,19 @@ public class ClientModel {
 	}
 
 	private void handlePlayerLeftMessage(ServerLobbyMessage inMessage) {
-		Platform.runLater(new Runnable() {
-			public void run() {
-				Opponents.getValue().clear();
-				Opponents.getValue().addAll(inMessage.getLobby().getLobbyPlayers());
-			}
-		});
+		// Bin ich es, der die Lobby verlässt? Dann muss noch etwas ausgeführt werden
+		if(inMessage.getPlayer().getName().equals(this.player.getName())) {
+			this.lastReceivedMessage.setValue(inMessage);
+		}
+
+		if(isPlayerInAnyLobby() && inMessage.getLobby().getLobbyName().equals(this.player.getLobby().getLobbyName())) {
+			Platform.runLater(new Runnable() {
+				public void run() {
+					Opponents.getValue().clear();
+					Opponents.getValue().addAll(inMessage.getLobby().getLobbyPlayers());
+				}
+			});
+		}
 	}
 
 	private void handleLobbyCreatedMessage(ServerLobbyMessage inMessage) {
@@ -237,7 +244,7 @@ public class ClientModel {
 							
 						} catch (Exception inEx)
 						{
-
+							inEx.printStackTrace();
 						}
 					}
 				}
@@ -248,7 +255,7 @@ public class ClientModel {
 			t.start();
 
 		} catch (Exception inEx) {
-
+			inEx.printStackTrace();
 		}
 
 	}
@@ -258,7 +265,7 @@ public class ClientModel {
 			try {
 				socket.close();
 			} catch (IOException inEx) {
-
+				inEx.printStackTrace();
 			}
 		}
 	}

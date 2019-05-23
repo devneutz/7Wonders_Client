@@ -119,7 +119,8 @@ public class PlayerInLobbyViewController implements Initializable {
 				}
 
 				if (((ServerLobbyMessage) newValue).getStatusCode() == StatusCode.Success
-						&& ((ServerLobbyMessage) newValue).getAction() == LobbyAction.DeleteLobby) {
+						&& (((ServerLobbyMessage) newValue).getAction() == LobbyAction.DeleteLobby
+							|| ((ServerLobbyMessage) newValue).getAction() == LobbyAction.LeaveLobby)) {
 					model.setPlayer(((ServerLobbyMessage) newValue).getPlayer());
 					model.getLastReceivedMessage().removeListener(this);
 					Platform.runLater(new Runnable() {
