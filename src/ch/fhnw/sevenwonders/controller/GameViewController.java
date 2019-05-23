@@ -585,7 +585,7 @@ public class GameViewController {
 					"/ch/fhnw/sevenwonders/resources/klein/k_" + c.getImageName().replaceAll("jpg", "png"));
 			if (tmpResource != null) {
 				img.setImage(new Image(tmpResource.toExternalForm()));
-				Player6ResVBox.getChildren().add(img);
+				player5ResourceBox.getChildren().add(img);
 			} else {
 				System.out.println(c.getImageName());
 			}
