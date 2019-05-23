@@ -162,11 +162,11 @@ public class PlayerInLobbyViewController implements Initializable {
 		if (this.model.getPlayer().getLobby().getLobbyMaster().getName().equals(this.model.getPlayer().getName())) {
 			DeleteLobbyButton.setVisible(true);
 			// TODO auf True setzen - nur aus Testzwecken auf false
-			DeleteLobbyButton.setDisable(false);
+			DeleteLobbyButton.setDisable(true);
 
 			// Start Button anfangs immer auf false setzen, da noch keine Spieler drin sind.
 			StartLobbyButton.setVisible(true);
-			StartLobbyButton.setDisable(false);
+			StartLobbyButton.setDisable(true);
 
 		} else {
 			DeleteLobbyButton.setText("leave lobby");

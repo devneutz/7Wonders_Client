@@ -1,6 +1,9 @@
 package ch.fhnw.sevenwonders.controller;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import ch.fhnw.sevenwonders.application.ClientApplicationMain;
@@ -23,7 +26,6 @@ import javafx.stage.Stage;
 public class AuswertungController implements Initializable {
 
 	private ClientModel model;
-	private IPlayer player = new Player();
 	
 	public ClientApplicationMain main;
 	
@@ -34,6 +36,17 @@ public class AuswertungController implements Initializable {
 
 	public void setModel(ClientModel inModel) {
 		this.model = inModel;
+		
+		// Spieler sortieren
+		ArrayList<IPlayer> tmpAllPlayers = new ArrayList<IPlayer>();
+		tmpAllPlayers.addAll(model.getOpponentsListProperty().getValue());
+		tmpAllPlayers.add(model.getPlayer());
+		
+		Collections.sort(tmpAllPlayers);
+		
+		for(IPlayer p : tmpAllPlayers) {
+			System.out.println("Punktezahl: " + p.evaluate().get("TOTAL") + " - " + p.getName());
+		}
 	}
 	
 	@FXML

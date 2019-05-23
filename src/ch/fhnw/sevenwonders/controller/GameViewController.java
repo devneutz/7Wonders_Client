@@ -9,12 +9,18 @@ import ch.fhnw.sevenwonders.enums.GameAction;
 import ch.fhnw.sevenwonders.interfaces.ICard;
 import ch.fhnw.sevenwonders.interfaces.IPlayer;
 import ch.fhnw.sevenwonders.messages.ClientGameMessage;
+import ch.fhnw.sevenwonders.messages.Message;
+import ch.fhnw.sevenwonders.messages.ServerEvaluationMessage;
 import ch.fhnw.sevenwonders.messages.ServerGameMessage;
 import ch.fhnw.sevenwonders.model.ClientModel;
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -23,10 +29,13 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 public class GameViewController implements Initializable {
 
-	public ClientApplicationMain main;
+	public ClientApplicationMain main;	
+
+	private Scene parentScene;
 
 	private ClientModel model;
 
@@ -179,6 +188,12 @@ public class GameViewController implements Initializable {
 
 					URL tmpResource = getClass().getResource("/ch/fhnw/sevenwonders/resources/" + tmpAgePrefix
 							+ model.getPlayer().getCardStack().get(x).getImageName());
+					
+					if(tmpResource == null) {
+						System.out.println("IMAGE RESOURCE NULL: Betroffene Karte -> " + model.getPlayer().getCardStack().get(x).getImageName()
+								+ " | vollständiger Pfad: /ch/fhnw/sevenwonders/resources/" + tmpAgePrefix	+ model.getPlayer().getCardStack().get(x).getImageName());
+						continue;
+					}
 
 					ImageViewArray[x].setImage(new Image(tmpResource.toExternalForm()));
 					if (model.getPlayer().getCardStack().get(x).isPlayable(model.getPlayer())) {
@@ -499,36 +514,8 @@ public class GameViewController implements Initializable {
 	 * @param inScene
 	 */
 	public void setupListener(Scene inScene) {
-		this.model.getLastReceivedMessage().addListener((observable, oldvalue, newValue) -> {
-			// Handelt es sich bei der Message um eine Message, welche das Spiel betrifft?
-			// Theoretisch koennte hier auch ein Broadcast kommen, welcher dem Client
-			// mitteilt, dass eine neue Lobby erstellt wurde. Darauf muss aber nicht
-			// reagiert werden.
-			if (newValue instanceof ServerGameMessage) {
-				ServerGameMessage tmpMessageReceived = (ServerGameMessage) newValue;
-
-				// Setzen des Spielers, welcher vom Server zurueckgegeben wird. Verhindert eine
-				// Manipulation auf dem Client.
-				this.model.setPlayer(tmpMessageReceived.getPlayer());
-
-				// Idee falls genug Zeit: Bei einem Success eine Meldung zurï¿½ckgeben, dass auf
-				// andere Spieler gewartet wird.
-				switch (tmpMessageReceived.getStatusCode()) {
-				case ActionNotAvailable:
-					// TODO Alles wieder aktivieren fï¿½r eine nï¿½chste Auswahl? Duerfte gar nie
-					// der Fall sein. Aktuell ignorieren
-					throw new IllegalArgumentException("Aktion nicht mï¿½glich");
-				case NewRound:
-					setUpCards();
-					updateOpponentsUi();
-					// TODO Alles wieder aktivieren, eine neue Runde hat begonnen. Alle benoetigten
-					// Variablen wurden bereits vom Server gesetzt.
-					break;
-				default:
-					break;
-				}
-			}
-		});
+		this.parentScene = inScene;
+		this.model.getLastReceivedMessage().addListener(this.changeListener);
 	}
 
 	private void deselectAllCards() {
@@ -568,4 +555,64 @@ public class GameViewController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
 	}
+	
+	private ChangeListener<Message> changeListener = new ChangeListener<Message>() {
+		@Override
+		public void changed(ObservableValue observable, Message oldValue, Message newValue) {
+			// Handelt es sich bei der Message um eine Message, welche das Spiel betrifft?
+			// Theoretisch koennte hier auch ein Broadcast kommen, welcher dem Client
+			// mitteilt, dass eine neue Lobby erstellt wurde. Darauf muss aber nicht
+			// reagiert werden.
+			if (newValue instanceof ServerGameMessage) {
+				ServerGameMessage tmpMessageReceived = (ServerGameMessage) newValue;
+
+				// Setzen des Spielers, welcher vom Server zurueckgegeben wird. Verhindert eine
+				// Manipulation auf dem Client.
+				model.setPlayer(tmpMessageReceived.getPlayer());
+
+				// Idee falls genug Zeit: Bei einem Success eine Meldung zurï¿½ckgeben, dass auf
+				// andere Spieler gewartet wird.
+				switch (tmpMessageReceived.getStatusCode()) {
+				case ActionNotAvailable:
+					// TODO Alles wieder aktivieren fï¿½r eine nï¿½chste Auswahl? Duerfte gar nie
+					// der Fall sein. Aktuell ignorieren
+					throw new IllegalArgumentException("Aktion nicht mï¿½glich");
+				case NewRound:
+					setUpCards();
+					updateOpponentsUi();
+					// TODO Alles wieder aktivieren, eine neue Runde hat begonnen. Alle benoetigten
+					// Variablen wurden bereits vom Server gesetzt.
+					break;
+				default:
+					break;
+				}
+			}
+
+			if(newValue instanceof ServerEvaluationMessage) {
+				model.getLastReceivedMessage().removeListener(this);
+				ServerEvaluationMessage tmpMessageReceived = (ServerEvaluationMessage) newValue;
+				model.setPlayer(tmpMessageReceived.getPlayer());
+				Platform.runLater(new Runnable() {
+					public void run() {
+						try {
+							FXMLLoader fxmlLoader = new FXMLLoader(
+									getClass().getResource("/ch/fhnw/sevenwonders/view/AuswertungView.fxml"));
+							Parent root1 = (Parent) fxmlLoader.load();
+							AuswertungController controller = fxmlLoader.<AuswertungController>getController();
+							controller.setModel(model);
+							Stage stage = new Stage();
+							Scene tmpScene = new Scene(root1);
+							stage.setScene(tmpScene);
+							stage.show();
+
+							parentScene.getWindow().hide();
+
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});
+			}
+		}
+	};
 }
