@@ -786,5 +786,10 @@
             </HBox>
          </children>
       </VBox>
+      <Label fx:id="WaitLabel" alignment="CENTER" contentDisplay="CENTER" opacity="0.7" style="-fx-background-color: black; -fx-background-opacity: 50;" text="Warten auf Mitspieler" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <font>
+            <Font name="Arial Bold" size="26.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
