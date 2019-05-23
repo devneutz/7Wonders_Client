@@ -228,7 +228,7 @@ public class ClientModel {
 							}
 							else if(tmpMessage instanceof ServerEvaluationMessage) {
 								Opponents.getValue().clear();
-								Opponents.getValue().addAll(((ServerGameMessage)tmpMessage).getOpponents());
+								Opponents.getValue().addAll(((ServerEvaluationMessage)tmpMessage).getOpponents());
 								handleDefaultMessages(tmpMessage);
 							}
 							else {
