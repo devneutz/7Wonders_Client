@@ -244,7 +244,6 @@ public class ClientModel {
 							
 						} catch (Exception inEx)
 						{
-							inEx.printStackTrace();
 						}
 					}
 				}
