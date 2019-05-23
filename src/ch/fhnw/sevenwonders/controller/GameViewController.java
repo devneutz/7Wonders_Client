@@ -37,7 +37,7 @@ public class GameViewController {
 	public Button UmmunzenButton, RessourceVerwendenButton, ZumBauVerwendenButton;
 	// Namen der Spieler, Coins und Angriffspunkte
 	public Label Player1Label, Player2Label, Player3Label, Player4Label, Player5Label, Player6Label, PlayerInGameLabel,
-			PlayerCoinsLabel, PlayerAttackLabel;
+			PlayerCoinsLabel, PlayerAttackLabel,WaitLabel;
 	public HBox PCard1HBox, PCard2HBox, PCard3HBox, PCard4HBox, PCard5HBox, PCard6HBox, PCard7HBox,
 			// Board-Steps
 			TableWW1hbox, TableWW2hbox, TableWW3hbox;
@@ -73,6 +73,9 @@ public class GameViewController {
 	public void setModel(ClientModel inModel) {
 		this.model = inModel;
 
+
+		WaitLabel.setVisible(false);
+		
 		updateCardUi();
 		updateOpponentsUi();
 		
@@ -421,6 +424,7 @@ public class GameViewController {
 		model.sendMessage(msg);
 
 		updateCardUi();
+		WaitLabel.setVisible(true);
 	}
 
 	/**
@@ -453,6 +457,7 @@ public class GameViewController {
 		addResourceToOverview(selectedCard);
 
 		updateCardUi();
+		WaitLabel.setVisible(true);
 	}
 
 	/**
@@ -485,6 +490,7 @@ public class GameViewController {
 		model.sendMessage(msg);
 		
 		updateCardUi();
+		WaitLabel.setVisible(true);
 	}
 
 	/**
@@ -702,6 +708,7 @@ public class GameViewController {
 					throw new IllegalArgumentException("Aktion nicht mï¿½glich");
 				case NewRound:
 					// Aktualisieren sämtlicher Variablen und UI Komponenten
+					WaitLabel.setVisible(false);
 					updateCardUi();
 					updateOpponentsUi();
 					break;
