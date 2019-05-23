@@ -17,6 +17,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 /**
@@ -293,7 +294,7 @@ public class AuswertungController implements Initializable {
 	}
 	
 	@FXML
-	public void handleQuiteGameButton(ActionEvent event) {
+	public void handleQuiteGameButton(MouseEvent event) {
 		Platform.exit();
 	}
 
@@ -302,7 +303,7 @@ public class AuswertungController implements Initializable {
 	 * @param event
 	 */
 	@FXML
-	public void handleNewGameButton(ActionEvent event) {
+	public void handleNewGameButton(MouseEvent event) {
 		Platform.runLater(new Runnable() {
 			public void run() {
 				try {
