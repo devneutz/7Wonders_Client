@@ -107,7 +107,9 @@ public class CreateLobbyController {
 			LobbyViewController controller = fxmlLoader.<LobbyViewController>getController();
 			controller.setModel(model);
 			Stage stage = new Stage();
-			stage.setScene(new Scene(root1));
+			Scene tmpScene = new Scene(root1);
+			controller.setupListener(tmpScene);
+			stage.setScene(tmpScene);
 			stage.show();
 
 			((Node) event.getSource()).getScene().getWindow().hide();

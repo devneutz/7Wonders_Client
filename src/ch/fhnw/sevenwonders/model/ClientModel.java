@@ -9,6 +9,7 @@ import java.util.Iterator;
 import ch.fhnw.sevenwonders.enums.StatusCode;
 import ch.fhnw.sevenwonders.interfaces.*;
 import ch.fhnw.sevenwonders.messages.Message;
+import ch.fhnw.sevenwonders.messages.ServerEvaluationMessage;
 import ch.fhnw.sevenwonders.messages.ServerGameMessage;
 import ch.fhnw.sevenwonders.messages.ServerLobbyMessage;
 import ch.fhnw.sevenwonders.messages.ServerStartupMessage;
@@ -223,6 +224,11 @@ public class ClientModel {
 							else if(tmpMessage instanceof ServerGameMessage && ((ServerGameMessage) tmpMessage).getStatusCode() == StatusCode.NewRound) {
 								Opponents.getValue().clear();
 								Opponents.getValue().addAll(((ServerGameMessage)tmpMessage).getOpponents());
+								handleDefaultMessages(tmpMessage);
+							}
+							else if(tmpMessage instanceof ServerEvaluationMessage) {
+								Opponents.getValue().clear();
+								Opponents.getValue().addAll(((ServerEvaluationMessage)tmpMessage).getOpponents());
 								handleDefaultMessages(tmpMessage);
 							}
 							else {
