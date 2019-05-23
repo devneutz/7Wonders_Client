@@ -36,7 +36,7 @@ import ch.fhnw.sevenwonders.encrypthelper.EncryptWithMD5;
  * 
  * @author Gabriel de Castilho, Joel Neutzner
  * 
- *         Diese Klasse stellt den Controller f�r die LoginView dar. Hier wird
+ *         Diese Klasse stellt den Controller fuer die LoginView dar. Hier wird
  *         entschieden ob sich der User einloggen will oder einen neuen User
  *         erstellt indem sich der User registriert.
  *
@@ -55,7 +55,9 @@ public class LoginViewController implements Initializable {
 	private Button loginButton, signUpButton, GoBackButton;
 
 	private Scene parentScene;
-
+	/**
+	 * In dieser Methode wird die Verarbeitung dargestellt, wenn der ChangeListener ausgeloest wurde
+	 */
 	private ChangeListener<Message> changeListener = new ChangeListener<Message>() {
 		@Override
 		public void changed(ObservableValue observable, Message oldValue, Message newValue) {
@@ -171,7 +173,7 @@ public class LoginViewController implements Initializable {
 		this.model = inModel;
 	}
 
-	/*
+	/**
 	 * @author Gabriel de Castilho
 	 * 
 	 * Wenn der User auf den Button "Login" klickt wird diese Methode ausgefuehrt
@@ -208,7 +210,7 @@ public class LoginViewController implements Initializable {
 		}
 	}
 
-	/*
+	/**
 	 * @author Gabriel de Castilho
 	 * 
 	 * Wenn der User auf den Button "Einloggen/Registrieren" klickt wird diese
@@ -245,11 +247,11 @@ public class LoginViewController implements Initializable {
 		}
 	}
 
-	/*
+	/**
 	 * @author Gabriel de Castilho
 	 * 
-	 * Wenn der User auf den Button "<" klickt wird diese Methode ausgef�hrt. Der
-	 * User wird auf das vorherige MainView Fenster gef�hrt.
+	 * Wenn der User auf den Button "<" klickt wird diese Methode ausgefuehrt. Der
+	 * User wird auf das vorherige MainView Fenster gefuehrt.
 	 */
 	@FXML
 	public void handleGoBackButton(ActionEvent event) {
@@ -279,6 +281,11 @@ public class LoginViewController implements Initializable {
 
 	}
 
+	/**
+	 * In dieser Methode wird der ChangeListener neu aufgesetzt
+	 * 
+	 * @param inScene
+	 */
 	public void setupListener(Scene inScene) {
 		parentScene = inScene;
 		this.model.getLastReceivedMessage().removeListener(this.changeListener);

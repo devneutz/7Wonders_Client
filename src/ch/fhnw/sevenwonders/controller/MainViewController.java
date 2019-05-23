@@ -89,7 +89,7 @@ public class MainViewController implements Initializable {
 		this.model = inModel;
 	}
 
-	/*
+	/**
 	 * Wenn der User auf den Button "Einloggen/Registrieren" klickt, wird er auf die
 	 * LoginView weitergeleitet.
 	 */
@@ -114,7 +114,7 @@ public class MainViewController implements Initializable {
 		}
 	}
 
-	/*
+	/**
 	 * Diese Methode verarbeitet die Anfrage des Users sobald er auf den Button als
 	 * Gast spielen geklickt hat.
 	 */
@@ -130,6 +130,11 @@ public class MainViewController implements Initializable {
 
 	}
 
+	/**
+	 * In dieser Methode wird der ChangeListener neu aufgesetzt
+	 * 
+	 * @param inScene
+	 */
 	public void setupListeners(Scene inScene) {
 		parentScene = inScene;
 		this.model.getLastReceivedMessage().removeListener(this.changeListener);

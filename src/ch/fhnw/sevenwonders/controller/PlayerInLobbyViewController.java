@@ -34,7 +34,7 @@ import javafx.stage.Stage;
  * @author Joel Neutzner, Gabriel de Castilho
  * 
  *         Dieser Controller handelt alle Aktionen welche auf der View
- *         PlayerInLobbyView ausgefï¿½hrt werden kï¿½nnen.
+ *         PlayerInLobbyView ausgefuehrt werden koennen.
  * 
  */
 public class PlayerInLobbyViewController implements Initializable {
@@ -43,7 +43,10 @@ public class PlayerInLobbyViewController implements Initializable {
 	private ClientModel model;
 
 	private Scene parentScene;
-
+	/**
+	 * In dieser Methode wird die Verarbeitung dargestellt, wenn der ChangeListener
+	 * ausgeloest wurde
+	 */
 	private ChangeListener<Message> changeListener = new ChangeListener<Message>() {
 		@Override
 		public void changed(ObservableValue observable, Message oldValue, Message newValue) {
@@ -120,7 +123,7 @@ public class PlayerInLobbyViewController implements Initializable {
 
 				if (((ServerLobbyMessage) newValue).getStatusCode() == StatusCode.Success
 						&& (((ServerLobbyMessage) newValue).getAction() == LobbyAction.DeleteLobby
-							|| ((ServerLobbyMessage) newValue).getAction() == LobbyAction.LeaveLobby)) {
+								|| ((ServerLobbyMessage) newValue).getAction() == LobbyAction.LeaveLobby)) {
 					model.setPlayer(((ServerLobbyMessage) newValue).getPlayer());
 					model.getLastReceivedMessage().removeListener(this);
 					Platform.runLater(new Runnable() {
@@ -156,6 +159,11 @@ public class PlayerInLobbyViewController implements Initializable {
 	@FXML
 	private ListView<IPlayer> PlayerInLobbyListView;
 
+	/**
+	 * In dieser Methode wird das Model mit den entsprechende Eigenschaften versehen
+	 * 
+	 * @param inModel
+	 */
 	public void setModel(ClientModel inModel) {
 		this.model = inModel;
 		this.PlayerInLobbyListView.itemsProperty().bind(model.getOpponentsListProperty());
@@ -175,14 +183,19 @@ public class PlayerInLobbyViewController implements Initializable {
 		}
 
 		PlayerInLobbyViewPlayerLabel.setText(model.getPlayer().getName());
-		
-		//Zeigt den Lobby Name an
+
+		// Zeigt den Lobby Name an
 		this.LobbyNameLabel.setText(model.getPlayer().getLobby().getLobbyName());
-		
-		//Zeigt an wie viele Spieler in der Lobby teilnehmen kÃ¶nnen
+
+		// Zeigt an wie viele Spieler in der Lobby teilnehmen kÃ¶nnen
 		this.LobbyPlayerCount.setText(model.getPlayer().getLobby().getNumPlayers() + " Players");
 	}
 
+	/**
+	 * Diese Methode wird ausgeführt, wenn der Button Delete Lobby geklickt wird.
+	 * 
+	 * @param event
+	 */
 	public void handleDeleteLobbyButton(ActionEvent event) {
 		if (this.model.getPlayer().getLobby().getLobbyMaster().getName().equals(this.model.getPlayer().getName())) {
 			ClientLobbyMessage msg = new ClientLobbyMessage(LobbyAction.DeleteLobby);
@@ -199,6 +212,9 @@ public class PlayerInLobbyViewController implements Initializable {
 		}
 	}
 
+	/**
+	 * Diese Methode wird ausgeführt, wenn der Button Start Lobby geklickt wird.
+	 */
 	public void handleStartLobbyButton() {
 		ClientLobbyMessage msg = new ClientLobbyMessage(LobbyAction.StartLobby);
 		ILobby tmpLobby = model.getPlayer().getLobby();
@@ -207,6 +223,12 @@ public class PlayerInLobbyViewController implements Initializable {
 		model.sendMessage(msg);
 
 	}
+
+	/**
+	 * In dieser Methode wird der ChangeListener neu aufgesetzt
+	 * 
+	 * @param inScene
+	 */
 
 	public void setupListener(Scene inScene) {
 		this.parentScene = inScene;

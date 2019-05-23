@@ -11,31 +11,34 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+
 /**
  * 
  * @author Gabriel de Castilho
  * 
- * Diese Klasse handelt die View ab welche angezeigt wird wenn der Benutzer sich erfolgreich einloggen konnte.
- * Auf dieser View hat er dann die Moeglichkeit auf die LobbyView zuzgreifen.
+ *         Diese Klasse handelt die View ab welche angezeigt wird wenn der
+ *         Benutzer sich erfolgreich einloggen konnte. Auf dieser View hat er
+ *         dann die Moeglichkeit auf die LobbyView zuzgreifen.
  * 
  *
  */
 public class LoginSuccessViewController {
-	
+
 	public ClientApplicationMain main;
 	public Button TakeMeToTheGameButton;
 
 	private ClientModel model;
-	
+
 	@FXML
 	private Label signUpSuccessLabel;
-	
-	
+
 	public void setModel(ClientModel inModel) {
 		this.model = inModel;
 	}
-	/*
-	 * Diese Methode handelt die Action ab wenn man auf dem Button "Take me to the Game" klickt
+
+	/**
+	 * Diese Methode handelt die Action ab wenn man auf dem Button "Take me to the
+	 * Game" klickt
 	 * 
 	 */
 	public void handleTakeMeToTheGameButton(ActionEvent event) {

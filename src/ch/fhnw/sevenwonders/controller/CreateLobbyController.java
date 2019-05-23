@@ -53,6 +53,10 @@ public class CreateLobbyController {
 		CreateLobbyViewPlayerLabel.setText(model.getPlayer().getName());
 	}
 
+	/**
+	 * In dieser Methode wird die Verarbeitung dargestellt, wenn der ChangeListener
+	 * ausgeloest wurde
+	 */
 	private ChangeListener<Message> changeListener = new ChangeListener<Message>() {
 		@Override
 		public void changed(ObservableValue observable, Message oldValue, Message newValue) {

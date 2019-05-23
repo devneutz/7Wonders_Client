@@ -27,7 +27,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
-
+/**
+ * In diese Klasse werden alle Aktionen welche auf der LobbyView ausgeloest werden verarbeitet.
+ * 
+ * @author 
+ *
+ */
 public class LobbyViewController implements Initializable {
 
 	public ClientApplicationMain main;
@@ -40,7 +45,9 @@ public class LobbyViewController implements Initializable {
 	private Label existingLobbyLabel, LobbyViewPlayerLabel;
 	@FXML
 	private Button CreateLobbyButton, JoinLobbyButton;
-	
+	/**
+	 * In dieser Methode wird die Verarbeitung dargestellt, wenn der ChangeListener ausgeloest wurde
+	 */
 	private ChangeListener<Message> changeListener = new ChangeListener<Message>() {
 		@Override
 		public void changed(ObservableValue observable, Message oldValue, Message newValue) {
@@ -107,7 +114,10 @@ public class LobbyViewController implements Initializable {
 		LobbyViewPlayerLabel.setText(model.getPlayer().getName());
 		this.lobbyListView.itemsProperty().bind(model.getLobbyListProperty());
 	}
-
+/**
+ * Diese Methode verarbeitet die Aktion "Create Lobby" aus der LobbyView
+ * @param event
+ */
 	public void handleCreateLobbyButton(ActionEvent event) {
 		try {
 				model.getLastReceivedMessage().removeListener(this.changeListener);
@@ -128,7 +138,10 @@ public class LobbyViewController implements Initializable {
 		       e.printStackTrace();
 		   }
 	}
-
+	/**
+	 * Diese Methode verarbeitet die Aktion "Join Lobby" aus der LobbyView
+	 * @param event
+	 */
 	public void handleJoinLobbyButton(ActionEvent event) {
 		if ((ILobby)lobbyListView.getSelectionModel().getSelectedItem() != null) {
 			ClientLobbyMessage msg = new ClientLobbyMessage(LobbyAction.JoinLobby);
@@ -146,7 +159,12 @@ public class LobbyViewController implements Initializable {
 		}	
 	}
 	
-	
+	/**
+	 * In dieser Methode wird der ChangeListener neu aufgesetzt
+	 * 
+	 * @param inScene
+	 */
+
 	public void setupListener(Scene inScene) {
 		this.parentScene = inScene;
 		this.model.getLastReceivedMessage().removeListener(this.changeListener);
