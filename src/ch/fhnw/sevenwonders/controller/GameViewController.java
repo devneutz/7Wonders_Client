@@ -357,40 +357,39 @@ public class GameViewController {
 		boolean canBuild = model.getPlayer().getBoard().canBuild(model.getPlayer());
 		int nextStep = model.getPlayer().getBoard().getNextStageToBuild();
 		
-		if (!stepOneBuilt && !canBuild && !stepTwoBuilt && !stepThreeBuilt) {
+		// Ausgangslage erstellen
+		TableWW1hbox.setStyle("-fx-border-color: red;-fx-border-width: 2;");
+		TableWW2hbox.setStyle("-fx-border-color: red;-fx-border-width: 2;");
+		TableWW3hbox.setStyle("-fx-border-color: red;-fx-border-width: 2;");
+		
+		if(stepOneBuilt) {
+			TableWW1hbox.setStyle("-fx-border-color: orange;-fx-border-width: 2;");
+			if(stepTwoBuilt) {
+				TableWW2hbox.setStyle("-fx-border-color: orange;-fx-border-width: 2;");
+				if(stepThreeBuilt) {
+					TableWW3hbox.setStyle("-fx-border-color: orange;-fx-border-width: 2;");
+				}else {
+					TableWW3hbox.setStyle("-fx-border-color: red;-fx-border-width: 2;");
+					if(canBuild) {
+						TableWW3hbox.setStyle("-fx-border-color: green;-fx-border-width: 2;");
+					}
+				}
+			}
+			else {
+				TableWW2hbox.setStyle("-fx-border-color: red;-fx-border-width: 2;");
+				if(canBuild) {
+					TableWW2hbox.setStyle("-fx-border-color: green;-fx-border-width: 2;");
+				}
+				TableWW3hbox.setStyle("-fx-border-color: red;-fx-border-width: 2;");
+			}
+		}else {
 			TableWW1hbox.setStyle("-fx-border-color: red;-fx-border-width: 2;");
-		} else if (!stepOneBuilt && canBuild && !stepTwoBuilt && !stepThreeBuilt) {
-			TableWW1hbox.setStyle("-fx-border-color: green;-fx-border-width: 2;");
-		} else if (stepOneBuilt && !canBuild && !stepTwoBuilt && !stepThreeBuilt) {
-			TableWW1hbox.setStyle("-fx-border-color: orange;-fx-border-width: 2;");
-		} else if (stepOneBuilt && canBuild && !stepTwoBuilt && !stepThreeBuilt) {
-			TableWW1hbox.setStyle("-fx-border-color: orange;-fx-border-width: 2;");
-			TableWW2hbox.setStyle("-fx-border-color: green;-fx-border-width: 2;");
-		}		
-		if (stepOneBuilt && !stepTwoBuilt && !canBuild && !stepThreeBuilt) {
+			if(canBuild) {
+				TableWW1hbox.setStyle("-fx-border-color: green;-fx-border-width: 2;");
+			}
 			TableWW2hbox.setStyle("-fx-border-color: red;-fx-border-width: 2;");
-		} else if (stepOneBuilt && !stepTwoBuilt && canBuild && !stepThreeBuilt) {
-			TableWW2hbox.setStyle("-fx-border-color: green;-fx-border-width: 2;");
-		} else if (stepOneBuilt && stepTwoBuilt && !canBuild && !stepThreeBuilt) {
-			TableWW2hbox.setStyle("-fx-border-color: orange;-fx-border-width: 2;");
-			TableWW1hbox.setStyle("-fx-border-color: orange;-fx-border-width: 2;");
-		} else if (stepOneBuilt && stepTwoBuilt && canBuild && !stepThreeBuilt) {
-			TableWW2hbox.setStyle("-fx-border-color: orange;-fx-border-width: 2;");
-			TableWW3hbox.setStyle("-fx-border-color: green;-fx-border-width: 2;");
-		}
-		if (stepOneBuilt && stepTwoBuilt && !stepThreeBuilt && !canBuild) {
 			TableWW3hbox.setStyle("-fx-border-color: red;-fx-border-width: 2;");
-		} else if (stepOneBuilt && stepTwoBuilt && !stepThreeBuilt && canBuild) {
-			TableWW3hbox.setStyle("-fx-border-color: green;-fx-border-width: 2;");
-		} else if (stepOneBuilt && stepTwoBuilt && stepThreeBuilt && !canBuild) {
-			TableWW3hbox.setStyle("-fx-border-color: orange;-fx-border-width: 2;");
-			TableWW2hbox.setStyle("-fx-border-color: orange;-fx-border-width: 2;");
-			TableWW1hbox.setStyle("-fx-border-color: orange;-fx-border-width: 2;");
-		} else if (stepOneBuilt && stepTwoBuilt && stepThreeBuilt && canBuild) {
-			TableWW3hbox.setStyle("-fx-border-color: orange;-fx-border-width: 2;");
-			TableWW2hbox.setStyle("-fx-border-color: orange;-fx-border-width: 2;");
-			TableWW1hbox.setStyle("-fx-border-color: orange;-fx-border-width: 2;");
-		}
+		}			
 	}
 
 	/**
