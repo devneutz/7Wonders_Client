@@ -34,7 +34,7 @@ import javafx.stage.Stage;
  * @author Joel Neutzner, Gabriel de Castilho
  * 
  *         Dieser Controller handelt alle Aktionen welche auf der View
- *         PlayerInLobbyView ausgef¸hrt werden kˆnnen.
+ *         PlayerInLobbyView ausgefÔøΩhrt werden kÔøΩnnen.
  * 
  */
 public class PlayerInLobbyViewController implements Initializable {
@@ -51,7 +51,7 @@ public class PlayerInLobbyViewController implements Initializable {
 			if (newValue instanceof ServerLobbyMessage) {
 				newValue = (ServerLobbyMessage) newValue;
 				// Kommt eine LobbyDeleted-Message hierher, heisst dies, der Spieler befindet
-				// sich in der zu lˆschenden Lobby.
+				// sich in der zu lÔøΩschenden Lobby.
 				if (((ServerLobbyMessage) newValue).getAction() == LobbyAction.LobbyDeleted) {
 					model.getLastReceivedMessage().removeListener(this);
 					Platform.runLater(new Runnable() {
@@ -108,7 +108,7 @@ public class PlayerInLobbyViewController implements Initializable {
 				if (((ServerLobbyMessage) newValue).getAction() == LobbyAction.PlayerJoined) {
 					Platform.runLater(new Runnable() {
 						public void run() {
-							// ‹berpr¸fung ob es der Master ist, wird im Model gemacht.
+							// ÔøΩberprÔøΩfung ob es der Master ist, wird im Model gemacht.
 							if (model.getOpponentsListProperty().getValue().size() >= 3) {
 								StartLobbyButton.setVisible(true);
 								StartLobbyButton.setDisable(false);
@@ -149,7 +149,7 @@ public class PlayerInLobbyViewController implements Initializable {
 	};
 
 	@FXML
-	private Label LobbyNameLabel, PlayerInLobbyLabel, PlayerInLobbyViewPlayerLabel;
+	private Label LobbyNameLabel, PlayerInLobbyLabel, PlayerInLobbyViewPlayerLabel, LobbyPlayerCount;
 	@FXML
 	private Button StartLobbyButton, DeleteLobbyButton, StatButton;
 	@FXML
@@ -175,8 +175,12 @@ public class PlayerInLobbyViewController implements Initializable {
 		}
 
 		PlayerInLobbyViewPlayerLabel.setText(model.getPlayer().getName());
-
+		
+		//Zeigt den Lobby Name an
 		this.LobbyNameLabel.setText(model.getPlayer().getLobby().getLobbyName());
+		
+		//Zeigt an wie viele Spieler in der Lobby teilnehmen k√∂nnen
+		this.LobbyPlayerCount.setText(model.getPlayer().getLobby().getNumPlayers() + " Players");
 	}
 
 	public void handleDeleteLobbyButton(ActionEvent event) {
