@@ -268,7 +268,7 @@
                         <Font name="Arial" size="13.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: c7aa72; -fx-border-color: white;" text="VP" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="8" GridPane.rowIndex="8">
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: c7aa72; -fx-border-color: white;" text="total" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="8" GridPane.rowIndex="8">
                      <font>
                         <Font name="Arial Bold" size="13.0" />
                      </font>
