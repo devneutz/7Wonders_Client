@@ -101,6 +101,7 @@ public class CreateLobbyController {
 
 	public void handleCreateLobbyCancelButton(ActionEvent event) {
 		try {
+			model.getLastReceivedMessage().removeListener(this.changeListener);
 			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ch/fhnw/sevenwonders/view/LobbyView.fxml"));
 			Parent root1 = (Parent) fxmlLoader.load();
 			LobbyViewController controller = fxmlLoader.<LobbyViewController>getController();
