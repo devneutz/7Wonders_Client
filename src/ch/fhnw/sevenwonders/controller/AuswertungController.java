@@ -215,10 +215,13 @@ public class AuswertungController implements Initializable {
 				tmpCoinsArr[i].setText(tmpAllPlayers.get(i).evaluate().get("Coins").toString());
 				tmpCoinsArr[i].setVisible(true);
 				
-				tmpPlayerNameArr[i].setText(tmpAllPlayers.get(i).getName());
+				String tmpPlayerName = tmpAllPlayers.get(i).getName();
 				if(tmpAllPlayers.get(i).getName().equals(model.getPlayer().getName())) {
-					tmpPlayerNameArr[i].setStyle(tmpPlayerNameArr[i].getStyle() + "-fx-font-weight:bold;");
+					tmpPlayerName +=  " (Du)";
+					tmpPlayerNameArr[i].setStyle(tmpPlayerNameArr[i].getStyle() + "-fx-font-style:italic;");
 				}
+				tmpPlayerNameArr[i].setText(tmpPlayerName);
+				
 				tmpPlayerNameArr[i].setVisible(true);
 				
 				tmpWarPointsArr[i].setText(tmpAllPlayers.get(i).evaluate().get("Militärkonflikt").toString());
