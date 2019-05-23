@@ -140,6 +140,7 @@ public class ClientModel {
 	private void handleLobbyDeletedMessage(ServerLobbyMessage inMessage) {
 		if(isPlayerInAnyLobby() && inMessage.getLobby().getLobbyName().equals(player.getLobby().getLobbyName())) {
 			this.lastReceivedMessage.setValue(inMessage);
+			this.player.setLobby(null);
 		}
 		
 		Platform.runLater(new Runnable() {
