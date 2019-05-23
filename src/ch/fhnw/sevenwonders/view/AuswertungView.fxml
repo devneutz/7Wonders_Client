@@ -302,7 +302,7 @@
                         <Font name="Arial" size="13.0" />
                      </font>
                   </Button>
-                  <Button fx:id="NewGameButton" disable="true" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="180.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0; -fx-cursor: hand;" text="new game" textFill="WHITE" visible="false">
+                  <Button fx:id="NewGameButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="180.0" style="-fx-background-color: c7aa72; -fx-background-radius: 0; -fx-cursor: hand;" text="new game" textFill="WHITE">
                      <font>
                         <Font name="Arial" size="13.0" />
                      </font>

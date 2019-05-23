@@ -11,9 +11,19 @@ import ch.fhnw.sevenwonders.model.ClientModel;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
+/**
+ * Auswertung des Spiels visualisieren
+ * @author joeln
+ *
+ */
 public class AuswertungController implements Initializable {
 
 	private ClientModel model;
@@ -32,22 +42,33 @@ public class AuswertungController implements Initializable {
 	@FXML
 	public Label TotalWinner, TotalSecond, TotalThird, TotalFourth, TotalFifth, TotalSixth, TotalSeventh;
 	
+	// Militärpunkte durch Konflikt Ende des zweiten Zeitalters
 	@FXML
 	public Label MilitaryWarPointsWinner, MilitaryWarPointsSecond, MilitaryWarPointsThird,
 	MilitaryWarPointsFourth, MilitaryWarPointsFifth, MilitaryWarPointsSixth, MilitaryWarPointsSeventh;
 	
+	// Weltwunder Punkte
 	@FXML
 	public Label VictoryWonderWinner, VictoryWonderSecond, VictoryWonderThird,
 	VictoryWonderFourth, VictoryWonderFifth, VictoryWonderSixth, VictoryWonderSeventh;
 	
+	// Punkte durch blaue karten
 	@FXML
 	public Label VictoryDirectWinner, VictoryDirectSecond, VictoryDirectThird,
 	VictoryDirectFourth, VictoryDirectFifth, VictoryDirectSixth, VictoryDirectSeventh;
 	
+	// Punkte durch Forschung (grüne Karten)
 	@FXML
 	public Label VictoryResearchWinner, VictoryResearchSecond, VictoryResearchThird,
 	VictoryResearchFourth, VictoryResearchFifth, VictoryResearchSixth, VictoryResearchSeventh;
 	
+	
+	/**
+	 * Zusammenstellung eines Arrays für die Coin Labels, um den Code übersichtlicher zu gestalten. Das Array enthält nur die Labels,
+	 * welche wirklich benötigt werden.
+	 * @param inPlayerNumber Anzahl der Spieler
+	 * @return
+	 */
 	private Label[] getCoinLabelArray(int inPlayerNumber) {
 		Label[] tmpBaseCoinLabelArray = new Label[7];
 		tmpBaseCoinLabelArray[0] = VictoryCoinWinner;
@@ -66,6 +87,12 @@ public class AuswertungController implements Initializable {
 		return out;
 	}
 	
+	/**
+	 * Zusammenstellung eines Arrays für die Total-Punkte Labels, um den Code übersichtlicher zu gestalten. Das Array enthält nur die Labels,
+	 * welche wirklich benötigt werden.
+	 * @param inPlayerNumber Anzahl der Spieler
+	 * @return
+	 */
 	private Label[] getTotalLabelArray(int inPlayerNumber) {
 		Label[] tmpBaseTotalLabelArray = new Label[7];
 		tmpBaseTotalLabelArray[0] = TotalWinner;
@@ -84,6 +111,12 @@ public class AuswertungController implements Initializable {
 		return out;
 	}
 	
+	/**
+	 * Zusammenstellung eines Arrays für die Spielernamen Labels, um den Code übersichtlicher zu gestalten. Das Array enthält nur die Labels,
+	 * welche wirklich benötigt werden.
+	 * @param inPlayerNumber Anzahl der Spieler
+	 * @return
+	 */
 	private Label[] getPlayernameLabelArray(int inPlayerNumber) {
 			Label[] tmpBasePlayerLabelArray = new Label[7];
 			tmpBasePlayerLabelArray[0] = WinnerIDLabel;
@@ -102,6 +135,12 @@ public class AuswertungController implements Initializable {
 			return out;
 	}
 	
+	/**
+	 * Zusammenstellung eines Arrays für die Militärpunkte Labels, um den Code übersichtlicher zu gestalten. Das Array enthält nur die Labels,
+	 * welche wirklich benötigt werden.
+	 * @param inPlayerNumber Anzahl der Spieler
+	 * @return
+	 */
 	private Label[] getMilitaryWarPointsLabelArray(int inPlayerNumber) {
 		Label[] tmpBaseMilitaryWarPointsLabelArray = new Label[7];
 		tmpBaseMilitaryWarPointsLabelArray[0] = MilitaryWarPointsWinner;
@@ -120,6 +159,12 @@ public class AuswertungController implements Initializable {
 		return out;
 	}
 	
+	/**
+	 * Zusammenstellung eines Arrays für die blauen Karten Labels, um den Code übersichtlicher zu gestalten. Das Array enthält nur die Labels,
+	 * welche wirklich benötigt werden.
+	 * @param inPlayerNumber Anzahl der Spieler
+	 * @return
+	 */
 	private Label[] getVictoryDirectLabelArray(int inPlayerNumber) {
 		Label[] tmpBaseVictoryDirectLabelArray = new Label[7];
 		tmpBaseVictoryDirectLabelArray[0] = VictoryDirectWinner;
@@ -138,6 +183,12 @@ public class AuswertungController implements Initializable {
 		return out;
 	}
 	
+	/**
+	 * Zusammenstellung eines Arrays für die Weltwunder Labels, um den Code übersichtlicher zu gestalten. Das Array enthält nur die Labels,
+	 * welche wirklich benötigt werden.
+	 * @param inPlayerNumber Anzahl der Spieler
+	 * @return
+	 */
 	private Label[] getVictoryWonderLabelArray(int inPlayerNumber) {
 		Label[] tmpBaseVictoryWonderLabelArray = new Label[7];
 		tmpBaseVictoryWonderLabelArray[0] = VictoryWonderWinner;
@@ -156,6 +207,12 @@ public class AuswertungController implements Initializable {
 		return out;
 	}
 	
+	/**
+	 * Zusammenstellung eines Arrays für die Forschungs-Punkte Labels, um den Code übersichtlicher zu gestalten. Das Array enthält nur die Labels,
+	 * welche wirklich benötigt werden.
+	 * @param inPlayerNumber Anzahl der Spieler
+	 * @return
+	 */
 	private Label[] getVictoryResearchLabelArray(int inPlayerNumber) {
 		Label[] tmpBaseVictoryResearchLabelArray = new Label[7];
 		tmpBaseVictoryResearchLabelArray[0] = VictoryResearchWinner;
@@ -181,7 +238,7 @@ public class AuswertungController implements Initializable {
 	public void setModel(ClientModel inModel) {
 		this.model = inModel;
 		
-		// Spieler sortieren
+		// Spieler zusammenstellen und sortieren
 		ArrayList<IPlayer> tmpAllPlayers = new ArrayList<IPlayer>();
 		tmpAllPlayers.addAll(model.getOpponentsListProperty().getValue());
 		tmpAllPlayers.add(model.getPlayer());
@@ -189,6 +246,7 @@ public class AuswertungController implements Initializable {
 		Collections.sort(tmpAllPlayers);
 		Collections.reverse(tmpAllPlayers);
 		
+		// Zusammensuchen der Labels
 		Label[] tmpTotalArr = getTotalLabelArray(tmpAllPlayers.size());
 		Label[] tmpCoinsArr = getCoinLabelArray(tmpAllPlayers.size());
 		Label[] tmpPlayerNameArr = getPlayernameLabelArray(tmpAllPlayers.size());
@@ -197,6 +255,7 @@ public class AuswertungController implements Initializable {
 		Label[] tmpVictoryWonderArr = getVictoryWonderLabelArray(tmpAllPlayers.size());
 		Label[] tmpVictoryResearchArr = getVictoryResearchLabelArray(tmpAllPlayers.size());
 		
+		// Durchgehen jedes Spielers und setzen der entsprechenden Punkte-Labels
 		for(int i = 0; i < tmpAllPlayers.size(); i++) {
 			try {
 				tmpTotalArr[i].setText(tmpAllPlayers.get(i).evaluate().get("TOTAL").toString());
@@ -205,6 +264,7 @@ public class AuswertungController implements Initializable {
 				tmpCoinsArr[i].setText(tmpAllPlayers.get(i).evaluate().get("Coins").toString());
 				tmpCoinsArr[i].setVisible(true);
 				
+				// Handelt es sich beim Spieler um den aktuellen Spieler, mache das ersichtlich
 				String tmpPlayerName = tmpAllPlayers.get(i).getName();
 				if(tmpAllPlayers.get(i).getName().equals(model.getPlayer().getName())) {
 					tmpPlayerName +=  " (Du)";
@@ -237,9 +297,33 @@ public class AuswertungController implements Initializable {
 		Platform.exit();
 	}
 
+	/**
+	 * Weiterleiten auf die Hauptansicht um ein neues Spiel starten zu können.
+	 * @param event
+	 */
 	@FXML
 	public void handleNewGameButton(ActionEvent event) {
-		// TODO Evtl game neu starten, spieler objekte leeren etc.
+		Platform.runLater(new Runnable() {
+			public void run() {
+				try {
+					FXMLLoader fxmlLoader = new FXMLLoader(
+							getClass().getResource("/ch/fhnw/sevenwonders/view/MainView.fxml"));
+					Parent root1 = (Parent) fxmlLoader.load();
+					MainViewController controller = fxmlLoader.<MainViewController>getController();
+					controller.setModel(model);
+					Stage stage = new Stage();
+					Scene tmpScene = new Scene(root1);
+					controller.setupListeners(tmpScene);
+					stage.setScene(tmpScene);
+					stage.show();
+
+					((Node) event.getSource()).getScene().getWindow().hide();
+
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 	}
 
 	@Override
@@ -247,7 +331,4 @@ public class AuswertungController implements Initializable {
 		// TODO Auto-generated method stub
 
 	}
-
-	
-
 }

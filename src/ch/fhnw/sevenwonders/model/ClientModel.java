@@ -216,7 +216,7 @@ public class ClientModel {
 									break;				
 								default:
 									handleDefaultMessages((ServerLobbyMessage)tmpMessage);
-									break;
+									break; 
 								}
 							} else if (tmpMessage instanceof ServerStartupMessage) {
 								handleStartupMessages((ServerStartupMessage) tmpMessage);
