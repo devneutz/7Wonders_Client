@@ -1,9 +1,6 @@
 package ch.fhnw.sevenwonders.controller;
 
 import java.net.URL;
-import java.util.ResourceBundle;
-
-import ch.fhnw.sevenwonders.application.ClientApplicationMain;
 import ch.fhnw.sevenwonders.enums.Age;
 import ch.fhnw.sevenwonders.enums.GameAction;
 import ch.fhnw.sevenwonders.interfaces.ICard;
@@ -19,7 +16,6 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -31,10 +27,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class GameViewController implements Initializable {
-
-	public ClientApplicationMain main;	
-
+public class GameViewController {
 	private Scene parentScene;
 
 	private ClientModel model;
@@ -54,21 +47,8 @@ public class GameViewController implements Initializable {
 	public HBox player1ResourceBox, player2ResourceBox, player3ResourceBox, player4ResourceBox, player5ResourceBox,
 			player6ResourceBox;	
 	// Spielkarten
-	public ImageView PlayerCard1, PlayerCard2, PlayerCard3, PlayerCard4, PlayerCard5, PlayerCard6, PlayerCard7,
-			// Mitspieler und ihre Ressourcen
-			Player1ResIV1, Player1ResIV2, Player1ResIV3, Player1ResIV4, Player1ResIV5, Player1ResIV6, Player1ResIV7,
-			Player1ResIV8, Player1ResIV9, Player1ResIV10, Player1ResIV11, Player1ResIV12, Player1ResIV21,
-			Player1ResIV31, Player1ResIV41, Player1ResIV51, Player1ResIV61, Player1ResIV71, Player1ResIV81,
-			Player1ResIV91, Player1ResIV101, Player1ResIV111, Player1ResIV121, Player2ResIV1, Player2ResIV2,
-			Player2ResIV3, Player2ResIV4, Player2ResIV5, Player2ResIV6, Player2ResIV7, Player2ResIV8, Player2ResIV9,
-			Player2ResIV10, Player2ResIV11, Player2ResIV12, Player3ResIV1, Player3ResIV2, Player3ResIV3, Player3ResIV4,
-			Player3ResIV5, Player3ResIV6, Player3ResIV7, Player3ResIV8, Player3ResIV9, Player3ResIV10, Player3ResIV11,
-			Player3ResIV12, Player4ResIV1, Player4ResIV2, Player4ResIV3, Player4ResIV4, Player4ResIV5, Player4ResIV6,
-			Player4ResIV7, Player4ResIV8, Player4ResIV9, Player4ResIV10, Player4ResIV11, Player4ResIV12, Player5ResIV1,
-			Player5ResIV2, Player5ResIV3, Player5ResIV4, Player5ResIV5, Player5ResIV6, Player5ResIV7, Player5ResIV8,
-			Player5ResIV9, Player5ResIV10, Player5ResIV11, Player5ResIV12, Player6ResIV1, Player6ResIV2, Player6ResIV3,
-			Player6ResIV4, Player6ResIV5, Player6ResIV6, Player6ResIV7, Player6ResIV8, Player6ResIV9, Player6ResIV10,
-			Player6ResIV11, Player6ResIV12;	
+	public ImageView PlayerCard1, PlayerCard2, PlayerCard3, PlayerCard4, PlayerCard5, PlayerCard6, PlayerCard7;
+	
 	public VBox UserRMVBox, UserMGVBox, UserCOMVBox, UserMSvBox, UserSSVBox, UserCSVBox, Player1ResVBox, Player2ResVBox,
 			Player3ResVBox, Player4ResVBox, Player5ResVBox, Player6ResVBox;
 	// Ressourcen vom Spieler selbst
@@ -85,24 +65,29 @@ public class GameViewController implements Initializable {
 	private int nextMS = 0;
 	private int nextSS = 0;
 	private int nextCS = 0;
-
-	public void setMain(ClientApplicationMain main) {
-		this.main = main;
-	}
-
+	
+	/**
+	 * Setzen der Ausgangslage
+	 * @param inModel
+	 */
 	public void setModel(ClientModel inModel) {
 		this.model = inModel;
 
-		setUpCards();
+		updateCardUi();
 		updateOpponentsUi();
+		
 		UmmunzenButton.setDisable(true);
 		RessourceVerwendenButton.setDisable(true);
 		ZumBauVerwendenButton.setDisable(true);
+		
 		PlayerInGameLabel.setText(model.getPlayer().getName());
 		PlayerCoinsLabel.setText(model.getPlayer().getCoinWallet().size() + "C");
 		PlayerAttackLabel.setText(model.getPlayer().getMilitaryPoints() + "A");
 	}
 
+	/**
+	 * 
+	 */
 	private void updateOpponentsUi() {
 		Platform.runLater(new Runnable() {
 			public void run() {
@@ -139,19 +124,17 @@ public class GameViewController implements Initializable {
 	}
 
 	/**
-	 * 
-	 * @author Lucas Ruesch Diese Methode prueft ob die Karten zum Bau verwendet
-	 *         werden koennen oder nicht. Wenn Ja, aendert sich der in eine HBox
-	 *         gewrappte Imageview von rot auf gruen
-	 * 
+	 * Aktualisieren der Karten - Setzen der Bilder, erstellen des Rahmens anhand der isPlayable Methode
+	 * @author Lucas Ruesch  
 	 */
-	private void setUpCards() {
+	private void updateCardUi() {
 		Platform.runLater(new Runnable() {
 			public void run() {
-
+				// Setzen der Coins und Militärpunkte
 				PlayerCoinsLabel.setText(model.getPlayer().getCoinWallet().size() + "C");
 				PlayerAttackLabel.setText(model.getPlayer().getMilitaryPoints() + "A");
 
+				// Erstellen eines HBox-Arrays um das durchgehen per Schleife zu ermöglichen
 				HBox[] HBoxArray = new HBox[7];
 
 				HBoxArray[0] = PCard1HBox;
@@ -162,11 +145,13 @@ public class GameViewController implements Initializable {
 				HBoxArray[5] = PCard6HBox;
 				HBoxArray[6] = PCard7HBox;
 
+				// Erstellen der Ausgangslage, kein Rahmen, keine hinterlegte Karte
 				for (HBox h : HBoxArray) {
 					h.setStyle("");
 					h.setUserData(null);
 				}
 
+				// Erstellen eines ImageView-Arrays um das durchgehen per Schleife zu ermöglichen
 				ImageView[] ImageViewArray = new ImageView[7];
 
 				ImageViewArray[0] = PlayerCard1;
@@ -177,6 +162,7 @@ public class GameViewController implements Initializable {
 				ImageViewArray[5] = PlayerCard6;
 				ImageViewArray[6] = PlayerCard7;
 
+				// Zusammensetzen des Prefixes um die richtigen Bilder aus dem richtigen Package zu laden
 				String tmpAgePrefix = "";
 				String tmpAgeDefaultCard = "";
 				if (model.getPlayer().getCardStack().get(0).getAge() == Age.AgeI) {
@@ -189,24 +175,29 @@ public class GameViewController implements Initializable {
 					tmpAgePrefix = "/AGE III/";
 				}
 
+				// Standard-Bild für gespielte Karten
 				URL tmpDefaultImage = getClass().getResource("/ch/fhnw/sevenwonders/resources/" + tmpAgeDefaultCard);
 
+				// Setzen der Ausgangslage - alle Karten verdeckt
 				for (ImageView i : ImageViewArray) {
 					i.setImage(new Image(tmpDefaultImage.toExternalForm()));
 				}
 
+				// Durchgehen der Karten und setzen des Objekts in der HBox
 				for (int x = 0; x < model.getPlayer().getCardStack().size(); x++) {
 					HBoxArray[x].setUserData(model.getPlayer().getCardStack().get(x));
 
 					URL tmpResource = getClass().getResource("/ch/fhnw/sevenwonders/resources/" + tmpAgePrefix
 							+ model.getPlayer().getCardStack().get(x).getImageName());
 					
+					// Existiert die Ressource nicht (Bild fehlt o.ä.) wird es ausgegeben
 					if(tmpResource == null) {
 						System.out.println("IMAGE RESOURCE NULL: Betroffene Karte -> " + model.getPlayer().getCardStack().get(x).getImageName()
 								+ " | vollständiger Pfad: /ch/fhnw/sevenwonders/resources/" + tmpAgePrefix	+ model.getPlayer().getCardStack().get(x).getImageName());
 						continue;
 					}
 
+					// Setzen des Rahmens
 					ImageViewArray[x].setImage(new Image(tmpResource.toExternalForm()));
 					if (model.getPlayer().getCardStack().get(x).isPlayable(model.getPlayer())) {
 						HBoxArray[x].setStyle("-fx-border-color: green;-fx-border-width: 2;");
@@ -214,6 +205,8 @@ public class GameViewController implements Initializable {
 						HBoxArray[x].setStyle("-fx-border-color: red;-fx-border-width: 2;");
 					}
 				}
+				
+				// Setzen der Standard-Ressource des Boards
 				URL boardResource = getClass()
 						.getResource("/ch/fhnw/sevenwonders/resources/mini/m_RM_Steinbruch_3.png");
 				UserRMIV1.setImage(new Image(boardResource.toExternalForm()));
@@ -345,11 +338,16 @@ public class GameViewController implements Initializable {
 					ImageViewArrayCS[nextCS].setImage(new Image(tmpResource.toExternalForm()));
 					++nextCS;
 					break;
+				default:
+					break;
 				}
 			}
 		});
 	}
 	
+	/**
+	 * 
+	 */
 	public void makeBuildingVisible () {
 		
 		boolean stepOneBuilt = model.getPlayer().getBoard().getStepOneBuilt();
@@ -393,7 +391,6 @@ public class GameViewController implements Initializable {
 	 * 
 	 * @author Matteo
 	 */
-
 	public void handleUmmunzenButton(ActionEvent event) {
 		// Deaktivieren saemtlicher Interaktionsmoeglichkeiten des Spielers - solange
 		// bis eine Nachricht vom Server zurueckkommt.
@@ -417,8 +414,14 @@ public class GameViewController implements Initializable {
 
 		// Senden
 		model.sendMessage(msg);
+
+		updateCardUi();
 	}
 
+	/**
+	 * Wird ausgeführt, wenn eine Ressource gespielt werden soll
+	 * @param event
+	 */
 	public void handleRessourceVerwendenButton(ActionEvent event) {
 		// Deaktivieren saemtlicher Interaktionsmoeglichkeiten des Spielers - solange
 		// bis eine Nachricht vom Server zuruekkommt.
@@ -443,8 +446,14 @@ public class GameViewController implements Initializable {
 		// Ruft Methode auf, um die Ressourcen ebenfalls in der Spielerï¿½bersicht
 		// hinzuzufuegen.
 		addResourceToOverview(selectedCard);
+
+		updateCardUi();
 	}
 
+	/**
+	 * Wird ausgeführt, wenn eine Karte für den Bau eines Weltwunders gebraucht werden soll
+	 * @param event
+	 */
 	public void handleZumBauVerwendenButton(ActionEvent event) {
 		// Deaktivieren saemtlicher Interaktionsmoeglichkeiten des Spielers - solange
 		// bis eine Nachricht vom Server zurueckkommt.
@@ -470,10 +479,13 @@ public class GameViewController implements Initializable {
 		// Senden
 		model.sendMessage(msg);
 		
-		// Ruft Methode auf, um den Status der Bauten durch Farben zu visualisieren.
-		makeBuildingVisible ();
+		updateCardUi();
 	}
 
+	/**
+	 * Toggle-Event für die Karten des Spielers 1
+	 * @param event
+	 */
 	public void handlePlayer1Label(MouseEvent event) {
 		Player1ResVBox.setVisible(!Player1ResVBox.isVisible());
 
@@ -491,6 +503,10 @@ public class GameViewController implements Initializable {
 		}
 	}
 
+	/**
+	 * Toggle-Event für die Karten des Spielers 2
+	 * @param event
+	 */
 	public void handlePlayer2Label(MouseEvent event) {
 		Player2ResVBox.setVisible(!Player2ResVBox.isVisible());
 
@@ -508,6 +524,10 @@ public class GameViewController implements Initializable {
 		}
 	}
 
+	/***
+	 * Toggle-Event für die Karten des Spielers 3
+	 * @param event
+	 */
 	public void handlePlayer3Label(MouseEvent event) {
 		Player3ResVBox.setVisible(!Player3ResVBox.isVisible());
 
@@ -525,6 +545,10 @@ public class GameViewController implements Initializable {
 		}
 	}
 
+	/**
+	 * Toggle-Event für die Karten des Spielers 4
+	 * @param event
+	 */
 	public void handlePlayer4Label(MouseEvent event) {
 		Player4ResVBox.setVisible(!Player4ResVBox.isVisible());
 
@@ -542,6 +566,10 @@ public class GameViewController implements Initializable {
 		}
 	}
 
+	/**
+	 * Toggle-Event für die Karten des Spielers 5
+	 * @param event
+	 */
 	public void handlePlayer5Label(MouseEvent event) {
 		Player5ResVBox.setVisible(!Player5ResVBox.isVisible());
 
@@ -559,6 +587,10 @@ public class GameViewController implements Initializable {
 		}
 	}
 
+	/**
+	 * Toggle-Event für die Karten des Spielers 6
+	 * @param event
+	 */
 	public void handlePlayer6Label(MouseEvent event) {
 		Player6ResVBox.setVisible(!Player6ResVBox.isVisible());
 
@@ -577,7 +609,7 @@ public class GameViewController implements Initializable {
 	}
 
 	/**
-	 * Registrieren der Listener
+	 * Registrieren der Listener für UI Aktionen bei einkommender Nachricht
 	 * 
 	 * @param inScene
 	 */
@@ -586,26 +618,35 @@ public class GameViewController implements Initializable {
 		this.model.getLastReceivedMessage().addListener(this.changeListener);
 	}
 
-	private void deselectAllCards() {
-		setUpCards();
-	}
-
+	/**
+	 * Event wird beim Auswählen einer Karte ausgeführt. 
+	 * @param inEvent
+	 */
 	@FXML
 	public void onToggleCard(MouseEvent inEvent) {
 
+		// Erstellen der Ausgangslage - Alle Buttons deaktiviert und aktuelle Karten angezeigt mit entsprechendem Rahmen
 		this.RessourceVerwendenButton.setDisable(true);
 		this.ZumBauVerwendenButton.setDisable(true);
 		this.UmmunzenButton.setDisable(true);
-		deselectAllCards();
+		updateCardUi();
 
+		// Es hat noch keine neue Runde begonne, es soll keine weitere Karte mehr ausgewählt werden können
+		if(model.getPlayer().getHasPlayedCard()) {
+			return;
+		}
+		
 		HBox tmpSelectedHBox = (HBox) inEvent.getSource();
 
+		// Setzen der selektieren Karte
 		selectedCard = (ICard) tmpSelectedHBox.getUserData();
 
+		// Wird eine Karte geklickt, welche es nicht gibt -> bei default-karten der Fall, soll nichts passieren
 		if (selectedCard == null) {
 			return;
 		}
 
+		// Zusammenstellen der Möglichkeiten was mit der Karte gemacht werden kann
 		Platform.runLater(new Runnable() {
 			public void run() {
 				
@@ -626,16 +667,15 @@ public class GameViewController implements Initializable {
 				}
 				UmmunzenButton.setDisable(false);
 
+				// Oranger Rahmen heisst, Karte ausgewählt.
 				tmpSelectedHBox.setStyle("-fx-border-color: orange;-fx-border-width: 5px;");
 			}
 		});
 	}
-
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
-
-	}
 	
+	/**
+	 * Changelistener, welcher auf Änderungen der einkommenenden Nachrichten reagiert
+	 */
 	private ChangeListener<Message> changeListener = new ChangeListener<Message>() {
 		@Override
 		public void changed(ObservableValue observable, Message oldValue, Message newValue) {
@@ -654,24 +694,29 @@ public class GameViewController implements Initializable {
 				// andere Spieler gewartet wird.
 				switch (tmpMessageReceived.getStatusCode()) {
 				case ActionNotAvailable:
-					// TODO Alles wieder aktivieren fï¿½r eine nï¿½chste Auswahl? Duerfte gar nie
-					// der Fall sein. Aktuell ignorieren
 					throw new IllegalArgumentException("Aktion nicht mï¿½glich");
 				case NewRound:
-					setUpCards();
+					// Aktualisieren sämtlicher Variablen und UI Komponenten
+					updateCardUi();
 					updateOpponentsUi();
-					// TODO Alles wieder aktivieren, eine neue Runde hat begonnen. Alle benoetigten
-					// Variablen wurden bereits vom Server gesetzt.
 					break;
 				default:
 					break;
 				}
+				return;
 			}
 
+			// Handelt es sich um den letzten Zug, kommt vom Server eine Auswertungs-Nachricht zurück
 			if(newValue instanceof ServerEvaluationMessage) {
+				// Listener entfernen damit nichts mehr ausgeführt wird im Hintergrund
 				model.getLastReceivedMessage().removeListener(this);
+				
 				ServerEvaluationMessage tmpMessageReceived = (ServerEvaluationMessage) newValue;
+				
+				// Setzen des bereits evaluierten Spielers
 				model.setPlayer(tmpMessageReceived.getPlayer());
+				
+				// Weiterleiten auf die Auswertungs-Übersicht
 				Platform.runLater(new Runnable() {
 					public void run() {
 						try {
