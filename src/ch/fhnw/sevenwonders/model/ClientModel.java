@@ -19,6 +19,11 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+/**
+ * 
+ * @author joeln
+ *
+ */
 public class ClientModel {
 	private Socket socket;
 	private IPlayer player;
@@ -93,6 +98,11 @@ public class ClientModel {
 		}
 	}
 
+	/**
+	 * Handelt es sich um den Lobby-Master muss auch das Message-Property gesetzt werden, damit etwas passiert auf der View
+	 * Aktualisieren der Spieler-Übersicht
+	 * @param inMessage
+	 */
 	private void handlePlayerJoinedMessage(ServerLobbyMessage inMessage) {
 		
 		if(isPlayerInAnyLobby() && inMessage.getLobby().getLobbyName().equals(this.player.getLobby().getLobbyName())) {
@@ -108,6 +118,11 @@ public class ClientModel {
 		}
 	}
 
+	/**
+	 * Wenn ich es bin, der die Lobby verlässt, muss auf der View etwas passieren.
+	 * Ansonsten aktualisieren der Spielerliste
+	 * @param inMessage
+	 */
 	private void handlePlayerLeftMessage(ServerLobbyMessage inMessage) {
 		// Bin ich es, der die Lobby verlässt? Dann muss noch etwas ausgeführt werden
 		if(inMessage.getPlayer().getName().equals(this.player.getName())) {
@@ -124,6 +139,10 @@ public class ClientModel {
 		}
 	}
 
+	/**
+	 * Hinzufügen einer Lobby zur LobbyListe
+	 * @param inMessage
+	 */
 	private void handleLobbyCreatedMessage(ServerLobbyMessage inMessage) {
 			Platform.runLater(new Runnable() {
 				public void run() {
@@ -137,6 +156,10 @@ public class ClientModel {
 			});
 	}
 
+	/**
+	 * Lobby löschen
+	 * @param inMessage
+	 */
 	private void handleLobbyDeletedMessage(ServerLobbyMessage inMessage) {
 		if(isPlayerInAnyLobby() && inMessage.getLobby().getLobbyName().equals(player.getLobby().getLobbyName())) {
 			this.lastReceivedMessage.setValue(inMessage);
@@ -156,6 +179,10 @@ public class ClientModel {
 		});
 	}
 	
+	/**
+	 * Starten der Lobby
+	 * @param inMessage
+	 */
 	private void handleLobbyStartedMessage(ServerLobbyMessage inMessage) {
 		Platform.runLater(new Runnable() {
 			public void run() {
