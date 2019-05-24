@@ -22,7 +22,7 @@ import javafx.stage.Stage;
 
 /**
  * Auswertung des Spiels visualisieren
- * @author joeln
+ * @author lucasr
  *
  */
 public class AuswertungController implements Initializable {
@@ -31,11 +31,11 @@ public class AuswertungController implements Initializable {
 	
 	public ClientApplicationMain main;
 	
-	// Spieler-Labels für Anzeige des Namens
+	// Spieler-Labels fÃ¼r Anzeige des Namens
 	@FXML
 	public Label WinnerIDLabel, SecondIDLabel, ThirdIDLabel, FourthIDLabel, FifthIDLabel, SixthIDLabel, SeventhIDLabel ;
 	
-	// Labels für Anzeige der Coins
+	// Labels fÃ¼r Anzeige der Coins
 	@FXML
 	public Label VictoryCoinWinner, VictoryCoinSecond, VictoryCoinThird, VictoryCoinFourth, VictoryCoinFifth, VictoryCoinSixth, VictoryCoinSeventh;
 	
@@ -43,7 +43,7 @@ public class AuswertungController implements Initializable {
 	@FXML
 	public Label TotalWinner, TotalSecond, TotalThird, TotalFourth, TotalFifth, TotalSixth, TotalSeventh;
 	
-	// Militärpunkte durch Konflikt Ende des zweiten Zeitalters
+	// MilitÃ¤rpunkte durch Konflikt Ende des zweiten Zeitalters
 	@FXML
 	public Label MilitaryWarPointsWinner, MilitaryWarPointsSecond, MilitaryWarPointsThird,
 	MilitaryWarPointsFourth, MilitaryWarPointsFifth, MilitaryWarPointsSixth, MilitaryWarPointsSeventh;
@@ -58,15 +58,15 @@ public class AuswertungController implements Initializable {
 	public Label VictoryDirectWinner, VictoryDirectSecond, VictoryDirectThird,
 	VictoryDirectFourth, VictoryDirectFifth, VictoryDirectSixth, VictoryDirectSeventh;
 	
-	// Punkte durch Forschung (grüne Karten)
+	// Punkte durch Forschung (grÃ¼ne Karten)
 	@FXML
 	public Label VictoryResearchWinner, VictoryResearchSecond, VictoryResearchThird,
 	VictoryResearchFourth, VictoryResearchFifth, VictoryResearchSixth, VictoryResearchSeventh;
 	
 	
 	/**
-	 * Zusammenstellung eines Arrays für die Coin Labels, um den Code übersichtlicher zu gestalten. Das Array enthält nur die Labels,
-	 * welche wirklich benötigt werden.
+	 * Zusammenstellung eines Arrays fÃ¼r die Coin Labels, um den Code Ã¼bersichtlicher zu gestalten. Das Array enthÃ¤lt nur die Labels,
+	 * welche wirklich benÃ¶tigt werden.
 	 * @param inPlayerNumber Anzahl der Spieler
 	 * @return
 	 */
@@ -89,8 +89,8 @@ public class AuswertungController implements Initializable {
 	}
 	
 	/**
-	 * Zusammenstellung eines Arrays für die Total-Punkte Labels, um den Code übersichtlicher zu gestalten. Das Array enthält nur die Labels,
-	 * welche wirklich benötigt werden.
+	 * Zusammenstellung eines Arrays fÃ¼r die Total-Punkte Labels, um den Code Ã¼bersichtlicher zu gestalten. Das Array enthÃ¼llt nur die Labels,
+	 * welche wirklich benÃ¶tigt werden.
 	 * @param inPlayerNumber Anzahl der Spieler
 	 * @return
 	 */
@@ -113,8 +113,8 @@ public class AuswertungController implements Initializable {
 	}
 	
 	/**
-	 * Zusammenstellung eines Arrays für die Spielernamen Labels, um den Code übersichtlicher zu gestalten. Das Array enthält nur die Labels,
-	 * welche wirklich benötigt werden.
+	 * Zusammenstellung eines Arrays fÃ¼r die Spielernamen Labels, um den Code Ã¼bersichtlicher zu gestalten. Das Array enthÃ¼llt nur die Labels,
+	 * welche wirklich benÃ¶tigt werden.
 	 * @param inPlayerNumber Anzahl der Spieler
 	 * @return
 	 */
@@ -137,8 +137,8 @@ public class AuswertungController implements Initializable {
 	}
 	
 	/**
-	 * Zusammenstellung eines Arrays für die Militärpunkte Labels, um den Code übersichtlicher zu gestalten. Das Array enthält nur die Labels,
-	 * welche wirklich benötigt werden.
+	 * Zusammenstellung eines Arrays fÃ¼r die Militï¿½rpunkte Labels, um den Code Ã¼bersichtlicher zu gestalten. Das Array enthÃ¼llt nur die Labels,
+	 * welche wirklich benÃ¶tigt werden.
 	 * @param inPlayerNumber Anzahl der Spieler
 	 * @return
 	 */
@@ -161,8 +161,8 @@ public class AuswertungController implements Initializable {
 	}
 	
 	/**
-	 * Zusammenstellung eines Arrays für die blauen Karten Labels, um den Code übersichtlicher zu gestalten. Das Array enthält nur die Labels,
-	 * welche wirklich benötigt werden.
+	 * Zusammenstellung eines Arrays fÃ¼r die blauen Karten Labels, um den Code Ã¼bersichtlicher zu gestalten. Das Array enthÃ¤lt nur die Labels,
+	 * welche wirklich benÃ¶tigt werden.
 	 * @param inPlayerNumber Anzahl der Spieler
 	 * @return
 	 */
@@ -185,8 +185,8 @@ public class AuswertungController implements Initializable {
 	}
 	
 	/**
-	 * Zusammenstellung eines Arrays für die Weltwunder Labels, um den Code übersichtlicher zu gestalten. Das Array enthält nur die Labels,
-	 * welche wirklich benötigt werden.
+	 * Zusammenstellung eines Arrays fÃ¼r die Weltwunder Labels, um den Code Ã¼bersichtlicher zu gestalten. Das Array enthÃ¼llt nur die Labels,
+	 * welche wirklich benÃ¶tigt werden.
 	 * @param inPlayerNumber Anzahl der Spieler
 	 * @return
 	 */
@@ -209,8 +209,8 @@ public class AuswertungController implements Initializable {
 	}
 	
 	/**
-	 * Zusammenstellung eines Arrays für die Forschungs-Punkte Labels, um den Code übersichtlicher zu gestalten. Das Array enthält nur die Labels,
-	 * welche wirklich benötigt werden.
+	 * Zusammenstellung eines Arrays fÃ¼r die Forschungs-Punkte Labels, um den Code Ã¼bersichtlicher zu gestalten. Das Array enthÃ¼llt nur die Labels,
+	 * welche wirklich benÃ¶tigt werden.
 	 * @param inPlayerNumber Anzahl der Spieler
 	 * @return
 	 */
@@ -275,7 +275,7 @@ public class AuswertungController implements Initializable {
 				
 				tmpPlayerNameArr[i].setVisible(true);
 				
-				tmpWarPointsArr[i].setText(tmpAllPlayers.get(i).evaluate().get("Militärkonflikt").toString());
+				tmpWarPointsArr[i].setText(tmpAllPlayers.get(i).evaluate().get("MilitÃ¤rkonflikt").toString());
 				tmpWarPointsArr[i].setVisible(true);
 				
 				tmpVictoryWonderArr[i].setText(tmpAllPlayers.get(i).evaluate().get("Weltwunder").toString());
@@ -284,7 +284,7 @@ public class AuswertungController implements Initializable {
 				tmpVictoryDirectsArr[i].setText(tmpAllPlayers.get(i).evaluate().get("Profanbauten").toString());
 				tmpVictoryDirectsArr[i].setVisible(true);
 				
-				tmpVictoryResearchArr[i].setText(tmpAllPlayers.get(i).evaluate().get("Forschungsgebäude").toString());
+				tmpVictoryResearchArr[i].setText(tmpAllPlayers.get(i).evaluate().get("ForschungsgebÃ¤ude").toString());
 				tmpVictoryResearchArr[i].setVisible(true);
 			}
 			catch(NullPointerException inEx) {
@@ -299,7 +299,7 @@ public class AuswertungController implements Initializable {
 	}
 
 	/**
-	 * Weiterleiten auf die Hauptansicht um ein neues Spiel starten zu können.
+	 * Weiterleiten auf die Hauptansicht um ein neues Spiel starten zu kÃ¶nnen.
 	 * @param event
 	 */
 	@FXML

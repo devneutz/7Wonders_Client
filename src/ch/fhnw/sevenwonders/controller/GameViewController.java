@@ -133,11 +133,11 @@ public class GameViewController {
 	private void updateCardUi() {
 		Platform.runLater(new Runnable() {
 			public void run() {
-				// Setzen der Coins und Militärpunkte
+				// Setzen der Coins und MilitÃ¤rpunkte
 				PlayerCoinsLabel.setText(model.getPlayer().getCoinWallet().size() + "C");
 				PlayerAttackLabel.setText(model.getPlayer().getMilitaryPoints() + "A");
 
-				// Erstellen eines HBox-Arrays um das durchgehen per Schleife zu ermöglichen
+				// Erstellen eines HBox-Arrays um das durchgehen per Schleife zu ermÃ¶glichen
 				HBox[] HBoxArray = new HBox[7];
 
 				HBoxArray[0] = PCard1HBox;
@@ -154,7 +154,7 @@ public class GameViewController {
 					h.setUserData(null);
 				}
 
-				// Erstellen eines ImageView-Arrays um das durchgehen per Schleife zu ermöglichen
+				// Erstellen eines ImageView-Arrays um das durchgehen per Schleife zu ermÃ¶glichen
 				ImageView[] ImageViewArray = new ImageView[7];
 
 				ImageViewArray[0] = PlayerCard1;
@@ -178,7 +178,7 @@ public class GameViewController {
 					tmpAgePrefix = "/AGE III/";
 				}
 
-				// Standard-Bild für gespielte Karten
+				// Standard-Bild fÃ¼r gespielte Karten
 				URL tmpDefaultImage = getClass().getResource("/ch/fhnw/sevenwonders/resources/" + tmpAgeDefaultCard);
 
 				// Setzen der Ausgangslage - alle Karten verdeckt
@@ -193,10 +193,10 @@ public class GameViewController {
 					URL tmpResource = getClass().getResource("/ch/fhnw/sevenwonders/resources/" + tmpAgePrefix
 							+ model.getPlayer().getCardStack().get(x).getImageName());
 					
-					// Existiert die Ressource nicht (Bild fehlt o.ä.) wird es ausgegeben
+					// Existiert die Ressource nicht (Bild fehlt o.Ã¶.) wird es ausgegeben
 					if(tmpResource == null) {
 						System.out.println("IMAGE RESOURCE NULL: Betroffene Karte -> " + model.getPlayer().getCardStack().get(x).getImageName()
-								+ " | vollständiger Pfad: /ch/fhnw/sevenwonders/resources/" + tmpAgePrefix	+ model.getPlayer().getCardStack().get(x).getImageName());
+								+ " | vollstÃ¤ndiger Pfad: /ch/fhnw/sevenwonders/resources/" + tmpAgePrefix	+ model.getPlayer().getCardStack().get(x).getImageName());
 						continue;
 					}
 
@@ -428,7 +428,7 @@ public class GameViewController {
 	}
 
 	/**
-	 * Wird ausgeführt, wenn eine Ressource gespielt werden soll
+	 * Wird ausgefï¿½hrt, wenn eine Ressource gespielt werden soll
 	 * @param event
 	 */
 	public void handleRessourceVerwendenButton(ActionEvent event) {
@@ -461,7 +461,7 @@ public class GameViewController {
 	}
 
 	/**
-	 * Wird ausgeführt, wenn eine Karte für den Bau eines Weltwunders gebraucht werden soll
+	 * Wird ausgefï¿½hrt, wenn eine Karte fï¿½r den Bau eines Weltwunders gebraucht werden soll
 	 * @param event
 	 */
 	public void handleZumBauVerwendenButton(ActionEvent event) {
@@ -494,7 +494,7 @@ public class GameViewController {
 	}
 
 	/**
-	 * Toggle-Event für die Karten des Spielers 1
+	 * Toggle-Event fï¿½r die Karten des Spielers 1
 	 * @param event
 	 */
 	public void handlePlayer1Label(MouseEvent event) {
@@ -515,7 +515,7 @@ public class GameViewController {
 	}
 
 	/**
-	 * Toggle-Event für die Karten des Spielers 2
+	 * Toggle-Event fï¿½r die Karten des Spielers 2
 	 * @param event
 	 */
 	public void handlePlayer2Label(MouseEvent event) {
@@ -536,7 +536,7 @@ public class GameViewController {
 	}
 
 	/***
-	 * Toggle-Event für die Karten des Spielers 3
+	 * Toggle-Event fï¿½r die Karten des Spielers 3
 	 * @param event
 	 */
 	public void handlePlayer3Label(MouseEvent event) {
@@ -557,7 +557,7 @@ public class GameViewController {
 	}
 
 	/**
-	 * Toggle-Event für die Karten des Spielers 4
+	 * Toggle-Event fï¿½r die Karten des Spielers 4
 	 * @param event
 	 */
 	public void handlePlayer4Label(MouseEvent event) {
@@ -578,7 +578,7 @@ public class GameViewController {
 	}
 
 	/**
-	 * Toggle-Event für die Karten des Spielers 5
+	 * Toggle-Event fï¿½r die Karten des Spielers 5
 	 * @param event
 	 */
 	public void handlePlayer5Label(MouseEvent event) {
@@ -599,7 +599,7 @@ public class GameViewController {
 	}
 
 	/**
-	 * Toggle-Event für die Karten des Spielers 6
+	 * Toggle-Event fï¿½r die Karten des Spielers 6
 	 * @param event
 	 */
 	public void handlePlayer6Label(MouseEvent event) {
@@ -620,7 +620,7 @@ public class GameViewController {
 	}
 
 	/**
-	 * Registrieren der Listener für UI Aktionen bei einkommender Nachricht
+	 * Registrieren der Listener fï¿½r UI Aktionen bei einkommender Nachricht
 	 * 
 	 * @param inScene
 	 */
@@ -630,7 +630,7 @@ public class GameViewController {
 	}
 
 	/**
-	 * Event wird beim Auswählen einer Karte ausgeführt. 
+	 * @author lucas RÃ¼esch: Event wird beim AuswÃ¤hlen einer Karte ausgefÃ¼hrt. 
 	 * @param inEvent
 	 */
 	@FXML
@@ -642,7 +642,7 @@ public class GameViewController {
 		this.UmmunzenButton.setDisable(true);
 		updateCardUi();
 
-		// Es hat noch keine neue Runde begonne, es soll keine weitere Karte mehr ausgewählt werden können
+		// Es hat noch keine neue Runde begonne, es soll keine weitere Karte mehr ausgewÃ¤hlt werden kÃ¶nnen
 		if(model.getPlayer().getHasPlayedCard()) {
 			return;
 		}
@@ -657,7 +657,7 @@ public class GameViewController {
 			return;
 		}
 
-		// Zusammenstellen der Möglichkeiten was mit der Karte gemacht werden kann
+		// Zusammenstellen der MÃ¶glichkeiten was mit der Karte gemacht werden kann
 		Platform.runLater(new Runnable() {
 			public void run() {
 				
@@ -678,14 +678,15 @@ public class GameViewController {
 				}
 				UmmunzenButton.setDisable(false);
 
-				// Oranger Rahmen heisst, Karte ausgewählt.
+				// Oranger Rahmen heisst, Karte ausgewÃ¤hlt.
 				tmpSelectedHBox.setStyle("-fx-border-color: orange;-fx-border-width: 5px;");
 			}
 		});
 	}
 	
 	/**
-	 * Changelistener, welcher auf Änderungen der einkommenenden Nachrichten reagiert
+	 * @author Joel Neutzner: 
+	 * Changelistener, welcher auf ï¿½nderungen der einkommenenden Nachrichten reagiert
 	 */
 	private ChangeListener<Message> changeListener = new ChangeListener<Message>() {
 		@Override
@@ -707,7 +708,7 @@ public class GameViewController {
 				case ActionNotAvailable:
 					throw new IllegalArgumentException("Aktion nicht mï¿½glich");
 				case NewRound:
-					// Aktualisieren sämtlicher Variablen und UI Komponenten
+					// Aktualisieren sï¿½mtlicher Variablen und UI Komponenten
 					WaitLabel.setVisible(false);
 					updateCardUi();
 					updateOpponentsUi();
@@ -718,9 +719,9 @@ public class GameViewController {
 				return;
 			}
 
-			// Handelt es sich um den letzten Zug, kommt vom Server eine Auswertungs-Nachricht zurück
+			// Handelt es sich um den letzten Zug, kommt vom Server eine Auswertungs-Nachricht zurï¿½ck
 			if(newValue instanceof ServerEvaluationMessage) {
-				// Listener entfernen damit nichts mehr ausgeführt wird im Hintergrund
+				// Listener entfernen damit nichts mehr ausgefï¿½hrt wird im Hintergrund
 				model.getLastReceivedMessage().removeListener(this);
 				
 				ServerEvaluationMessage tmpMessageReceived = (ServerEvaluationMessage) newValue;
@@ -728,7 +729,7 @@ public class GameViewController {
 				// Setzen des bereits evaluierten Spielers
 				model.setPlayer(tmpMessageReceived.getPlayer());
 				
-				// Weiterleiten auf die Auswertungs-Übersicht
+				// Weiterleiten auf die Auswertungs-ï¿½bersicht
 				Platform.runLater(new Runnable() {
 					public void run() {
 						try {
