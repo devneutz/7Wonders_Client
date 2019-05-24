@@ -275,7 +275,7 @@ public class AuswertungController implements Initializable {
 				
 				tmpPlayerNameArr[i].setVisible(true);
 				
-				tmpWarPointsArr[i].setText(tmpAllPlayers.get(i).evaluate().get("Milit√§rkonflikt").toString());
+				tmpWarPointsArr[i].setText(tmpAllPlayers.get(i).evaluate().get("Milit‰rkonflikt").toString());
 				tmpWarPointsArr[i].setVisible(true);
 				
 				tmpVictoryWonderArr[i].setText(tmpAllPlayers.get(i).evaluate().get("Weltwunder").toString());
@@ -284,7 +284,7 @@ public class AuswertungController implements Initializable {
 				tmpVictoryDirectsArr[i].setText(tmpAllPlayers.get(i).evaluate().get("Profanbauten").toString());
 				tmpVictoryDirectsArr[i].setVisible(true);
 				
-				tmpVictoryResearchArr[i].setText(tmpAllPlayers.get(i).evaluate().get("Forschungsgeb√§ude").toString());
+				tmpVictoryResearchArr[i].setText(tmpAllPlayers.get(i).evaluate().get("Forschungsgeb‰ude").toString());
 				tmpVictoryResearchArr[i].setVisible(true);
 			}
 			catch(NullPointerException inEx) {
