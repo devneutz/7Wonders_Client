@@ -221,7 +221,7 @@ public class GameViewController {
 	}
 
 	/**
-	 * @author Matte Diese Methode fuegt ein kleines Anzeigebild beim jeweiligen
+	 * @author Matteo: Diese Methode fügt ein kleines Anzeigebild beim jeweiligen
 	 *         Player in der Ressourcen-Uebersicht ein, wenn die Option "Ressource
 	 *         verwenden" gewaehlt wird.
 	 * @param card
