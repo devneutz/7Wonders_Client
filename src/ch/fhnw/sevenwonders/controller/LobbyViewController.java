@@ -30,7 +30,7 @@ import javafx.stage.Stage;
 /**
  * In diese Klasse werden alle Aktionen welche auf der LobbyView ausgeloest werden verarbeitet.
  * 
- * @author 
+ * @author Joel Neutzner
  *
  */
 public class LobbyViewController implements Initializable {

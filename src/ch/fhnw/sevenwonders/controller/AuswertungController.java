@@ -22,7 +22,7 @@ import javafx.stage.Stage;
 
 /**
  * Auswertung des Spiels visualisieren
- * @author lucasr
+ * @author lucas Rüesch
  *
  */
 public class AuswertungController implements Initializable {

@@ -31,9 +31,9 @@ import javafx.stage.Stage;
 
 /**
  * 
- * @author Joel Neutzner
+ * @author Matteo Farneti
  * 
- *         Dieser Controller handelt alle Aktionen welche auf der View
+ *         Dieser Controller handelt alle Aktionen, welche auf der View
  *         PlayerInLobbyView ausgefuehrt werden koennen.
  * 
  */
@@ -50,11 +50,10 @@ public class PlayerInLobbyViewController implements Initializable {
 	private ChangeListener<Message> changeListener = new ChangeListener<Message>() {
 		@Override
 		public void changed(ObservableValue observable, Message oldValue, Message newValue) {
-			// TODO Auto-generated method stub
 			if (newValue instanceof ServerLobbyMessage) {
 				newValue = (ServerLobbyMessage) newValue;
 				// Kommt eine LobbyDeleted-Message hierher, heisst dies, der Spieler befindet
-				// sich in der zu l�schenden Lobby.
+				// sich in der zu loeschenden Lobby.
 				if (((ServerLobbyMessage) newValue).getAction() == LobbyAction.LobbyDeleted) {
 					model.getLastReceivedMessage().removeListener(this);
 					Platform.runLater(new Runnable() {
