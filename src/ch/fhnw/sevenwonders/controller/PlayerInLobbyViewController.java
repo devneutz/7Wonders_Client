@@ -31,7 +31,7 @@ import javafx.stage.Stage;
 
 /**
  * 
- * @author Joel Neutzner, Gabriel de Castilho
+ * @author Joel Neutzner
  * 
  *         Dieser Controller handelt alle Aktionen welche auf der View
  *         PlayerInLobbyView ausgefuehrt werden koennen.

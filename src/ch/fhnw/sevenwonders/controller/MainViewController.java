@@ -27,7 +27,7 @@ import javafx.stage.Stage;
 
 /**
  * 
- * @author Gabriel de Castilho
+ * @author 
  *
  *         Diese Klasse stellt den Controller fuer die MainView dar. Hier wird
  *         anhand vom Userklick entschieden ob dem User die LoginView angezeigt

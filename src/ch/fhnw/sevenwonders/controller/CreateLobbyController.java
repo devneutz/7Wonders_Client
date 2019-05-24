@@ -25,7 +25,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
 /**
- * @author Matteo Farneti, Gabriel de Castilho
+ * @author Matteo Farneti
  *
  */
 
