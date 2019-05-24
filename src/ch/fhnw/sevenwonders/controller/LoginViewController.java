@@ -34,7 +34,7 @@ import ch.fhnw.sevenwonders.encrypthelper.EncryptWithMD5;
 
 /**
  * 
- * @author Gabriel de Castilho, Joel Neutzner
+ * @author Gabriel de Castilho
  * 
  *         Diese Klasse stellt den Controller fuer die LoginView dar. Hier wird
  *         entschieden ob sich der User einloggen will oder einen neuen User
